@@ -61,9 +61,9 @@ This is a non-exhaustive list of the type of scripts this repository does not co
 
 # Contributing
 
-The objective of this repository is completeness. Contributions are therefore welcome. If you would like to contribute a solution that follows the linux-shell-base philosophy, please send an email to linux_user_base@yahoo.com.
+The goal of this repository is to be as comprehensive as possible. Contributions are therefore welcome. If you would like to contribute a solution that follows the linux-shell-base philosophy, please send an email to linux_user_base@yahoo.com.
 
-Credits can be placed in the script's documentation to identify the user in any way he or she likes, including name, username or URL. Credits must, however, be on no more than two lines. A license can be placed at the top if included. If the solution is a file containing aliases or one-liners, credits will be placed in SOURCES in directory "other." Contributed scripts will be looked over and should follow the guideline under section "bin/" at least.
+Credits will be placed in the wiki and can identify the user in any way he or she likes, including name, username or URL. Contributed scripts will be looked over and should follow the guideline under section "bin/" at least.
 
 If a contributed script provides the same solution as another using an alternative method, it will be given the same base name with an incremented number. Files with the same base name will be ordered by the most commonly accepted method.
 
