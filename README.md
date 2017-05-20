@@ -20,7 +20,7 @@ Scripts *(following [this guideline][wiki-Scripts-Guideline])*.
 
 ### other/
 
-Non-executable files containing aliases, short functions and one-liners.
+Non-executable files containing aliases, short functions and one-liners *(following [this guideline][wiki-Aliases-Guideline])*.
 
 ## Examples
 
@@ -80,4 +80,5 @@ In 1961, NASA set out on a mission to send a manned rocket to the moon, Apollo 1
 [bash_utilities#bash_utilities]: https://github.com/linux-shell-base/linux-shell-base/tree/master/bin/bash_utilities#bash_utilities
 [android#android]: https://github.com/linux-shell-base/linux-shell-base/tree/master/bin/android#android
 
+[wiki-Aliases-Guideline]: https://github.com/linux-shell-base/linux-shell-base/wiki/Aliases-Guideline
 [wiki-Scripts-Guideline]: https://github.com/linux-shell-base/linux-shell-base/wiki/Scripts-Guideline
