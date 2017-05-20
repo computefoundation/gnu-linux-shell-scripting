@@ -16,7 +16,7 @@
 # 
 #   # use it on its own or with other options such as --a to return all
 #   # occurrences.
-#   geditr --a config.sh 
+#   geditr --a config.sh
 # 
 # If the file is not found, the command in the brackets will be run as normal
 # with the given arguments.
@@ -46,12 +46,11 @@ returnfileandexe module - return a file for a command
 Usage: returnfileandexe {<command to execute>} [options] <partial file name>
          [directory]
 
-  [directory] only applies when using the recursive search method. If it is
+  [directory] applies only when using the recursive search method. If it is
   not specified, the current directory will be used.
 
 Options:
-  Note: This first set of options is meant to be used with
-  aliases.
+  Note: This first set of options is used primarilty with aliases.
   --l   use the locate search method
   --r   use the recursive search method
   --f   return files only
