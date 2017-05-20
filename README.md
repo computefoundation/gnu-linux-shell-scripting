@@ -20,7 +20,7 @@ Scripts *(following [this guideline][wiki-Scripts-Guideline])*.
 
 ### other/
 
-Non-executable files containing aliases, short functions and one-liners *(following [this guideline][wiki-Aliases-Guideline])*.
+Non-executable files containing aliases and short functions *(following [this guideline][wiki-Aliases-Guideline])*.
 
 ## Examples
 

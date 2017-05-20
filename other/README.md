@@ -1,7 +1,7 @@
 
 # other/
 
-Non-executable files containing aliases, short functions and one-liners.
+Non-executable files containing aliases and short functions.
 
 ## Aliases
 
