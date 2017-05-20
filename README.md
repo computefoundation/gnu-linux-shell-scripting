@@ -18,9 +18,9 @@ There are the two directories this repository consists of:
 
 Scripts *(following [this guideline][wiki-Scripts-Guideline])*.
 
-### other/
+### aliases/
 
-Non-executable files containing aliases and short functions *(following [this guideline][wiki-Aliases-Guideline])*.
+Aliases and short functions *(following [this guideline][wiki-Aliases-Guideline])*.
 
 ## Examples
 
