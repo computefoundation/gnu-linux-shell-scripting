@@ -6,7 +6,6 @@
 #    3.   Networking
 #    4.   Shell Utilities
 #    5.   Utilities
-#    6.   Applications
 # 
 
 # ~~~~~~~ 1.  FILE ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -64,13 +63,12 @@ alias epx='${EDITOR} "$(xclip -o -selection c)"'                                
 #[X11]
 alias psel='echo -n "$(xsel)"'                                                   # psel: paste current selected text in X11
 
+#[Builtins]
+cpv() { local a=(${@:1:$(($#-1))}); rsync -ah --progress "${a[@]}" "${@: -1}"; } # cpv: cp with progress output (note: to copy a directory, do not include a trailing slash)
+
 # ~~~~~~~ 5.  UTILITIES ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #[Number·Format·Conversions]
 hex2dec() { local hexFrmtd="${1#*'0x'}"; echo $((16#${hexFrmtd})); }             # hex2dec: convert hexidecimal number to decimal
 dec2hex() { printf '%#010x\n' "${1}"; }                                          # dec2hex: convert decimal number to hexidecimal
 
-# ~~~~~~~ 6.  APPLICATIONS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-#[Utilities]
-cpv() { local a=(${@:1:$(($#-1))}); rsync -ah --progress "${a[@]}" "${@: -1}"; } # cpv: cp with progress output (note: to copy a directory, do not include a trailing slash)
