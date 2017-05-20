@@ -1,7 +1,7 @@
 
 # Linux-shell-base
 
-**linux-shell-base** is a resource of solutions to general low-level shell scripting problems in Linux based on a UNIX-centric methodology. It can be used for learning how to solve foundational and common shell scripting problems and as a reference of solutions to low-level problems for all higher-level shell scripts.
+**linux-shell-base** is a resource of solutions to universal low-level shell scripting problems in Linux based on a UNIX-centric methodology. It can be used for learning to solve foundational and common shell scripting problems or as a reference of solutions to low-level problems for all higher-level shell scripts.
 
 All solutions in this repository follow four principles:
 
@@ -16,12 +16,7 @@ There are the two directories this repository consists of:
 
 ### bin/
 
-Scripts, each of which follow this guideline:
-
-* Documentation is provided.
-* Code is commented where needed (and each comment describes the reason a piece of code exists rather than what it does).
-* Repetative code is entirely avoided.
-* [Documentation and code are formatted correctly.][wiki-Format-and-Code-Style]
+Scripts *(following [this guideline][wiki-Scripts-Guideline])*.
 
 ### other/
 
@@ -61,9 +56,9 @@ This is a non-exhaustive list of the type of scripts this repository does not co
 
 # Contributing
 
-The goal of this repository is to be as comprehensive as possible. Contributions are therefore welcome. If you would like to contribute a solution that follows the linux-shell-base philosophy, please send an email to linux_user_base@yahoo.com.
+The goal of this repository is to be as comprehensive as possible. Contributions are therefore welcome. If you would like to contribute a solution that follows the linux-shell-base philosophy, please send an email to linux_user_base@yahoo.com (email will be changed later).
 
-Credits will be placed in the wiki and can identify the user in any way he or she likes, including name, username or URL. Contributed scripts will be looked over and should follow the guideline under section "bin/" at least.
+Credits will be placed in the wiki and can identify the user in any way he or she likes, including name, username or URL. Contributed scripts will be looked over and should follow [this guideline][wiki-Scripts-Guideline].
 
 If a contributed script provides the same solution as another using an alternative method, it will be given the same base name with an incremented number. Files with the same base name will be ordered by the most commonly accepted method.
 
@@ -72,6 +67,7 @@ Please feel free to send emails with suggestions, comments or questions.
 # Background Philosophy
 
 In 1961, NASA set out on a mission to send a manned rocket to the moon, Apollo 11, however, the calculations were far too complex to do by hand. As a result, NASA designed the Apollo Guidance Computer to do these calculations. In the modern day, a typical smartphone is millions times faster than NASA's computers were in 1969. Considering all the math NASA had done with these computers to calculate Apollo 11, should programmers today theoretically have mastered the foundational level of scripting and programming that allows them to move on to completing other projects? There is a major incongruence between technology and the global software infrastructure. This infrastructure is primarily not designed for the user as most software focuses on providing solutions for a specific task rather than solutions for it. To illustrate the incongruence, if a programmer were to create a new amazing search algorithm or video game, he or she would have to spend a great amount of time researching solutions for and solving general low-level software development problems before continuing. In order for individuals to progressively build software at a rate consistent with the change in the global software infrastructure, there must exist resources that focus on all aspects of it.
+
 
 
 [packaged-utilities]: https://github.com/linux-shell-base/packaged-utilities
@@ -84,4 +80,4 @@ In 1961, NASA set out on a mission to send a manned rocket to the moon, Apollo 1
 [bash_utilities#bash_utilities]: https://github.com/linux-shell-base/linux-shell-base/tree/master/bin/bash_utilities#bash_utilities
 [android#android]: https://github.com/linux-shell-base/linux-shell-base/tree/master/bin/android#android
 
-[wiki-Format-and-Code-Style]: https://github.com/linux-shell-base/linux-shell-base/wiki/Format-and-Code-Style
+[wiki-Scripts-Guideline]: https://github.com/linux-shell-base/linux-shell-base/wiki/Scripts-Guideline
