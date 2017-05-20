@@ -35,8 +35,8 @@ alias flushdns='dscacheutil -flushcache'                                        
 
 #[Find]
 cxff() { local d="$(pwd)"; [ $# -gt 1 ] && d="${2}"; local o="$(find "${d}" \
-  -type f -wholename "*${1}*" -print -quit)"; [ -n "${o}" ] && echo "${o}" && echo \
-  -n "${o}" | xclip -r -selection c; }                                           # cxff: find first file and copy its path to the X11 clipboard; $1: file name; $2: directory (optional; default is current)
+  -type f -wholename "*${1}*" -print -quit)"; [ -n "${o}" ] && echo "${o}" && \
+  echo -n "${o}" | xclip -r -selection c; }                                      # cxff: find first file and copy its path to the X11 clipboard; $1: file name; $2: directory (optional; default is current)
 
 cxfd() { local d="$(pwd)"; [ $# -gt 1 ] && d="${2}"; local o="$(find "${d}" \
   -type d -name "*${1}*" -print -quit)"; [ -n "${o}" ] && echo "${o}" && echo \
