@@ -1,7 +1,7 @@
 
 # Linux-shell-base
 
-**linux-shell-base** is a resource of solutions to universal low-level shell scripting problems in Linux based on a UNIX-centric methodology. It is a resource for learning to solve foundational and common shell scripting problems or low-level solutions to all higher-level shell scripts.
+**linux-shell-base** is a resource of solutions to universal low-level shell scripting problems in Linux based on a UNIX-centric methodology. It is a resource for learning to solve foundational and common shell scripting problems or for low-level solutions for all higher-level shell scripts.
 
 All solutions in this repository follow four principles:
 
