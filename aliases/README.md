@@ -5,7 +5,7 @@ Aliases and short functions.
 
 ## Aliases
 
-Like the solutions in the bin/ directory, these aliases are meant to be sourced all at once.
+Like the solutions in the bin/ directory, these aliases are not meant to be sourced all at once.
 
 * **aliases-info.bash**: Aliases/short functions providing information only (no actions performed).
 * **aliases.bash**: Aliases/short functions performing an action.
