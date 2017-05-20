@@ -52,7 +52,7 @@ This is a non-exhaustive list of the type of scripts this repository does not co
 
 * All initial scripts in this repository were tested with Arch Linux and the Xfce4 desktop environment.
 
-* Every solution in this repository is continuously maintained to ensure that each is well-structured, documented and error-free. This is what most of the work consists of. Solutions are not, however, guaranteed to be error-free.
+* Every solution in this repository is continuously maintained to ensure that each is coded and documented well and error-free. This is what most of the work consists of. Solutions are not, however, guaranteed to be error-free.
 
 # Contributing
 
