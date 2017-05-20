@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# 
+# Get the ID of the first active window in a class.
+# 
+# Arguments:
+#   1. Window class (case-sensitive; can match any part of the full qualified
+#      class string (class and classname; e.g. "xterm.XTerm"))
+# 
+
+if [ $# -eq 0 ]; then
+  exit
+fi
+
+getwindidsinclass() {
+  echo "$(wmctrl -lx | awk -v class="${1}" '$3 ~ class {print $1}')"
+}
+
+CLASS_WIND_IDS=($(getwindidsinclass "${1}"))
+
+if [ ${#CLASS_WIND_IDS[@]} -eq 0 ]; then
+  exit
+fi
+
+echo "${CLASS_WIND_IDS[0]}"

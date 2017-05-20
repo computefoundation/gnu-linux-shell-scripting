@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# 
+# Run a command when files have changed in a directory. To use, this script must
+# simply be run in the directory it is to monitor and given one or more commands
+# to run.
+# 
+# Usage:
+#   inotify <command to run>
+# 
+# Dependencies:
+#   inotify-tools
+# 
+
+readonly FORMAT="$(echo -e "\033[1;33m%w%f\033[0m written")"
+
+while inotifywait -qre close_write --format "${FORMAT}" .; do
+  # This section will run once when files have changed in the directory.
+  "${@}"
+done

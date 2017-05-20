@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# 
+# Get the PID of the active window.
+# 
+
+getactvwindid() {
+  echo "$(xprop -root _NET_ACTIVE_WINDOW | cut -d ' ' -f 5 | rev | cut -c 2- | \
+      rev | sed 's/^0x/0x0/')"
+}
+
+getwindpidbyid() {
+  echo "$(xprop -id "${1}" | awk '/_NET_WM_PID/ {print $3}')"
+}
+
+echo "$(getwindpidbyid $(getactvwindid))"

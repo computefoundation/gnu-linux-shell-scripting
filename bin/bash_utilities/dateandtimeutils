@@ -1,0 +1,74 @@
+#!/usr/bin/env bash
+# 
+# Bash date and time utilities
+# 
+
+# Conversion
+# --------------------------------------------
+  # Format number of seconds (using either an integer or decimal) to millseconds
+  # as a decimal
+  # Arguments:
+  #   1. Seconds
+  secondsToMillisecondsDecimal() {
+    echo "$(printf '%.4f' $(bc <<< "${1}*1000"))"
+  }
+
+  # Format number of seconds (using either an integer or decimal) to millseconds
+  # as an integer rounded to the nearest tenths place (using round half towards
+  # zero mode)
+  # Arguments:
+  #   1. Seconds
+  secondsToMilliseconds() {
+    printf '%.0f' "$(secondsToMillisecondsDecimal "${1}")"
+  }
+
+# Value generation
+# --------------------------------------------
+  # Generate random date between two dates specified by year, month and hour and
+  # output in the format YYYY-MM-DD hh:mm:ss.nnnnnnnnn (e.g.
+  # 2004-02-27 14:19:13.489392193). (Note: All generated dates are in the
+  # century defined by DFLT_CENTURY; also, date entites are inclusive, meaning
+  # the date/time up until the next year/month/hour (depending on the entity)
+  # may be used; e.g., if the max hour is 15, the time can be anything until the
+  # last minute of the hour).
+  # Arguments:
+  #   1. Min/max dates specified by year, month and hour in the format "YY[min],
+  #      YY[max],MM[min],MM[max],HH[min],HH[max]" (e.g. 2,6,1,8,15,19)
+  generateRandomDate() {
+    local DFLT_CENTURY='21'
+    exec 3>&1 4>&2; exec >/dev/tty 2>&1 # redirect all output to >/dev/tty
+    if [[ ! "${1}" =~ \
+        [0-9]{1,2},[0-9]{1,2},[0-9]{1,2},[0-9]{1,2},[0-9]{1,2},[0-9]{1,2} ]]
+    then
+      echo 'generateRandomNumber (err): first argument must be in the'\
+          'format YY[min],YY[max],MM[min],MM[max],HH[min],HH[max]' 1>&2
+      return 1
+    fi
+    local vals=(${1//,/ })
+    for val in "${vals[@]}"; do
+      local ENT+=($((10#$val)))
+    done
+    if [[ "${ENT[0]}" -gt "${ENT[1]}" || "${ENT[2]}" -gt "${ENT[3]}" || \
+        "${ENT[4]}" -gt "${ENT[5]}" ]]; then
+      echo 'generateRandomNumber (err): invalid ranges; should be'\
+          'YY[min]<=YY[max], MM[min]<=MM[max], HH[min]<=HH[max]' 1>&2
+      return 1
+    fi
+    local year="$(printf "%02d" "$(shuf -i "${ENT[0]}"-"${ENT[1]}" -n 1)")"
+    local month="$(printf "%02d" "$(shuf -i "${ENT[2]}"-"${ENT[3]}" -n 1)")"
+    case "${month}" in
+      2) local monthDayMax=28;;
+      4|6|9|11) local monthDayMax=30;;
+      *) local monthDayMax=31;;
+    esac
+    local day="$(printf "%02d" "$(shuf -i 1-${monthDayMax} -n 1)")"
+    local hour="$(printf "%02d" "$(shuf -i "${ENT[4]}"-"${ENT[5]}" -n 1)")"
+    local minute="$(printf "%02d" "$(shuf -i 0-59 -n 1)")"
+    local second="$(printf "%02d" "$(shuf -i 0-59 -n 1)")"
+    local nanosecond="$(printf "%09d" "$(shuf -i 0-999999999 -n 1)")"
+    DFLT_CENTURY=$((${DFLT_CENTURY} - 1))
+    local out="${DFLT_CENTURY}${year}-${month}-${day} ${hour}:${minute}:"
+    out+="${second}.${nanosecond}"
+    exec >&3 2>&4
+    echo "${out}"
+  }

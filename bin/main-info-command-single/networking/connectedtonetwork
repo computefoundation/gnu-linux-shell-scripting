@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# 
+# Check if connected to a network.
+# 
+# Dependencies:
+#   networkmanager
+# 
+
+NETWORK_CONNECTED_STATUS="$(nmcli g | sed -n 's/\(connected\).*/\1/p')"
+
+if [ "${NETWORK_CONNECTED_STATUS}" = 'connected' ]; then
+  exit 0
+else
+  exit 1
+fi

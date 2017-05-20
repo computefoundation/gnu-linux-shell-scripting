@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# 
+# Check if the primary wireless local area network device is soft blocked.
+# 
+
+IS_WLAN_SOFT_BLOCKED="$(rfkill list wlan | sed -n  \
+    's/Soft blocked: \(.*\)/\1/p' | head -1 | sed 's/^[ \t]*//;s/[ \t]*$//')"
+
+if [ "${IS_WLAN_SOFT_BLOCKED}" = 'yes' ]; then
+  exit 0
+else
+  exit 1
+fi

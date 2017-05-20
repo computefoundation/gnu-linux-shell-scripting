@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+# 
+# Watch and print X and Y screen tap coordinates on an Android device. Output
+# is automatically converted from hexidecimal to decimal for easy readability.
+# 
+# Arguments:
+#   1. (Optional) Time (seconds) to watch for tap events.
+# 
+
+# ======= CONFIGURATIONS ======================
+
+# Defult time (seconds) to watch for tap events
+readonly TIMEOUT_TIME=5
+
+# ======= ! CONFIGURATIONS ======================
+
+if [ $# -ge 2 ]; then
+  tmoutTime="${2}"
+else
+  tmoutTime="${TIMEOUT_TIME}"
+fi
+
+hxecho() {
+  echo -n $((16#${1}))
+}
+
+export -f hxecho
+
+timeout "${tmoutTime}" adb -d shell getevent -l /dev/input/event2 | \
+    sed 's/\(.*ABS_MT_POSITION..[^0]*\)\(.*\)/echo -n "\1 "; hxecho \2/e'

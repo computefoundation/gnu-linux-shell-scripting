@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+# 
+# Run a countdown timer in the terminal.
+# 
+# Usage:
+#   countdown <seconds>
+# 
+# Source:
+#   https://superuser.com/a/611582
+# 
+
+# ======= CONFIGURATIONS ======================
+
+# Set this to true to print days also
+PRINT_DAYS_ALSO=false
+
+# ======= ! CONFIGURATIONS ======================
+
+if [ $# -eq 0 ]; then
+  echo 'countdown: time required in seconds' 1>&2
+  exit 1
+elif [[ ! "${1}" =~ ^[0-9]+$ ]]; then
+  echo 'countdown: argument must be a number (seconds)' 1>&2
+  exit 1
+fi
+
+CURR_DATE="$(date +%s)"
+DATE_START="$((${CURR_DATE} + ${1}))"
+
+while [ "${DATE_START}" -ge "${CURR_DATE}" ]; do
+  sleep 0.1
+
+  CURR_DATE="$(date +%s)"
+  secondsRemaining="$((${DATE_START} - ${CURR_DATE}))"
+  secondsFrmtd="$(date -u --date @${secondsRemaining} +%H:%M:%S)"
+
+  if [ "${PRINT_DAYS_ALSO}" = 'true' ]; then
+    days="$(( ( ${DATE_START} - ${CURR_DATE} * 1 ) / 86400 ))"
+    output="     ${days} day(s) and ${secondsFrmtd}\r"
+  else
+    output="     ${secondsFrmtd}\r"
+  fi
+
+  echo -ne "${output}"
+done

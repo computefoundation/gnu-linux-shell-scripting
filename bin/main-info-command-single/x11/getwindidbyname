@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# 
+# Get the ID of a window by name/title (will match partially, case-sensitive).
+# 
+# If more than one window is matched, all of their IDs will be returned.
+# 
+
+if [ $# -eq 0 ]; then
+  exit
+fi
+
+WINDOW_IDS=("$(wmctrl -l | awk -v srchTxt="${1}" '{$2=$3=""; wn = \
+    gensub(/([^ ]*[ ]+)(.*)/, "\\2", "g", $0)} wn ~ srchTxt {print $1}')")
+
+if [[ "${#WINDOW_IDS[@]}" -gt 0 && -n "${WINDOW_IDS[0]}" ]]; then
+  echo "${WINDOW_IDS[@]}"
+fi
+
+
+
+# Alternative method:
+# 
+# WINDOW_IDS=($(xdotool search --name "${1}"))
+# for i in ${!WINDOW_IDS[@]}; do
+#   WINDOW_IDS[${i}]="$(printf '%#010x\n' "${WINDOW_IDS[${i}]}")"
+# done

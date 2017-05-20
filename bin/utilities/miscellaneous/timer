@@ -1,0 +1,95 @@
+#!/usr/bin/env bash
+# 
+# Run a task timer in a new terminal window.
+# 
+# Usage
+#   timer <minutes> [task description]
+# 
+# Dependencies
+#   xterm (used as the terminal emulator; download xterm for quick and easy
+#         startup; if another terminal emulator is preferred, please adjust the
+#         command at the bottom)
+#   wmctrl (used to focus the terminal window when the timer is done)
+#   mpv (only needed if setting PLAY_SOUND_WHEN_FINISHED to true)
+# 
+
+# ======= CONFIGURATIONS ======================
+
+# Play a sound when the timer is finished
+PLAY_SOUND_WHEN_FINISHED=false
+
+# Sound file to play when the timer is finished
+SOUND_FILE='/usr/share/orage/sounds/KDE_Beep_Digital_1.ogg'
+
+# ======= ! CONFIGURATIONS ======================
+
+if [ $# -eq 0 ]; then
+  echo 'timer: time required in minutes' 1>&2
+  exit 1
+elif [[ ! "${1}" =~ ^[0-9]+$ ]]; then
+  echo 'timer: argument must be a number (minutes)' 1>&2
+  exit 1
+elif [[ "${1}" -lt 1 || "${1}" -gt 120 ]]; then
+  echo 'timer: time must between 1 and 120 (minutes)' 1>&2
+  exit 1
+fi
+
+MINUTES="${1}"
+
+if [ $# -gt 1 ]; then
+  args="${2} ${3} ${4}"
+  termTtl="Timer: ${args::14}"
+  [ $# -ge 5 ] && termTtl+='...'
+else
+  termTtl='Timer'
+fi
+
+countdown() {
+  local CURR_DATE="$(date +%s)"
+  local DATE_START="$((${CURR_DATE} + ${1}))"
+
+  while [ "${DATE_START}" -ge "${CURR_DATE}" ]; do
+    sleep 0.1
+    CURR_DATE="$(date +%s)"
+    secondsRemaining="$((${DATE_START} - ${CURR_DATE}))"
+    secondsFrmtd="$(date -u --date @${secondsRemaining} +%H:%M:%S)"
+    echo -ne "     ${secondsFrmtd}\r"
+  done
+}
+
+export -f countdown
+
+termCmd="\
+echo -e \"\nTime: ${MINUTES} minutes\";
+[ $# -ge 2 ] && echo -e \"\nTask:\n\n    ${@:2}\";
+echo -e \"\n\nCountdown:\n\";
+countdown $((${MINUTES} * 60));
+echo;
+wmctrl -R \"${termTtl}\";
+clear;
+echo -e '\n\n'; printf '%.0s-' {1..40};
+echo -e '\n  TIMER FINISHED\n\n';
+printf '%1s%-20s\n' '' \"${@:2}\";
+echo -e '\n\n'; printf '%.0s-' {1..40}; echo -e '\n\n'
+"
+
+if [ "${PLAY_SOUND_WHEN_FINISHED}" = 'true' ]; then
+  termCmd+="\
+amixer -q set Master 60%;
+while true; do
+mpv '${SOUND_FILE}' &>/dev/null; sleep 2
+done
+"
+else
+  termCmd+='sleep 1000m'
+fi
+
+# ===================================================
+#   Open the terminal and run the command
+# ===================================================
+
+startX=150; startY=100; width=60; height=34
+geometry="${width}x${height}+${startX}+${startY}"
+nohup xterm -xrm 'XTerm.vt100.allowTitleOps: false' -geometry "${geometry}" \
+    -fg '#FFFFFF' -bg '#000000' -fa 'size=12:antialias=true' \
+    -title "${termTtl}" -e bash -c "${termCmd}" &>/dev/null &

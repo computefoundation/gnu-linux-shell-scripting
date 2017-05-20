@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# 
+# Turn Android device screen on if off.
+# 
+
+isScreenOn="$(adb -d shell 'dumpsys power' | grep mScreenOn)"
+
+if [[ "${isScreenOn##*=}" = *'false'* ]]; then
+  adb -d shell 'input keyevent KEYCODE_POWER;'
+fi

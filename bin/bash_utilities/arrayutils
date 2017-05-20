@@ -1,0 +1,255 @@
+#!/usr/bin/env bash
+# 
+# Bash array utilities
+# 
+
+# Validation
+# --------------------------------------------
+  # Arguments:
+  #   1. Value
+  #   2. Array (passed by reference)
+  arrayContainsValue() {
+    local arr="${2}[@]"
+    arr=("${!arr}")
+    for arrVal in "${arr[@]}"; do [ "${1}" = "${arrVal}" ] && \
+        return 0; done
+    return 1
+  }
+
+  # Arguments:
+  #   1. Key
+  #   2. Array (passed by reference)
+  arrayContainsKey() {
+    local arr="${2}[@]"
+    arr=("${!arr}")
+    for arrKey in "${!arr[@]}"; do [ "${1}" = "${arrKey}" ] && \
+        return 0; done
+    return 1
+  }
+
+  # Check if a value matches an array regex value.
+  # Arguments:
+  #   1. Regex
+  #   2. Array (passed by reference)
+  arrayContainsValueByRegex() {
+    local arr="${2}[@]"
+    arr=("${!arr}")
+    for arrVal in "${arr[@]}"; do [[ "${arrVal}" =~ ${1} ]] && \
+        return 0; done
+    return 1
+  }
+
+  # Check if array contains a value that is a prefix for the given value.
+  # Arguments:
+  #   1. Value
+  #   2. Array (passed by reference)
+  arrayContainsPrefixForValue() {
+    local arr="${2}[@]"
+    arr=("${!arr}")
+    for arrVal in "${arr[@]}"; do [[ "${1}" = "${arrVal}"* ]] && \
+        return 0; done
+    return 1
+  }
+
+# Getters
+# --------------------------------------------
+  # Arguments:
+  #   1. Value
+  #   2. Array (passed by reference)
+  getArrayValue() {
+    local arr="${2}[@]"
+    arr=("${!arr}")
+    for arrVal in "${arr[@]}"; do [ "${arrVal}" = "${1}" ] && \
+        echo "${arrVal}" && break; done
+  }
+
+  # Get the position of an array element matching a value.
+  # Arguments:
+  #   1. Value
+  #   2. Array (passed by reference)
+  getPositionOfArrayElement() {
+    local arr="${2}[@]"
+    arr=("${!arr}")
+    for indx in ${!arr[@]}; do [ "${arr[${indx}]}" = "${1}" ] && \
+        echo "${indx}" && break; done
+  }
+
+  # Get the first value in the array that contains the given string.
+  # Arguments:
+  #   1. String
+  #   2. Array (passed by reference)
+  getFirstArrayValueContainingString() {
+    local arr="${2}[@]"
+    arr=("${!arr}")
+    for arrVal in "${arr[@]}"; do [[ "${1}" = *"${arrVal}"* ]] && \
+        echo "${arrVal}" && break; done
+  }
+
+# Manipulation
+# --------------------------------------------
+  # Usage:
+  #   newArr=($(removeElementFromArray <value> <array_ref>))
+  removeElementFromArray() {
+    local arr="${2}[@]"
+    arr=("${!arr}")
+    local indx=0
+    for arrVal in "${arr[@]}"; do
+      [ "${arrVal}" = "${1}" ] && \
+          arr=("${arr[@]:0:${indx}} ${arr[@]:$((${indx} + 1))}") && \
+          break
+      ((indx++))
+    done
+    echo "${arr[@]}"
+  }
+
+  # Usage:
+  #   newArr=($(removeDuplicatesFromArray <array_ref>))
+  removeDuplicatesFromArray() {
+    local arr="${1}[@]"
+    arr=("${!arr}")
+    local retArr
+    for arrVal in "${arr[@]}"; do
+      local has=0
+      for retArrVal in "${retArr[@]}"; do
+          [ "${retArrVal}" = "${arrVal}" ] && has=1 && break; done
+      [ ${has} -eq 0 ] && retArr+=("${arrVal}")
+    done
+    echo "${retArr[@]}"
+  }
+
+# Sets
+# --------------------------------------------
+  # Intersection of two arrays (e.g. A=(1 3 9 2 7); B=(2 5 3 7 5); Res=(3 2 7)).
+  # Usage:
+  #   newArr=($(getIntersection <array1_ref> <array2_ref>))
+  getIntersection() {
+    local arr1="${1}[@]"
+    arr1=(${!arr1})
+    local arr2="${2}[@]"
+    arr2=(${!arr2})
+    local retArr
+    for arr1Val in "${arr1[@]}"; do
+      for arr2Val in "${arr2[@]}"; do
+        if [ "${arr2Val}" = "${arr1Val}" ]; then
+          local has=0
+          for retArrVal in "${retArr[@]}"; do
+              [ "${retArrVal}" = "${arr1Val}" ] && has=1 && break; done
+          [ ${has} -eq 0 ] && retArr+=("${arr1Val}")
+        fi
+      done
+    done
+    echo "${retArr[@]}"
+  }
+
+  # Union of two arrays (e.g. A=(5 7 1 1 4); B=(3 1 4 1 9); Res=(5 7 1 4 3 9)).
+  # Usage:
+  #   newArr=($(getUnion <array1_ref> <array2_ref>))
+  getUnion() {
+    local arr1="${1}[@]"
+    arr1=(${!arr1})
+    local arr2="${2}[@]"
+    arr2=(${!arr2})
+    local retArr
+    for arr1Val in "${arr1[@]}"; do
+      local has=0
+      for retArrVal in "${retArr[@]}"; do
+          [ "${retArrVal}" = "${arr1Val}" ] && has=1 && break; done
+      [ ${has} -eq 0 ] && retArr+=("${arr1Val}")
+    done
+    for arr2Val in "${arr2[@]}"; do
+      local has=0
+        for retArrVal in "${retArr[@]}"; do
+            [ "${retArrVal}" = "${arr2Val}" ] && has=1 && break; done
+      [ ${has} -eq 0 ] && retArr+=("${arr2Val}")
+    done
+    echo "${retArr[@]}"
+  }
+
+  # Difference between array1 and array2 (i.e. elements in array1 that are not
+  # in array2; e.g. A=(3 6 2 1 5 1 1); B=(2 4 6); Res=(3 1 5)).
+  # Usage:
+  #   newArr=($(getDifference <array1_ref> <array2_ref>))
+  getDifference() {
+    local arr1="${1}[@]"
+    arr1=(${!arr1})
+    local arr2="${2}[@]"
+    arr2=(${!arr2})
+    local retArr
+    for arr1Val in "${arr1[@]}"; do
+      local has=0
+      for retArrVal in "${retArr[@]}"; do
+          [ "${retArrVal}" = "${arr1Val}" ] && has=1 && break; done
+      [ ${has} -eq 0 ] && for arr2Val in "${arr2[@]}"; do
+          [ "${arr2Val}" = "${arr1Val}" ] && has=1 && break; done
+      [ ${has} -eq 0 ] && retArr+=("${arr1Val}")
+    done
+    echo "${retArr[@]}"
+  }
+
+# Parsing
+# --------------------------------------------
+  # Join elements of an array by a delimiter.
+  # Arguments:
+  #   1. Delimiter
+  #   2. Array (passed by reference)
+  joinArrayBy() {
+    local delim="${1}"
+    local arr="${2}[@]"
+    arr=("${!arr}")
+    joined="$(printf "%s" "${arr[@]/#/$delim}")"
+    echo "${joined#${delim}}"
+  }
+
+# Other
+# --------------------------------------------
+  # Create pairs between array1 and array2 (e.g. A=(0 12); B=(4 5); Res=(
+  # "0:4" "0:5" "12:4" "12:5")).
+  # Usage: newArr=($(createPairs <array1_ref> <array2_ref>))
+ createPairs() {
+    local arr1="${1}[@]"
+    arr1=(${!arr1})
+    local arr2="${2}[@]"
+    arr2=(${!arr2})
+    local retArr
+    for arr1Val in ${arr1[@]}; do
+      for arr2Val in ${arr2[@]}; do
+        local retArr+=("${arr1Val}:${arr2Val}")
+      done
+    done
+    echo "${retArr[@]}"
+  }
+
+
+
+# ============================================================
+#   ALTERNATIVE IMPLEMENTATIONS
+# ============================================================
+# 
+# Sets
+# --------------------------------------------
+#   # Union of two arrays (e.g. A=(5 7 1 1 4); B=(3 1 4 1 9); Res=(5 7 3 1 4 9)).
+#   # Usage:
+#   #   newArr=($(getUnion <array1_ref> <array2_ref>))
+#   getUnion() {
+#     local arr1="${1}[@]"
+#     arr1=(${!arr1})
+#     local arr2="${2}[@]"
+#     arr2=(${!arr2})
+#     local retArr
+#     local i=0 j=0
+#     while [[ ${i} -lt ${#arr1[@]} && ${j} -lt ${#arr2[@]} ]]; do
+#       if [[ "${arr1[${i}]}" > "${arr2[${j}]}" ]]; then
+#         retArr+=("${arr1[$((i++))]}")
+#       elif [[ "${arr1[${i}]}" < "${arr2[${j}]}" ]]; then
+#         retArr+=("${arr2[$((j++))]}")
+#       else
+#         retArr+=("${arr1[$((i++))]}")
+#         ((j++))
+#       fi
+#     done
+#     while [ ${i} -lt ${#arr1[@]} ]; do retArr+=("${arr1[$((i++))]}"); done
+#     while [ ${j} -lt ${#arr2[@]} ]; do retArr+=("${arr2[$((j++))]}"); done
+#     retArr=($(removeDuplicatesFromArray retArr))
+#     echo "${retArr[@]}"
+#   }
+# 

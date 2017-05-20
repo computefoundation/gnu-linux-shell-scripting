@@ -1,0 +1,54 @@
+#!/usr/bin/env bash
+# 
+# Mount and unmount an MTP device.
+# 
+# Usage (script must be sourced for cd command to work):
+#   source mtp; mtp <action>
+# 
+#   <action>:
+#     "mount" or "m" to mount
+#     "umount" or "u" to unmount
+# 
+# Dependencies:
+#   jmtpfs
+# 
+# Set up:
+#   Create group "fuse" and add yourself to it by running the following
+#   commands:
+#       sudo groupadd fuse; sudo gpasswd -a "${USER}" fuse
+# 
+
+# ======= CONFIGURATIONS ======================
+
+# Mountpoint directory for MTP device.
+MOUNTPOINT_DIR='/mnt/mtp'
+
+# Directory of device to CD to once mounted.
+DEV_CD_DIR='Internal storage/DCIM/Camera'
+
+# ======= ! CONFIGURATIONS ======================
+
+mtp() {
+  case "${1}" in
+    'mount'|'m')
+      if [ ! -d "${MOUNTPOINT_DIR}" ]; then
+        mkdir "${MOUNTPOINT_DIR}"
+      fi
+
+      if ! mount | grep "${MOUNTPOINT_DIR}" >/dev/null; then
+        jmtpfs "${MOUNTPOINT_DIR}"
+        cd "${MOUNTPOINT_DIR}/${DEV_CD_DIR}"
+      fi
+      ;;
+    'umount'|'u')
+      if pwd | grep -q "^${MOUNTPOINT_DIR}"; then
+        cd "${HOME}"
+      fi
+
+      fusermount -u "${MOUNTPOINT_DIR}"
+      if ! mount | grep "${MOUNTPOINT_DIR}" >/dev/null; then
+        echo "mtp: device successfully unmounted from ${MOUNTPOINT_DIR}"
+      fi
+      ;;
+  esac
+}

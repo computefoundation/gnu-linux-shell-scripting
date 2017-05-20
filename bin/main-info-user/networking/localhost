@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# 
+# Display useful host related informaton.
+# 
+# Source:
+#   https://linux.die.net/abs-guide/sample-bashrc.html
+# 
+
+echo -e "\nYou are logged on ${HOSTNAME}"
+echo -e "\nAdditionnal information:${NC}"
+
+uname -a
+echo -e "\nUsers logged on:${NC}"
+
+command w -h
+echo -e "\nCurrent date:${NC}"
+
+date
+echo -e "\nMachine stats:${NC}"
+
+uptime
+echo

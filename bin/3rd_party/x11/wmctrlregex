@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# 
+# Wmctrl allowing regex for the window name.
+# 
+# Arguments:
+#   Exactly as wmctrl except allowing regex for the window name.
+# 
+
+argIndx=-1
+for arg in "${@}"; do
+  ((argIndx++))
+  if [ ! "${arg::1}" = '-' ]; then
+    while IFS= read window; do
+      if echo "${window}" | grep -q "${arg}"; then
+        windowName="${window}"
+        break 2
+      fi
+    done < <(wmctrl -l | awk '{$1=$2=$3=""; print $0}' | sed 's/^[ \t]*//')
+  fi
+done
+
+if [ -n "${windowName}" ]; then
+  wmctrl ${*:1:$((${argIndx}))} "${windowName}" ${*:$((${argIndx}+2))}
+fi

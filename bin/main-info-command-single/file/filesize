@@ -1,0 +1,84 @@
+#!/usr/bin/env bash
+# 
+# Get the size of a file or directory as a plain number.
+# 
+
+printHelpMessage() {
+  echo -e "\
+Get the size of a file or directory as a plain number.
+
+Usage
+  filesize [options] <file_or_directory>
+
+Options
+  -b    bytes
+  -k    kilobytes
+  -m    megabytes (default)
+  -g    gigabytes
+
+Notes
+  Will print an error and exit if the user does not have
+  read permissions for a file or directory.
+
+  Size rounding is based on \"du\" specifications.
+"
+}
+
+if [ $# -eq 0 ]; then
+  echo 'filesize: no arguments' 1>&2
+  exit 1
+fi
+
+DU_OPTS='-cs --block-size=1M'
+
+# Replace block size type
+# Argument: "B", "K", "M" or "G"
+replaceBlockSizeType() {
+  if [[ "${DU_OPTS}" =~ (.*--block-size=)(1[KMG])(.*) ]]; then
+    [ "${1}" = 'B' ] && blockSize='1' || blockSize="1${1}"
+    DU_OPTS="${BASH_REMATCH[1]}${blockSize}${BASH_REMATCH[3]}"
+  fi
+}
+
+checkAndExitIfBlockSizeAlreadySpecified() {
+  if [ -n "${OPT_BLOCK_SIZE}" ]; then
+    echo 'filesize: can only use one block size: -b, -k, -m or -g' 1>&2
+    exit 1
+  fi
+}
+
+while getopts :bkmgh OPT; do
+  case ${OPT} in
+    b) checkAndExitIfBlockSizeAlreadySpecified
+       OPT_BLOCK_SIZE='B';;
+    k) checkAndExitIfBlockSizeAlreadySpecified
+       OPT_BLOCK_SIZE='K';;
+    m) checkAndExitIfBlockSizeAlreadySpecified
+       OPT_BLOCK_SIZE='M';;
+    g) checkAndExitIfBlockSizeAlreadySpecified
+       OPT_BLOCK_SIZE='G';;
+    h) printHelpMessage; exit;;
+    \?) echo "filesize: option \"${OPTARG}\" unknown" 1>&2; exit 1;;
+  esac
+done
+shift $((OPTIND - 1))
+
+if [ -n "${OPT_BLOCK_SIZE}" ]; then
+  replaceBlockSizeType "${OPT_BLOCK_SIZE}"
+fi
+
+DU_OUT="$(command du ${DU_OPTS} "${1}" 2>&1)"
+
+if [ $? -eq 1 ]; then
+  echo -e "filesize: error: \n\"\"\"${DU_OUT}\"\"\""  1>&2 >/dev/tty
+  exit 1
+fi
+
+DU_OUT="$(echo "${DU_OUT}" | tail -1 | awk '{print $1}')"
+
+if [[ ! "${DU_OUT}" =~ ^[0-9]+$ ]]; then
+  echo -e "filesize: error: output is \n\"\"\"${DU_OUT}\"\"\"" >/dev/tty
+  exit 1
+fi
+
+echo "${DU_OUT}"

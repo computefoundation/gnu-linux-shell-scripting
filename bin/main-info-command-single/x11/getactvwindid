@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# 
+# Get the ID of the active window.
+# 
+
+WINDOW_ID="$(xprop -root _NET_ACTIVE_WINDOW | cut -d ' ' -f 5 | rev | cut -c \
+    2- | rev | sed 's/^0x/0x0/')"
+
+echo "${WINDOW_ID}"

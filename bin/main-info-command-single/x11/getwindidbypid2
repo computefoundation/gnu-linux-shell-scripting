@@ -1,0 +1,30 @@
+#!/usr/bin/env perl
+# 
+# Get the ID of a window by PID (if the process has a window) (2).
+# 
+
+use strict;
+use warnings;
+
+if (scalar @ARGV != 1) {
+  exit;
+} elsif ($ARGV[0]  !~ m/^[0-9]+$/) {
+  exit;
+}
+
+my $ARG_PID = $ARGV[0];
+my @WMCTRL_OUT = `wmctrl -lp`;
+my @WIND_IDS;
+
+for my $line (@WMCTRL_OUT) {
+  if ($line =~ m/0x([0-9a-z]+)(?:\s[- ][0-9]+\s)([0-9]*)/) {
+    my ($winid, $pid) = ($1, $2);
+    if ($pid == $ARG_PID) {
+      push @WIND_IDS, '0x'.$winid;
+    }
+  }
+}
+
+if (scalar @WIND_IDS > 0) {
+  print join(" ", @WIND_IDS)."\n";
+}

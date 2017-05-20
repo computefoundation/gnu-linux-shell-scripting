@@ -1,0 +1,89 @@
+#!/usr/bin/env bash
+# 
+# Take a screenshot using one of the following methods:
+#   1. full: entire screen (default)
+#   2. section: section of the screen
+# 
+# Usage:
+#   screenshot [method]
+# 
+# Dependencies:
+#   maim
+# 
+
+# ======= CONFIGURATIONS ======================
+
+# Path where screenshot files are saved
+OUT_PATH="${HOME}"
+
+# ======= ! CONFIGURATIONS ======================
+
+if [ $# -ge 1 ]; then
+  if [[ "${1}" != 'full' && "${1}" != 'section' && "${1}" != 'window' ]]; then
+    echo 'screenshot: invalid argument' 1>&2
+    exit 1
+  fi
+
+  TYPE="${1}"
+else
+  TYPE='full'
+fi
+
+# Utility function to extract a file's extension using just the file name.
+# Arguments:
+#   1. Filename
+extractFileExtension() {
+  if [[ "${1}" = *'.'* ]]; then
+    local fn="${1%.*}"; local extn="${1##*.}"
+    [[ "${fn}" = *'.'* ]] && extn="${fn##*.}.${extn}"
+    echo "${extn}"
+  fi
+}
+
+# Utility function to return the next numbered file name.
+getIncrementedFilename() {
+  local filen="${1}"
+  [ $# -ge 2 ] && local path="${2}" || local path='.'
+  local fileExt="$(extractFileExtension "${filen}")"
+  [ -n "${fileExt}" ] && fileExt=".${fileExt}"
+  local fileBsn="${1%${fileExt}*}"
+  if [ "$(ls -Ad ${path}/${filen} 2>/dev/null)" ]; then
+    filen="${fileBsn}_2${fileExt}" # likely won't need to check after second
+    local mtchFilens=($(ls -Ad "${path}/${fileBsn}_"[0-9]*"${fileExt}" \
+        2>/dev/null))
+    if [ ${#mtchFilens[@]} -gt 0 ]; then
+      local num=2
+      for mf in "${mtchFilens[@]}"; do
+        local mf="${mf##*/}"
+        local mfBsn="${mf%${fileExt}*}"
+        local mfNum="${mfBsn##*_}"
+        # If using directory names, dos line endings must be removed for mfNum
+        # or arithmetic operations will result in a syntax error. Note: using
+        # regex as "${mfNum//$'\r'/}" and other operations do not work.
+        [[ ${mfNum} =~ [0-9]* ]] && mfNum="${BASH_REMATCH[0]}"
+        if [ ${mfNum} -gt ${num} ]; then
+          num=${mfNum}
+        fi
+      done
+      filen="${fileBsn}_$((num + 1))${fileExt}"
+    fi
+  fi
+  echo "${filen}"
+}
+
+getactvwindid() {
+  echo "$(xprop -root _NET_ACTIVE_WINDOW | cut -d ' ' -f 5 | rev | cut -c 2- | \
+    rev | sed 's/^0x/0x0/')"
+}
+
+fileName="screenshot-${TYPE}.png"
+fileName="$(getIncrementedFilename "screenshot-${TYPE}.png" "${OUT_PATH}/")"
+
+case "${TYPE}" in
+  'full')
+    maim "${OUT_PATH}/${fileName}"
+    ;;
+  'section')
+    maim -s -c 1,0,0,0.6 "${OUT_PATH}/${fileName}"
+    ;;
+esac

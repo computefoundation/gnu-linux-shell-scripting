@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# 
+# Select and get information for a window.
+# 
+# The property information as given by xwininfo and also the window's PID,
+# class, and classname are printed.
+# 
+
+getPropertiesInfoAndRetWindID() {
+  echo -e 'Please select window\n' >/dev/tty
+  output="$(xwininfo | tail -23 | tee /dev/tty)"
+  echo "${output}" | head -1 | awk '{print $4}'
+}
+
+getOtherInfoForWindID() {
+  echo
+  echo "  PID: "$(xprop -id "${1}" | awk '/_NET_WM_PID/{print $3}')
+  echo "  Class: "$(xprop -id "${1}" | awk '/WM_CLASS/{print $3}')
+  echo "  Classname: "$(xprop -id "${1}" | awk '/WM_CLASS/{print $4}')
+  echo ''
+}
+
+getOtherInfoForWindID "$(getPropertiesInfoAndRetWindID)"

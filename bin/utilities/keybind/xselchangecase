@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+# 
+# Change the case of the selected text. This script should be bound to a
+# keybinding.
+# 
+# Options (one required):
+#   --upper    change to uppercase
+#   --lower    change to lowercase
+# 
+# Notes:
+#   If the text is not being converted, increase the usleep time in the xte
+#   command.
+# 
+
+case "${1}" in
+  '--upper' | '--lower')
+    MODE="${1}"
+    ;;
+  *)
+    # output errors as a desktop notification since this script is meant to be
+    # used with a keybinding and errors printed to stderr will not be seen.
+    msg='Mode not specified or invalid; must use option\n--upper or --lower'
+    notify-send 'changecase (err)' "${msg}"
+    exit 1
+    ;;
+esac
+
+readonly PREV_CLIPBOARD_CONTENT="$(xclip -o -selection c)"
+
+# use "xclip -out -selection primary" instead of "xsel" as it causes the
+# selected text to be unselected in some applications.
+readonly SEL_TEXT="$(xclip -out -selection primary)"
+
+if [ "${MODE}" = '--upper' ]; then
+  chngdCase="$(echo -n "${SEL_TEXT}" | tr '[:lower:]' '[:upper:]')"
+else
+  chngdCase="$(echo -n "${SEL_TEXT}" | tr '[:upper:]' '[:lower:]')"
+fi
+
+echo -n "${chngdCase}" | xclip -selection c
+xte 'usleep 200000' 'keydown Control_L' 'key v' 'keyup Control_L'
+
+# Must sleep before restoring the clipboard content because otherwise the
+# keyevents will run after, causing it to get pasted instead.
+(sleep .1 && echo -n "${PREV_CLIPBOARD_CONTENT}" | xclip -selection c ) &

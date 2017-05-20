@@ -1,0 +1,197 @@
+#!/usr/bin/env bash
+# 
+# Return a file for a command using one of two search methods:
+#   1. Locate: locate the file from a database using a "locate" command
+#   2. Recursive: recursively search from the current directory
+# 
+# Examples:
+#   # use the locate method to locate and return a file for gedit
+#   alias geditloc='returnfileandexe {gedit --new-window} --l'
+# 
+#   # use the recursive method to find and return a file for gedit
+#   alias geditr='returnfileandexe {gedit --new-window} --r'
+# 
+#   # same as previous, except return files only
+#   alias geditr='returnfileandexe {gedit --new-window} --r --f'
+# 
+#   # use it on its own or with other options such as --a to return all
+#   # occurrences.
+#   geditr --a config.sh 
+# 
+# If the file is not found, the command in the brackets will be run as normal
+# with the given arguments.
+# 
+# To use the locate method, there must exist a locate command in the user's PATH
+# which returns one or more file paths. The command name must be specified in
+# LOCATE_COMMAND. (Note: A locate utility package is provided in the
+# packaged-utilities repository by linux-user-base).
+# 
+
+# ======= CONFIGURATIONS ======================
+
+LOCATE_COMMAND='locate'
+
+# Locate command option to locate directories only; can be empty
+LOCATE_COMMAND_DIRS_ONLY_OPT='-d'
+
+# Locate command find occurrence option (requires argument); can be empty
+LOCATE_COMMAND_FIND_OCCURRENCE_OPT='-o'
+
+# ======= ! CONFIGURATIONS ======================
+
+printHelpMessage() {
+  echo -e "\
+returnfileandexe module - return a file for a command
+
+Usage: returnfileandexe {<command to execute>} [options] <partial file name>
+         [directory]
+
+  [directory] only applies when using the recursive search method. If it is
+  not specified, the current directory will be used.
+
+Options:
+  Note: This first set of options is meant to be used with
+  aliases.
+  --l   use the locate search method
+  --r   use the recursive search method
+  --f   return files only
+  --d   return directories only
+
+  --<1-9>    change the find occurrence
+  --a     use all occurrences instead of just the first
+          (only applies to the recursive method)
+  --e     test print the found file without executing the
+          command
+  --n     nullify (ignore) the module and run the command in
+          the brackets as normal with the given arguments
+  --help  show this help message
+
+Notes:
+  Options will override matching ones for the command in
+  the brackets. To avoid collision as much as possible,
+  options use double dashes."
+}
+
+# Note: The following could be done using bultin "set --", however, it removes
+# all arguments containing "?".
+for ((x=1; x<=$#; x++)); do
+  if [[ "${@:x:1}" == *'}'* ]]; then
+    executeCmd="${@:1:x}"
+    shift ${x}
+  fi
+done
+if [ -z "${executeCmd}" ]; then
+  echo -e "RFE (module): invalid arguments: \n   \"${@}\"" 1>&2
+  printHelpMessage
+  exit 1
+fi
+
+executeCmd="${executeCmd#{}"
+executeCmd="${executeCmd%\}}"
+
+OPTS="$(getopt -q -o '#' --long l,r,f,d,1,2,3,4,5,6,7,8,9,a,e,help \
+    -n 'RFE (mdl)' -- "${@}")"
+eval set -- "${OPTS}"
+while true; do
+  case "${1}" in
+    --l) SEARCH_METHOD='locate';;
+    --r) SEARCH_METHOD='find';;
+    --f) SEARCH_TYPE='f';;
+    --d) SEARCH_TYPE='d';;
+    --1|--2|--3|--4|--5|--6|--7|--8|--9) FIND_OCCURRENCE="${1#'--'}";;
+    --a) ALL_OCCURRENCES=true;;
+    --e) PRINT_ONLY=true;;
+    --help) printHelpMessage; exit;;
+    --) shift; break;;
+    * ) break;;
+  esac
+  shift
+done
+
+case "${SEARCH_METHOD}" in
+  'locate')
+    if [ $# -eq 0 ]; then
+      echo 'RFE (module): no file specified' 1>&2
+      exit 1
+    fi
+    if ! hash ${LOCATE_COMMAND} > /dev/null 2>&1; then
+      echo "RFE (module): command \"${LOCATE_COMMAND}\" does not"\
+          "exist" 1>&2
+      exit 1
+    fi
+
+    if [[ "${SEARCH_TYPE}" = 'd' && -n "${LOCATE_COMMAND_DIRS_ONLY_OPT}" ]]
+    then
+      lctOpts="${LOCATE_COMMAND_DIRS_ONLY_OPT}"
+    fi
+
+    if [[ -n "${FIND_OCCURRENCE}" && -n \
+        "${LOCATE_COMMAND_FIND_OCCURRENCE_OPT}" ]]; then
+      lctOpts+=" ${LOCATE_COMMAND_FIND_OCCURRENCE_OPT} ${FIND_OCCURRENCE}"
+    fi
+
+    output="$(${LOCATE_COMMAND} ${lctOpts} "${@}")"
+
+    if [ -z "${output}" ]; then
+      echo 'RFE (module): no files or directories found' 1>&2
+    else
+      output="$(echo "${output}" | sed 's/ /\\n/g')"
+
+      if [ "${PRINT_ONLY}" = 'true' ]; then
+        echo "${output}"
+      else
+        ${executeCmd} "${output}"
+      fi
+    fi
+    ;;
+
+  'find')
+    if [ $# -eq 0 ]; then
+      echo 'RFE (module): no file specified' 1>&2
+      exit 1
+    elif [ $# -ge 2 ]; then
+      dir="${2}"
+    else
+      dir='.'
+    fi
+
+    if [ -n "${SEARCH_TYPE}" ]; then
+      optType="-type ${SEARCH_TYPE}"
+    fi
+
+    output="$(find "${dir}" ${optType} -name "*${1}*" 2>/dev/null)"
+
+    if [ -z "${output}" ]; then
+      echo 'RFE (module): no files or directories found' 1>&2
+    else
+      if [ "${ALL_OCCURRENCES}" != 'true' ]; then
+        if [ -n "${FIND_OCCURRENCE}" ]; then
+          if [ "${FIND_OCCURRENCE}" -gt "$(echo "${output}" | wc -l)" ]; then
+            FIND_OCCURRENCE="${lastOccur}"
+          fi
+
+          output="$(echo "${output}" | sed "${FIND_OCCURRENCE}q;d")"
+        else
+          output="$(echo "${output}" | sed "1q;d")"
+        fi
+      fi
+
+      if [ "${PRINT_ONLY}" = 'true' ]; then
+        echo "${output}"
+      else
+        ${executeCmd} "${output}"
+      fi
+    fi
+    ;;
+
+  *)
+    for execCmdArg in ${@}; do
+      if [[ "${execCmdArg::2}" =~ '-' ]]; then
+        executeCmdOpts+="${execCmdArg} "
+        shift
+      fi
+    done
+
+    ${executeCmd} ${executeCmdOpts} "${@}"
+    ;;
+esac

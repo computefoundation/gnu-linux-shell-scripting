@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# 
+# Print paths of all subdirectories of the specified directory.
+# 
+# Usage:
+#   printsubdirpaths [directory]
+# 
+#   If no directory is specified, the current directory will be used.
+# 
+
+if [ $# -eq 0 ]; then
+  START_DIR=''
+else
+  START_DIR="${1}"
+
+  if [ "${START_DIR: -1}" != '/' ]; then
+    START_DIR+='/'
+  fi
+fi
+
+for dir in $(command ls -d -- "${START_DIR}"*/ 2>/dev/null); do
+  for dirL2 in $(command ls -d -- "${dir}"*/ 2>/dev/null); do
+    echo "${dirL2}"
+  done
+done

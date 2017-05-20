@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# 
+# Get the class of a window by ID.
+# 
+# Returns the full qualified class string (the class and classname; e.g.
+# "xterm.XTerm").
+# 
+
+if [ $# -eq 0 ]; then
+  exit
+elif [[ ! "${1}" =~ '0x'.* ]]; then
+  echo 'getwindclassbyid: argument not in hexidecimal format' 1>&2
+  exit 1
+fi
+
+WINDOW_CLASS="$(xprop -id "${1}" WM_CLASS 2>/dev/null | sed -n \
+    's/[^"]*"\([^"]*\)",\s"\([^"]*\)"/\1.\2/p')"
+
+if [ -n "${WINDOW_CLASS}" ]; then
+  echo "${WINDOW_CLASS}"
+fi
