@@ -18,13 +18,15 @@
 #   # occurrences.
 #   geditr --a config.sh
 # 
-# If the file is not found, the command in the brackets will be run as normal
-# with the given arguments.
+# Notes:
+#   This script's options will override matching options for the command in
+#   brackets. It therefore use double dashes for its options to avoid collision
+#   as much as possible.
 # 
-# To use the locate method, there must exist a locate command in the user's PATH
-# which returns one or more file paths. The command name must be specified in
-# LOCATE_COMMAND. (Note: A locate utility package is provided in the
-# packaged-utilities repository by linux-user-base).
+#   To use the locate method, there must exist a locate command in the user's
+#   PATH which returns one or more file paths. The command name must be
+#   specified in LOCATE_COMMAND. (Note: A locate utility package is provided in
+#   the packaged-utilities repository by linux-shell-base).
 # 
 
 # ======= CONFIGURATIONS ======================
@@ -66,9 +68,8 @@ Options:
   --help  show this help message
 
 Notes:
-  Options will override matching ones for the command in
-  the brackets. To avoid collision as much as possible,
-  options use double dashes."
+  If the file is not found, the command in the brackets will be run as normal
+  with the given arguments."
 }
 
 # Note: The following could be done using bultin "set --", however, it removes

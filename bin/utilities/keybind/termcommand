@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # 
-# Execute the given command in (or run the last command of) a terminal emulator.
+# Execute a given command in (or run the last command of) a terminal emulator.
 # This script should be bound to a keybinding or used in a script.
 # 
 # Usage:
