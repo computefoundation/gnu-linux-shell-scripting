@@ -1,22 +1,28 @@
 
 # Linux-shell-base
 
-**linux-shell-base** is a resource of solutions to universal low-level shell scripting problems in Linux created with a UNIX-centric methodology. It is a resource for new Linux users learning to solve low-level shell scripting problems and low-level solutions for all higher-level shell scripting.
+**linux-shell-base** is a resource of solutions to universal low-level shell scripting problems in Linux created with a UNIX-centric methodology. It is a resource for new Linux users learning to solve low-level shell scripting problems and individuals seeking low-level UNIX-centric solutions for high-level shell scripting.
 
-All solutions in this repository conform four principles:
+All solutions in this repository conform to four principles:
 
 * Apply to a large part of the Linux community.
 * Use a reusable and UNIX-centric methodology.
-* Solve a problem that requires a considerable amount of research.
-* Use universal scripting techniques and follow a standard [guideline][wiki-Guideline-for-Scripts].
+* Use universal scripting techniques and methodologies and follow a standard [guideline][wiki-Guideline-for-Scripts].
+* Solve a problem requiring a considerable amount of research.
 
-This repository provides solutions for multiple paradigms of the Linux application layer (see the bin/ directory). As a result, it has no build/install automation. All solutions are independent of each other.
+This repository has no build/install automation as it provides low-level solutions in multiple paradigms of the Linux application layer (see the bin/ directory). All solutions are additionally independent of each other.
 
-There are the two directories this repository consists of:
+These are the three directories this repository consists of:
 
 ### bin/
 
 Scripts.
+
+### one-liners/
+
+One-liners *(following [this guideline][wiki-Guideline-for-One-Liners])*.
+
+These solutions are similar to those in **bin/**, however, they are typically not used on their own and rather as a reference for new solutions. They are also typically not used as aliases.
 
 ### aliases/
 
@@ -31,17 +37,19 @@ Here is a list of some of the scripts in this repository:
 * [Get the ID, name, class, PID, etc. of the active window.][main-info-command-single#x11]
 * [Return a file for a command by locating or recursively searching for it (module).][modules#file]
 * [Check if a WLAN device is soft blocked.][main-info-command-single#hardware]
-* [Run a command in the terminal from outside of it (keybind utility).][utilities#keybind]
+* [Open a new terminal and run an initial command in it.][utilities#general]
 * [Run a countdown timer in the terminal.][utilities#miscellaneous]
 * [Bash utility functions (array, string, http, etc.).][bash_utilities#bash_utilities]
 * [Get contact info from an Android device.][android#android]
 * [Send an sms using an Android device.][android#android]
 
-This is a non-exhaustive list of the type of scripts this repository does not contain:
+## Not Included
+
+Here is a list of the type of solutions this repository does not contain:
 
 * File formatting or converting, such as BMP to JPEG or CYMK to RGB colors.
 * Text formatting
-* OS and application function specific.
+* OS or application function specific.
 * Solutions requiring very little research.
 
 ## packaged-utilities Repository
@@ -50,9 +58,9 @@ This is a non-exhaustive list of the type of scripts this repository does not co
 
 # Notes
 
-* This repository initially consists of 63 scripts and 2 files containing aliases.
+* This repository initially consists of 62 scripts, 2 files containing one-liners and 2 files containing aliases.
 
-* Every solution in this repository is continuously maintained to ensure that each is coded and documented well and error-free. This is what most of the work consists of. *Solutions are not, however, guaranteed to be error-free.*
+* Each solution in this repository is continuously maintained to ensure it conforms to the *linux-shell-base* philosophy and thorougly tested to ensure it is error-free. This is what most of the work consists of. *Solutions are not, however, guaranteed to be error-free.*
 
 # Contributing
 
@@ -60,7 +68,7 @@ The goal of this repository is to be as comprehensive as possible. Contributions
 
 Credits will be placed in the wiki and can identify the user in any way he or she likes, including name, username or URL. Contributed scripts will be looked over and should follow the [*Guideline for Scripts*][wiki-Guideline-for-Scripts].
 
-If a contributed script provides the same solution as another using an alternative method, it will be given the same base name with an incremented number. Files with the same base name will be ordered by the most commonly accepted method.
+If a contributed script provides the same solution as another using an alternative implementation, it will be given the same base name with an incremented number. Files with the same base name are ordered by the most commonly accepted method.
 
 Please feel free to send emails with suggestions, comments or questions.
 
@@ -75,10 +83,11 @@ In 1961, NASA set out on a mission to send a manned rocket to the moon, Apollo 1
 [main-modules#shell]: https://github.com/linux-shell-base/linux-shell-base/tree/master/bin/main-modules#shell
 [modules#file]: https://github.com/linux-shell-base/linux-shell-base/tree/master/bin/modules#file
 [main-info-command-single#hardware]: https://github.com/linux-shell-base/linux-shell-base/tree/master/bin/main-info-command-single#hardware
-[utilities#keybind]: https://github.com/linux-shell-base/linux-shell-base/tree/master/bin/utilities#keybind
+[utilities#general]: https://github.com/linux-shell-base/linux-shell-base/tree/master/bin/utilities#general
 [utilities#miscellaneous]: https://github.com/linux-shell-base/linux-shell-base/tree/master/bin/utilities#miscellaneous
 [bash_utilities#bash_utilities]: https://github.com/linux-shell-base/linux-shell-base/tree/master/bin/bash_utilities#bash_utilities
 [android#android]: https://github.com/linux-shell-base/linux-shell-base/tree/master/bin/android#android
 
 [wiki-Guideline-for-Aliases]: https://github.com/linux-shell-base/linux-shell-base/wiki/Guideline-for-Aliases
+[wiki-Guideline-for-One-Liners]: https://github.com/linux-shell-base/linux-shell-base/wiki/Guideline-for-One-Liners
 [wiki-Guideline-for-Scripts]: https://github.com/linux-shell-base/linux-shell-base/wiki/Guideline-for-Scripts
