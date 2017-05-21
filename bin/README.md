@@ -17,7 +17,7 @@ Well-tested and formatted bash utility functions.
 
 ## main
 
-Basic low-level scripts targeting different aspects of the application layer (e.g. file, hardware, networking, x11), divided into sections based on type.
+Scripts for different aspects of the application layer (e.g. file, hardware, networking, x11), divided into sections based on type.
 
 ### action
 

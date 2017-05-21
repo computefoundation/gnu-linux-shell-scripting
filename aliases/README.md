@@ -5,10 +5,10 @@ Aliases and short functions.
 
 ## Aliases
 
-Like the solutions in the bin/ directory, these aliases are ***not*** meant to be sourced all at once.
+Like the solutions in the bin/ directory, these solutions are ***not*** meant to be retrieved and sourced all at once although they can be.
 
-* **aliases-info.bash**: Aliases/short functions providing information only (no actions performed).
-* **aliases.bash**: Aliases/short functions performing an action.
+* **aliases-info.bash**: Aliases and short functions providing information only (no actions performed).
+* **aliases.bash**: Aliases and short functions performing an action.
 
 ### Notes
 

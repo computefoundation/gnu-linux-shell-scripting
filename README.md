@@ -1,26 +1,26 @@
 
 # Linux-shell-base
 
-**linux-shell-base** is a resource of solutions to universal low-level shell scripting problems in Linux based on a UNIX-centric methodology. It is a resource for learning to solve foundational and common shell scripting problems or for low-level solutions for all higher-level shell scripts.
+**linux-shell-base** is a resource of solutions to universal low-level shell scripting problems in Linux created with a UNIX-centric methodology. It is a resource for new Linux users learning to solve low-level shell scripting problems and low-level solutions for all higher-level shell scripting.
 
-All solutions in this repository follow four principles:
+All solutions in this repository conform four principles:
 
 * Apply to a large part of the Linux community.
-* Conform to a reusable and UNIX-centric methodology.
-* Use standard language techniques and methodologies.
-* Solve a problem that requires research.
+* Use a reusable and UNIX-centric methodology.
+* Solve a problem that requires a considerable amount of research.
+* Use universal scripting techniques and follow a standard [guideline][wiki-Guideline-for-Scripts].
 
-This repository provides solutions for multiple paradigms of the Linux application layer (see the bin/ directory). As a result, it has no build/install automation. Furthermore, all solutions are independent of each other.
+This repository provides solutions for multiple paradigms of the Linux application layer (see the bin/ directory). As a result, it has no build/install automation. All solutions are independent of each other.
 
 There are the two directories this repository consists of:
 
 ### bin/
 
-Scripts *(following [this guideline][wiki-Scripts-Guideline])*.
+Scripts.
 
 ### aliases/
 
-Aliases and short functions *(following [this guideline][wiki-Aliases-Guideline])*.
+Aliases and short functions *(following [this guideline][wiki-Guideline-for-Aliases])*.
 
 ## Examples
 
@@ -41,7 +41,7 @@ This is a non-exhaustive list of the type of scripts this repository does not co
 
 * File formatting or converting, such as BMP to JPEG or CYMK to RGB colors.
 * Text formatting
-* OS and application feature specific.
+* OS and application function specific.
 * Solutions requiring very little research.
 
 ## packaged-utilities Repository
@@ -50,15 +50,15 @@ This is a non-exhaustive list of the type of scripts this repository does not co
 
 # Notes
 
-* All initial scripts in this repository were tested with Arch Linux and the Xfce4 desktop environment.
+* This repository initially consists of 63 scripts and 2 files containing aliases.
 
-* Every solution in this repository is continuously maintained to ensure that each is coded and documented well and error-free. This is what most of the work consists of. Solutions are not, however, guaranteed to be error-free.
+* Every solution in this repository is continuously maintained to ensure that each is coded and documented well and error-free. This is what most of the work consists of. *Solutions are not, however, guaranteed to be error-free.*
 
 # Contributing
 
-The goal of this repository is to be as comprehensive as possible. Contributions are therefore welcome. If you would like to contribute a solution that follows the linux-shell-base philosophy, please send an email to linux_user_base@yahoo.com (email will be changed later).
+The goal of this repository is to be as comprehensive as possible. Contributions are therefore welcome. If you would like to contribute a solution that follows the linux-shell-base philosophy, please create a [pull request](https://gist.github.com/Chaser324/ce0505fbed06b947d962) or send an email to *linux_user_base@yahoo.com* (email will be changed soon).
 
-Credits will be placed in the wiki and can identify the user in any way he or she likes, including name, username or URL. Contributed scripts will be looked over and should follow [this guideline][wiki-Scripts-Guideline].
+Credits will be placed in the wiki and can identify the user in any way he or she likes, including name, username or URL. Contributed scripts will be looked over and should follow the [*Guideline for Scripts*][wiki-Guideline-for-Scripts].
 
 If a contributed script provides the same solution as another using an alternative method, it will be given the same base name with an incremented number. Files with the same base name will be ordered by the most commonly accepted method.
 
@@ -80,5 +80,5 @@ In 1961, NASA set out on a mission to send a manned rocket to the moon, Apollo 1
 [bash_utilities#bash_utilities]: https://github.com/linux-shell-base/linux-shell-base/tree/master/bin/bash_utilities#bash_utilities
 [android#android]: https://github.com/linux-shell-base/linux-shell-base/tree/master/bin/android#android
 
-[wiki-Aliases-Guideline]: https://github.com/linux-shell-base/linux-shell-base/wiki/Aliases-Guideline
-[wiki-Scripts-Guideline]: https://github.com/linux-shell-base/linux-shell-base/wiki/Scripts-Guideline
+[wiki-Guideline-for-Aliases]: https://github.com/linux-shell-base/linux-shell-base/wiki/Guideline-for-Aliases
+[wiki-Guideline-for-Scripts]: https://github.com/linux-shell-base/linux-shell-base/wiki/Guideline-for-Scripts
