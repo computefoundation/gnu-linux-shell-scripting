@@ -1,0 +1,7 @@
+
+# Get the maximum backlight level.
+cat /sys/class/backlight/intel_backlight/max_brightness
+
+# Set the backlight level.
+tee /sys/class/backlight/intel_backlight/brightness <<< <backlight level>
+
