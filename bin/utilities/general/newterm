@@ -121,6 +121,7 @@ fi
 # ============================================
 #   Utilitiy functions
 # ============================================
+
 getwindidbypid() {
   while IFS= read line; do
     if [[ "${line}" =~ (0x)([0-9a-z]+)([ ][- ][0-9]+[ ])([0-9]*) ]]; then
@@ -137,10 +138,15 @@ getwindidbypid() {
 # ============================================
 #   Launch terminal
 # ============================================
+
 nohup xterm -sl 9000 -xrm \
     "XTerm.vt100.allowTitleOps: ${cfgAllowTtlOps}" -geometry "${geometry}" \
     ${colorProps} -title "${title}" ${fontProps} -e bash -c \
     "$(echo "${@}"; printf '\n exec bash')" &>/dev/null &
+    # Note: "echo "${@}"" in the command substitution allows any command to be
+    # passed, including a Here document. "printf '\n exec bash'" allows the
+    # "exec bash" command to be run no matter what, even if a Here document is
+    # the command.
 
 PID=$!
 
@@ -162,6 +168,7 @@ echo "${WIND_ID}"
 # ============================================
 #   Post execution options
 # ============================================
+
 if [ "${OPT_MOVE_WINDOW_TO_WORKSPACE_2}" = 'true' ]; then
   sleep .1; wmctrl -i -r "${WIND_ID}" -t 1
 elif [ "${OPT_MOVE_WINDOW_TO_WORKSPACE_3}" = 'true' ]; then
