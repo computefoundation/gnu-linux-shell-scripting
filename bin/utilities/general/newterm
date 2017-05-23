@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 # 
-# Open a new terminal and run an initial command in it. A simple layer for
-# configuring terminal settings is additionally provided.
+# Open a new terminal and run an initial command in it.
+# 
+# A simple layer for configuring terminal settings is additionally provided.
 # 
 # Returns:
 #   The window ID of the new terminal window.
@@ -142,11 +143,7 @@ getwindidbypid() {
 nohup xterm -sl 9000 -xrm \
     "XTerm.vt100.allowTitleOps: ${cfgAllowTtlOps}" -geometry "${geometry}" \
     ${colorProps} -title "${title}" ${fontProps} -e bash -c \
-    "$(echo "${@}"; printf '\n exec bash')" &>/dev/null &
-    # Note: "echo "${@}"" in the command substitution allows any command to be
-    # passed, including a Here document. "printf '\n exec bash'" allows the
-    # "exec bash" command to be run no matter what, even if a Here document is
-    # the command.
+    "$(printf '%s\nexec bash' "$*")" &>/dev/null &
 
 PID=$!
 
