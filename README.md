@@ -62,7 +62,7 @@ Here is a list of the type of solutions this repository does not contain:
 
 * Each solution in this repository is continuously maintained to ensure it conforms to the *linux-shell-base* philosophy and thorougly tested to ensure it is error-free. This is what most of the work consists of. *Solutions are not, however, guaranteed to be error-free.*
 
-* All initial solutions have been created and tested in Bash only *(and not Ksh, Zsh, etc.)*, however, they are updated to be made as portable as possible.
+* All initial solutions have been created and tested in Bash only *(and not Ksh, Zsh, etc.)*, however, they are updated to be more portable primarily when the changes are significant.
 
 # Contributing
 
