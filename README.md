@@ -1,7 +1,7 @@
 
 # Linux-shell-base
 
-**linux-shell-base** is a resource of solutions to universal low-level shell scripting problems in Linux created with a UNIX-centric methodology. It is a resource for new Linux users learning to solve low-level shell scripting problems and individuals seeking low-level UNIX-centric solutions for high-level shell scripting.
+**linux-shell-base** is a resource of solutions to universal low-level shell scripting problems in Linux created with a UNIX-centric methodology. It is for new Linux users learning to solve low-level shell scripting problems and individuals seeking UNIX-centric solutions to low-level problems for higher-level shell scripting.
 
 All solutions in this repository conform to four principles:
 
@@ -61,6 +61,8 @@ Here is a list of the type of solutions this repository does not contain:
 * This repository initially consists of 62 scripts, 2 files containing one-liners and 2 files containing aliases.
 
 * Each solution in this repository is continuously maintained to ensure it conforms to the *linux-shell-base* philosophy and thorougly tested to ensure it is error-free. This is what most of the work consists of. *Solutions are not, however, guaranteed to be error-free.*
+
+* All initial solutions have been created and tested in Bash only *(and not Ksh, Zsh, etc.)*, however, they are updated to be made as portable as possible.
 
 # Contributing
 
