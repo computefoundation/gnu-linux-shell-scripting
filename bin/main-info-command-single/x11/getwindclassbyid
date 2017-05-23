@@ -2,8 +2,8 @@
 # 
 # Get the class of a window by ID.
 # 
-# Returns the full qualified class string (the class and classname; e.g.
-# "xterm.XTerm").
+# Returns:
+#   The full qualified class string (class and classname; e.g. "xterm.XTerm")).
 # 
 
 if [ $# -eq 0 ]; then

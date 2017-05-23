@@ -2,6 +2,11 @@
 # 
 # Get the PID of a window by ID.
 # 
+# Usage:
+#   getwindpidbyid <window ID>
+# 
+#   <window ID>: must be in hexidecimal format
+# 
 
 if [ $# -eq 0 ]; then
   exit

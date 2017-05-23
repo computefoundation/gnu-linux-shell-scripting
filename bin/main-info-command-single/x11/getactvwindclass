@@ -2,8 +2,8 @@
 # 
 # Get the class of the active window.
 # 
-# Returns the full qualified class string (class and classname; e.g.
-# "xterm.XTerm"))
+# Returns:
+#   Full qualified class string (class and classname; e.g. "xterm.XTerm")).
 # 
 
 getactvwindid() {

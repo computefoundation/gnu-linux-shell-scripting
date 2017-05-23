@@ -2,6 +2,11 @@
 # 
 # Get the name of a window by ID.
 # 
+# Usage:
+#   getwindnamebyid <window ID>
+# 
+#   <window ID>: must be in hexidecimal format
+# 
 
 if [ $# -eq 0 ]; then
   exit

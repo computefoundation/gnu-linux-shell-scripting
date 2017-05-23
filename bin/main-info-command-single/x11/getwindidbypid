@@ -2,6 +2,9 @@
 # 
 # Get the ID of a window by PID (if the process has a window).
 # 
+# Usage:
+#   getwindidbypid <PID>
+# 
 
 if [[ $# -eq 0 || ! "${1}" =~ ^[0-9]+$ ]]; then
   exit

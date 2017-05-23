@@ -2,9 +2,11 @@
 # 
 # Get the names of all windows in a class.
 # 
-# Arguments:
-#   1. Window class (case-sensitive; can match any part of the full qualified
-#      class string (class and classname; e.g. "xterm.XTerm"))
+# Usage:
+#   getwindnamesinclass <window class>
+# 
+#   <window class>: case-sensitive; can match any part of the full qualified
+#   class string (class and classname; e.g. "xterm.XTerm")
 # 
 
 if [ $# -eq 0 ]; then

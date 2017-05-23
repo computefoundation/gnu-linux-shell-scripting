@@ -2,11 +2,14 @@
 # 
 # Get the IDs of all windows in a class.
 # 
-# Arguments:
-#   1. Window class (case-sensitive; can match any part of the full qualified
-#      class string (class and classname; e.g. "xterm.XTerm"))
+# Usage:
+#   getwindidsinclass <window class>
 # 
-# Note: IDs are printed in hexidecimal
+#   <window class>: case-sensitive; can match any part of the full qualified
+#   class string (class and classname; e.g. "xterm.XTerm")
+# 
+# Returns:
+#   The window IDs in hexidecimal format.
 # 
 
 if [ $# -eq 0 ]; then

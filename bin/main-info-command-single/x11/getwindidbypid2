@@ -2,6 +2,9 @@
 # 
 # Get the ID of a window by PID (if the process has a window) (2).
 # 
+# Usage:
+#   getwindidbypid <PID>
+# 
 
 use strict;
 use warnings;
