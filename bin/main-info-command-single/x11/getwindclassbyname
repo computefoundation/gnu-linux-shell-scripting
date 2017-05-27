@@ -13,7 +13,7 @@
 #   returned.
 # 
 
-if [ $# -eq 0 ]; then
+if [ "$#" -eq 0 ]; then
   exit
 fi
 

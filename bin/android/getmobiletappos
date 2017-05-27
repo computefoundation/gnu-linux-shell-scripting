@@ -14,7 +14,7 @@ readonly TIMEOUT_TIME=5
 
 # ======= ! CONFIGURATIONS ======================
 
-if [ $# -ge 2 ]; then
+if [ "$#" -ge 2 ]; then
   tmoutTime="${2}"
 else
   tmoutTime="${TIMEOUT_TIME}"

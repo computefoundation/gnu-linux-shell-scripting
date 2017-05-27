@@ -9,7 +9,7 @@
 readonly ACTION="${1}"
 readonly DB_NAME="${2}"
 
-if [ $# -lt 1 ]; then
+if [ "$#" -lt 1 ]; then
   echo "mongodbutil: no action specified" 1>&2
   exit 1
 fi
@@ -30,7 +30,7 @@ case "${ACTION}" in
   #   2. (Optional) Name for the collection; default is JSON file name
   'import')
     if dbNotSpecified; then exit 1; else shift; fi
-    if [ $# -lt 1 ]; then
+    if [ "$#" -lt 1 ]; then
       echo "mongodbutil: no directory specified" 1>&2
       exit 1
     elif [ ! -f "${1}" ]; then

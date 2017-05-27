@@ -12,11 +12,11 @@
   extractOptions() {
     local arr=(${@})
     local opts
-    if [[ "${arr[0]}" == '-'* ]]; then
+    if [[ "${arr[0]}" = '-'* ]]; then
       opts="${arr[0]} "
       for ((x=1; x<=${#arr[@]}; x++)); do
-        if [[ "${arr[@]:x:1}" == '-'* ]]; then opts+="${arr[@]:x:1} "
-        elif [[ "${arr[@]:((x+1)):1}" == '-'* ]]; then opts+="${arr[@]:x:1} "
+        if [[ "${arr[@]:x:1}" = '-'* ]]; then opts+="${arr[@]:x:1} "
+        elif [[ "${arr[@]:((x+1)):1}" = '-'* ]]; then opts+="${arr[@]:x:1} "
         else break
         fi
       done

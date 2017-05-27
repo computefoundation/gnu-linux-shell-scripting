@@ -27,7 +27,7 @@
   #   2. (Optional) Path to search in (default is current)
   getIncrementedFilename() {
     local filen="${1}"
-    [ $# -ge 2 ] && local path="${2}" || local path='.'
+    [ "$#" -ge 2 ] && local path="${2}" || local path='.'
     local fileExt="$(extractFileExtension "${filen}")"
     [ -n "${fileExt}" ] && fileExt=".${fileExt}"
     local fileBsn="${1%${fileExt}*}"

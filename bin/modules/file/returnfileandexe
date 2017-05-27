@@ -75,7 +75,7 @@ Notes:
 # Note: The following could be done using bultin "set --", however, it removes
 # all arguments containing "?".
 for ((x=1; x<=$#; x++)); do
-  if [[ "${@:x:1}" == *'}'* ]]; then
+  if [[ "${@:x:1}" = *'}'* ]]; then
     executeCmd="${@:1:x}"
     shift ${x}
   fi
@@ -110,7 +110,7 @@ done
 
 case "${SEARCH_METHOD}" in
   'locate')
-    if [ $# -eq 0 ]; then
+    if [ "$#" -eq 0 ]; then
       echo 'RFE (module): no file specified' 1>&2
       exit 1
     fi
@@ -146,10 +146,10 @@ case "${SEARCH_METHOD}" in
     ;;
 
   'find')
-    if [ $# -eq 0 ]; then
+    if [ "$#" -eq 0 ]; then
       echo 'RFE (module): no file specified' 1>&2
       exit 1
-    elif [ $# -ge 2 ]; then
+    elif [ "$#" -ge 2 ]; then
       dir="${2}"
     else
       dir='.'

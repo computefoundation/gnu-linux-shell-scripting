@@ -24,7 +24,7 @@ Notes
 "
 }
 
-if [ $# -eq 0 ]; then
+if [ "$#" -eq 0 ]; then
   echo 'filesize: no arguments' 1>&2
   exit 1
 fi

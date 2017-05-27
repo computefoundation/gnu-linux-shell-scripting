@@ -6,7 +6,7 @@
 #   1. Contact phone number or name.
 # 
 
-if [ $# -eq 0 ]; then
+if [ "$#" -eq 0 ]; then
   echo 'contactinfo: contact phone no. or name required' 1>&2
   exit 1
 fi

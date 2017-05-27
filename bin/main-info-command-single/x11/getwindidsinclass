@@ -12,7 +12,7 @@
 #   The window IDs in hexidecimal format.
 # 
 
-if [ $# -eq 0 ]; then
+if [ "$#" -eq 0 ]; then
   exit
 fi
 

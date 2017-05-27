@@ -8,7 +8,7 @@
 #   <window ID>: must be in hexidecimal format
 # 
 
-if [ $# -eq 0 ]; then
+if [ "$#" -eq 0 ]; then
   exit
 elif [[ ! "${1}" =~ '0x'.* ]]; then
   echo 'getwindpidbyid: argument not in hexidecimal format' 1>&2

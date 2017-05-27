@@ -67,9 +67,9 @@ while true; do
   shift
 done
 
-if [ $# -lt 2 ]; then
+if [ "$#" -lt 2 ]; then
   printHelpMessage
-  [ $# -eq 0 ] && { echo; printActions; }
+  [ "$#" -eq 0 ] && { echo; printActions; }
   exit 1
 fi
 
@@ -91,7 +91,7 @@ getwindclassbyname() {
 }
 
 getwindidbyname() {
-  [ $# -eq 0 ] && return
+  [ "$#" -eq 0 ] && return
   windIds=("$(wmctrl -l | awk -v srchTxt="${1}" '{$2=$3=""; wn = \
       gensub(/([^ ]*[ ]+)(.*)/, "\\2", "g", $0)} wn ~ srchTxt {print $1}')")
   echo "${windIds[@]}"

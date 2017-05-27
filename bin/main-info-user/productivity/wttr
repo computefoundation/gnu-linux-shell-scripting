@@ -25,9 +25,9 @@ ACCU_WEATHER_LOC_ID='351409' # ID for Seattle, WA
 
 # ======= ! CONFIGURATIONS ======================
 
-if [ $# -ge 2 ]; then
+if [ "$#" -ge 2 ]; then
   ACCU_WEATHER_LOC_ID="${2}"
-elif [ $# -ge 1 ]; then
+elif [ "$#" -ge 1 ]; then
   ACCU_WEATHER_LOC_ID=''
 fi
 

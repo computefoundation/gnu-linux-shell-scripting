@@ -8,7 +8,7 @@
 #   If no directory is specified, the current directory will be used.
 # 
 
-if [ $# -eq 0 ]; then
+if [ "$#" -eq 0 ]; then
   START_DIR=''
 else
   START_DIR="${1}"

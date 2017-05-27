@@ -25,17 +25,21 @@
 # Value generation
 # --------------------------------------------
   # Generate random date between two dates specified by year, month and hour and
-  # output in the format YYYY-MM-DD hh:mm:ss.nnnnnnnnn (e.g.
-  # 2004-02-27 14:19:13.489392193). (Note: All generated dates are in the
-  # century defined by DFLT_CENTURY; also, date entites are inclusive, meaning
-  # the date/time up until the next year/month/hour (depending on the entity)
-  # may be used; e.g., if the max hour is 15, the time can be anything until the
-  # last minute of the hour).
+  # output in ISO 8601 format (e.g. 2004-02-25T14:19:13.489392193). (Note: All
+  # generated years are in the century defined by DFLT_CENTURY; also, date
+  # entites are inclusive, meaning the date/time up until the next
+  # year/month/hour may be used; e.g., if the max hour is 15, the minutes can be
+  # any until the last one of the hour).
   # Arguments:
   #   1. Min/max dates specified by year, month and hour in the format "YY[min],
-  #      YY[max],MM[min],MM[max],HH[min],HH[max]" (e.g. 2,6,1,8,15,19)
+  #      YY[max],MM[min],MM[max],HH[min],HH[max]" (e.g. 2,6,1,8,15,19).
+  # Options:
+  #   -t   get date as timestamp in the fomat [[CC]YY]MMDDhhmm[.ss] instead.
   generateRandomDate() {
     local DFLT_CENTURY='21'
+    local OPT OPTIND
+    getopts :t OPT
+    shift $((OPTIND-1))
     exec 3>&1 4>&2; exec >/dev/tty 2>&1 # redirect all output to >/dev/tty
     if [[ ! "${1}" =~ \
         [0-9]{1,2},[0-9]{1,2},[0-9]{1,2},[0-9]{1,2},[0-9]{1,2},[0-9]{1,2} ]]
@@ -67,8 +71,12 @@
     local second="$(printf "%02d" "$(shuf -i 0-59 -n 1)")"
     local nanosecond="$(printf "%09d" "$(shuf -i 0-999999999 -n 1)")"
     DFLT_CENTURY=$((${DFLT_CENTURY} - 1))
-    local out="${DFLT_CENTURY}${year}-${month}-${day} ${hour}:${minute}:"
-    out+="${second}.${nanosecond}"
+    if [ "${OPT}" = 't' ]; then
+      local out="${DFLT_CENTURY}${year}${month}${day}${hour}${minute}.${second}"
+    else
+      local out="${DFLT_CENTURY}${year}-${month}-${day}T${hour}:${minute}:"
+      out+="${second}.${nanosecond}"
+    fi
     exec >&3 2>&4
     echo "${out}"
   }

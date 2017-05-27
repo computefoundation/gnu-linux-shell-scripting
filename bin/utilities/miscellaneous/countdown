@@ -16,7 +16,7 @@ PRINT_DAYS_ALSO=false
 
 # ======= ! CONFIGURATIONS ======================
 
-if [ $# -eq 0 ]; then
+if [ "$#" -eq 0 ]; then
   echo 'countdown: time required in seconds' 1>&2
   exit 1
 elif [[ ! "${1}" =~ ^[0-9]+$ ]]; then

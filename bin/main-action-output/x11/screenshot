@@ -18,7 +18,7 @@ OUT_PATH="${HOME}"
 
 # ======= ! CONFIGURATIONS ======================
 
-if [ $# -ge 1 ]; then
+if [ "$#" -ge 1 ]; then
   if [[ "${1}" != 'full' && "${1}" != 'section' && "${1}" != 'window' ]]; then
     echo 'screenshot: invalid argument' 1>&2
     exit 1
@@ -43,7 +43,7 @@ extractFileExtension() {
 # Utility function to return the next numbered file name.
 getIncrementedFilename() {
   local filen="${1}"
-  [ $# -ge 2 ] && local path="${2}" || local path='.'
+  [ "$#" -ge 2 ] && local path="${2}" || local path='.'
   local fileExt="$(extractFileExtension "${filen}")"
   [ -n "${fileExt}" ] && fileExt=".${fileExt}"
   local fileBsn="${1%${fileExt}*}"

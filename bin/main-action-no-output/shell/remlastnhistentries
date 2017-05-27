@@ -12,7 +12,7 @@
 _remlastnhistentries() {
   numCurrHistEntries="$(history | wc -l)"
 
-  if [ $# -eq 0 ]; then
+  if [ "$#" -eq 0 ]; then
     echo -e 'remlastnhistentries: no argument' 1>&2
     return 1
   elif [[ ! "${1}" =~ ^[0-9]+$ || "${1}" -lt 1 || "${1}" -gt 100 ]]; then

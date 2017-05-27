@@ -6,7 +6,7 @@
 #   The full qualified class string (class and classname; e.g. "xterm.XTerm")).
 # 
 
-if [ $# -eq 0 ]; then
+if [ "$#" -eq 0 ]; then
   exit
 elif [[ ! "${1}" =~ '0x'.* ]]; then
   echo 'getwindclassbyid: argument not in hexidecimal format' 1>&2

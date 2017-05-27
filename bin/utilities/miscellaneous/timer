@@ -23,7 +23,7 @@ SOUND_FILE='/usr/share/orage/sounds/KDE_Beep_Digital_1.ogg'
 
 # ======= ! CONFIGURATIONS ======================
 
-if [ $# -eq 0 ]; then
+if [ "$#" -eq 0 ]; then
   echo 'timer: time required in minutes' 1>&2
   exit 1
 elif [[ ! "${1}" =~ ^[0-9]+$ ]]; then
@@ -36,10 +36,10 @@ fi
 
 MINUTES="${1}"
 
-if [ $# -gt 1 ]; then
+if [ "$#" -gt 1 ]; then
   args="${2} ${3} ${4}"
   termTtl="Timer: ${args::14}"
-  [ $# -ge 5 ] && termTtl+='...'
+  [ "$#" -ge 5 ] && termTtl+='...'
 else
   termTtl='Timer'
 fi
@@ -61,7 +61,7 @@ export -f countdown
 
 termCmd="\
 echo -e \"\nTime: ${MINUTES} minutes\";
-[ $# -ge 2 ] && echo -e \"\nTask:\n\n    ${@:2}\";
+[ "$#" -ge 2 ] && echo -e \"\nTask:\n\n    ${@:2}\";
 echo -e \"\n\nCountdown:\n\";
 countdown $((${MINUTES} * 60));
 echo;

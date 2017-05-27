@@ -8,7 +8,7 @@
 #   3. Database name
 # 
 
-if [ $# -ne 3 ]; then
+if [ "$#" -ne 3 ]; then
   echo "mysqlutil: invalid arguments" 1>&2
   exit 1
 fi

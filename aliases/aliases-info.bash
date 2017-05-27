@@ -67,11 +67,11 @@ alias sshconn='sudo lsof -i -n | egrep \<sshd\>'                                
 # ~~~~~~~ 5.  SHELL UTILITIES ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #[Find]
-ff() { local d='.'; [ $# -gt 1 ] && d="${2}"; local out="$(find "${d}" -type f \
-  -name "*${1}*")"; [ -n "${out}" ] && echo "${out}"; }                          # ff: find files recursively; $1: file name; $2: directory (optional; default is current)
+ff() { local d='.'; [ "$#" -gt 1 ] && d="${2}"; local out="$(find "${d}" -type \
+  f -name "*${1}*")"; [ -n "${out}" ] && echo "${out}"; }                        # ff: find files recursively; $1: file name; $2: directory (optional; default is current)
 
-fd() { local d='.'; [ $# -gt 1 ] && d="${2}"; local out="$(find "${d}" -type d \
-  -name "*${1}*")"; [ -n "${out}" ] && echo "${out}"; }                          # fd: find directories recursively; $1: directory name; $2: directory (optional; default is current)
+fd() { local d='.'; [ "$#" -gt 1 ] && d="${2}"; local out="$(find "${d}" -type \
+  d -name "*${1}*")"; [ -n "${out}" ] && echo "${out}"; }                        # fd: find directories recursively; $1: directory name; $2: directory (optional; default is current)
 
 #[Configuration]
 showa() { grep --color=always -i -a1 "${@}" ${HOME}/.bashrc | grep -v '^\s*$'; } # showa: show a bashrc alias given some part of it

@@ -84,11 +84,11 @@ while true; do
   shift
 done
 
-if [ $# -eq 0 ]; then
+if [ "$#" -eq 0 ]; then
   echo -e 'exeandmovewind: no arguments' 1>&2
   printHelpMessage
   exit 1
-elif [ $# -lt 3 ]; then
+elif [ "$#" -lt 3 ]; then
   echo -e 'exeandmovewind: invalid number of arguments' 1>&2
   printHelpMessage
   exit 1

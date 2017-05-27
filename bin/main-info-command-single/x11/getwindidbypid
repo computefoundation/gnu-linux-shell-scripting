@@ -6,7 +6,7 @@
 #   getwindidbypid <PID>
 # 
 
-if [[ $# -eq 0 || ! "${1}" =~ ^[0-9]+$ ]]; then
+if [[ "$#" -eq 0 || ! "${1}" =~ ^[0-9]+$ ]]; then
   exit
 fi
 

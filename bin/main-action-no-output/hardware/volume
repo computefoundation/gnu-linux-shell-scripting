@@ -19,7 +19,7 @@ VOLUME_LEVEL3=90
 
 # ======= ! CONFIGURATIONS ======================
 
-if [[ $# -ge 1 && ! "${1}" =~ ^[0-9]+$ ]]; then
+if [[ "$#" -ge 1 && ! "${1}" =~ ^[0-9]+$ ]]; then
   notify-send 'volume: invalid arguments'
   exit 1
 fi
@@ -29,7 +29,7 @@ setVolAndNotify() {
   notify-send "Volume: ${1}%"
 }
 
-if [ $# -gt 0 ]; then
+if [ "$#" -gt 0 ]; then
   setVolAndNotify "${1}"
 else
   currVol="$(amixer get Master | tail -1 | sed -n \
