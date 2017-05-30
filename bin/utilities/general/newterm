@@ -12,8 +12,6 @@
 #   wmctrl (used to get the window ID of the terminal window and move it)
 # 
 
-readonly SCRIPT_NAME="$(basename "${BASH_SOURCE[0]}")"
-
 # ======= CONFIGURATIONS ======================
 
 readonly SECOND_FONT_FACE='DejaVu Sans Mono'
@@ -21,6 +19,7 @@ readonly DEFAULT_FONT_SIZE=12
 readonly MIN_FONT_SIZE=6
 readonly MAX_FONT_SIZE=16
 readonly DEFAULT_GEOMETRY='82x44+190+100'
+# Default geometry used when the terminal window is moved to the second screen.
 readonly SECOND_SCREEN_GEOMETRY='80x44+2080+100'
 
 # ======= ! CONFIGURATIONS ======================
@@ -29,29 +28,29 @@ printHelpMessage() {
   echo -e "\
 Open a new xterm terminal
 
-Usage: newterm [options] [initial command]
+Usage: newterm [options] -- [initial command]
 
 Options:
-  -t --title <title>       title
-  -g --geometry            window geometry
-  -m --maximize            maximize window
+  -t --title <title>        title
+  -g --geometry <geometry>  window geometry (WIDTHxHEIGHT+X+Y)
+  -m --maximize             maximize window
   -s --fs --font-size <size>
-                           specify font size (value
-                           between ${MIN_FONT_SIZE} and ${MAX_FONT_SIZE})
-  -f --font2               use second font face (${SECOND_FONT_FACE})
-  -w --white-bg            use white background
-  -r --second-screen       move to second screen (if
-                           secondary monitor is enabled)
-  -2 --ws2 --workspace2    move to workspace 2
-  -3 --ws3 --workspace3    move to workspace 3
-  -4 --ws4 --workspace4    move to workspace 4
-  -h --help                show help message\
+                            specify font size (value
+                            between ${MIN_FONT_SIZE} and ${MAX_FONT_SIZE})
+  -f --font2                use second font face (${SECOND_FONT_FACE})
+  -w --white-bg             use white background
+  -r --second-screen        move to second screen (if
+                            secondary monitor is enabled)
+  -2 --ws2 --workspace2     move to workspace 2
+  -3 --ws3 --workspace3     move to workspace 3
+  -4 --ws4 --workspace4     move to workspace 4
+  -h --help                 show help message\
 "
 }
 
 OPTS="$(getopt -o t:g:ms:fwr234h --long title:,geometry:,maximize,fs: \
     --long font-size:,font2,white-bg,second-screen,ws2,workspace2,ws3 \
-    --long workspace3,ws4,workspace4,help -n "${SCRIPT_NAME}" -- "${@}")"
+    --long workspace3,ws4,workspace4,help -n 'newterm' -- "${@}")"
 [ $? -ne 0 ] && echo "exiting..." 1>&2 && exit 1
 eval set -- "${OPTS}"
 while true; do
