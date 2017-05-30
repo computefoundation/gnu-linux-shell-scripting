@@ -2,8 +2,8 @@
 # 
 # Get contact info from an Android device.
 # 
-# Arguments:
-#   1. Contact phone number or name.
+# Usage:
+#   contactinfo <contact phone or name>
 # 
 
 if [ "$#" -eq 0 ]; then

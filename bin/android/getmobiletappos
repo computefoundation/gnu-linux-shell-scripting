@@ -3,13 +3,15 @@
 # Watch and print X and Y screen tap coordinates on an Android device. Output
 # is automatically converted from hexidecimal to decimal for easy readability.
 # 
-# Arguments:
-#   1. (Optional) Time (seconds) to watch for tap events.
+# Usage:
+#   getmobiletappos [seconds]
+# 
+#   seconds: (Optional) Number of seconds to watch for tap events.
 # 
 
 # ======= CONFIGURATIONS ======================
 
-# Defult time (seconds) to watch for tap events
+# Defult number of seconds to watch for tap events
 readonly TIMEOUT_TIME=5
 
 # ======= ! CONFIGURATIONS ======================
