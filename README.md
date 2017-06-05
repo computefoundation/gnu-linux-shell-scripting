@@ -1,18 +1,16 @@
 
 # Linux-shell-base
 
-**linux-shell-base** is a resource of solutions to universal low-level shell scripting problems in Linux. It can be used by new Linux users learning shell scripting and how to solve such problems or as a resource of UNIX-centric solutions for all higher-level shell scripting.
+**linux-shell-base** is a resource/reference of solutions to foundational shell scripting problems in Linux. It is a solution for shell scripting problems in the lowest sublayer of the Linux application layer for higher-level shell scripting.
 
-All solutions in this repository conform to four principles:
+All solutions conform to four principles:
 
-* Apply to a large part of the Linux community.
+* Solve a problem applicable to a large part of the Linux community.
+* Solve a problem that requires a considerable amount of research.
 * Adhere to the [UNIX philosophy][reference-Eric-Raymond-17_Unix_Rules].
 * Follow a standard [guideline][wiki-Guideline-for-Scripts].
-* Solve a problem requiring a considerable amount of research.
 
-This repository has no build/install automation as it provides low-level solutions for multiple paradigms of the Linux application layer (see the bin/ directory). All solutions are additionally independent of each other.
-
-It consists of three directories:
+This repository has no build/install automation. All solutions are additionally independent of each other and contained in the following three directories:
 
 ### bin/
 
@@ -22,11 +20,11 @@ Scripts.
 
 One-liners.
 
-These solutions are similar to those in **bin/**, however, they are primarily used as references for new solutions rather than on their own. They are also typically not used as aliases.
+*One-liners are similar in concept to solutions in **bin/**, except they are typically not used on their own and instead with completely new solutions. They are also not typically used as aliases.*
 
 ### aliases/
 
-Aliases and short functions.
+Aliases and short functions for bash profiles.
 
 ## Examples
 
@@ -45,7 +43,7 @@ Here is a list of some of the scripts in this repository:
 
 ## Not Included
 
-The type of solutions this repository does not contain are the following:
+The type of solutions this repository does not include are the following:
 
 * File formatting or converting, such as BMP to JPEG or CYMK to RGB colors.
 * Text formatting
@@ -54,25 +52,23 @@ The type of solutions this repository does not contain are the following:
 
 ## packaged-utilities Repository
 
-**linux-shell-base** has an extension repository for packaged utilities [here][packaged-utilities].
+*linux-shell-base* has an extension repository for packaged utilities [here][packaged-utilities].
 
 # Notes
 
-* This repository initially consists of 62 scripts, 2 files containing one-liners and 2 files containing aliases.
+* This repository initially consists of 62 scripts, 52 aliases and short functions and 3 one-liners.
 
-* Each solution in this repository is continuously maintained to ensure it conforms to the *linux-shell-base* philosophy and thorougly tested to ensure it is error-free. This is what most of the work consists of. *Solutions are not, however, guaranteed to be error-free.*
+* Each solution is continuously maintained to ensure it conforms to the *linux-shell-base* philosophy and thorougly tested to ensure it is error-free. This is what most of the work consists of. *Solutions are not, however, guaranteed to be error-free.*
 
 * All initial solutions have been created and tested in Bash only *(and not Ksh, Zsh, etc.)*, however, they are updated to be more portable if the changes are significant.
 
 # Contributing
 
-The goal of this repository is to be as comprehensive as possible. Contributions are therefore welcome. If you would like to contribute a solution that follows the linux-shell-base philosophy, please create a [pull request](https://gist.github.com/Chaser324/ce0505fbed06b947d962) or send an email to *linux_user_base@yahoo.com* (email will be changed soon).
+The goal of this repository is to be as comprehensive as possible for the Linux community to benefit from solutions to as many low-level problems as possible. If you would like to contribute a solution that follows the *linux-shell-base* philosophy, please create a [pull request](https://gist.github.com/Chaser324/ce0505fbed06b947d962) or send an email to *linux_user_base@yahoo.com* *(email will be changed soon)*.
 
-Contributed scripts will be looked over and should follow the [*Guideline for Scripts*][wiki-Guideline-for-Scripts]. Credits will be placed in the wiki and can identify the user by name, username or URL.
+Contributed scripts will be looked over and must follow the [*Guideline for Scripts*][wiki-Guideline-for-Scripts]. If a contributed solution uses an alternative method/implementation to an already existing solution, it will be given the same name with an incremented number, ordered by the most commonly accepted method/implementation. Finally, credits will be placed in the Wiki and can identify the user by name, username or URL.
 
-If a contributed script provides the same solution as another using an alternative implementation, it will be given the same base name with an incremented number, ordered by the most commonly accepted method.
-
-Please feel free to send emails with suggestions, comments or questions.
+Please send an email with any suggestions, comments or questions.
 
 # Background Philosophy
 
