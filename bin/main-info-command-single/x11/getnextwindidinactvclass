@@ -2,18 +2,31 @@
 # 
 # Get the ID of the next window in the class of the active window.
 # 
+# Options:
+#   -n [NAME]   Only windows with titles partially matched by NAME.
+# 
 # Returns:
 #   The ID of the next window in the class. If no other windows in the class
 #   exist, the ID of the active window will be returned instead.
 # 
 
-getwindidsinclass() {
-  echo "$(wmctrl -lx | awk -v class="${1}" '$3 ~ class {print $1}')"
-}
+while getopts n: OPT; do
+  case "${OPT}" in
+    n) OPT_WIND_NAME="${OPTARG}"
+       ;;
+  esac
+done
+shift $((OPTIND - 1))
 
 getactvwindid() {
   echo "$(xprop -root _NET_ACTIVE_WINDOW | cut -d ' ' -f 5 | rev | cut -c 2- | \
       rev | sed 's/^0x/0x0/')"
+}
+
+ACTV_WIND_ID="$(getactvwindid)"
+
+getwindidsinclass() {
+  echo "$(wmctrl -lx | awk -v class="${1}" '$3 ~ class {print $1}')"
 }
 
 getwindclassbyid() {
@@ -21,13 +34,24 @@ getwindclassbyid() {
       's/[^"]*"\([^"]*\)",\s"\([^"]*\)"/\1.\2/p')"
 }
 
-getactvwindclass() {
-  echo "$(getwindclassbyid "${ACTV_WIND_ID}")"
-}
+CLASS_WIND_IDS=($(getwindidsinclass "$(getwindclassbyid "${ACTV_WIND_ID}")"))
 
-ACTV_WIND_ID="$(getactvwindid)"
+if [ -n "${OPT_WIND_NAME}" ]; then
+  getwindnamebyid() {
+    echo "$(xprop -id "${1}" WM_NAME 2>/dev/null | sed -n \
+        's/[^"]*"\(.*\)./\1/p')"
+  }
 
-CLASS_WIND_IDS=($(getwindidsinclass "$(getactvwindclass)"))
+  for windId in "${CLASS_WIND_IDS[@]}"; do
+    windName="$(getwindnamebyid "${windId}")"
+
+    if [[ "${windName}" = *"${OPT_WIND_NAME}"* ]]; then
+      clssWindIdsTmp+=("${windId}")
+    fi
+  done
+
+  CLASS_WIND_IDS=("${clssWindIdsTmp[@]}")
+fi
 
 for indx in ${!CLASS_WIND_IDS[@]}; do
   if [ "${CLASS_WIND_IDS[${indx}]}" = "${ACTV_WIND_ID}" ]; then

@@ -19,7 +19,7 @@ if [ "$#" -eq 0 ]; then
 fi
 
 while getopts :c OPT; do
-  case $OPT in
+  case "${OPT}" in
     c) OPT_CLASS=true;;
   esac
 done
