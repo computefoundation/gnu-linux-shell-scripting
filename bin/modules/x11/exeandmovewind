@@ -62,7 +62,7 @@ Options:
 
 OPTS="$(getopt -o t:,g:,h --long title:,geometry:,pre-execute:,help -n \
     'exeandmovewind' -- "${@}")"
-[ $? -ne 0 ] && echo "exiting..." 1>&2 && exit 1
+[ "$?" -ne 0 ] && echo "exiting..." 1>&2 && exit 1
 eval set -- "${OPTS}"
 while true; do
   case "${1}" in

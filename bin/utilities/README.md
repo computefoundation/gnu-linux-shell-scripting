@@ -7,7 +7,7 @@
 
 ### keybind/
 
-*Keybind utilities should be run with a keybinding or from other scripts rather than directly in the terminal.*
+*Keybind utilities are run with a keybinding or from other scripts rather than directly in the terminal.*
 
 * **changecase**: Change the case of the selected text.
 * **termcommand**: Execute a given command in (or run the last command of) a terminal emulator.

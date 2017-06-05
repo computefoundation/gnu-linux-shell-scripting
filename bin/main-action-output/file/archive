@@ -30,7 +30,7 @@ Options:
 }
 
 while getopts :vh OPT; do
-  case ${OPT} in
+  case "${OPT}" in
     h)  printHelpMessage full; exit 1 ;;
     \?) echo -e "archive: option \"${OPTARG}\" unknown" 1>&2; exit 1;;
   esac

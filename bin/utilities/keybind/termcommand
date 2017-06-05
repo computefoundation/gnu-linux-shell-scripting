@@ -43,7 +43,7 @@ OPT_AUTOMTN_DELAY_TIME='.02'
 
 OPTS="$(getopt -q -o c:,t:,d:,l,r --long class:,title:,delay:,last,refocus -n \
     'termcommand' -- "${@}")"
-if [ $? -ne 0 ]; then
+if [ "$?" -ne 0 ]; then
   # output errors as a desktop notification since this script is meant to be
   # used with a keybinding and errors printed to stderr will not be seen.
   notify-send 'termcommand (err): unrecognized option'

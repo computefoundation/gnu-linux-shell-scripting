@@ -48,7 +48,7 @@ checkAndExitIfBlockSizeAlreadySpecified() {
 }
 
 while getopts :bkmgh OPT; do
-  case ${OPT} in
+  case "${OPT}" in
     b) checkAndExitIfBlockSizeAlreadySpecified
        OPT_BLOCK_SIZE='B';;
     k) checkAndExitIfBlockSizeAlreadySpecified
@@ -69,7 +69,7 @@ fi
 
 DU_OUT="$(command du ${DU_OPTS} "${1}" 2>&1)"
 
-if [ $? -eq 1 ]; then
+if [ "$?" -eq 1 ]; then
   echo -e "filesize: error: \n\"\"\"${DU_OUT}\"\"\""  1>&2 >/dev/tty
   exit 1
 fi

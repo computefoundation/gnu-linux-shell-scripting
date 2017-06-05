@@ -53,7 +53,7 @@ printActions() {
 }
 
 OPTS="$(getopt -o c:,a,s,h --long class:,all,actions,help -n 'wind' -- "${@}")"
-[ $? -ne 0 ] && exit 1
+[ "$?" -ne 0 ] && exit 1
 eval set -- "${OPTS}"
 while true; do
   case "${1}" in

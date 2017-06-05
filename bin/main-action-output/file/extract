@@ -22,7 +22,7 @@ Options:
 }
 
 while getopts :h OPT; do
-  case ${OPT} in
+  case "${OPT}" in
     h)  printHelpMessage; exit 1;;
     \?) echo -e "extract: option \"${OPTARG}\" unknown" 1>&2; exit 1;;
   esac

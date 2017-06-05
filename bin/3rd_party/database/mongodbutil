@@ -39,10 +39,10 @@ case "${ACTION}" in
     fi
 
     if [ -n "${2}" ]; then
-      addtArgs+="--collection ${2}"
+      addtOpts+="--collection ${2}"
     fi
 
-    mongoimport --db "${DB_NAME}" --file "${1}" ${addtArgs} --jsonArray
+    mongoimport --db "${DB_NAME}" --file "${1}" ${addtOpts} --jsonArray
     ;;
 
   # Export data to JSON file
@@ -55,15 +55,15 @@ case "${ACTION}" in
 
     if [ -n "${1}" ]; then
       collName="${1}"
-      addtArgs+="--collection ${collName}"
+      addtOpts+="--collection ${collName}"
     fi
     if [ -n "${2}" ]; then
-      addtArgs+=" --out ${2}/${collName}.json"
+      addtOpts+=" --out ${2}/${collName}.json"
     else
-      addtArgs+=" --out ${collName}.json"
+      addtOpts+=" --out ${collName}.json"
     fi
 
-    mongoexport --db "${DB_NAME}" ${addtArgs}
+    mongoexport --db "${DB_NAME}" ${addtOpts}
     ;;
 
   # Restore data from BSON files generated with mongodump
@@ -92,13 +92,13 @@ case "${ACTION}" in
     if dbNotSpecified; then exit 1; else shift; fi
 
     if [ -n "${1}" ]; then
-      addtArgs="--out ${1}"
+      addtOpts="--out ${1}"
     fi
     if [ -n "${2}" ]; then
-      addtArgs+=" --collection ${2}"
+      addtOpts+=" --collection ${2}"
     fi
 
-    mongodump --db "${DB_NAME}" ${addtArgs})
+    mongodump --db "${DB_NAME}" ${addtOpts}
     ;;
 
   # Drop a database

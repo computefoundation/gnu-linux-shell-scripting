@@ -23,7 +23,7 @@
 # 
 
 while getopts :o OPT; do
-  case ${OPT} in
+  case "${OPT}" in
     o) OUTPUT_OFFSET=true;;
     \?) echo "rightmonitor: option \"${OPTARG}\" unknown" 1>&2; exit 1;;
   esac

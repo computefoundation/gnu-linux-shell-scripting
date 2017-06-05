@@ -44,17 +44,17 @@ cxfd() { local d="$(pwd)"; [ "$#" -gt 1 ] && d="${2}"; local o="$(find "${d}" \
 cdff() { local d='.'; [ "$#" -gt 1 ] && d="${2}"; cd "$(find "${d}" -type f \
   -name "*${1}*" -exec sh -c 'echo "${1%/*}"; kill "$PPID"' sh {} \;)"; }        # cdff: find first file and cd to its directory; $1: file name; $2: directory (optional; default is current)
 
-cdfd() { local d='.'; [ "$#" -gt 1 ] && d="${2}"; cd "$(find "${d}" -type d \
-  -name "*${1}*" -print -quit)"; }                                               # cdfd: find first directory and cd to it; $1: directory name; $2: directory (optional; default is current)
+cdfd() { local d='.'; [ "$#" -gt 1 ] && d="${2}"; cd $(find "${d}" -type d \
+  -name "*${1}*" -print -quit); }                                                # cdfd: find first directory and cd to it; $1: directory name; $2: directory (optional; default is current)
 
-eff() { local d='.'; [ "$#" -gt 1 ] && d="${2}"; "${EDITOR}" "$(find "${d}" \
-  -type f -name "*${1}*")"; }                                                    # eff: find all files and edit; $1: file name; $2: directory (optional; default is current)
+eff() { local d='.'; [ "$#" -gt 1 ] && d="${2}"; "${EDITOR}" $(find "${d}" \
+  -type f -name "*${1}*"); }                                                     # eff: find all files and edit; $1: file name; $2: directory (optional; default is current)
 
 rmff() { find . -name "*${1}*" -type f -print0  | xargs -0 rm -f; }              # rmff: find all files and delete; $1: file name
 
 #[Grep]
-egr() { local d='.'; [ "$#" -gt 1 ] && d="${2}"; "${EDITOR}" "$(/usr/bin/grep \
-	-l -R "${1}" "${d}" | awk '{print}' ORS=' ')"; }                               # egr: find all files containing the given text and edit; $1: text; $2: directory (optional; default is current)
+egr() { local d='.'; [ "$#" -gt 1 ] && d="${2}"; "${EDITOR}" $(/usr/bin/grep \
+  -l -R "${1}" "${d}"); }                                                        # egr: find all files containing the given text and edit; $1: text; $2: directory (optional; default is current)
 
 #[Copy·and·Paste]
 alias cdpx='cd "$(xclip -o -selection c)"'                                       # cdpx: cd to directory from path in X11 clipboard

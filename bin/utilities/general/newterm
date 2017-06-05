@@ -51,7 +51,7 @@ Options:
 OPTS="$(getopt -o t:g:ms:fwr234h --long title:,geometry:,maximize,fs: \
     --long font-size:,font2,white-bg,second-screen,ws2,workspace2,ws3 \
     --long workspace3,ws4,workspace4,help -n 'newterm' -- "${@}")"
-[ $? -ne 0 ] && echo "exiting..." 1>&2 && exit 1
+[ "$?" -ne 0 ] && echo "exiting..." 1>&2 && exit 1
 eval set -- "${OPTS}"
 while true; do
   case "${1}" in
