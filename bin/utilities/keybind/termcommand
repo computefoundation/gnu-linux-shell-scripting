@@ -112,7 +112,7 @@ if [ -n "${termWindId}" ]; then
   # To use xdotool, comment the xte sections and uncomment the xdotool sections.
 
   if [ "${OPT_LAST_COMMAND}" = 'true' ]; then
-    xte 'usleep 14000' 'key Up' 'key Return'
+    xte 'usleep 20000' 'key Up' 'key Return'
 
     #-------xdotool-----------
     # xdotool sleep .007 key Up key Return
