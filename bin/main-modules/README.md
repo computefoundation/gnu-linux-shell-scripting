@@ -3,8 +3,8 @@
 
 ### file/
 
-* **inotify**: Run a command when files have changed in a directory.
+* [**inotify**](file/inotify): Run a command when files have changed in a directory.
 
 ### shell/
 
-* **runinbg**: Run a command in the background.
+* [**runinbg**](shell/runinbg): Run a command in the background.

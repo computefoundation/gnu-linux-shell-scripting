@@ -3,9 +3,9 @@
 
 ### database/
 
-* **mongodbutil**: Utility script for general MongoDB tasks.
-* **mysqlutil**: Utility script for general MySQL tasks.
+* [**mongodbutil**](database/mongodbutil): Utility script for general MongoDB tasks.
+* [**mysqlutil**](database/mysqlutil): Utility script for general MySQL tasks.
 
 ### x11/
 
-* **wmctrlregex**: Wmctrl allowing regex for the window name.
+* [**wmctrlregex**](x11/wmctrlregex): Wmctrl allowing regex for the window name.

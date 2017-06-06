@@ -3,4 +3,4 @@
 
 ### file/
 
-* **printsubdirpaths**: Print paths of all subdirectories of the specified directory.
+* [**printsubdirpaths**](file/printsubdirpaths): Print paths of all subdirectories of the specified directory.

@@ -1,0 +1,7 @@
+Sources for one-liners
+
+x11:
+
+  Get the IDs of all child windows in x11:
+      http://stackoverflow.com/a/2250879
+

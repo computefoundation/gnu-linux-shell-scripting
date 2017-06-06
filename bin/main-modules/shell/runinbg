@@ -5,8 +5,28 @@
 # Usage:
 #   runinbg <command>
 # 
-# Return's the PID of the executed command or nothing if stdout points to a
-# terminal.
+# Returns:
+#   The PID of the executed command or nothing if stdout points to a terminal.
+# 
+# Notes:
+#   This script "will remove the command from the shell’s job list and redirect
+#   all of its output to /dev/null unless a file descriptor other than a
+#   terminal is provided."
+# 
+#   This process can be done directly using the following:
+#       nohup <cmd> &>/dev/null &
+# 
+#   Using this script has the following advantage over using the nohup command
+#   directly:
+#       "The script works by putting together all the arguments as a string and
+#       evaluating it as a command. The script also checks stdout and stderr to
+#       see if they point to a terminal, and if they do, it will pass /dev/null
+#       instead, otherwise it will let the command inherit the specified stdout
+#       and stderr."
+# 
+# Source:
+#   (link is now dead)
+#   http://felixmilea.com/2014/12/running-bash-commands-background-properly/
 # 
 
 # Check stdout and stderr to see if they point to a terminal; if so, redirect
@@ -25,30 +45,5 @@ fi
 nohup "${@}" &>/dev/null &
 
 # Print the PID of the run command so that it can be retrieved by the caller.
-echo $!
+echo "$!"
 
-
-
-# 
-#  Source
-# ------------------------------------------------------------------------------
-#  (link is now dead)
-#  http://felixmilea.com/2014/12/running-bash-commands-background-properly/
-# 
-#  Notes
-# ------------------------------------------------------------------------------
-#  - This script "will remove the command from the shell’s job list and
-#    redirect all of its output to /dev/null unless a file descriptor
-#    other than a terminal is provided."
-# 
-#  - This process can be done directly using the following:
-#      nohup <cmd> &>/dev/null &
-# 
-#  - Using this script has the following advantage over using the nohup
-#    command directly:
-#      "The script works by putting together all the arguments
-#      as a string and evaluating it as a command. The script also checks
-#      stdout and stderr to see if they point to a terminal, and if they do, it
-#      will pass /dev/null instead, otherwise it will let the command inherit
-#      the specified stdout and stderr."
-# 

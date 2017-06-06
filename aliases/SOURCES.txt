@@ -1,11 +1,12 @@
-Sources for solutions in other/
+Sources for aliases
 
-aliases-info.sh:
+aliases-info.bash:
 
   fclist: https://superuser.com/a/745890
   androidwlanip: http://stackoverflow.com/a/3623727
   androidcellip: http://stackoverflow.com/a/3623727
 
-aliases.sh:
+aliases.bash:
 
   rmff: https://superuser.com/a/112079
+

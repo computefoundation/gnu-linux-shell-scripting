@@ -1,5 +1,4 @@
 
 # Get the IDs of all child windows in x11.
-# Source: http://stackoverflow.com/a/2250879
 xwininfo -root -children | sed -e 's/^ *//' | grep -E "^0x" | awk '{ print $1 }'
 

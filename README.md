@@ -1,16 +1,17 @@
 
 # Linux-shell-base
 
-**linux-shell-base** is a resource of solutions to foundational shell scripting problems in Linux. It is a solutions for problems in the lowest sublayer of the Linux application layer for higher-level shell scripting.
+**linux-shell-base** is a resource of solutions to low-level shell scripting problems in the Linux application layer as an approach to the philosophy of computing.
 
-All solutions conform to four principles:
+All solutions conform to five principles:
 
-* Solve a problem applicable to a large part of the Linux community.
-* Solve a problem that requires a considerable amount of research.
-* Adhere to the [UNIX philosophy][reference-Eric-Raymond-17_Unix_Rules].
-* Follow a standard [guideline][wiki-Guideline-for-Scripts].
+* Solve a fundamental problem.
+* Apply to a large part of the Linux community.
+* Use a widely accepted methodology.
+* Comply with the [UNIX philosophy][reference-Eric-Raymond-17_Unix_Rules] and standard scripting rules.
+* Require a considerable amount of research.
 
-This repository has no build/install automation. All solutions are additionally independent of each other and contained in the following three directories:
+This repository has no build/install automation. All solutions are independent of each other and contained in the following three directories:
 
 ### bin/
 
@@ -20,7 +21,7 @@ Scripts.
 
 One-liners.
 
-*One-liners are similar in concept to the solutions in **bin/** except they are typically not used on their own and instead with completely new solutions. They are also not typically used as aliases.*
+*One-liners are similar in concept to the solutions in **bin/** except they are not typically used on their own and instead with or to develop completely new solutions. They are also not commonly used as aliases.*
 
 ### aliases/
 
@@ -45,28 +46,28 @@ A list of some of the scripts in this repository:
 
 The type of solutions this repository does not include:
 
-* File formatting or converting *(e.g. BMP to JPEG or CYMK to RGB colors)*.
+* File formatting or converting *(e.g. BMP to JPEG or CYMK colors to RGB colors)*.
 * Text formatting
 * OS or application function specific.
 * Solutions requiring very little research.
 
 ## packaged-utilities Repository
 
-*linux-shell-base* has an extension repository for packaged utilities [here][packaged-utilities].
+*linux-shell-base* has an [extension repository for packaged utilities][packaged-utilities].
 
 # Notes
 
-* This repository initially consists of 62 scripts, 52 aliases and short functions and 3 one-liners.
+* This repository initially consists of 62 scripts, 52 aliases and short functions and 3 one-liners created over the course of two years as fundamental solutions to common shell scripting problems in Linux.
 
-* Each solution is continuously maintained and thorougly tested to ensure it is error-free. *This is what most of the work consists of. Solutions are not, however, guaranteed to be error-free.*
+* A significant amount of time has been spent on making the solutions in this repository documented, consistent with the respective [*guideline*][wiki] and error-free. *Solutions are not, however, guaranteed to be error-free.*
 
-* All initial solutions have been created and tested in Bash only *(and not Ksh, Zsh, etc.)*, however, they are updated to be more portable based on how necessary the changes are.
+* All initial solutions have been created and tested in Bash only *(and not Ksh, Zsh, etc.)*, however, they are updated to be more portable when changes are significant.
 
 # Contributing
 
-The goal of this repository is to be as comprehensive as possible for the Linux community to benefit from solutions to as many low-level problems as possible. If you would like to contribute a solution that follows the *linux-shell-base* philosophy, please create a [pull request](https://gist.github.com/Chaser324/ce0505fbed06b947d962) or send an email to *linuxshellbase@yahoo.com*.
+The goal of this repository is to be as comprehensive as possible. If you would like to contribute a solution conforming to the *linux-shell-base* philosophy, please create a [pull request](https://gist.github.com/Chaser324/ce0505fbed06b947d962) or send an email to *linuxshellbase@yahoo.com*.
 
-Contributed scripts will be looked over and must follow the [*Guideline for Scripts*][wiki-Guideline-for-Scripts]. If a contributed solution uses an alternative method/implementation to an already existing solution, it will be given the same name with an incremented number, ordered by the most commonly accepted method/implementation. Finally, credits will be placed in the Wiki and can identify the user by name, username or URL.
+Contributed solutions will be looked over and must follow the respective [*guideline*][wiki]. If a contributed solution uses an alternative method/implementation to an already existing one, it will be given the same name with an incremented number, ordered by the most commonly accepted method/implementation. Finally, credits will be placed in the wiki and can identify the user by name, username or URL.
 
 Please send an email with any suggestions, comments or questions.
 
@@ -86,6 +87,7 @@ In 1961, NASA set out on a mission to send a manned rocket to the moon, Apollo 1
 [bash_utilities#bash_utilities]: https://github.com/linux-shell-base/linux-shell-base/tree/master/bin/bash_utilities#bash_utilities
 [android#android]: https://github.com/linux-shell-base/linux-shell-base/tree/master/bin/android#android
 
+[wiki]: https://github.com/linux-shell-base/linux-shell-base/wiki
 [wiki-Guideline-for-Scripts]: https://github.com/linux-shell-base/linux-shell-base/wiki/Guideline-for-Scripts
 
 [reference-Eric-Raymond-17_Unix_Rules]: https://en.wikipedia.org/wiki/Unix_philosophy#Eric_Raymond.E2.80.99s_17_Unix_Rules

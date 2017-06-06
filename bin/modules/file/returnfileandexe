@@ -19,9 +19,9 @@
 #   geditr --a config.sh
 # 
 # Notes:
-#   This script's options will override matching options for the command in
-#   brackets. It therefore use double dashes for its options to avoid collision
-#   as much as possible.
+#   This script's options will override matching ones for the command in
+#   brackets. It uses double dashes as a result to avoid collision as much as
+#   possible.
 # 
 #   To use the locate method, there must exist a locate command in the user's
 #   PATH which returns one or more file paths. The command name must be

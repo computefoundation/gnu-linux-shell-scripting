@@ -12,4 +12,4 @@ One-liners.
 
 ## x11
 
-* Get the ID of all child windows in x11.
+* Get the IDs of all child windows in x11.

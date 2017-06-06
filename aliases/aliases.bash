@@ -19,7 +19,7 @@ alias make1mb='mkfile 1m ./1MB.dat'                                             
 # ~~~~~~~ 2.  HARDWARE ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #[Management]
-alias suspendmonitor='sleep .7; xset dpms force off'                             # suspendmonitor: put monitor to sleep
+alias suspendmonitor='sleep .7; xset dpms force off'                             # suspendmonitor: suspend monitor
 
 # ~~~~~~~ 3.  NETWORKING ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
