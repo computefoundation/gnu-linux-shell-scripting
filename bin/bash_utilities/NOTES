@@ -1,6 +1,0 @@
-bash_utilities/ notes
-
-Usage Notes
-============================================
-
-If a function accepts an array, it is almost always by reference. Passing an array by reference is done by passing the name of the array (e.g. if the array is ${tmpArr[@]}, it would be passed as "tmpArr").

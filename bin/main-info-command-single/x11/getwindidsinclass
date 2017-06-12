@@ -21,3 +21,4 @@ WINDOW_IDS=($(wmctrl -lx | awk -v class="${1}" '$3 ~ class {print $1}'))
 if [ "${#WINDOW_IDS[@]}" -gt 0 ]; then
   echo "${WINDOW_IDS[@]}"
 fi
+

@@ -31,3 +31,4 @@ fi
 # for windId in $(xdotool search --pid "${1}"); do
 #   printf '%#010x\n' "${windId}"
 # done
+

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # 
-# Open a new terminal and run an initial command in it.
+# Open a new terminal and optionally run an initial command in it.
 # 
 # A simple layer for configuring terminal settings is additionally provided.
 # 
@@ -12,7 +12,7 @@
 #   wmctrl (used to get the window ID of the terminal window and move it)
 # 
 
-# ======= CONFIGURATIONS ======================
+# ======= CONFIGURATIONS ==============
 
 readonly SECOND_FONT_FACE='DejaVu Sans Mono'
 readonly DEFAULT_FONT_SIZE=12
@@ -22,13 +22,14 @@ readonly DEFAULT_GEOMETRY='82x44+190+100'
 # Default geometry used when the terminal window is moved to the second screen.
 readonly SECOND_SCREEN_GEOMETRY='80x44+2080+100'
 
-# ======= ! CONFIGURATIONS ======================
+# ======= ! CONFIGURATIONS ==============
 
 printHelpMessage() {
-  echo -e "\
+  echo -ne "\
 Open a new xterm terminal
 
-Usage: newterm [options] -- [initial command]
+Usage:
+  newterm [options] -- [initial command]
 
 Options:
   -t --title <title>        title
@@ -44,7 +45,7 @@ Options:
   -2 --ws2 --workspace2     move to workspace 2
   -3 --ws3 --workspace3     move to workspace 3
   -4 --ws4 --workspace4     move to workspace 4
-  -h --help                 show help message\
+  -h --help                 show help message
 "
 }
 
@@ -142,7 +143,9 @@ getwindidbypid() {
 nohup xterm -sl 9000 -xrm \
     "XTerm.vt100.allowTitleOps: ${cfgAllowTtlOps}" -geometry "${geometry}" \
     ${colorProps} -title "${title}" ${fontProps} -e bash -c \
-    "$(printf '%s\nexec bash' "$*")" &>/dev/null &
+    "$(printf '%s\nexec bash' "${*}")" &>/dev/null &
+    # "$(printf '%s\nexec bash' "${*}")" is important here as it allows any
+    # command to be passed in, including a bash here document.
 
 PID=$!
 
@@ -178,3 +181,4 @@ if [ "${OPT_MAXIMIZE_WINDOW}" = 'true' ]; then
   # doesn't maximize when large font is used
   wmctrl -i -r "${WIND_ID}" -b toggle,maximized_vert,maximized_horz
 fi
+

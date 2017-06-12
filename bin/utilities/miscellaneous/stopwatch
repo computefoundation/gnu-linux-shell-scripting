@@ -9,22 +9,22 @@
 #   https://superuser.com/a/611582
 # 
 
-# ======= CONFIGURATIONS ======================
+# ======= CONFIGURATIONS ==============
 
 # Set this to true to print days also
 PRINT_DAYS_ALSO=false
 
-# ======= ! CONFIGURATIONS ======================
+# ======= ! CONFIGURATIONS ==============
 
 CURR_DATE="$(date +%s)"
 
 while true; do
   dateNow="$(date +%s)"
-  secondsElapsed="$((${dateNow} - ${CURR_DATE}))"
+  secondsElapsed="$((dateNow - CURR_DATE))"
   secondsFrmtd="$(date -u --date @${secondsElapsed} +%H:%M:%S)"
 
   if [ "${PRINT_DAYS_ALSO}" = 'true' ]; then
-    days=$(( ( ${dateNow} - ${CURR_DATE} ) / 86400 ))
+    days=$(( ( dateNow - CURR_DATE ) / 86400 ))
     output="     ${days} day(s) and ${secondsFrmtd}\r"
   else
     output="     ${secondsFrmtd}\r"
@@ -34,3 +34,4 @@ while true; do
 
   sleep 0.1
 done
+

@@ -20,5 +20,6 @@ for arg in "${@}"; do
 done
 
 if [ -n "${windowName}" ]; then
-  wmctrl ${*:1:$((${argIndx}))} "${windowName}" ${*:$((${argIndx}+2))}
+  wmctrl "${*:1:$((argIndx))}" "${windowName}" "${*:$((argIndx + 2))}"
 fi
+

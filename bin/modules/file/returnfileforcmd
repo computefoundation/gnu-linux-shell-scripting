@@ -29,7 +29,7 @@
 #   the packaged-utilities repository by linux-shell-base).
 # 
 
-# ======= CONFIGURATIONS ======================
+# ======= CONFIGURATIONS ==============
 
 LOCATE_COMMAND='locate'
 
@@ -39,20 +39,21 @@ LOCATE_COMMAND_DIRS_ONLY_OPT='-d'
 # Locate command find occurrence option (requires argument); can be empty
 LOCATE_COMMAND_FIND_OCCURRENCE_OPT='-o'
 
-# ======= ! CONFIGURATIONS ======================
+# ======= ! CONFIGURATIONS ==============
 
 printHelpMessage() {
-  echo -e "\
-returnfileandexe module - return a file for a command
+  echo -ne "\
+returnfileandexe - Return a file for a command.
 
-Usage: returnfileandexe {<command to execute>} [options] <partial file name>
-         [directory]
+Usage:
+  returnfileandexe {<command to execute>} [options] <partial file name>
+          [directory]
 
-  [directory] applies only when using the recursive search method. If it is
-  not specified, the current directory will be used.
+  directory: applies only when using the recursive search method; if not
+             specified, the current directory will be used.
 
 Options:
-  Note: This first set of options is used primarilty with aliases.
+  Note: This first set of options is used primarily with aliases.
   --l   use the locate search method
   --r   use the recursive search method
   --f   return files only
@@ -69,7 +70,8 @@ Options:
 
 Notes:
   If the file is not found, the command in the brackets will be run as normal
-  with the given arguments."
+  with the given arguments.
+"
 }
 
 # Note: The following could be done using bultin "set --", however, it removes
@@ -195,3 +197,4 @@ case "${SEARCH_METHOD}" in
     ${executeCmd} ${executeCmdOpts} "${@}"
     ;;
 esac
+

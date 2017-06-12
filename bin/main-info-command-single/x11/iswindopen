@@ -46,3 +46,4 @@ if [ "${isWindOpen}" = 'true' ]; then
 fi
 
 exit 1
+

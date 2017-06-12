@@ -15,3 +15,4 @@ if [ "${IS_SECONDARY_WLAN_SOFT_BLOCKED}" = 'yes' ]; then
 else
   exit 1
 fi
+

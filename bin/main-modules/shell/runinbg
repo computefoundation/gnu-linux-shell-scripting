@@ -18,19 +18,18 @@
 # 
 #   Using this script has the following advantage over using the nohup command
 #   directly:
-#       "The script works by putting together all the arguments as a string and
+#       The script works by putting together all the arguments as a string and
 #       evaluating it as a command. The script also checks stdout and stderr to
 #       see if they point to a terminal, and if they do, it will pass /dev/null
 #       instead, otherwise it will let the command inherit the specified stdout
-#       and stderr."
+#       and stderr.
 # 
 # Source:
 #   (link is now dead)
 #   http://felixmilea.com/2014/12/running-bash-commands-background-properly/
 # 
 
-# Check stdout and stderr to see if they point to a terminal; if so, redirect
-# to /dev/null.
+# Redirect output to /dev/null if stdout and stderr point to a terminal.
 if test -t 1; then
   exec 1>/dev/null
 fi
@@ -39,9 +38,9 @@ if test -t 2; then
   exec 2>/dev/null
 fi
 
-# (After checking stdout and stderr, "&>/dev/null" is still needed in the
-# command for some reason to allow it to run in the background; the redirection
-# was not used originally in the source).
+# ("&>/dev/null" is still needed here for some reason after checking stdout and
+# stderr to allow the command to run in the background; it was not originally
+# used in the source).
 nohup "${@}" &>/dev/null &
 
 # Print the PID of the run command so that it can be retrieved by the caller.

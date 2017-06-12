@@ -14,7 +14,7 @@
 #     $ <command> --opt='"opt_arg"'
 # 
 
-# ======= CONFIGURATIONS ======================
+# ======= CONFIGURATIONS ==============
 
 # Window move action function; it receives the window ID as a hexidecimal and
 # the window title if the --title option was used.
@@ -30,15 +30,16 @@ WIND_MOVE_ACTION() {
   wmctrl ${iopt} -r "${idOrTitle}" -b add,maximized_vert,maximized_horz
 }
 
-# ======= ! CONFIGURATIONS ======================
+# ======= ! CONFIGURATIONS ==============
 
 printHelpMessage() {
-if [ "${1}" = 'full' ]; then
-  echo "Execute a command and run an action on the resulting window."
-fi
-echo -ne "
-Usage: exeandmovewind [options] -- <command> <window class>
-         <delay time(sec)>
+  [ "${1}" = 'full' ] && echo -e 'Execute a command and run an action on the' \
+      'resulting window.\n'
+
+echo -ne "\
+Usage:
+  exeandmovewind [options] -- <command> <window class>
+          <delay time(sec)>
 
   command:          command to run
   window class:     class of the window that is opened by the
@@ -159,3 +160,4 @@ if [[ -n "${PID}" && ! "${ALREADY_OPENED}" = true ]]; then
     fi
   fi
 fi
+

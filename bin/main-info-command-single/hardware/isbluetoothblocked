@@ -11,3 +11,4 @@ if [ "${IS_BLUETOOTH_SOFT_BLOCKED}" = 'yes' ]; then
 else
   exit 1
 fi
+

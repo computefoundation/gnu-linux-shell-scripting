@@ -9,12 +9,12 @@
 #   https://superuser.com/a/611582
 # 
 
-# ======= CONFIGURATIONS ======================
+# ======= CONFIGURATIONS ==============
 
 # Set this to true to print days also
 PRINT_DAYS_ALSO=false
 
-# ======= ! CONFIGURATIONS ======================
+# ======= ! CONFIGURATIONS ==============
 
 if [ "$#" -eq 0 ]; then
   echo 'countdown: time required in seconds' 1>&2
@@ -25,17 +25,17 @@ elif [[ ! "${1}" =~ ^[0-9]+$ ]]; then
 fi
 
 CURR_DATE="$(date +%s)"
-DATE_START="$((${CURR_DATE} + ${1}))"
+DATE_START="$((CURR_DATE + ${1}))"
 
 while [ "${DATE_START}" -ge "${CURR_DATE}" ]; do
   sleep 0.1
 
   CURR_DATE="$(date +%s)"
-  secondsRemaining="$((${DATE_START} - ${CURR_DATE}))"
+  secondsRemaining="$((DATE_START - CURR_DATE))"
   secondsFrmtd="$(date -u --date @${secondsRemaining} +%H:%M:%S)"
 
   if [ "${PRINT_DAYS_ALSO}" = 'true' ]; then
-    days="$(( ( ${DATE_START} - ${CURR_DATE} * 1 ) / 86400 ))"
+    days="$(( ( DATE_START - CURR_DATE * 1 ) / 86400 ))"
     output="     ${days} day(s) and ${secondsFrmtd}\r"
   else
     output="     ${secondsFrmtd}\r"
@@ -43,3 +43,4 @@ while [ "${DATE_START}" -ge "${CURR_DATE}" ]; do
 
   echo -ne "${output}"
 done
+

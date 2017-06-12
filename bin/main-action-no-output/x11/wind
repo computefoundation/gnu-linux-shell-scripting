@@ -13,9 +13,9 @@
 # 
 
 printHelpMessage() {
-  [ "${1}" = 'full' ] && echo -e 'wind: Perform one of multiple window'\
+  [ "${1}" = 'full' ] && echo -e 'wind: Perform one of multiple window' \
       'actions.\n'
-  echo -e "\
+  echo -ne "\
 Usage
   wind <action> <window ID or name>
 
@@ -31,7 +31,7 @@ Options
   -a      perform action on all matching windows
           instead of just the first
   -s      print all window actions
-  -h      print help message\
+  -h      print help message
 "
 }
 
@@ -246,3 +246,4 @@ for windId in "${WINDOW_IDS[@]}"; do
       ;;
   esac
 done
+

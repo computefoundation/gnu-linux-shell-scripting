@@ -5,7 +5,7 @@
 # Usage:
 #   getwindidbyname <window name/title>
 # 
-#   <window name/title>: case-sensitive; will be matched partially
+#   <window name/title>: case-sensitive; matched partially
 # 
 # Returns:
 #   The ID of the window. If more than one window is matched, all of their IDs
@@ -31,3 +31,4 @@ fi
 # for i in ${!WINDOW_IDS[@]}; do
 #   WINDOW_IDS[${i}]="$(printf '%#010x\n' "${WINDOW_IDS[${i}]}")"
 # done
+

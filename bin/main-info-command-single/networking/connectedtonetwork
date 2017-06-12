@@ -13,3 +13,4 @@ if [ "${NETWORK_CONNECTED_STATUS}" = 'connected' ]; then
 else
   exit 1
 fi
+

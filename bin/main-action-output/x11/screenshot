@@ -11,12 +11,12 @@
 #   maim
 # 
 
-# ======= CONFIGURATIONS ======================
+# ======= CONFIGURATIONS ==============
 
 # Path where screenshot files are saved
 OUT_PATH="${HOME}"
 
-# ======= ! CONFIGURATIONS ======================
+# ======= ! CONFIGURATIONS ==============
 
 if [ "$#" -ge 1 ]; then
   if [[ "${1}" != 'full' && "${1}" != 'section' && "${1}" != 'window' ]]; then
@@ -87,3 +87,4 @@ case "${TYPE}" in
     maim -s -c 1,0,0,0.6 "${OUT_PATH}/${fileName}"
     ;;
 esac
+

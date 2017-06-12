@@ -21,3 +21,4 @@ WINDOW_NAME="$(xprop -id "${1}" WM_NAME 2>/dev/null | sed -n \
 if [ -n "${WINDOW_NAME}" ]; then
   echo "${WINDOW_NAME}"
 fi
+

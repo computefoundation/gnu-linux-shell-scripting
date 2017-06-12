@@ -28,3 +28,4 @@ _remlastnhistentries() {
     ((count--))
   done
 }
+

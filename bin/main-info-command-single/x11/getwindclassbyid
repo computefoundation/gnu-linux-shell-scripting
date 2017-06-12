@@ -19,3 +19,4 @@ WINDOW_CLASS="$(xprop -id "${1}" WM_CLASS 2>/dev/null | sed -n \
 if [ -n "${WINDOW_CLASS}" ]; then
   echo "${WINDOW_CLASS}"
 fi
+

@@ -31,3 +31,4 @@ for my $line (@WMCTRL_OUT) {
 if (scalar @WIND_IDS > 0) {
   print join(" ", @WIND_IDS)."\n";
 }
+

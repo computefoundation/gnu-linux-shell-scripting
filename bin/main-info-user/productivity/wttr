@@ -15,15 +15,16 @@
 # Instructions on getting your location's AccuWeather ID:
 #   1. Go to http://www.accuweather.com/en/browse-locations
 #   2. Search your location
-#   3. Copy the digits at the end of the loaded URL in ACCU_WEATHER_LOC_ID.
+#   3. Copy and paste the digits at the end of the loaded URL to
+#      ACCU_WEATHER_LOC_ID.
 # 
 
-# ======= CONFIGURATIONS ======================
+# ======= CONFIGURATIONS ==============
 
 # Default values
 ACCU_WEATHER_LOC_ID='351409' # ID for Seattle, WA
 
-# ======= ! CONFIGURATIONS ======================
+# ======= ! CONFIGURATIONS ==============
 
 if [ "$#" -ge 2 ]; then
   ACCU_WEATHER_LOC_ID="${2}"
@@ -31,10 +32,10 @@ elif [ "$#" -ge 1 ]; then
   ACCU_WEATHER_LOC_ID=''
 fi
 
-# ==============================================================
-#   AccuWeather: Displays current and feels like temperatures
-#   in a single line of text
-# ==============================================================
+# ===================================================================
+#   AccuWeather: Display current and feels like temperatures
+#   in a single line of text.
+# ===================================================================
 
 if [ -n "${ACCU_WEATHER_LOC_ID}" ]; then
   # note: URL contains seattle-wa, however, any location ID will still work
@@ -45,18 +46,19 @@ if [ -n "${ACCU_WEATHER_LOC_ID}" ]; then
       {print "Current temperature: "$10"°; Feels like: "$12"°" }' | head -1
     # Fields returned by accuweather.com:
     #   $1:  short description json containing the location
-    #   $2:  daypart text (e.g. day, night, etc.)
+    #   $2:  daypart (e.g. "day", "night")
     #   $10: current temperature
     #   $12: AccuWeather RealFeel temperature
-    #   $14: current condition text (e.g. partly sunny, cloudy, etc.)
+    #   $14: current condition (e.g. "partly sunny", "cloudy")
   echo
 fi
 
-# ==============================================================
-#   wttr.in: Displays a 3-day forecast in a full colored graph
-# ==============================================================
+# ===================================================================
+#   wttr.in: Display a 3-day forecast in a full colored graph.
+# ===================================================================
 
 echo -e 'wttr.in:'
 curl --silent "wttr.in/${1}" | head -38
 # "| head -38" at the end of the command removes the wttr updates displayed at
 # the bottom of its output.
+

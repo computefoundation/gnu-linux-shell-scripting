@@ -2,10 +2,15 @@
 # 
 # Check if connected to the internet.
 # 
+# Source:
+#   https://stackoverflow.com/a/932187/8031513
+# 
 
+# ping the default gateway
 if $(ping -q -w 1 -c 1 `ip r | grep default | cut -d ' ' -f 3` &>/dev/null)
 then
   exit 0
 fi
 
 exit 1
+

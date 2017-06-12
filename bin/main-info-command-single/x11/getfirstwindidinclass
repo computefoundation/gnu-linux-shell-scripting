@@ -37,3 +37,4 @@ if [ ${#CLASS_WIND_IDS[@]} -eq 0 ]; then
 fi
 
 echo "${CLASS_WIND_IDS[0]}"
+

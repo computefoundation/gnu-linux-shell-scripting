@@ -20,3 +20,4 @@ echo -e "\nMachine stats:${NC}"
 
 uptime
 echo
+

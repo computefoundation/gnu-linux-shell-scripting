@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # 
-# Bash HTTP utilities
+# Bash HTTP utilities.
 # 
 
 # This regex checks that the URL contains safe characters only.
@@ -45,3 +45,4 @@ PROTOCOLS_REGEX='https?|ftp|file'
     urlRegex+="${URL_REGEX}$"
     [[ "${1}" =~ ${urlRegex} ]] && return 0 || return 1
   }
+

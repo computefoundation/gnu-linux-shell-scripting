@@ -19,3 +19,4 @@ echo "${WINDOW_NAME}"
 # 
 # WINDOW_NAME=$(wmctrl -l | grep "$(getactvwindid)" | awk \
 #     '{$1=$2=$3=""; print $0}' | sed 's/^[ \t]*//')
+

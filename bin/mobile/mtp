@@ -5,7 +5,7 @@
 # Usage (script must be sourced for cd command to work):
 #   source mtp; mtp <action>
 # 
-#   <action>:
+#   action:
 #     "mount" or "m" to mount
 #     "umount" or "u" to unmount
 # 
@@ -13,12 +13,13 @@
 #   jmtpfs
 # 
 # Set up:
-#   Create group "fuse" and add yourself to it by running the following
+#   Create user group "fuse" and add yourself to it by running the following
 #   commands:
-#       sudo groupadd fuse; sudo gpasswd -a "${USER}" fuse
+#       sudo groupadd fuse
+#       sudo gpasswd -a "${USER}" fuse
 # 
 
-# ======= CONFIGURATIONS ======================
+# ======= CONFIGURATIONS ==============
 
 # Mountpoint directory for MTP device.
 MOUNTPOINT_DIR='/mnt/mtp'
@@ -26,7 +27,7 @@ MOUNTPOINT_DIR='/mnt/mtp'
 # Directory of device to CD to once mounted.
 DEV_CD_DIR='Internal storage/DCIM/Camera'
 
-# ======= ! CONFIGURATIONS ======================
+# ======= ! CONFIGURATIONS ==============
 
 mtp() {
   case "${1}" in
@@ -40,6 +41,7 @@ mtp() {
         cd "${MOUNTPOINT_DIR}/${DEV_CD_DIR}"
       fi
       ;;
+      
     'umount'|'u')
       if pwd | grep -q "^${MOUNTPOINT_DIR}"; then
         cd "${HOME}"
@@ -52,3 +54,4 @@ mtp() {
       ;;
   esac
 }
+

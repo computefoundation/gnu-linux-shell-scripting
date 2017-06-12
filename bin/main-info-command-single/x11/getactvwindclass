@@ -17,3 +17,4 @@ getwindclassbyid() {
 }
 
 echo "$(getwindclassbyid "$(getactvwindid)")"
+

@@ -20,3 +20,4 @@ WIND_NAMES=("$(wmctrl -lx | awk \
 if [[ "${#WIND_NAMES[@]}" -gt 0 && -n "${WIND_NAMES[0]}" ]]; then
   echo "${WIND_NAMES[@]}"
 fi
+

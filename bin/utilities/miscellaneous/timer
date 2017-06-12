@@ -2,10 +2,10 @@
 # 
 # Run a task timer in a new terminal window.
 # 
-# Usage
+# Usage:
 #   timer <minutes> [task description]
 # 
-# Dependencies
+# Dependencies:
 #   xterm (used as the terminal emulator; download xterm for quick and easy
 #         startup; if another terminal emulator is preferred, please adjust the
 #         command at the bottom)
@@ -13,7 +13,7 @@
 #   mpv (only needed if setting PLAY_SOUND_WHEN_FINISHED to true)
 # 
 
-# ======= CONFIGURATIONS ======================
+# ======= CONFIGURATIONS ==============
 
 # Play a sound when the timer is finished
 PLAY_SOUND_WHEN_FINISHED=false
@@ -21,7 +21,7 @@ PLAY_SOUND_WHEN_FINISHED=false
 # Sound file to play when the timer is finished
 SOUND_FILE='/usr/share/orage/sounds/KDE_Beep_Digital_1.ogg'
 
-# ======= ! CONFIGURATIONS ======================
+# ======= ! CONFIGURATIONS ==============
 
 if [ "$#" -eq 0 ]; then
   echo 'timer: time required in minutes' 1>&2
@@ -46,12 +46,12 @@ fi
 
 countdown() {
   local CURR_DATE="$(date +%s)"
-  local DATE_START="$((${CURR_DATE} + ${1}))"
+  local DATE_START="$((CURR_DATE + ${1}))"
 
   while [ "${DATE_START}" -ge "${CURR_DATE}" ]; do
     sleep 0.1
     CURR_DATE="$(date +%s)"
-    secondsRemaining="$((${DATE_START} - ${CURR_DATE}))"
+    secondsRemaining="$((DATE_START - CURR_DATE))"
     secondsFrmtd="$(date -u --date @${secondsRemaining} +%H:%M:%S)"
     echo -ne "     ${secondsFrmtd}\r"
   done
@@ -93,3 +93,4 @@ geometry="${width}x${height}+${startX}+${startY}"
 nohup xterm -xrm 'XTerm.vt100.allowTitleOps: false' -geometry "${geometry}" \
     -fg '#FFFFFF' -bg '#000000' -fa 'size=12:antialias=true' \
     -title "${termTtl}" -e bash -c "${termCmd}" &>/dev/null &
+

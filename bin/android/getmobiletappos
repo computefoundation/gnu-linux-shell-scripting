@@ -9,12 +9,12 @@
 #   seconds: (Optional) Number of seconds to watch for tap events.
 # 
 
-# ======= CONFIGURATIONS ======================
+# ======= CONFIGURATIONS ==============
 
 # Defult number of seconds to watch for tap events
 readonly TIMEOUT_TIME=5
 
-# ======= ! CONFIGURATIONS ======================
+# ======= ! CONFIGURATIONS ==============
 
 if [ "$#" -ge 2 ]; then
   tmoutTime="${2}"
@@ -30,3 +30,4 @@ export -f hxecho
 
 timeout "${tmoutTime}" adb -d shell getevent -l /dev/input/event2 | \
     sed 's/\(.*ABS_MT_POSITION..[^0]*\)\(.*\)/echo -n "\1 "; hxecho \2/e'
+

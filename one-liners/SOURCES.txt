@@ -1,5 +1,12 @@
 Sources for one-liners
 
+hardware:
+
+  Get the maximum backlight level:
+      https://wiki.archlinux.org/index.php/backlight#ACPI
+  Set the backlight level:
+      https://wiki.archlinux.org/index.php/backlight#ACPI
+
 x11:
 
   Get the IDs of all child windows in x11:

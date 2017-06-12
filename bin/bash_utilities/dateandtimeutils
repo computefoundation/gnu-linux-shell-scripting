@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # 
-# Bash date and time utilities
+# Bash date and time utilities.
 # 
 
 # Conversion
@@ -10,7 +10,7 @@
   # Arguments:
   #   1. Seconds
   secondsToMillisecondsDecimal() {
-    echo "$(printf '%.4f' $(bc <<< "${1}*1000"))"
+    printf '%.4f' "$(bc <<< "${1}*1000")"
   }
 
   # Format number of seconds (using either an integer or decimal) to millseconds
@@ -80,3 +80,4 @@
     exec >&3 2>&4
     echo "${out}"
   }
+

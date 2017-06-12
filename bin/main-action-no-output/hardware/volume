@@ -10,14 +10,14 @@
 #   amixer
 # 
 
-# ======= CONFIGURATIONS ======================
+# ======= CONFIGURATIONS ==============
 
 # Default incremental percentage levels
 VOLUME_LEVEL1=60
 VOLUME_LEVEL2=75
 VOLUME_LEVEL3=90
 
-# ======= ! CONFIGURATIONS ======================
+# ======= ! CONFIGURATIONS ==============
 
 if [[ "$#" -ge 1 && ! "${1}" =~ ^[0-9]+$ ]]; then
   notify-send 'volume: invalid arguments'
@@ -52,3 +52,4 @@ else
       ;;
   esac
 fi
+

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # 
-# Bash core utilities
+# Bash core utilities.
 # 
 
 # Options and Arguments
@@ -23,3 +23,4 @@
     fi
     echo "${opts}"
   }
+

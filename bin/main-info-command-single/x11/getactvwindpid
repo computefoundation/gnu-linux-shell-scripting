@@ -13,3 +13,4 @@ getwindpidbyid() {
 }
 
 echo "$(getwindpidbyid $(getactvwindid))"
+

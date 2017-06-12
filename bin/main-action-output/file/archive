@@ -14,14 +14,12 @@ printSupportedArchiveTypes() {
 }
 
 printHelpMessage() {
-  if [ "${1}" = 'full' ]; then
-    echo -e 'Easily archive a file or directory'
-  fi
-  echo -e "
-Usage: archive <file or directory> <archive type> [output_filename]
+  [ "${1}" = 'full' ] && echo -e 'Easily archive a file or directory.\n'
+  echo -ne "\
+Usage:
+  archive <file or directory> <archive type> [output_filename]
 
-  [output_filename]: should not include extension;
-                     original file name is default.
+  output_filename: should not include extension; original file name is default.
 
 Options:
   -h    print this help message
@@ -90,3 +88,4 @@ case "${ARG_ARCHV_FRMT}" in
     exit 1
     ;;
 esac
+

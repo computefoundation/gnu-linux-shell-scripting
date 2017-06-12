@@ -3,7 +3,7 @@
 
 ### file/
 
-* [**returnfileandexe**](file/returnfileandexe): Return a file for a command by locating or recursively searching for it.
+* [**returnfileforcmd**](file/returnfileforcmd): Return a file for a command by locating or recursively searching for it.
 
 ### x11/
 

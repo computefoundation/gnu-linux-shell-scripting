@@ -20,3 +20,4 @@ PID="$(xprop -id "${1}" 2>/dev/null | awk '/_NET_WM_PID/ {print $3}')"
 if [ -n "${PID}" ]; then
   echo "${PID}"
 fi
+

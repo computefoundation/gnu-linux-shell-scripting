@@ -1,7 +1,7 @@
 
 # bin/
 
-Directories are divided by different paradigms of the Linux application layer.
+Directories are divided by different paradigms and aspects of the Linux application layer.
 
 ## 3rd_party
 

@@ -3,21 +3,23 @@
 # Easily extract a file or directory with one of multiple archive formats.
 # 
 
-# ======= CONFIGURATIONS ======================
+# ======= CONFIGURATIONS ==============
 
 # Set this to true to not allow an archived directory to overwrite a current one
 # with the same name; the script will exist and nothing will be extracted.
 readonly DO_NOT_EXTRACT_IF_DIRECTORY_EXISTS=false
 
-# ======= ! CONFIGURATIONS ======================
+# ======= ! CONFIGURATIONS ==============
 
 printHelpMessage() {
-  echo -e "Easily extract an archive
+  echo -ne "\
+Easily extract an archive.
 
-Usage: extract <archive file>
+Usage:
+  extract <archive file>
 
 Options:
-  -h    print this help message\
+  -h    print this help message
 "
 }
 
@@ -83,3 +85,4 @@ else
   echo "extract: file \"${1}\" not found" 1>&2
   exit 1
 fi
+

@@ -4,7 +4,7 @@
 # 
 
 printHelpMessage() {
-  echo -e "\
+  echo -ne "\
 Get the size of a file or directory as a plain number.
 
 Usage
@@ -57,8 +57,12 @@ while getopts :bkmgh OPT; do
        OPT_BLOCK_SIZE='M';;
     g) checkAndExitIfBlockSizeAlreadySpecified
        OPT_BLOCK_SIZE='G';;
-    h) printHelpMessage; exit;;
-    \?) echo "filesize: option \"${OPTARG}\" unknown" 1>&2; exit 1;;
+    h) printHelpMessage
+       exit
+       ;;
+    \?) echo "filesize: option \"${OPTARG}\" unknown" 1>&2
+        exit 1
+        ;;
   esac
 done
 shift $((OPTIND - 1))
@@ -82,3 +86,4 @@ if [[ ! "${DU_OUT}" =~ ^[0-9]+$ ]]; then
 fi
 
 echo "${DU_OUT}"
+

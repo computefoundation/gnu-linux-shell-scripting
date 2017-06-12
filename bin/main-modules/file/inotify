@@ -17,3 +17,4 @@ while inotifywait -qre close_write --format "${FORMAT}" .; do
   # This section will run once when files have changed in the directory.
   "${@}"
 done
+

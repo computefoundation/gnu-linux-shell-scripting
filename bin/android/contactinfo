@@ -13,3 +13,4 @@ fi
 
 adb -d shell content query --uri \
     content://com.android.contacts/data/phones/filter/"${@}" | tr ',' '\n'
+

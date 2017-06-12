@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # 
-# Bash file and directory utilities
+# Bash file and directory utilities.
 # 
 
 # Extraction
@@ -65,3 +65,4 @@
 #     if [ "$(ls -A "${1}")" ]; then return 0; else return 1; fi
 #   }
 # 
+

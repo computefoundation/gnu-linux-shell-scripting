@@ -43,3 +43,4 @@ xte 'usleep 200000' 'keydown Control_L' 'key v' 'keyup Control_L'
 # Must sleep before restoring the clipboard content because otherwise the
 # keyevents will run after, causing it to get pasted instead.
 (sleep .1 && echo -n "${PREV_CLIPBOARD_CONTENT}" | xclip -selection c ) &
+

@@ -67,3 +67,4 @@ if [ "${#xrandrMntrs[@]}" -ge 2 ]; then
 else
   exit 1
 fi
+
