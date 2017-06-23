@@ -114,7 +114,8 @@ if [ -n "${termWindId}" ]; then
   if [ "${OPT_LAST_COMMAND}" = 'true' ]; then
     xte 'usleep 25000' 'key Up' 'key Return'
 
-    #-------xdotool-----------
+    #------- 1. xdotool -----------
+
     # xdotool sleep .007 key Up key Return
   else
 		xte <<-EOF
@@ -123,7 +124,8 @@ if [ -n "${termWindId}" ]; then
 			key Return
 		EOF
 
-    #-------xdotool-----------
+    #------- 2. xdotool -----------
+
     # xdotool type "${@}"
     # # must run a separate xdotool command as "type" will type everything after
     # # it; also a much higher sleep time is needed as xdotool types each

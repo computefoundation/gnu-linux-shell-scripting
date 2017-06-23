@@ -2,80 +2,59 @@
 # 
 # Open a new terminal and optionally run an initial command in it.
 # 
-# A simple layer for configuring terminal settings is additionally provided.
+# A small layer for configuring terminal settings is also provided.
 # 
 # Returns:
 #   The window ID of the new terminal window.
 # 
 # Dependencies:
 #   xterm (the terminal emulator used)
-#   wmctrl (used to get the window ID of the terminal window and move it)
+#   wmctrl (used to get the window ID of the terminal window and output it for
+#     the caller)
 # 
 
 # ======= CONFIGURATIONS ==============
 
-readonly SECOND_FONT_FACE='DejaVu Sans Mono'
+readonly FONT_FACE='DejaVu Sans Mono'
+
 readonly DEFAULT_FONT_SIZE=12
-readonly MIN_FONT_SIZE=6
-readonly MAX_FONT_SIZE=16
+
 readonly DEFAULT_GEOMETRY='82x44+190+100'
-# Default geometry used when the terminal window is moved to the second screen.
-readonly SECOND_SCREEN_GEOMETRY='80x44+2080+100'
 
 # ======= ! CONFIGURATIONS ==============
 
 printHelpMessage() {
   echo -ne "\
-Open a new xterm terminal
+Open a new xterm terminal emulator with an optional initial command to run.
 
 Usage:
   newterm [options] -- [initial command]
 
 Options:
-  -t --title <title>        title
-  -g --geometry <geometry>  window geometry (WIDTHxHEIGHT+X+Y)
-  -m --maximize             maximize window
-  -s --fs --font-size <size>
-                            specify font size (value
-                            between ${MIN_FONT_SIZE} and ${MAX_FONT_SIZE})
-  -f --font2                use second font face (${SECOND_FONT_FACE})
+  -t --title <TITLE>        title
+  -g --geometry <GEOMETRY>  window geometry (WIDTHxHEIGHT+X+Y)
+  -s --fs --font-size <SIZE>   font size
   -w --white-bg             use white background
-  -r --second-screen        move to second screen (if
-                            secondary monitor is enabled)
-  -2 --ws2 --workspace2     move to workspace 2
-  -3 --ws3 --workspace3     move to workspace 3
-  -4 --ws4 --workspace4     move to workspace 4
   -h --help                 show help message
 "
 }
 
-OPTS="$(getopt -o t:g:ms:fwr234h --long title:,geometry:,maximize,fs: \
-    --long font-size:,font2,white-bg,second-screen,ws2,workspace2,ws3 \
-    --long workspace3,ws4,workspace4,help -n 'newterm' -- "${@}")"
+OPTS="$(getopt -o t:g:s:wh --long title:,geometry:,fs:,font-size:,white-bg, \
+    --long help -n 'newterm' -- "${@}")"
 [ "$?" -ne 0 ] && echo "exiting..." 1>&2 && exit 1
 eval set -- "${OPTS}"
 while true; do
   case "${1}" in
     --title|-t) OPT_TITLE="${2}"; shift;;
     --geometry|-g) OPT_GEOMETRY="${2}"; shift;;
-    --maximize|-m) OPT_MAXIMIZE_WINDOW=true;;
     --font-size|--fs|-s)
         if [[ ! "${2}" =~ ^[0-9]+$ ]]; then
           echo "newterm: argument for option ${1} must be a number" 1>&2
           exit 1
-        elif [[ ${2} -lt ${MIN_FONT_SIZE} || ${2} -gt ${MAX_FONT_SIZE} ]]; then
-          echo -n "newterm: argument for option ${1} must be between"\
-              " ${MIN_FONT_SIZE} and ${MAX_FONT_SIZE}" 1>&2
-          exit 1
         else
           OPT_FONT_SIZE="${2}"; shift
         fi;;
-    --font2|-f) OPT_SECONDARY_FONT=true;;
     --white-bg|-w) OPT_WHITE_BACKGROUND=true;;
-    --second-screen|-r) OPT_SECOND_SCREEN=true;;
-    --workspace2|--ws2|-2) OPT_MOVE_WINDOW_TO_WORKSPACE_2=true;;
-    --workspace3|--ws3|-3) OPT_MOVE_WINDOW_TO_WORKSPACE_3=true;;
-    --workspace4|--ws4|-4) OPT_MOVE_WINDOW_TO_WORKSPACE_4=true;;
     --help|-h) printHelpMessage; exit;;
     --) shift; break;;
     * ) break;;
@@ -84,10 +63,10 @@ while true; do
 done
 
 if [ -n "${OPT_TITLE}" ]; then
-  cfgAllowTtlOps='false'
+  allowTtlOps='false'
   title="${OPT_TITLE}"
 else
-  cfgAllowTtlOps='true'
+  allowTtlOps='true'
 fi
 
 if [ -n "${OPT_FONT_SIZE}" ]; then
@@ -95,12 +74,6 @@ if [ -n "${OPT_FONT_SIZE}" ]; then
 else
   fontSize="${DEFAULT_FONT_SIZE}"
 fi
-
-if [ "${OPT_SECONDARY_FONT}" = 'true' ]; then
-  fontFace="'${SECOND_FONT_FACE}':"
-fi
-
-fontProps="-fa ${fontPropFontFace}size=${fontSize}:antialias=true"
 
 if [ "${OPT_WHITE_BACKGROUND}" = 'true' ]; then
   colorProps='-fg #000000 -bg #FFFFFF'
@@ -140,45 +113,28 @@ getwindidbypid() {
 #   Launch terminal
 # ============================================
 
-nohup xterm -sl 9000 -xrm \
-    "XTerm.vt100.allowTitleOps: ${cfgAllowTtlOps}" -geometry "${geometry}" \
-    ${colorProps} -title "${title}" ${fontProps} -e bash -c \
-    "$(printf '%s\nexec bash' "${*}")" &>/dev/null &
-    # "$(printf '%s\nexec bash' "${*}")" is important here as it allows any
-    # command to be passed in, including a bash here document.
+nohup xterm -sl 9000 -xrm "XTerm.vt100.allowTitleOps: ${allowTtlOps}" -title \
+    "${title}" -geometry "${geometry}" -fa "${FONT_FACE}" -fs "${fontSize}" \
+    ${colorProps} -e bash -c "$(printf '%s\nexec bash' "${*}")" &>/dev/null &
+    # "$(printf '%s\nexec bash' "${*}")" allows any command to work, including
+    # a bash Here document.
 
-PID=$!
+PID="$!"
 
 sleep .08
-WIND_ID="$(getwindidbypid ${PID})"
+WIND_ID="$(getwindidbypid "${PID}")"
 
 # Check stdout and stderr to see if they point to a terminal; if so, redirect
-# to /dev/null to prevent unnecessary printing to the terminal.
+# to /dev/null to prevent unnecessary output to the terminal (note that the
+# window ID can still be obtained in a subprocess).
 if test -t 1; then
   exec 1>/dev/null
 fi
+
 if test -t 2; then
   exec 2>/dev/null
 fi
 
 # echo window ID so caller can obtain it
 echo "${WIND_ID}"
-
-# ============================================
-#   Post execution options
-# ============================================
-
-if [ "${OPT_MOVE_WINDOW_TO_WORKSPACE_2}" = 'true' ]; then
-  sleep .1; wmctrl -i -r "${WIND_ID}" -t 1
-elif [ "${OPT_MOVE_WINDOW_TO_WORKSPACE_3}" = 'true' ]; then
-  sleep .1; wmctrl -i -r "${WIND_ID}" -t 2
-elif [ "${OPT_MOVE_WINDOW_TO_WORKSPACE_4}" = 'true' ]; then
-  sleep .1; wmctrl -i -r "${WIND_ID}" -t 3
-fi
-
-if [ "${OPT_MAXIMIZE_WINDOW}" = 'true' ]; then
-  # must use "toggle" instead of "add" because for some reason the window
-  # doesn't maximize when large font is used
-  wmctrl -i -r "${WIND_ID}" -b toggle,maximized_vert,maximized_horz
-fi
 

@@ -11,7 +11,7 @@
 
 # ======= CONFIGURATIONS ==============
 
-# Set this to true to print days also
+# Set this to true to print days also.
 PRINT_DAYS_ALSO=false
 
 # ======= ! CONFIGURATIONS ==============

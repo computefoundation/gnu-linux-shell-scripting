@@ -1,7 +1,7 @@
 
 # Linux-shell-base
 
-**linux-shell-base** is a resource of standard solutions to low-level shell scripting problems in the Linux application layer as an approach to [the philosophy of computing](https://en.wikipedia.org/wiki/Unix_philosophy#The_UNIX_Programming_Environment). These are solutions to common shell scripting problems in the Linux community.
+**linux-shell-base** is a resource of standard solutions to low-level shell scripting problems in the Linux application layer as an approach to [the philosophy of computing](https://en.wikipedia.org/wiki/Unix_philosophy#The_UNIX_Programming_Environment). These are solutions to common shell scripting problems within the Linux community.
 
 All solutions conform to four principles:
 
@@ -10,7 +10,7 @@ All solutions conform to four principles:
 * Comply with the [UNIX philosophy][reference-Eric-Raymond-17_Unix_Rules] and standard scripting rules.
 * Require a considerable amount of research.
 
-This repository has no build/install automation. All solutions are independent of each other, strictly conform to the respective [guideline][wiki] and are contained in the following three directories:
+This repository has no build/install automation. All solutions are independent of each other, strictly conform to the respective [guideline][wiki] and exist in the following three directories:
 
 ### bin/
 
@@ -62,7 +62,7 @@ linux-shell-base has a [repository providing documentation for new Linux users][
 
 * This repository initially (and currently) consists of 62 scripts, 52 aliases and short functions and 3 one-liners created over two years and standardized for three months in preparation for this repository.
 
-* All initial solutions have been created and tested in Bash only *(and not Ksh, Zsh, etc.)*, however, they are updated to be more portable if changes are significant.
+* All initial solutions have been created and tested in Bash only *(not Ksh, Zsh, etc.)* and were created with only slight attention to portability, however, they are updated to be more portable if changes are significant.
 
 # Contributing
 

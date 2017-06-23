@@ -15,10 +15,10 @@
 
 # ======= CONFIGURATIONS ==============
 
-# Play a sound when the timer is finished
+# Play a sound when the timer is finished.
 PLAY_SOUND_WHEN_FINISHED=false
 
-# Sound file to play when the timer is finished
+# Sound file to play when the timer is finished.
 SOUND_FILE='/usr/share/orage/sounds/KDE_Beep_Digital_1.ogg'
 
 # ======= ! CONFIGURATIONS ==============
