@@ -6,13 +6,13 @@
 # 
 # Examples:
 #   # use the locate method to locate and return a file for gedit
-#   alias geditloc='returnfileandexe {gedit --new-window} --l'
+#   alias geditloc='returnfileforcmd {gedit --new-window} --l'
 # 
 #   # use the recursive method to find and return a file for gedit
-#   alias geditr='returnfileandexe {gedit --new-window} --r'
+#   alias geditr='returnfileforcmd {gedit --new-window} --r'
 # 
 #   # same as previous, except return files only
-#   alias geditr='returnfileandexe {gedit --new-window} --r --f'
+#   alias geditr='returnfileforcmd {gedit --new-window} --r --f'
 # 
 #   # use it on its own or with other options such as --a to return all
 #   # occurrences.
@@ -33,21 +33,21 @@
 
 LOCATE_COMMAND='locate'
 
-# Locate command option to locate directories only; can be empty
+# Locate command option to locate directories only; can be empty.
 LOCATE_COMMAND_DIRS_ONLY_OPT='-d'
 
-# Locate command find occurrence option (requires argument); can be empty
+# Locate command find occurrence option (requires argument); can be empty.
 LOCATE_COMMAND_FIND_OCCURRENCE_OPT='-o'
 
 # ======= ! CONFIGURATIONS ==============
 
 printHelpMessage() {
   echo -ne "\
-returnfileandexe - Return a file for a command.
+returnfileforcmd - Return a file for a command.
 
 Usage:
-  returnfileandexe {<command to execute>} [options] <partial file name>
-          [directory]
+  returnfileforcmd {<command to execute>} [options] <partial file name>
+        [directory]
 
   directory: applies only when using the recursive search method; if not
              specified, the current directory will be used.
