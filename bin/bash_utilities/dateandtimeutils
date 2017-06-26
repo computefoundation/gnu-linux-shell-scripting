@@ -6,7 +6,7 @@
 # Conversion
 # --------------------------------------------
   # Format number of seconds (using either an integer or decimal) to millseconds
-  # as a decimal
+  # as a decimal.
   # Arguments:
   #   1. Seconds
   secondsToMillisecondsDecimal() {
@@ -15,7 +15,7 @@
 
   # Format number of seconds (using either an integer or decimal) to millseconds
   # as an integer rounded to the nearest tenths place (using round half towards
-  # zero mode)
+  # zero mode).
   # Arguments:
   #   1. Seconds
   secondsToMilliseconds() {

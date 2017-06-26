@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+# 
+# Get the name of the first active window in a class.
+# 
+# Usage:
+#   getfirstwindnameinclass <window class>
+# 
+#   window class: case-sensitive; can match any part of the full qualified class
+#   string (class and classname; e.g. "xterm.XTerm")
+# 
+
+if [ "$#" -eq 0 ]; then
+  exit
+fi
+
+getwindnamesinclass() {
+  echo "$(wmctrl -lx | awk '{printf "%s", $3; $1=$2=$3=$4=""; print $0}' | awk \
+      -v class="${1}" '$1 ~ class {$1=""; sub(/^[ \t]+/, "", $0); print $0}')"
+}
+
+IFS=$'\n'
+CLASS_WIND_NAMES=($(getwindnamesinclass "${1}"))
+unset IFS
+
+if [ ${#CLASS_WIND_NAMES[@]} -eq 0 ]; then
+  exit
+fi
+
+echo "${CLASS_WIND_NAMES[0]}"
+

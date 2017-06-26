@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# 
+# Get the PID of a window by ID.
+# 
+# Usage:
+#   getwindpidbyid <window ID>
+# 
+#   window ID: must be in hexidecimal format
+# 
+
+if [ "$#" -eq 0 ]; then
+  exit
+elif [[ ! "${1}" =~ '0x'.* ]]; then
+  echo 'getwindpidbyid: argument not in hexidecimal format' 1>&2
+  exit 1
+fi
+
+PID="$(xprop -id "${1}" 2>/dev/null | awk '/_NET_WM_PID/ {print $3}')"
+
+if [ -n "${PID}" ]; then
+  echo "${PID}"
+fi
+

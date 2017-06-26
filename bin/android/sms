@@ -5,13 +5,13 @@
 # Usage:
 #   sms <phone no.> <message>
 # 
-#   message: may contain "\n" for newlines.
+#   message: may contain "\n" for newlines
 # 
 
 # ======= CONFIGURATIONS ==============
 
-# X and Y coordiantes of the Send button in the Messaging app. (It is used only
-# if needed to ensure the message was sent, not as the primary method).
+# X and Y coordiantes of the Send button in the Messaging app. (This is used
+# only to ensure the message was sent, not as the primary method).
 readonly MSG_SEND_BTN_X_Y='661 1226'
 
 # ======= ! CONFIGURATIONS ==============

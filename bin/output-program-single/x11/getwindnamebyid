@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# 
+# Get the name of a window by ID.
+# 
+# Usage:
+#   getwindnamebyid <window ID>
+# 
+#   window ID: must be in hexidecimal format
+# 
+
+if [ "$#" -eq 0 ]; then
+  exit
+elif [[ ! "${1}" =~ '0x'.* ]]; then
+  echo 'getwindnamebyid: argument not in hexidecimal format' 1>&2
+  exit 1
+fi
+
+WINDOW_NAME="$(xprop -id "${1}" WM_NAME 2>/dev/null | sed -n \
+    's/[^"]*"\(.*\)./\1/p')"
+
+if [ -n "${WINDOW_NAME}" ]; then
+  echo "${WINDOW_NAME}"
+fi
+

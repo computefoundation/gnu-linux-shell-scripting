@@ -1,7 +1,7 @@
 
 # aliases/
 
-Aliases and short functions.
+Aliases and short functions for bash profiles.
 
 * [**aliases-info.bash**](aliases-info.bash): Aliases and short functions providing information only (no actions performed).
 * [**aliases.bash**](aliases.bash): Aliases and short functions performing an action.

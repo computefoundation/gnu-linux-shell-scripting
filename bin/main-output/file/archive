@@ -1,0 +1,91 @@
+#!/usr/bin/env bash
+# 
+# Archive a file or directory with almost any archive format.
+# 
+
+readonly DIR_ARCHV_FRMTS=('tar' 'tar.xz' 'tar.gz' 'tgz' 'tar.bz' 'tar.bz2' 'tbz'
+    'tbz2' 'zip' '7z' 'rar')
+readonly FILE_ARCHV_FRMTS=('gz' 'bz2')
+
+printSupportedArchiveTypes() {
+  echo -e 'Supported archive formats:'
+  for daf in ${DIR_ARCHV_FRMTS[@]}; do echo "  ${daf}"; done
+  for faf in ${FILE_ARCHV_FRMTS[@]}; do echo "  ${faf} (file only)"; done
+}
+
+printHelpMessage() {
+  [ "${1}" = 'full' ] && echo -e 'Archive a file or directory.\n'
+  echo -ne "\
+Usage:
+  archive <file or directory> <archive type> [output_filename]
+
+  output_filename: should not include extension; original file name is default.
+
+Options:
+  -h    print this help message
+"
+  printSupportedArchiveTypes
+}
+
+while getopts :vh OPT; do
+  case "${OPT}" in
+    h)  printHelpMessage full; exit 1 ;;
+    \?) echo -e "archive: option \"${OPTARG}\" unknown" 1>&2; exit 1;;
+  esac
+done
+shift $((OPTIND -1))
+
+if [ "$#" -lt 2 ]; then
+  echo 'archive: invlaid arguments' 1>&2
+  printHelpMessage
+  exit 1
+fi
+
+ARG_ARCHV_FRMT="${1}"
+ARG_ARCHV_FILE="${2}"
+if [[ "${ARG_ARCHV_FRMT}" = '.'* ]]; then
+  ARG_ARCHV_FRMT="${ARG_ARCHV_FRMT: 1}"
+fi
+
+if [ -n "${3}" ]; then
+  ARG_ARCHV_NAME="${3}"
+else
+  ARG_ARCHV_NAME="$(basename ${ARG_ARCHV_FILE} ${ARG_ARCHV_FRMT})"
+fi
+
+ARCHV_FINAL_NAME="${ARG_ARCHV_NAME}.${ARG_ARCHV_FRMT}"
+
+if [ ! -e "${ARG_ARCHV_FILE}" ]; then
+  echo "archive: file or directory \"${ARG_ARCHV_FILE}\" does not exist" 1>&2
+  exit 1
+fi
+
+if [ -d "${ARG_ARCHV_FILE}" ]; then
+  for fileArcFrmt in "${FILE_ARCHV_FRMTS[@]}"; do
+    if [ "${ARG_ARCHV_FRMT}" = "${fileArcFrmt}" ]; then
+      echo "archive: directories cannot be archived with ${fileArcFrmt}." 1>&2
+      printSupportedArchiveTypes
+      exit 1
+    fi
+  done
+fi
+
+case "${ARG_ARCHV_FRMT}" in
+  ${DIR_ARCHV_FRMTS[0]})   tar cvf "${ARCHV_FINAL_NAME}" "${ARG_ARCHV_FILE}";;
+  ${DIR_ARCHV_FRMTS[1]})   tar cvJf "${ARCHV_FINAL_NAME}" "${ARG_ARCHV_FILE}";;
+  ${DIR_ARCHV_FRMTS[2]}|${DIR_ARCHV_FRMTS[3]})
+      tar cvzf "${ARCHV_FINAL_NAME}" "${ARG_ARCHV_FILE}";;
+  ${DIR_ARCHV_FRMTS[4]}|${DIR_ARCHV_FRMTS[5]}|${DIR_ARCHV_FRMTS[6]}|${DIR_ARCHV_FRMTS[7]})
+      tar cvjf "${ARCHV_FINAL_NAME}" "${ARG_ARCHV_FILE}";;
+  ${DIR_ARCHV_FRMTS[8]})   zip -r "${ARCHV_FINAL_NAME}" "${ARG_ARCHV_FILE}";;
+  ${DIR_ARCHV_FRMTS[9]})   7z a -t7z "${ARCHV_FINAL_NAME}" "${ARG_ARCHV_FILE}";;
+  ${DIR_ARCHV_FRMTS[10]})  rar a "${ARCHV_FINAL_NAME}" "${ARG_ARCHV_FILE}";;
+  ${FILE_ARCHV_FRMTS[0]})  gzip < "${ARG_ARCHV_FILE}" > "${ARCHV_FINAL_NAME}";;
+  ${FILE_ARCHV_FRMTS[1]})  bzip2 < "${ARG_ARCHV_FILE}" > "${ARCHV_FINAL_NAME}";;
+  *)
+    echo "archive: archive format \"${ARG_ARCHV_FRMT}\" unknown" 1>&2
+    printSupportedArchiveTypes
+    exit 1
+    ;;
+esac
+

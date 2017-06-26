@@ -11,4 +11,4 @@
 
 ### Usage Notes
 
-* If a function accepts an array, it must be passed by reference. This is done by passing the array name rather than its values (e.g. an array X would be passed as "X" rather than "${X[@]}").
+* If a function accepts an array, it will do so by reference. *(Passing an array by reference refers to passing its name rather than its values [e.g. an array X would be passed as "X" rather than "${X[@]}"]).*

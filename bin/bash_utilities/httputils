@@ -3,8 +3,9 @@
 # Bash HTTP utilities.
 # 
 
-# This regex checks that the URL contains safe characters only.
+# This regex ensures only that the URL contains safe characters.
 URL_REGEX='[-A-Za-z0-9+&@#\/%?=~_|!:,.;]*[-A-Za-z0-9+&@#\/%=~_|]'
+
 PROTOCOLS_REGEX='https?|ftp|file'
 
 # Validation

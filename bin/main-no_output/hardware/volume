@@ -1,0 +1,62 @@
+#!/usr/bin/env bash
+# 
+# Set the volume level.
+# 
+# This script additionally provides the option to toggle the volume level. Three
+# incremental levels are used when toggling. The volume will return to 0 after
+# the third level.
+# 
+# Usage:
+#   volume [percentage level]
+# 
+#   percentage level: If omitted, the volume level will be set to the first
+#   volume level and increment to the next level thereafter.
+# 
+# Dependencies:
+#   amixer (to set the volume level)
+# 
+
+# ======= CONFIGURATIONS ==============
+
+# Default incremental percentage levels; they are used for toggline the volume
+# level.
+VOLUME_LEVEL1=60
+VOLUME_LEVEL2=75
+VOLUME_LEVEL3=90
+
+# ======= ! CONFIGURATIONS ==============
+
+if [[ "$#" -ge 1 && ! "${1}" =~ ^[0-9]+$ ]]; then
+  notify-send 'volume: invalid arguments'
+  exit 1
+fi
+
+setVolAndNotify() {
+  amixer set Master "${1}"% > /dev/null
+  notify-send "Volume: ${1}%"
+}
+
+if [ "$#" -gt 0 ]; then
+  setVolAndNotify "${1}"
+else
+  currVol="$(amixer get Master | tail -1 | sed -n \
+      's/[^[]*[0-9]* \[\([0-9]*\).*/\1/p')"
+  case "${currVol}" in
+    0 | 1)
+      setVolAndNotify ${VOLUME_LEVEL1}
+      ;;
+    $((VOLUME_LEVEL1 - 1)) | ${VOLUME_LEVEL1} | $((VOLUME_LEVEL1 + 1)))
+      setVolAndNotify ${VOLUME_LEVEL2}
+      ;;
+    $((VOLUME_LEVEL2 - 1)) | ${VOLUME_LEVEL2} | $((VOLUME_LEVEL2 + 1)))
+      setVolAndNotify ${VOLUME_LEVEL3}
+      ;;
+    $((VOLUME_LEVEL3 - 1)) | ${VOLUME_LEVEL3} | $((VOLUME_LEVEL3 + 1)))
+      setVolAndNotify 0
+      ;;
+    ?*)
+      setVolAndNotify ${VOLUME_LEVEL1}
+      ;;
+  esac
+fi
+

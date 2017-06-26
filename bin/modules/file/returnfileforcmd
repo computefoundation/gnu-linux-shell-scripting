@@ -5,28 +5,31 @@
 #   2. Recursive: recursively search from the current directory
 # 
 # Examples:
-#   # use the locate method to locate and return a file for gedit
+#   # use the locate method to locate a file for gedit
 #   alias geditloc='returnfileforcmd {gedit --new-window} --l'
 # 
-#   # use the recursive method to find and return a file for gedit
+#   # use the recursive method to find a file for gedit
 #   alias geditr='returnfileforcmd {gedit --new-window} --r'
 # 
-#   # same as previous, except return files only
+#   # same as previous, except find files only
 #   alias geditr='returnfileforcmd {gedit --new-window} --r --f'
 # 
-#   # use it on its own or with other options such as --a to return all
-#   # occurrences.
+#   # use them on their own or with other options such as --a to return all
+#   # occurrences
+#   geditloc project-config.sh
 #   geditr --a config.sh
 # 
 # Notes:
-#   This script's options will override matching ones for the command in
-#   brackets. It uses double dashes as a result to avoid collision as much as
-#   possible.
-# 
 #   To use the locate method, there must exist a locate command in the user's
 #   PATH which returns one or more file paths. The command name must be
 #   specified in LOCATE_COMMAND. (Note: A locate utility package is provided in
 #   the packaged-utilities repository by linux-shell-base).
+# 
+#   This script's options will override matching ones for the command in
+#   brackets. It uses double dashes as a result to avoid collision as much as
+#   possible.
+# 
+#   This module does not support space separated files.
 # 
 
 # ======= CONFIGURATIONS ==============
@@ -36,7 +39,7 @@ LOCATE_COMMAND='locate'
 # Locate command option to locate directories only; can be empty.
 LOCATE_COMMAND_DIRS_ONLY_OPT='-d'
 
-# Locate command find occurrence option (requires argument); can be empty.
+# Locate command option to change the find occurrence; can be empty.
 LOCATE_COMMAND_FIND_OCCURRENCE_OPT='-o'
 
 # ======= ! CONFIGURATIONS ==============
