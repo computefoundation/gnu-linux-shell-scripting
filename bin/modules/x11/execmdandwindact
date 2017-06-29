@@ -9,10 +9,10 @@
 # Notes:
 #   If this module is used with a command that uses quotes, the quotes must be
 #   within outer quotes to be interpreted.
-#   E.g.
-#     $ <command> --opt="opt_arg"
-#     #   would have to be
-#     $ <command> --opt='"opt_arg"'
+#       E.g.:
+#         <command> --opt="opt_arg"
+#         # would have to be
+#         <command> --opt='"opt_arg"'
 # 
 
 # ======= CONFIGURATIONS ==============
@@ -41,13 +41,13 @@ echo -ne "\
 Usage:
   execmdandwindact [options] -- <command> <window class> <delay time(sec)>
 
-  command:          command to run
-  window class:     class of the window that is opened by the
-                    command (only used to check if the window
-                    is already open; no action will be taken
-                    if so)
-  delay time(sec):  time required for the window to open before
-                    moving it (min: .1; max: 25)
+  command:            command to run
+  window class:       class of the window that is opened by the
+                      command (only used to check if the window
+                      is already open; no action will be taken
+                      if so)
+  delay time(sec):    time required for the window to open before
+                      moving it (min: .1; max: 25)
 
 Options:
   -t --title <TITLE>  specify the window title to use instead of the class

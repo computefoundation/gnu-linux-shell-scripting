@@ -177,7 +177,7 @@ setCurrentWindowProperties() {
 }
 
 # =================================================================
-#   Process Window Action
+#   Perform window action
 # =================================================================
 
 for windId in "${WINDOW_IDS[@]}"; do

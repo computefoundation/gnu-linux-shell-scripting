@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
 # 
-# Run a command when files have changed in a directory. To use, this script must
-# simply be run in the directory it is to monitor and given one or more commands
-# to run.
+# Run a command when files have changed in the current directory. 
 # 
 # Usage:
 #   inotify <command to run>
+# 
+# Usage note:
+#   To use, this script must simply be run in the directory it is to monitor and
+#   given one or more commands to run.
 # 
 # Dependencies:
 #   inotify-tools

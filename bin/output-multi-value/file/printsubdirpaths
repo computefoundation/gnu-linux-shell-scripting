@@ -1,0 +1,52 @@
+#!/usr/bin/env bash
+# 
+# Print paths of all subdirectories of the specified directory.
+# 
+# Example:
+#   printsubdirpaths bin/
+#   # output will be the following:
+#   bin/3rd_party_applications/database/
+#   bin/main-modules/file/
+#   bin/main-modules/shell/
+#   bin/main-no_output/hardware/
+#   bin/main-no_output/shell/
+#   bin/main-no_output/x11/
+#   bin/main-output/file/
+#   bin/main-output/x11/
+#   bin/modules/file/
+#   bin/modules/x11/
+#   bin/output-multi-value/file/
+#   bin/output-single-value/file/
+#   bin/output-single-value/hardware/
+#   bin/output-single-value/networking/
+#   bin/output-single-value/x11/
+#   bin/output-user/networking/
+#   bin/output-user/system/
+#   bin/output-user/x11/
+#   bin/utilities/general/
+#   bin/utilities/keybind/
+#   bin/utilities/other/
+#   bin/utilities/productivity/
+# 
+# Usage:
+#   printsubdirpaths [directory]
+# 
+#   The current directory will be used if none is specified.
+# 
+
+if [ "$#" -eq 0 ]; then
+  START_DIR=''
+else
+  START_DIR="${1}"
+
+  if [ "${START_DIR: -1}" != '/' ]; then
+    START_DIR+='/'
+  fi
+fi
+
+for dir in $(command ls -d -- "${START_DIR}"*/ 2>/dev/null); do
+  for dirL2 in $(command ls -d -- "${dir}"*/ 2>/dev/null); do
+    echo "${dirL2}"
+  done
+done
+

@@ -2,6 +2,23 @@
 # 
 # Display useful host related informaton.
 # 
+# Example:
+#   localhost
+#   # output will be the following:
+#   You are logged on <hostname>
+#   
+#   Additionnal information:
+#   Linux <hostname> 4.11.6-3-ARCH #1 SMP PREEMPT Thu Jun 22 12:21:46 CEST 2017 x86_64 GNU/Linux
+#   
+#   Users logged on:
+#   <user>      tty1      07:26    1:18m  3:31   0.00s xinit /home/<user>/.xinitrc -- /etc/X11/xinit/xserverrc
+#   
+#   Current date:
+#   Mon Jul  3 08:45:32 CDT 2017
+#   
+#   Machine stats:
+#    08:45:32 up  1:18,  1 user,  load average: 0.55, 0.50, 0.44
+# 
 # Source:
 #   https://linux.die.net/abs-guide/sample-bashrc.html
 # 

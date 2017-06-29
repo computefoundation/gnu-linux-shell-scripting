@@ -8,6 +8,10 @@
 # Returns:
 #   The PID of the executed command or nothing if stdout points to a terminal.
 # 
+# Source:
+#   (link is now dead)
+#   http://felixmilea.com/2014/12/running-bash-commands-background-properly/
+# 
 # Notes:
 #   This script "will remove the command from the shell’s job list and redirect
 #   all of its output to /dev/null unless a file descriptor other than a
@@ -23,10 +27,6 @@
 #       see if they point to a terminal, and if they do, it will pass /dev/null
 #       instead, otherwise it will let the command inherit the specified stdout
 #       and stderr.
-# 
-# Source:
-#   (link is now dead)
-#   http://felixmilea.com/2014/12/running-bash-commands-background-properly/
 # 
 
 # Redirect output to /dev/null if stdout and stderr point to a terminal.

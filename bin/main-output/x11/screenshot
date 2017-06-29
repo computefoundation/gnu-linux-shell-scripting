@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
 # 
-# Take a screenshot using one of the following methods:
-#   1. full: entire screen (default)
-#   2. section: section of the screen
+# Take a screenshot.
 # 
 # Usage:
 #   screenshot [method]
+# 
+#   method:
+#     "full": entire screen (default)
+#     "section": section of the screen
 # 
 # Dependencies:
 #   maim

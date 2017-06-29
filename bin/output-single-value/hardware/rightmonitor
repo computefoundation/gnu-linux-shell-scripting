@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # 
-# Determine if a right monitor is enabled (i.e. a monitor positioned to the
-# right of the leftmost monitor).
+# Determine if a right monitor (i.e. a monitor positioned to the right of the
+# leftmost monitor) is enabled.
 # 
 # Exit codes:
 #   0: is enabled

@@ -17,7 +17,7 @@ Bash utility functions.
 
 ## main
 
-Scripts for fundamental aspects of the Linux operating system *(file, hardware, networking, x11, etc.)*, divided into three sections: (1) **modules**: scripts used in conjuction with a command; (2) **no output**: scripts with no output; (3) **output**: scripts with output.
+Solutions for the Linux operating system *(file, hardware, networking, x11, etc.)*, divided into three sections: (1) **modules**: scripts used in conjuction with a command; (2) **no output**: scripts with no output; (3) **output**: scripts with output.
 
 ## mobile
 
@@ -25,11 +25,11 @@ Solutions for mobile devices.
 
 ## modules
 
-Utility scripts used in conjuction with command-line programs.
+Utility modules for command-line programs.
 
 ## output
 
-Scripts for fundamental aspects of the Linux operating system *(file, hardware, networking, x11, etc.)* providing output only *(no actions performed)*, divided into two sections: (1) **program**: output for other programs, divided into two subsections: ***multi***: multi-value output; ***single***: single-value output; (2) **user**: output for the user.
+Scripts for the Linux operating system *(file, hardware, networking, x11, etc.)* providing output only *(no actions performed)*, divided into three sections: (1) **multi-value**: multi-value output for other programs; (2) **single-value**: single-value output for other programs; (3) **user**: output for the user.
 
 ## utilities
 

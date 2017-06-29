@@ -14,7 +14,9 @@ printSupportedArchiveTypes() {
 }
 
 printHelpMessage() {
-  [ "${1}" = 'full' ] && echo -e 'Archive a file or directory.\n'
+  if [ "${1}" = 'full' ]; then
+  	echo -e 'Archive a file or directory.\n'
+  fi
   echo -ne "\
 Usage:
   archive <file or directory> <archive type> [output_filename]

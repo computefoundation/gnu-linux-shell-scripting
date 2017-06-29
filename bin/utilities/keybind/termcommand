@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 # 
 # Execute a given command in (or run the last command of) a terminal emulator.
-# This script should be bound to a keybinding or used in a script.
 # 
 # Usage:
 #   termcommand (--class <CLASS>|--title <TITLE>) [options] -- <command>
@@ -22,11 +21,13 @@
 #   -r --refocus         refocus previously focused window after running command
 # 
 # Dependencies:
-#   xautomation (command "xte"). If xdotool is preferred, follow the
-#   instructions at the bottom where xte is used. (Note: Running the command
-#   with xdotool is much slower as it sends each character individually).
+#   xautomation (command "xte"; if xdotool is preferred, follow the instructions
+#     at the bottom where xte is used. [Note: Running the command with xdotool
+#     is significantly slower as it sends each character individually]).
 # 
 # Notes:
+#   This script should be bound to a keybinding or used in a script.
+# 
 #   If using the --last option and the last command in the terminal is moved to
 #   but not executed, increase the usleep time in the xte command.
 # 
@@ -109,7 +110,7 @@ if [ -n "${termWindId}" ]; then
   wmctrl -i -a "${termWindId}"
   [ -n "${OPT_AUTOMTN_DELAY_TIME}" ] && sleep "${OPT_AUTOMTN_DELAY_TIME}"
 
-  # To use xdotool, comment the xte sections and uncomment the xdotool sections.
+  # To use xdotool, comment the xte code and uncomment the xdotool code.
 
   if [ "${OPT_LAST_COMMAND}" = 'true' ]; then
     xte 'usleep 25000' 'key Up' 'key Return'

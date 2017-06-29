@@ -5,18 +5,22 @@
 # Usage:
 #   wttr [city or 3-letter airport code] [AccuWeather location ID]
 # 
-# E.g.:
+# Example:
 #   wttr 'seattle' '351409'
 # 
-# If no arguments are provided, the following will be used for each source:
-#   AccuWeather: The ID in the ACCU_WEATHER_LOC_ID variable.
-#   wttr.in: Location based on the current IP address.
+# Dependencies:
+#   wttr
 # 
-# Instructions on getting your location's AccuWeather ID:
-#   1. Go to http://www.accuweather.com/en/browse-locations
-#   2. Search your location
-#   3. Copy and paste the digits at the end of the loaded URL to
-#      ACCU_WEATHER_LOC_ID.
+# Notes:
+#   Instructions on getting an AccuWeather location ID:
+#     1. Go to http://www.accuweather.com/en/browse-locations
+#     2. Search the location
+#     3. Copy and paste the digits at the end of the loaded URL to
+#        ACCU_WEATHER_LOC_ID.
+# 
+#   If no arguments are provided, the following will be used for each source:
+#     AccuWeather: The ID in the ACCU_WEATHER_LOC_ID variable.
+#     wttr.in: Location based on the current IP address.
 # 
 
 # ======= CONFIGURATIONS ==============
@@ -33,8 +37,8 @@ elif [ "$#" -ge 1 ]; then
 fi
 
 # ===================================================================
-#   AccuWeather: Display current and feels like temperatures
-#   in a single line of text.
+#   AccuWeather (displays current and feels like temperatures in a
+#   single line of text)
 # ===================================================================
 
 if [ -n "${ACCU_WEATHER_LOC_ID}" ]; then
@@ -54,7 +58,7 @@ if [ -n "${ACCU_WEATHER_LOC_ID}" ]; then
 fi
 
 # ===================================================================
-#   wttr.in: Display a 3-day forecast in a full colored graph.
+#   wttr.in (displays a 3-day forecast in a full colored graph)
 # ===================================================================
 
 echo -e 'wttr.in:'

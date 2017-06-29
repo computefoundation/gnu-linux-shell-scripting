@@ -5,13 +5,13 @@
 # Usage:
 #   sms <phone no.> <message>
 # 
-#   message: may contain "\n" for newlines
+#   message: may contain "\n" for newlines.
 # 
 
 # ======= CONFIGURATIONS ==============
 
 # X and Y coordiantes of the Send button in the Messaging app. (This is used
-# only to ensure the message was sent, not as the primary method).
+# only to ensure the message was sent and is not the primary method).
 readonly MSG_SEND_BTN_X_Y='661 1226'
 
 # ======= ! CONFIGURATIONS ==============
@@ -37,8 +37,8 @@ adb -d shell "NL=$'\n' ; am start -a android.intent.action.SENDTO -d \
 
 # Sometimes, the message doesn't get sent after it has been inserted. Therefore,
 # if the messaging application is still open, the send button should be pressed.
-currPkg="$(adb -d shell dumpsys window windows | grep mCurrentFocus | \
-    cut -d'/' -f1 | rev | cut -d' ' -f1 | rev)"
+currPkg="$(adb -d shell dumpsys window windows | grep mCurrentFocus | cut \
+    -d'/' -f1 | rev | cut -d' ' -f1 | rev)"
 if [ "${currPkg}" != 'com.android.mms' ]; then
   sleep .7
   adb -d shell "input tap ${MSG_SEND_BTN_X_Y}; input keyevent KEYCODE_HOME"

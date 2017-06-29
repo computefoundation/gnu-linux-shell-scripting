@@ -3,7 +3,7 @@
 # Generic utility functions for MySQL.
 #
 # Usage:
-#   mysqlutil <action> <databaes username> <database name>
+#   mysqlutil <action> <databaes user> <database name>
 # 
 
 if [ "$#" -ne 3 ]; then
@@ -12,7 +12,7 @@ if [ "$#" -ne 3 ]; then
 fi
 
 ACTION="${1}"
-USERNAME="${2}"
+USER="${2}"
 DB_NAME="${3}"
 shift 3
 
@@ -29,11 +29,11 @@ case "${ACTION}" in
       exit 1
     fi
 
-    mysql -u${USERNAME} -e "CREATE DATABASE IF NOT EXISTS ${DB_NAME}"
+    mysql -u${USER} -e "CREATE DATABASE IF NOT EXISTS ${DB_NAME}"
 
-    if mysql -u${USERNAME} -e "use ${DB_NAME}" 2>/dev/null; then
-      bash ${0} 'droptables' ${USERNAME} ${DB_NAME}
-      mysql -u${USERNAME} ${DB_NAME} < "${1}"
+    if mysql -u${USER} -e "use ${DB_NAME}" 2>/dev/null; then
+      bash ${0} 'droptables' ${USER} ${DB_NAME}
+      mysql -u${USER} ${DB_NAME} < "${1}"
     else
       echo "mysqlutil: cannot create tables for database ${DB_NAME}:"\
           "database does not exist" 1>&2
@@ -58,20 +58,20 @@ case "${ACTION}" in
       DEALLOCATE PREPARE stmt;
       SET FOREIGN_KEY_CHECKS = 1;
       "
-    mysql -u${USERNAME} -e "${Q1}"
+    mysql -u${USER} -e "${Q1}"
     ;;
     
   # Clear data from all tables in the database
   'cleardata')
-    mysqldump -d -u${USERNAME} --add-drop-table ${DB_NAME} > \
+    mysqldump -d -u${USER} --add-drop-table ${DB_NAME} > \
         ./db_export_tmp.sql
-    mysql -u${USERNAME} ${DB_NAME} < ./db_export_tmp.sql
+    mysql -u${USER} ${DB_NAME} < ./db_export_tmp.sql
     rm ./db_export_tmp.sql
     ;;
     
   # Export the database
   'export')
-    mysqldump -u${USERNAME} ${DB_NAME} > ./db_export.sql
+    mysqldump -u${USER} ${DB_NAME} > ./db_export.sql
     ;;
     
   *)
