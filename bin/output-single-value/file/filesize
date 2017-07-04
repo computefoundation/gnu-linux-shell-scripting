@@ -2,13 +2,16 @@
 # 
 # Get the size of a file or directory as a plain number.
 # 
+# Note:
+#   Multipe files and/or directories can be passed.
+# 
 
 printHelpMessage() {
   echo -ne "\
 Get the size of a file or directory as a plain number.
 
 Usage:
-  filesize [options] <file_or_directory>
+  filesize [options] <files and/or directories>
 
 Options:
   -b    bytes
@@ -17,8 +20,9 @@ Options:
   -g    gigabytes
 
 Notes:
-  Will print an error and exit if the user does not have
-  read permissions for a file or directory.
+  This script will print an error and exit if the
+  user does not have read permissions for a file
+  or directory.
 
   Size rounding is based on \"du\" specifications.
 "
@@ -29,9 +33,9 @@ if [ "$#" -eq 0 ]; then
   exit 1
 fi
 
-readonly DU_OPTS='-cs --block-size=1M'
+DU_OPTS='-cs --block-size=1M'
 
-# Replace block size type
+# Utility function to replace the block size type.
 # Argument: "B", "K", "M" or "G"
 replaceBlockSizeType() {
   if [[ "${DU_OPTS}" =~ (.*--block-size=)(1[KMG])(.*) ]]; then
@@ -71,7 +75,7 @@ if [ -n "${OPT_BLOCK_SIZE}" ]; then
   replaceBlockSizeType "${OPT_BLOCK_SIZE}"
 fi
 
-DU_OUT="$(command du ${DU_OPTS} "${1}" 2>&1)"
+DU_OUT="$(command du ${DU_OPTS} "${@}" 2>&1)"
 
 if [ "$?" -eq 1 ]; then
   echo -e "filesize: error: \n\"\"\"${DU_OUT}\"\"\""  1>&2 >/dev/tty

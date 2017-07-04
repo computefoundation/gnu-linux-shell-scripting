@@ -6,15 +6,15 @@
 #   Full qualified class string (class and classname; e.g. "xterm.XTerm")).
 # 
 
-getactvwindid() {
+getActvWindId() {
   echo "$(xprop -root _NET_ACTIVE_WINDOW | cut -d ' ' -f 5 | rev | cut -c 2- | \
       rev | sed 's/^0x/0x0/')"
 }
 
-getwindclassbyid() {
+getWindClassById() {
   echo "$(xprop -id "${1}" WM_CLASS | sed -n \
       's/[^"]*"\([^"]*\)",\s"\([^"]*\)"/\1.\2/p')"
 }
 
-echo "$(getwindclassbyid "$(getactvwindid)")"
+echo "$(getWindClassById "$(getActvWindId)")"
 

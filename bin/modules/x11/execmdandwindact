@@ -112,12 +112,12 @@ else
   exit 1
 fi
 
-iswindopen() {
+isWindOpen() {
   CLASS_WIND_IDS=($(wmctrl -lx | awk -v class="${1}" '$3 ~ class {print $1}'))
   [[ "${#CLASS_WIND_IDS[@]}" -gt 0 ]] && return 0 || return 1
 }
 
-getwindidbypid() {
+getWindIdByPid() {
   while IFS= read line; do
     if [[ "${line}" =~ (0x)([0-9a-z]+)([ ][- ][0-9]+[ ])([0-9]*) ]]; then
       winId="${BASH_REMATCH[1]}${BASH_REMATCH[2]}"
@@ -130,7 +130,7 @@ getwindidbypid() {
   done < <(wmctrl -lp)
 }
 
-if iswindopen "${WIND_CLASS}"; then
+if isWindOpen "${WIND_CLASS}"; then
   ALREADY_OPENED=true
 fi
 
@@ -146,7 +146,7 @@ PID=$!
 if [[ -n "${PID}" && ! "${ALREADY_OPENED}" = true ]]; then
   sleep "${DELAY_TIME_BFR_MOVE}"
 
-  [ -z "${WIND_TITLE}" ] && windId="$(getwindidbypid "${PID}")"
+  [ -z "${WIND_TITLE}" ] && windId="$(getWindIdByPid "${PID}")"
 
   if [[ -n "${windId}" || -n "${WIND_TITLE}" ]]; then
     if [ -n "${GEOMETRY}" ]; then

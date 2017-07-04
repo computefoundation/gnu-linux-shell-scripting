@@ -10,7 +10,7 @@
 * [**isbluetoothblocked**](hardware/isbluetoothblocked): Check if the primary bluetooth device is soft blocked.
 * [**issecondarywlanblocked**](hardware/issecondarywlanblocked): Check if a secondary wireless local area network device (such as a USB Wi-Fi adapter) is soft blocked.
 * [**iswlanblocked**](hardware/iswlanblocked): Check if the primary wireless local area network device is soft blocked.
-* [**rightmonitor**](hardware/rightmonitor): Determine if a right monitor (i.e. a monitor positioned to the right of the leftmost monitor) is enabled.
+* [**isrightmonitorenabled**](hardware/isrightmonitorenabled): Determine if a right monitor (a monitor positioned to the right of the leftmost monitor) is enabled.
 
 ### networking/
 

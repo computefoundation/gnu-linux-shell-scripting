@@ -3,7 +3,7 @@
 
 ### general/
 
-* [**newterm**](general/newterm): Open a new terminal and optionally run an initial command in it.
+* [**newterm**](general/newterm): Open a new terminal optionally with an initial command to run.
 
 ### keybind/
 
@@ -20,4 +20,4 @@
 
 ### productivity/
 
-* [**wttr**](productivity/wttr): Get weather information in the terminal (with AccuWeather and wttr.in).
+* [**wttr**](productivity/wttr): Get weather information in the terminal.

@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 # 
-# Open a new terminal and optionally run an initial command in it.
+# Open a new terminal optionally with an initial command to run.
 # 
-# A small layer for configuring terminal settings is also provided.
+# A small layer for configuring terminal and window settings is additionally
+# provided.
 # 
 # Returns:
 #   The window ID of the new terminal window.
@@ -96,7 +97,7 @@ fi
 #   Utilitiy functions
 # ============================================
 
-getwindidbypid() {
+getWindIdByPid() {
   while IFS= read line; do
     if [[ "${line}" =~ (0x)([0-9a-z]+)([ ][- ][0-9]+[ ])([0-9]*) ]]; then
       winId="${BASH_REMATCH[1]}${BASH_REMATCH[2]}"
@@ -116,17 +117,17 @@ getwindidbypid() {
 nohup xterm -sl 9000 -xrm "XTerm.vt100.allowTitleOps: ${allowTtlOps}" -title \
     "${title}" -geometry "${geometry}" -fa "${FONT_FACE}" -fs "${fontSize}" \
     ${colorProps} -e bash -c "$(printf '%s\nexec bash' "${*}")" &>/dev/null &
-    # "$(printf '%s\nexec bash' "${*}")" allows any command to work, including
-    # a bash Here document.
+    # "$(printf '%s\nexec bash' "${*}")" here allows any command to work,
+    # including a bash Here document.
 
 PID="$!"
 
 sleep .08
-WIND_ID="$(getwindidbypid "${PID}")"
+WIND_ID="$(getWindIdByPid "${PID}")"
 
 # Check stdout and stderr to see if they point to a terminal; if so, redirect
 # to /dev/null to prevent unnecessary output to the terminal (note that the
-# window ID can still be obtained in a subprocess).
+# window ID is still obtainable in a subprocess).
 if test -t 1; then
   exec 1>/dev/null
 fi

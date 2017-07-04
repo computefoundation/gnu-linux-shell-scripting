@@ -3,8 +3,8 @@
 # Perform one of multiple window actions.
 # 
 # Dependencies:
-#   wmctrl
-#   xdotool
+#   xdotool (used for the minimize window action)
+#   wmctrl (used for all other actions)
 # 
 # Notes:
 #   A window's class name can be retrieved with "wmctrl -lx" (it will be in the
@@ -19,7 +19,7 @@ printHelpMessage() {
 Usage
   wind <action> <window ID or name>
 
-  The window ID must be in hexidecimal format.
+  A window ID must be in hexidecimal format.
 
   Use \"active\" as the window name to use the
   active window.
@@ -42,9 +42,9 @@ printActions() {
   maximize             maximize
   unmaximize           unmaximize
   maximize-toggle      toggle maximize
-  move-screen-left     move to left monitor (if second
+  move-screen-left     move to left monitor (if right
                        monitor is enabled)
-  move-screen-right    move to right monitor (if second
+  move-screen-right    move to right monitor (if right
                        monitor is enabled)
   move-wrkspc-1        move to workspace 1
   move-wrkspc-2        move to workspace 2
@@ -73,24 +73,24 @@ if [ "$#" -lt 2 ]; then
   exit 1
 fi
 
-getactvwindid() {
+getActvWindId() {
   echo "$(xprop -root _NET_ACTIVE_WINDOW | cut -d ' ' -f 5 | rev | cut -c \
       2- | rev | sed 's/^0x/0x0/')"
 }
 
-getwindclassbyid() {
+getWindClassById() {
   echo "$(xprop -id "${1}" WM_OPT_CLASS | sed -n \
       's/[^"]*"\([^"]*\)",\s"\([^"]*\)"/\1.\2/p')"
 }
 
-getwindclassbyname() {
+getWindClassByName() {
   windClsses=("$(wmctrl -lx | awk -v srchTxt="${1}" '{$1=$2=$4=""; wn = \
       gensub(/([^ ]+[ ]+)(.*)/, "\\2", "g", $0); gsub(/ /, "", wn)} wn ~ \
       srchTxt {print $3}' | sort | uniq)")
   echo "${windClsses[0]}"
 }
 
-getwindidbyname() {
+getWindIdByName() {
   [ "$#" -eq 0 ] && return
   windIds=("$(wmctrl -l | awk -v srchTxt="${1}" '{$2=$3=""; wn = \
       gensub(/([^ ]*[ ]+)(.*)/, "\\2", "g", $0)} wn ~ srchTxt {print $1}')")
@@ -99,16 +99,16 @@ getwindidbyname() {
 
 ACTION="${1}"
 if [ "${2}" = 'active' ]; then
-  WINDOW="$(getactvwindid)"
+  WINDOW="$(getActvWindId)"
 else
   WINDOW="${2}"
 fi
 
 if [ -n "${OPT_CLASS}" ]; then
   if [[ "${WINDOW}" =~ '0x'.* ]]; then
-    windClss="$(getwindclassbyid "${WINDOW}")"
+    windClss="$(getWindClassById "${WINDOW}")"
   else
-    windClss="$(getwindclassbyname "${WINDOW}")"
+    windClss="$(getWindClassByName "${WINDOW}")"
   fi
 
   if [[ -z "${windClss}" || "${windClss}" != *"${OPT_CLASS}"* ]]; then
@@ -125,16 +125,16 @@ else
     exit 1
   fi
 
-  WINDOW_IDS=($(getwindidbyname "${WINDOW}"))
+  WINDOW_IDS=($(getWindIdByName "${WINDOW}"))
 
   if [ "${OPT_ALL}" != 'true' ]; then
     WINDOW_IDS=(${WINDOW_IDS[0]})
   fi
 fi
 
-# Utility function to determine if a right monitor is enabled and to set its
-# width and offset if so.
-rightmonitor() {
+# Utility function to determine if a right monitor (a monitor positioned to the
+# right of the leftmost monitor) is enabled and get its width and offset if so.
+isRightMonitorEnabled() {
   if [ -z "${RGHT_MNTR_WIDTH}" ]; then
     IFS=$'\n'
     xrandrMntrs=($(xrandr --query | grep ' connected'))
@@ -160,12 +160,11 @@ rightmonitor() {
       done
     fi
   fi
-
   [ -z "${RGHT_MNTR_WIDTH}" ] && return 1 || return 0
 }
 
-# Utility function to retrieve the current window's properties.
-setCurrentWindowProperties() {
+# Utility function to retrieve the properties of the active window.
+setActiveWindowProperties() {
   xwininfoOut="$(xwininfo -id "${1}")"
   CURR_WIND_X_POS="$(echo "${xwininfoOut}" | grep 'Absolute upper-left X' | \
       awk '{print $4}')"
@@ -200,8 +199,8 @@ for windId in "${WINDOW_IDS[@]}"; do
       wmctrl -i -r "${windId}" -b toggle,maximized_vert,maximized_horz
       ;;
     'move-screen-left')
-      if rightmonitor; then
-        setCurrentWindowProperties "${windId}"
+      if isRightMonitorEnabled; then
+        setActiveWindowProperties "${windId}"
         if [[ "${CURR_WIND_X_POS_END}" -gt "${RGHT_MNTR_OFFST}" ]]; then
           diff=$((CURR_WIND_X_POS_END - RGHT_MNTR_OFFST))
           [ "${diff}" -gt "${RGHT_MNTR_OFFST}" ] && \
@@ -216,8 +215,8 @@ for windId in "${WINDOW_IDS[@]}"; do
       fi
       ;;
     'move-screen-right')
-      if rightmonitor; then
-        setCurrentWindowProperties "${windId}"
+      if isRightMonitorEnabled; then
+        setActiveWindowProperties "${windId}"
         if [[ "${CURR_WIND_X_POS}" -lt "${RGHT_MNTR_OFFST}" ]]; then
           newXPos=$((CURR_WIND_X_POS + RGHT_MNTR_OFFST))
           newXPosEnd=$((newXPos + CURR_WIND_WIDTH))

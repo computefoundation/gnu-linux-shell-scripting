@@ -18,32 +18,32 @@ while getopts n: OPT; do
 done
 shift $((OPTIND - 1))
 
-getactvwindid() {
+getActvWindId() {
   echo "$(xprop -root _NET_ACTIVE_WINDOW | cut -d ' ' -f 5 | rev | cut -c 2- | \
       rev | sed 's/^0x/0x0/')"
 }
 
-ACTV_WIND_ID="$(getactvwindid)"
+ACTV_WIND_ID="$(getActvWindId)"
 
-getwindidsinclass() {
+getWindIdsInClass() {
   echo "$(wmctrl -lx | awk -v class="${1}" '$3 ~ class {print $1}')"
 }
 
-getwindclassbyid() {
+getWindClassById() {
   echo "$(xprop -id "${1}" WM_CLASS | sed -n \
       's/[^"]*"\([^"]*\)",\s"\([^"]*\)"/\1.\2/p')"
 }
 
-CLASS_WIND_IDS=($(getwindidsinclass "$(getwindclassbyid "${ACTV_WIND_ID}")"))
+CLASS_WIND_IDS=($(getWindIdsInClass "$(getWindClassById "${ACTV_WIND_ID}")"))
 
 if [ -n "${OPT_WIND_NAME}" ]; then
-  getwindnamebyid() {
+  getWindNameById() {
     echo "$(xprop -id "${1}" WM_NAME 2>/dev/null | sed -n \
         's/[^"]*"\(.*\)./\1/p')"
   }
 
   for windId in "${CLASS_WIND_IDS[@]}"; do
-    windName="$(getwindnamebyid "${windId}")"
+    windName="$(getWindNameById "${windId}")"
 
     if [[ "${windName}" = *"${OPT_WIND_NAME}"* ]]; then
       clssWindIdsTmp+=("${windId}")

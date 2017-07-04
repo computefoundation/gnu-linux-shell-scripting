@@ -3,12 +3,12 @@
 # Get the name of the active window.
 # 
 
-getactvwindid() {
+getActvWindId() {
   echo "$(xprop -root _NET_ACTIVE_WINDOW | cut -d ' ' -f 5 | rev | cut -c 2- | \
       rev | sed 's/^0x/0x0/')"
 }
 
-WINDOW_NAME="$(xprop -id "$(getactvwindid)" WM_NAME | sed -e \
+WINDOW_NAME="$(xprop -id "$(getActvWindId)" WM_NAME | sed -e \
     's/.*"\(.*\)".*/\1/')"
 
 echo "${WINDOW_NAME}"
@@ -17,6 +17,6 @@ echo "${WINDOW_NAME}"
 
 # Alternative method:
 # 
-# WINDOW_NAME=$(wmctrl -l | grep "$(getactvwindid)" | awk \
+# WINDOW_NAME=$(wmctrl -l | grep "$(getActvWindId)" | awk \
 #     '{$1=$2=$3=""; print $0}' | sed 's/^[ \t]*//')
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # 
-# Get weather information in the terminal (with AccuWeather and wttr.in).
+# Get weather information in the terminal.
 # 
 # Usage:
 #   wttr [city or 3-letter airport code] [AccuWeather location ID]

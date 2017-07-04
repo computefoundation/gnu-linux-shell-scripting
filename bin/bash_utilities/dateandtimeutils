@@ -24,8 +24,8 @@
 
 # Value generation
 # --------------------------------------------
-  # Generate random date between two dates specified by year, month and hour and
-  # output in ISO 8601 format (e.g. "2004-02-25T16:18:13.489392193").
+  # Generate a random date between two dates specified by year, month and hour
+  # and output in ISO 8601 format (e.g. "2004-02-25T16:18:13.489392193").
   # 
   # Notes:
   #   All generated years are within the century defined by DFLT_CENTURY_PREFIX.

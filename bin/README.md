@@ -1,7 +1,7 @@
 
 # bin/
 
-Directories are divided into different paradigms of the Linux application layer.
+Directories are divided by different paradigms of the Linux application layer.
 
 ## 3rd_party_applications
 
@@ -17,7 +17,7 @@ Bash utility functions.
 
 ## main
 
-Solutions for the Linux operating system *(file, hardware, networking, x11, etc.)*, divided into three sections: (1) **modules**: scripts used in conjuction with a command; (2) **no output**: scripts with no output; (3) **output**: scripts with output.
+Solutions for core aspects of the Linux operating system *(file, hardware, networking, x11, etc.)*, divided into three sections: (1) **no output**: scripts with no output; (2) **output**: scripts with output; (3) **modules**: scripts used in conjuction with command-line programs.
 
 ## mobile
 
@@ -25,11 +25,11 @@ Solutions for mobile devices.
 
 ## modules
 
-Utility modules for command-line programs.
+Utility modules *(scripts used in conjuction with command-line programs)*.
 
 ## output
 
-Scripts for the Linux operating system *(file, hardware, networking, x11, etc.)* providing output only *(no actions performed)*, divided into three sections: (1) **multi-value**: multi-value output for other programs; (2) **single-value**: single-value output for other programs; (3) **user**: output for the user.
+Scripts for core aspects of the Linux operating system *(file, hardware, networking, x11, etc.)* providing values or information only *(no actions performed)*, divided into three sections: (1) **multi-value**: multi-value output for other programs; (2) **single-value**: single-value output for other programs; (3) **user**: information for the user.
 
 ## utilities
 

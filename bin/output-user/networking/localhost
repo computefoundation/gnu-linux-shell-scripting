@@ -3,8 +3,8 @@
 # Display useful host related informaton.
 # 
 # Example:
-#   localhost
-#   # output will be the following:
+#   # output:
+# 
 #   You are logged on <hostname>
 #   
 #   Additionnal information:

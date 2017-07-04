@@ -17,9 +17,6 @@
 #   all of its output to /dev/null unless a file descriptor other than a
 #   terminal is provided."
 # 
-#   This process can be done directly using the following:
-#       nohup <cmd> &>/dev/null &
-# 
 #   Using this script has the following advantage over using the nohup command
 #   directly:
 #       The script works by putting together all the arguments as a string and
@@ -38,9 +35,6 @@ if test -t 2; then
   exec 2>/dev/null
 fi
 
-# ("&>/dev/null" is still needed here for some reason after checking stdout and
-# stderr to allow the command to run in the background; it was not originally
-# used in the source).
 nohup "${@}" &>/dev/null &
 
 # Print the PID of the run command so that it can be retrieved by the caller.

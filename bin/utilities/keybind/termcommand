@@ -3,21 +3,20 @@
 # Execute a given command in (or run the last command of) a terminal emulator.
 # 
 # Usage:
-#   termcommand (--class <CLASS>|--title <TITLE>) [options] -- <command>
+#   termcommand (--class <CLASS> | --title <TITLE>) [options] -- <command>
 # 
 # Options:
-#   -c --class <CLASS>   class of the terminal window (required if --title is
-#                        not used)
-#   -t --title <TITLE>   partial or full title of the terminal window (required
-#                        if --class is not used; will be used if both are
-#                        specified)
-#   -d --delay <TIME>    delay time between focusing the terminal window and
-#                        pasting the command in it; this is only needed if the
-#                        command is pasted too soon, causing none or a part of
-#                        it to run; the recommended value to start with is .03
-#                        to .1 second
-#   -l --last            run the last terminal command instead (will ignore
-#                        the command argument)
+#   -c --class <CLASS>   class of the terminal (required if --title is not used)
+#   -t --title <TITLE>   partial or full window title of the terminal (required
+#                        if --class is not used; will override --class if both
+#                        are used)
+#   -d --delay <TIME>    delay time between focusing the terminal and pasting
+#                        the command in it; this is only needed if the command
+#                        is pasted too soon, causing none or a part of it to
+#                        run; (the recommended starting value is .03 to .1
+#                        second)
+#   -l --last            run the last command of the terminal instead (will
+#                        ignore the command argument)
 #   -r --refocus         refocus previously focused window after running command
 # 
 # Dependencies:
@@ -80,31 +79,31 @@ if [[ "$#" -eq 0 && -z ${OPT_LAST_COMMAND} ]]; then
   exit
 fi
 
-getwindidbyname() {
+getWindIdByName() {
   windIds=("$(wmctrl -l | awk -v srch="${1}" '{$2=$3=""; windName = \
       gensub(/([^ ]*)(.*)/, "\\2", "g", $0)} windName ~ srch {print $1}')")
   [ $((${#windIds[@]})) -ge 1 ] && echo "${windIds[0]}"
 }
 
-getfirstwindidinclass() {
+getFirstWindIdInClass() {
   classWindIds=($(wmctrl -lx | awk -v class="${1}" '$3 ~ class {print $1}'))
   [ $((${#classWindIds[@]})) -ge 1 ] && echo "${classWindIds[0]}"
 }
 
-getactvwindid() {
+getActvWindId() {
   echo "$(xprop -root _NET_ACTIVE_WINDOW | cut -d ' ' -f 5 | rev | cut -c \
       2- | rev | sed 's/^0x/0x0/')"
 }
 
 if [ -n "${TERM_TITLE}" ]; then
-  termWindId="$(getwindidbyname ${TERM_TITLE})"
+  termWindId="$(getWindIdByName ${TERM_TITLE})"
 else
-  termWindId="$(getfirstwindidinclass "${TERM_CLASS}")"
+  termWindId="$(getFirstWindIdInClass "${TERM_CLASS}")"
 fi
 
 if [ -n "${termWindId}" ]; then
   if [ "${OPT_REFOCUS}" = 'true' ]; then
-    currWindId="$(getactvwindid)"
+    currWindId="$(getActvWindId)"
   fi
 
   wmctrl -i -a "${termWindId}"

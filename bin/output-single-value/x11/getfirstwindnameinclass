@@ -13,13 +13,13 @@ if [ "$#" -eq 0 ]; then
   exit
 fi
 
-getwindnamesinclass() {
+getWindNamesInClass() {
   echo "$(wmctrl -lx | awk '{printf "%s", $3; $1=$2=$3=$4=""; print $0}' | awk \
       -v class="${1}" '$1 ~ class {$1=""; sub(/^[ \t]+/, "", $0); print $0}')"
 }
 
 IFS=$'\n'
-CLASS_WIND_NAMES=($(getwindnamesinclass "${1}"))
+CLASS_WIND_NAMES=($(getWindNamesInClass "${1}"))
 unset IFS
 
 if [ ${#CLASS_WIND_NAMES[@]} -eq 0 ]; then

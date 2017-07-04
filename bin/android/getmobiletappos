@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # 
-# Watch and print X and Y screen tap coordinates on an Android device.
+# Watch and print X and Y screen tap coordinates of an Android device.
 # 
 # Output is automatically converted from hexidecimal to decimal for easy
 # readability.
@@ -8,7 +8,7 @@
 # Usage:
 #   getmobiletappos [seconds]
 # 
-#   seconds (optional): number of seconds to watch for tap events
+#   seconds (optional): number of seconds to watch for tap events.
 # 
 
 # ======= CONFIGURATIONS ==============

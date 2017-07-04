@@ -24,13 +24,13 @@ if [ "$#" -eq 0 ]; then
   exit
 fi
 
-getwindidsinclass() {
+getWindIdsInClass() {
   echo "$(wmctrl -lx | awk -v class="${1}" -v name="${OPT_WIND_NAME}" \
       '{windId = $1; classFld = $3}; $1=$2=$3=$4=""; classFld ~ class && $0 ~ \
       name {print windId}')"
 }
 
-CLASS_WIND_IDS=($(getwindidsinclass "${1}"))
+CLASS_WIND_IDS=($(getWindIdsInClass "${1}"))
 
 if [ ${#CLASS_WIND_IDS[@]} -eq 0 ]; then
   exit

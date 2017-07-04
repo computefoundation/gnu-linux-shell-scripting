@@ -1,37 +1,25 @@
 #!/usr/bin/env bash
 # 
-# Print paths of all subdirectories of the specified directory.
+# Print paths of all subdirectories in the specified directory.
 # 
 # Example:
-#   printsubdirpaths bin/
-#   # output will be the following:
-#   bin/3rd_party_applications/database/
-#   bin/main-modules/file/
-#   bin/main-modules/shell/
-#   bin/main-no_output/hardware/
-#   bin/main-no_output/shell/
-#   bin/main-no_output/x11/
-#   bin/main-output/file/
-#   bin/main-output/x11/
-#   bin/modules/file/
-#   bin/modules/x11/
-#   bin/output-multi-value/file/
-#   bin/output-single-value/file/
-#   bin/output-single-value/hardware/
-#   bin/output-single-value/networking/
-#   bin/output-single-value/x11/
-#   bin/output-user/networking/
-#   bin/output-user/system/
-#   bin/output-user/x11/
-#   bin/utilities/general/
-#   bin/utilities/keybind/
-#   bin/utilities/other/
-#   bin/utilities/productivity/
+#   # output for a directory "documents/":
+# 
+#   documents/reference/commands/
+#   documents/reference/guides_and_procedures/
+#   documents/reference/notes/
+#   documents/bookmarks/general/
+#   documents/bookmarks/main/
+#   documents/bookmarks/subjects/
+#   documents/bookmarks/sundry/
 # 
 # Usage:
 #   printsubdirpaths [directory]
 # 
 #   The current directory will be used if none is specified.
+# 
+# Note:
+#   Only directories with subdirectories will be printed.
 # 
 
 if [ "$#" -eq 0 ]; then

@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # 
-# Return a file for a command using one of two search methods:
-#   1. Locate: locate the file from a database using a "locate" command
-#   2. Recursive: recursively search from the current directory
+# Return a file for a command using one of two methods:
+#   1. Locate the file from a database.
+#   2. Recursively search from the current directory.
 # 
 # Examples:
 #   # use the locate method to locate a file for gedit
@@ -11,7 +11,7 @@
 #   # use the recursive method to find a file for gedit
 #   alias geditr='returnfileforcmd {gedit --new-window} --r'
 # 
-#   # same as previous, except find files only
+#   # same as previous except find files only
 #   alias geditr='returnfileforcmd {gedit --new-window} --r --f'
 # 
 #   # use them on their own or with other options such as --a to return all
@@ -20,13 +20,13 @@
 #   geditr --a config.sh
 # 
 # Notes:
-#   To use the locate method, there must exist a locate command in the user's
-#   PATH which returns one or more file paths. The command name must be
-#   specified in LOCATE_COMMAND. (Note: A locate utility package is provided in
-#   the packaged-utilities repository by linux-shell-base).
+#   There must exist a locate command in the user's PATH environment variable to
+#   use the locate method. It must return one or more file paths. The command
+#   name must be specified in LOCATE_COMMAND. (Note: A locate utility package is
+#   provided by linux-shell-base in the packaged-utilities repository).
 # 
 #   This script's options will override matching ones for the command in
-#   brackets. It uses double dashes as a result to avoid collision as much as
+#   brackets. Therefore, it uses double dashes to avoid collision as much as
 #   possible.
 # 
 #   This module does not support space separated files.

@@ -25,12 +25,12 @@ while getopts :c OPT; do
 done
 shift $((OPTIND - 1))
 
-getwindidsinclass() {
+getWindIdsInClass() {
   echo "$(wmctrl -lx | awk -v class="${1}" '$3 ~ class {print $1}')"
 }
 
 if [ "${OPT_CLASS}" = 'true' ]; then
-  if [ -n "$(getwindidsinclass "${1}")" ]; then
+  if [ -n "$(getWindIdsInClass "${1}")" ]; then
     isWindOpen=true
   fi
 else
