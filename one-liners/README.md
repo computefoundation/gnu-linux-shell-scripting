@@ -3,6 +3,10 @@
 
 One-liners.
 
+## file
+
+* Get the size of one or more files and/or directories as a plain number.
+
 ## hardware
 
 *Hardware one-liners are intended to be system-independent, however, some may not work for certain systems.*

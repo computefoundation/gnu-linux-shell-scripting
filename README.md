@@ -1,11 +1,11 @@
 
 # Linux-shell-base
 
-<p><img src="/../images/logo.png" width="28%" align='left'></p>
+<p><img src="/../images/logo.png" width="27%" align='left'></p>
 
-**Linux-shell-base** is a foundation to the [philosophy of computing](https://en.wikipedia.org/wiki/Unix_philosophy#The_UNIX_Programming_Environment) providing shell solutions for advancing overall computational efficiency and development in Linux. It targets multiple paradigms of the application layer *(see the [bin/ README](https://github.com/linux-shell-base/linux-shell-base/tree/master/bin#bin) or the [examples](https://github.com/linux-shell-base/linux-shell-base#examples))* without providing a framework.
+**Linux-shell-base** is a resource of solutions to advance computational efficiency and development in Linux and a foundation to the [philosophy of computing](https://en.wikipedia.org/wiki/Unix_philosophy#The_UNIX_Programming_Environment).
 
-Its solutions conform to four principles:
+Its solution target multiple paradigms of the application layer *(see the [bin/ README](https://github.com/linux-shell-base/linux-shell-base/tree/master/bin#bin) or the [examples](https://github.com/linux-shell-base/linux-shell-base#examples))* and conform to four principles:
 
 <p>
   • &nbspSolve a fundamental problem in the Linux application layer.<br/>
@@ -28,7 +28,7 @@ Aliases and short functions for bash profiles.
 
 One-liners.
 
-*These solutions are conceptually similar to the scripts in **bin/** except they are not typically used independently and instead to extend new solutions. They are also not typically used as aliases.*
+*These solutions are conceptually similar to the scripts in **bin/** except they are lower-level, not typically used independently and instead meant to be extended. They are also not typically used for bash profiles.*
 
 ---
 
