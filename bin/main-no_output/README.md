@@ -11,4 +11,4 @@
 
 ### x11/
 
-* [**wind**](x11/wind): Perform one of multiple window actions.
+* [**movewindtolftorrghtmntr**](x11/movewindtolftorrghtmntr): Move a window to the left or right monitor.

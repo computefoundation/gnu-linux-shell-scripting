@@ -30,9 +30,8 @@
 #   If using the --last option and the last command in the terminal is moved to
 #   but not executed, increase the usleep time in the xte command.
 # 
-#   A window's class name can be retrieved with "wmctrl -lx" (it will be in the
-#   form "<class>.<classname>"). It can also be retrieved with the
-#   "getactvwindclass" script in linux-shell-base.
+#   The class name of a window can be retrieved with "wmctrl -lx" (it will be in
+#   the format "<class>.<classname>").
 # 
 
 # Delay time as set by --delay; command may still always run correctly if no

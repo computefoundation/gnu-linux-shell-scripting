@@ -77,7 +77,7 @@ The following solutions are included as an example:
 
 ##### ... without output
 
-* [Perform one of multiple window actions.](bin/main-no_output/x11/wind)
+* [Move a window to the left or right monitor.](bin/main-no_output/x11/movewindtolftorrghtmntr)
 
 ##### ... modules
 
