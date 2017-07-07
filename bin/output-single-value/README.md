@@ -1,10 +1,6 @@
 
 ## output-single-value/
 
-### file/
-
-* [**filesize**](file/filesize): Get the size of a file or directory as a plain number.
-
 ### hardware/
 
 * [**isbluetoothblocked**](hardware/isbluetoothblocked): Check if the primary bluetooth device is soft blocked.

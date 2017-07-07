@@ -32,7 +32,7 @@ One-liners.
 
 ---
 
-This repository initially *(and currently)* consists of 61 scripts, 52 aliases and short functions and 3 one-liners.
+This repository initially *(and currently)* consists of 60 scripts, 52 aliases and short functions and 4 one-liners.
 
 All solutions conform to the respective [guideline][wiki] and the following rules:
 
@@ -88,7 +88,7 @@ The following solutions are included as an example:
 
 ##### ... as single-value for other programs
 
-* [Get the size of a file or directory as a plain number.](bin/output-single-value/file/filesize)
+* [Get the size of one or more file and/or directories as a plain number.](https://github.com/linux-shell-base/linux-shell-base/blob/master/one-liners/file)
 * [Check if the primary wireless local area network device is soft blocked.](bin/output-single-value/hardware/iswlanblocked)
 * [Get the ID of the active window.](bin/output-single-value/x11/getactvwindid)
 
