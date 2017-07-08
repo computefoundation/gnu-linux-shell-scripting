@@ -117,8 +117,8 @@ getWindIdByPid() {
 nohup xterm -sl 9000 -xrm "XTerm.vt100.allowTitleOps: ${allowTtlOps}" -title \
     "${title}" -geometry "${geometry}" -fa "${FONT_FACE}" -fs "${fontSize}" \
     ${colorProps} -e bash -c "$(printf '%s\nexec bash' "${*}")" &>/dev/null &
-    # "$(printf '%s\nexec bash' "${*}")" here allows any command to work,
-    # including a bash Here document.
+    # "$(printf '%s\nexec bash' "${*}")" here allows any command to be passed
+    # in, including a bash Here document.
 
 PID="$!"
 

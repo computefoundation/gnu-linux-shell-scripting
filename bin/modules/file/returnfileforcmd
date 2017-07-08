@@ -100,7 +100,7 @@ eval set -- "${OPTS}"
 while true; do
   case "${1}" in
     --l) SEARCH_METHOD='locate';;
-    --r) SEARCH_METHOD='find';;
+    --r) SEARCH_METHOD='recursion';;
     --f) SEARCH_TYPE='f';;
     --d) SEARCH_TYPE='d';;
     --1|--2|--3|--4|--5|--6|--7|--8|--9) FIND_OCCURRENCE="${1#'--'}";;
@@ -150,7 +150,7 @@ case "${SEARCH_METHOD}" in
     fi
     ;;
 
-  'find')
+  'recursion')
     if [ "$#" -eq 0 ]; then
       echo 'RFE (module): no file specified' 1>&2
       exit 1

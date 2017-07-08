@@ -1,11 +1,14 @@
 
-# Linux-shell-base
+<p align='center'>
+  <img src='/../images/logo-light.png' width='34%' alt='logo-light.png'>
+</p>
+</br>
 
-<p><img src="/../images/logo.png" width="27%" align='left'></p>
+**Linux-shell-base** is a resource for advancing computational efficiency and development in Linux.
 
-**Linux-shell-base** is a resource of solutions to advance computational efficiency and development in Linux and a foundation to the [philosophy of computing](https://en.wikipedia.org/wiki/Unix_philosophy#The_UNIX_Programming_Environment).
+Its purpose is to help Linux users use the shell and their Linux environment efficiently.
 
-Its solution target multiple paradigms of the application layer *(see the [bin/ README](https://github.com/linux-shell-base/linux-shell-base/tree/master/bin#bin) or the [examples](https://github.com/linux-shell-base/linux-shell-base#examples))* and conform to four principles:
+Its solutions are foundational to the [philosophy of computing](https://en.wikipedia.org/wiki/Unix_philosophy#The_UNIX_Programming_Environment) and conform to four principles:
 
 <p>
   • &nbspSolve a fundamental problem in the Linux application layer.<br/>
@@ -14,7 +17,7 @@ Its solution target multiple paradigms of the application layer *(see the [bin/ 
   • &nbspComply with the <a href='https://en.wikipedia.org/wiki/Unix_philosophy#Eric_Raymond.E2.80.99s_17_Unix_Rules'>UNIX philosophy</a> and standard scripting rules.
 </p>
 
-All solutions exist in the following three directories:
+*Linux-shell-base* provides three types of solutions for multiple paradigms of the application layer *(described in the [bin/ README](https://github.com/linux-shell-base/linux-shell-base/tree/master/bin#bin))*:
 
 ### bin/
 
@@ -28,7 +31,7 @@ Aliases and short functions for bash profiles.
 
 One-liners.
 
-*These solutions are conceptually similar to the scripts in **bin/** except they are lower-level, not typically used independently and instead meant to be extended. They are also not typically used for bash profiles.*
+*These solutions are conceptually similar to scripts except they are lower-level and not typically used independently, and instead, meant to be extended. They are also not typically used for bash profiles.*
 
 ---
 
@@ -64,11 +67,6 @@ The following solutions are included as an example:
 * [Return a file for a command using one of two search methods: 1. locate; 2. recursion.](bin/modules/file/returnfileforcmd)
 * [Execute a command and an action on the resulting window.](bin/modules/x11/execmdandwindact)
 
-#### Bash utility functions
-
-* [Bash array utilities.](bin/bash_utilities/arrayutils)
-* [Bash date and time utilities.](bin/bash_utilities/dateandtimeutils)
-
 #### Solutions for core aspects of the Linux operating system *(file, hardware, networking, x11, etc.)*
 
 ##### ... with output
@@ -84,7 +82,7 @@ The following solutions are included as an example:
 * [Run a command in the background.](bin/main-modules/shell/runinbg)
 * [Run a command when files have changed in the current directory.](bin/main-modules/file/inotify)
 
-#### Solutions for core aspects of the Linux operating system *(file, hardware, networking, x11, etc.)* providing values or information only *(no actions performed)*
+#### Solutions for core aspects of the Linux operating system *(file, hardware, networking, x11, etc.)* providing output (values or information) only *(no actions performed)*
 
 ##### ... as single-value for other programs
 
@@ -107,6 +105,11 @@ The following solutions are included as an example:
 #### Generic functions for third party applications
 
 * [Generic utility functions for MySQL.](bin/3rd_party_applications/database/mysqlutil)
+
+#### Bash utility functions
+
+* [Bash array utilities.](bin/bash_utilities/arrayutils)
+* [Bash date and time utilities.](bin/bash_utilities/dateandtimeutils)
 
 ## Excluded
 
@@ -135,7 +138,7 @@ The type of solutions this repository does not include:
 
 ## Contributing
 
-The goal of this repository is to be as comprehensive as possible. Contributions are therefore welcome. If you would like to contribute a solution, please create a [pull request](https://gist.github.com/Chaser324/ce0505fbed06b947d962) or send an email to *linuxshellbase@yahoo.com*.
+The goal of this repository is to be as comprehensive as possible. Contributions are therefore welcome. If you would like to contribute a solution, please create a [pull request](https://gist.github.com/Chaser324/ce0505fbed06b947d962) or send an email to *admin@linuxshellbase.com*.
 
 Credits will be placed in the wiki and can identify the user by name, username or URL. If a contributed solution is an alternative method/implementation to an already existing one, it will be given the same name with an incremented number, ordered by the most commonly accepted method/implementation. 
 
