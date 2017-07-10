@@ -3,17 +3,7 @@
 
 One-liners.
 
-## file
+* [**one-liners-main.bash**](one-liners-main.bash): One-liners for core aspects of the Linux operating system *(file, hardware, networking, x11, etc.)*.
 
-* Get the size of one or more files and/or directories as a plain number.
+* [**one-liners-output.bash**](one-liners-output.bash): One-liners for core aspects of the Linux operating system *(file, hardware, networking, x11, etc.)* providing output (values or information) only *(no actions performed)*.
 
-## hardware
-
-*Hardware one-liners are intended to be system-independent, however, some may not work for certain systems.*
-
-* Get the maximum backlight level.
-* Set the backlight level.
-
-## x11
-
-* Get the IDs of all child windows in x11.
