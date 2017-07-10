@@ -1,6 +1,6 @@
 
 <p align='center'>
-  <img src='/../images/logo-light.png' width='34%' alt='logo-light.png'>
+  <img src='/../images/logo-light.png' width='32%' alt='logo-light.png'>
 </p>
 </br>
 
@@ -65,7 +65,7 @@ The following solutions are included as an example:
 #### Utility modules *(scripts used in conjuction with command-line programs)*
 
 * [Return a file for a command using one of two search methods: 1. locate; 2. recursion.](bin/modules/file/returnfileforcmd)
-* [Execute a command and an action on the resulting window.](bin/modules/x11/execmdandwindact)
+* [Execute a program and an action on the resulting window.](bin/modules/x11/exeprogandwindact)
 
 #### Solutions for core aspects of the Linux operating system *(file, hardware, networking, x11, etc.)*
 
@@ -86,7 +86,7 @@ The following solutions are included as an example:
 
 ##### ... as single-value for other programs
 
-* [Get the size of one or more file and/or directories as a plain number.](https://github.com/linux-shell-base/linux-shell-base/blob/master/one-liners/file)
+* [Get the size of one or more file and/or directories as a plain number.](https://github.com/linux-shell-base/linux-shell-base/blob/master/one-liners/one-liners-output.bash)
 * [Check if the primary wireless local area network device is soft blocked.](bin/output-single-value/hardware/iswlanblocked)
 * [Get the ID of the active window.](bin/output-single-value/x11/getactvwindid)
 
@@ -113,7 +113,7 @@ The following solutions are included as an example:
 
 ## Excluded
 
-The type of solutions this repository does not include:
+The following types of solutions are not included:
 
 * File formatting or converting *(e.g. BMP to JPEG or CYMK colors to RGB colors)*.
 * Text formatting

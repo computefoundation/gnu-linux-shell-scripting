@@ -7,4 +7,4 @@
 
 ### x11/
 
-* [**execmdandwindact**](x11/execmdandwindact): Execute a command and an action on the resulting window.
+* [**exeprogandwindact**](x11/exeprogandwindact): Execute a program and an action on the resulting window.
