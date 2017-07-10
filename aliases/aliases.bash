@@ -33,32 +33,27 @@ alias flushdns='dscacheutil -flushcache'                                        
 # ~~~~~~~ 4.  SHELL UTILITIES ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #[Find]
-cxff() { local d="$(pwd)"; [ "$#" -gt 1 ] && d="${2}"; local o="$(find "${d}" \
-  -type f -wholename "*${1}*" -print -quit)"; [ -n "${o}" ] && echo "${o}" && \
-  echo -n "${o}" | xclip -r -selection c; }                                      # cxff: find first file and copy its path to the X11 clipboard; $1: file name; $2: directory (optional; default is current)
+cxff() { local o="$(find . -type f -wholename "*${1}*" -print -quit)"; [ -n \
+  "${o}" ] && echo "${o}" && echo -n "${o}" | xclip -r -selection c; }           # cxff: find file and copy its path to the X11 clipboard; $1: file name
 
-cxfd() { local d="$(pwd)"; [ "$#" -gt 1 ] && d="${2}"; local o="$(find "${d}" \
-  -type d -name "*${1}*" -print -quit)"; [ -n "${o}" ] && echo "${o}" && echo \
-  -n "${o}" | xclip -r -selection c; }                                           # cxfd: find first directory and copy its path to the X11 clipboard; $1: directory name; $2: directory (optional; default is current)
+cxfd() { local o="$(find . -type d -name "*${1}*" -print -quit)"; [ -n "${o}" \
+  ] && echo "${o}" && echo -n "${o}" | xclip -r -selection c; }                  # cxfd: find directory and copy its path to the X11 clipboard; $1: file name
 
-cdff() { local d='.'; [ "$#" -gt 1 ] && d="${2}"; cd "$(find "${d}" -type f \
-  -name "*${1}*" -exec sh -c 'echo "${1%/*}"; kill "$PPID"' sh {} \;)"; }        # cdff: find first file and cd to its directory; $1: file name; $2: directory (optional; default is current)
+cdff() { cd "$(find . -type f -name "*${1}*" -exec sh -c 'echo "${1%/*}"; kill \
+  "$PPID"' sh {} \;)"; }                                                         # cdff: find file and cd to its directory; $1: file name
 
-cdfd() { local d='.'; [ "$#" -gt 1 ] && d="${2}"; cd $(find "${d}" -type d \
-  -name "*${1}*" -print -quit); }                                                # cdfd: find first directory and cd to it; $1: directory name; $2: directory (optional; default is current)
+cdfd() { cd $(find . -type d -name "*${1}*" -print -quit); }                     # cdfd: find directory and cd to it; $1: directory name
 
-eff() { local d='.'; [ "$#" -gt 1 ] && d="${2}"; "${EDITOR}" $(find "${d}" \
-  -type f -name "*${1}*"); }                                                     # eff: find all files and edit; $1: file name; $2: directory (optional; default is current)
+eff() { ${EDITOR} $(find . -type f -name "*${1}*"); }                            # eff: find all files and open in editor; $1: file name
 
 rmff() { find . -name "*${1}*" -type f -print0  | xargs -0 rm -f; }              # rmff: find all files and delete; $1: file name
 
 #[Grep]
-egr() { local d='.'; [ "$#" -gt 1 ] && d="${2}"; "${EDITOR}" $(/usr/bin/grep \
-  -l -R "${1}" "${d}"); }                                                        # egr: find all files containing the given text and edit; $1: text; $2: directory (optional; default is current)
+egr() { ${EDITOR} $(/usr/bin/grep -l -R "${1}" .); }                             # egr: find all files containing the given text and edit; $1: text
 
 #[Copy·and·Paste]
-alias cdpx='cd "$(xclip -o -selection c)"'                                       # cdpx: cd to directory from path in X11 clipboard
-alias epx='"${EDITOR}" "$(xclip -o -selection c)"'                               # epx: edit file from path in X11 clipboard
+alias cdpx='cd "$(xclip -o -selection c)"'                                       # cdpx: cd to directory path copied in X11 clipboard
+alias epx='${EDITOR} "$(xclip -o -selection c)"'                                 # epx: edit file from path in X11 clipboard
 
 #[X11]
 alias psel='echo -n "$(xsel)"'                                                   # psel: paste current selected text in X11
