@@ -3,8 +3,13 @@
 
 Aliases and short functions for bash profiles.
 
-* [**aliases-info.bash**](aliases-info.bash): Aliases and short functions providing information only (no actions performed).
-* [**aliases.bash**](aliases.bash): Aliases and short functions performing an action.
+* [**aliases-main.bash**](aliases-main.bash): Aliases and short functions for core aspects of the Linux operating system *(file, hardware, networking, x11, etc.)*.
+
+* [**aliases-output.bash**](aliases-output.bash): Aliases and short functions for core aspects of the Linux operating system *(file, hardware, networking, x11, etc.)* providing output (information) only *(no actions performed)*.
+
+* [**aliases-utilities.bash**](aliases-utilities.bash): Utility aliases and short functions.
+
+* [**aliases-android.bash**](aliases-android.bash): Aliases and short functions for Android.
 
 ## Notes
 

@@ -1,11 +1,10 @@
-# aliases.bash
+# aliases-main.bash
 # 
 # Sections:
 #    1.   File
 #    2.   Hardware
 #    3.   Networking
-#    4.   Shell Utilities
-#    5.   Utilities
+#    4.   Shell
 # 
 
 # ~~~~~~~ 1.  FILE ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -23,14 +22,14 @@ alias suspendmonitor='sleep .7; xset dpms force off'                            
 
 # ~~~~~~~ 3.  NETWORKING ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#[Local]
+#[Local·network]
 alias enablenetw='nmcli n on'                                                    # enablenetw: enable network (requires networkmanager)
 alias disablenetw='nmcli n off'                                                  # disablenetw: disable network (requires networkmanager)
 
 #[System]
 alias flushdns='dscacheutil -flushcache'                                         # flushdns: flush DNS Cache
 
-# ~~~~~~~ 4.  SHELL UTILITIES ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ~~~~~~~ 4.  SHELL ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #[Find]
 cxff() { local o="$(find . -type f -wholename "*${1}*" -print -quit)"; [ -n \
@@ -43,15 +42,13 @@ cdff() { cd "$(find . -type f -name "*${1}*" -exec sh -c 'echo "${1%/*}"; kill \
   "$PPID"' sh {} \;)"; }                                                         # cdff: find file and cd to its directory; $1: file name
 
 cdfd() { cd $(find . -type d -name "*${1}*" -print -quit); }                     # cdfd: find directory and cd to it; $1: directory name
-
 eff() { ${EDITOR} $(find . -type f -name "*${1}*"); }                            # eff: find all files and open in editor; $1: file name
-
 rmff() { find . -name "*${1}*" -type f -print0  | xargs -0 rm -f; }              # rmff: find all files and delete; $1: file name
 
 #[Grep]
 egr() { ${EDITOR} $(/usr/bin/grep -l -R "${1}" .); }                             # egr: find all files containing the given text and edit; $1: text
 
-#[Copy·and·Paste]
+#[Copy·and·paste]
 alias cdpx='cd "$(xclip -o -selection c)"'                                       # cdpx: cd to directory path copied in X11 clipboard
 alias epx='${EDITOR} "$(xclip -o -selection c)"'                                 # epx: edit file from path in X11 clipboard
 
@@ -60,10 +57,4 @@ alias psel='echo -n "$(xsel)"'                                                  
 
 #[Builtins]
 cpv() { local a=(${@:1:$(($#-1))}); rsync -ah --progress "${a[@]}" "${@: -1}"; } # cpv: cp with progress output (note: to copy a directory, do not include a trailing slash)
-
-# ~~~~~~~ 5.  UTILITIES ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-#[Number·Format·Conversions]
-hex2dec() { local hexFrmtd="${1#*'0x'}"; echo $((16#${hexFrmtd})); }             # hex2dec: convert hexidecimal number to decimal
-dec2hex() { printf '%#010x\n' "${1}"; }                                          # dec2hex: convert decimal number to hexidecimal
 

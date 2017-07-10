@@ -1,12 +1,15 @@
-Sources for aliases
+Sources for aliases and short functions
 
-aliases-info.bash:
-
-  fclist: https://superuser.com/a/745890
-  androidwlanip: http://stackoverflow.com/a/3623727
-  androidcellip: http://stackoverflow.com/a/3623727
-
-aliases.bash:
+aliases-main.bash:
 
   rmff: https://superuser.com/a/112079
+
+aliases-output.bash:
+
+  fclist: https://superuser.com/a/745890
+
+aliases-android.bash:
+
+  androidwlanip: http://stackoverflow.com/a/3623727
+  androidcellip: http://stackoverflow.com/a/3623727
 
