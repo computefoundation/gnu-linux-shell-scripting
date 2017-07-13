@@ -3,7 +3,7 @@
 # Generic utility functions for MySQL.
 #
 # Usage:
-#   mysqlutil <action> <databaes user> <database name>
+#   mysqlutil <databaes user> <database name> <action>
 # 
 
 if [ "$#" -ne 3 ]; then
