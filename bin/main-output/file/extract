@@ -29,7 +29,7 @@ while getopts :h OPT; do
     \?) echo -e "extract: option \"${OPTARG}\" unknown" 1>&2; exit 1;;
   esac
 done
-shift $((OPTIND -1))
+shift $((OPTIND - 1))
 
 if [ -z "${1}" ]; then
   echo 'extract: invlaid arguments' 1>&2

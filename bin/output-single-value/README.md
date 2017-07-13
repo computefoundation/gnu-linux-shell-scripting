@@ -23,8 +23,8 @@
 * [**getfirstwindnameinclass**](x11/getfirstwindnameinclass): Get the name of the first active window in a class.
 * [**getnextwindidinactvclass**](x11/getnextwindidinactvclass): Get the ID of the next active window in the class of the active window.
 * [**getwindclassbyid**](x11/getwindclassbyid): Get the class of a window by ID.
-* [**getwindclassbyname**](x11/getwindclassbyname): Get the class of a window by name/title.
-* [**getwindidbyname**](x11/getwindidbyname): Get the ID of a window by name/title.
+* [**getwindclassbyname**](x11/getwindclassbyname): Get the class of a window by name.
+* [**getwindidbyname**](x11/getwindidbyname): Get the ID of a window by name.
 * [**getwindidbypid**](x11/getwindidbypid): Get the ID of a window by PID (if the process has a window).
 * [**getwindidbypid2**](x11/getwindidbypid2): Get the ID of a window by PID (if the process has a window) (2).
 * [**getwindidsinclass**](x11/getwindidsinclass): Get the IDs of all windows in a class.
