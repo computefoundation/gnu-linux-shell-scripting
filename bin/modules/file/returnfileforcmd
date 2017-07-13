@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # 
 # Return a file for a command using one of two methods:
-#   1. Locate the file from a database.
+#   1. Locate the file from a database (using a "locate" command).
 #   2. Recursively search from the current directory.
 # 
 # Examples:
@@ -29,7 +29,7 @@
 #   brackets. Therefore, it uses double dashes to avoid collision as much as
 #   possible.
 # 
-#   This module does not support space separated files.
+#   This module does not support file names with spaces.
 # 
 
 # ======= CONFIGURATIONS ==============
@@ -52,24 +52,22 @@ Usage:
   returnfileforcmd {<command to execute>} [options] <partial file name>
         [directory]
 
-  directory: applies only when using the recursive search method; if not
-             specified, the current directory will be used.
+  directory: directory to search in; applies only with the recursive search
+             method; default is current.
 
 Options:
   Note: This first set of options is used primarily with aliases.
-  --l   use the locate search method
-  --r   use the recursive search method
-  --f   return files only
-  --d   return directories only
+  --l        use the locate search method
+  --r        use the recursive search method
+  --f        return files only
+  --d        return directories only
 
   --<1-9>    change the find occurrence
-  --a     use all occurrences instead of just the first
-          (only applies to the recursive method)
-  --e     test print the found file without executing the
-          command
-  --n     nullify (ignore) the module and run the command in
-          the brackets as normal with the given arguments
-  --help  show this help message
+  --a        use all occurrences instead of just the first
+             (only applies to the recursive method)
+  --e        test print the found file without executing the
+             command
+  --help     show this help message
 
 Notes:
   If the file is not found, the command in the brackets will be run as normal
@@ -81,21 +79,21 @@ Notes:
 # all arguments containing "?".
 for ((x=1; x<=$#; x++)); do
   if [[ "${@:x:1}" = *'}'* ]]; then
-    executeCmd="${@:1:x}"
+    execCmd="${@:1:x}"
     shift ${x}
   fi
 done
-if [ -z "${executeCmd}" ]; then
-  echo -e "RFE (module): invalid arguments: \n   \"${@}\"" 1>&2
+if [ -z "${execCmd}" ]; then
+  echo -e "returnfileforcmd: invalid arguments: \n   \"${@}\"" 1>&2
   printHelpMessage
   exit 1
 fi
 
-executeCmd="${executeCmd#{}"
-executeCmd="${executeCmd%\}}"
+execCmd="${execCmd#{}"
+execCmd="${execCmd%\}}"
 
 OPTS="$(getopt -q -o '#' --long l,r,f,d,1,2,3,4,5,6,7,8,9,a,e,help \
-    -n 'RFE (mdl)' -- "${@}")"
+  	'returnfileforcmd' -- "${@}")"
 eval set -- "${OPTS}"
 while true; do
   case "${1}" in
@@ -116,11 +114,11 @@ done
 case "${SEARCH_METHOD}" in
   'locate')
     if [ "$#" -eq 0 ]; then
-      echo 'RFE (module): no file specified' 1>&2
+      echo 'returnfileforcmd: no file specified' 1>&2
       exit 1
     fi
     if ! hash ${LOCATE_COMMAND} > /dev/null 2>&1; then
-      echo "RFE (module): command \"${LOCATE_COMMAND}\" does not"\
+      echo "returnfileforcmd: command \"${LOCATE_COMMAND}\" does not"\
           "exist" 1>&2
       exit 1
     fi
@@ -138,21 +136,21 @@ case "${SEARCH_METHOD}" in
     output="$(${LOCATE_COMMAND} ${lctOpts} "${@}")"
 
     if [ -z "${output}" ]; then
-      echo 'RFE (module): no files or directories found' 1>&2
+      echo 'returnfileforcmd: no files or directories found' 1>&2
     else
       output="$(echo "${output}" | sed 's/ /\\n/g')"
 
       if [ "${PRINT_ONLY}" = 'true' ]; then
         echo "${output}"
       else
-        ${executeCmd} "${output}"
+        ${execCmd} "${output}"
       fi
     fi
     ;;
 
   'recursion')
     if [ "$#" -eq 0 ]; then
-      echo 'RFE (module): no file specified' 1>&2
+      echo 'returnfileforcmd: no file specified' 1>&2
       exit 1
     elif [ "$#" -ge 2 ]; then
       dir="${2}"
@@ -167,7 +165,7 @@ case "${SEARCH_METHOD}" in
     output="$(find "${dir}" ${optType} -name "*${1}*" 2>/dev/null)"
 
     if [ -z "${output}" ]; then
-      echo 'RFE (module): no files or directories found' 1>&2
+      echo 'returnfileforcmd: no files or directories found' 1>&2
     else
       if [ "${ALL_OCCURRENCES}" != 'true' ]; then
         if [ -n "${FIND_OCCURRENCE}" ]; then
@@ -184,7 +182,7 @@ case "${SEARCH_METHOD}" in
       if [ "${PRINT_ONLY}" = 'true' ]; then
         echo "${output}"
       else
-        ${executeCmd} "${output}"
+        ${execCmd} "${output}"
       fi
     fi
     ;;
@@ -192,12 +190,12 @@ case "${SEARCH_METHOD}" in
   *)
     for execCmdArg in ${@}; do
       if [[ "${execCmdArg::2}" =~ '-' ]]; then
-        executeCmdOpts+="${execCmdArg} "
+        execCmdOpts+="${execCmdArg} "
         shift
       fi
     done
 
-    ${executeCmd} ${executeCmdOpts} "${@}"
+    ${execCmd} ${execCmdOpts} "${@}"
     ;;
 esac
 
