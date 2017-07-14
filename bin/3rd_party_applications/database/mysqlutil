@@ -1,46 +1,51 @@
 #!/usr/bin/env bash
 # 
 # Generic utility functions for MySQL.
-#
+# 
 # Usage:
 #   mysqlutil <databaes user> <database name> <action>
 # 
 
-if [ "$#" -ne 3 ]; then
-  echo "mysqlutil: invalid arguments" 1>&2
+if [ "$#" -lt 3 ]; then
+  echo -e  'mysqlutil: invalid number of arguments; database user,\n' \
+      '  database name and action required' 1>&2
   exit 1
 fi
 
-ACTION="${1}"
-USER="${2}"
-DB_NAME="${3}"
+DB_USER="${1}"
+DB_NAME="${2}"
+ACTION="${3}"
 shift 3
 
 case "${ACTION}" in
-  # Create tables from an SQL file
-  # Arguments:
-  #   1. Create tables SQL file
-  'createtables')
-    if [ -z "${1}" ]; then
-      echo "mysqlutil: cannot create tables: no SQL file specified" 1>&2
+  # Create the database from an SQL file.
+  # 
+  # Usage:
+  #   ... create <create SQL file>
+  'create')
+    if [ "$#" -eq 0 ]; then
+      echo "mysqlutil: no SQL file specified" 1>&2
       exit 1
-    elif [ ! -f "${1}" ]; then
-      echo "mysqlutil: cannot create tables: file \"${1}\" does not exist" 1>&2
+    fi
+    if [ ! -f "${1}" ]; then
+      echo "mysqlutil: file \"${1}\" not found" 1>&2
       exit 1
     fi
 
-    mysql -u${USER} -e "CREATE DATABASE IF NOT EXISTS ${DB_NAME}"
+    mysql -u"${DB_USER}" -e "CREATE DATABASE IF NOT EXISTS ${DB_NAME}"
 
-    if mysql -u${USER} -e "use ${DB_NAME}" 2>/dev/null; then
-      bash ${0} 'droptables' ${USER} ${DB_NAME}
-      mysql -u${USER} ${DB_NAME} < "${1}"
+    if mysql -u"${DB_USER}" -e "use ${DB_NAME}" 2>/dev/null; then
+      bash ${0} 'droptables' "${DB_USER}" "${DB_NAME}"
+      mysql -u"${DB_USER}" "${DB_NAME}" < "${1}"
     else
-      echo "mysqlutil: cannot create tables for database ${DB_NAME}:"\
-          "database does not exist" 1>&2
+      echo "mysqlutil: database \"${DB_NAME}\" not found" 1>&2
     fi
     ;;
     
-  # Drop all tables in the database
+  # Drop all tables in the database.
+  # 
+  # Usage:
+  #   ... droptables
   'droptables')
     Q1="
       USE ${DB_NAME};
@@ -58,20 +63,26 @@ case "${ACTION}" in
       DEALLOCATE PREPARE stmt;
       SET FOREIGN_KEY_CHECKS = 1;
       "
-    mysql -u${USER} -e "${Q1}"
+    mysql -u"${DB_USER}" -e "${Q1}"
     ;;
     
-  # Clear data from all tables in the database
+  # Clear data from all tables in the database.
+  # 
+  # Usage:
+  #   ... cleardata
   'cleardata')
-    mysqldump -d -u${USER} --add-drop-table ${DB_NAME} > \
+    mysqldump -d -u"${DB_USER}" --add-drop-table "${DB_NAME}" > \
         ./db_export_tmp.sql
-    mysql -u${USER} ${DB_NAME} < ./db_export_tmp.sql
+    mysql -u"${DB_USER}" "${DB_NAME}" < ./db_export_tmp.sql
     rm ./db_export_tmp.sql
     ;;
     
-  # Export the database
+  # Export the database.
+  # 
+  # Usage:
+  #   ... export
   'export')
-    mysqldump -u${USER} ${DB_NAME} > ./db_export.sql
+    mysqldump -u"${DB_USER}" "${DB_NAME}" > ./db_"${DB_NAME}"_export.sql
     ;;
     
   *)
