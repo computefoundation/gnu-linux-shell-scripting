@@ -25,15 +25,17 @@
 
 # ======= CONFIGURATIONS ==============
 
-# Default values
-ACCU_WEATHER_LOC_ID='351409' # ID for Seattle, WA
+# Default AccuWeather location ID.
+readonly ACCU_WEATHER_LOC_ID='351409' # ID for Seattle, WA
 
 # ======= ! CONFIGURATIONS ==============
 
 if [ "$#" -ge 2 ]; then
-  ACCU_WEATHER_LOC_ID="${2}"
+  accuWeatherLocId="${2}"
 elif [ "$#" -ge 1 ]; then
-  ACCU_WEATHER_LOC_ID=''
+  accuWeatherLocId=''
+else
+  accuWeatherLocId="${ACCU_WEATHER_LOC_ID}"
 fi
 
 # ===================================================================
@@ -41,10 +43,10 @@ fi
 #   single line of text)
 # ===================================================================
 
-if [ -n "${ACCU_WEATHER_LOC_ID}" ]; then
+if [ -n "${accuWeatherLocId}" ]; then
   # note: URL contains seattle-wa, however, any location ID will still work
   URL='http://www.accuweather.com/en/us/seattle-wa/98104/weather-forecast'
-  URL+="/${ACCU_WEATHER_LOC_ID}"
+  URL+="/${accuWeatherLocId}"
   echo 'AccuWeather:'
   wget -q -O- "${URL}" | awk -F\' '/acm_RecentLocationsCarousel\.push/\
       {print "Current temperature: "$10"°; Feels like: "$12"°" }' | head -1

@@ -44,7 +44,6 @@ if [ -n "${OPT_WIND_NAME}" ]; then
 
   for windId in "${CLASS_WIND_IDS[@]}"; do
     windName="$(getWindNameById "${windId}")"
-
     if [[ "${windName}" = *"${OPT_WIND_NAME}"* ]]; then
       clssWindIdsTmp+=("${windId}")
     fi

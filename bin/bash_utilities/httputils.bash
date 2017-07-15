@@ -3,7 +3,7 @@
 # Bash HTTP utilities.
 # 
 
-# This regex ensures only that the URL contains safe characters.
+# This regex only ensures that the URL contains safe characters.
 URL_REGEX='[-A-Za-z0-9+&@#\/%?=~_|!:,.;]*[-A-Za-z0-9+&@#\/%=~_|]'
 
 PROTOCOLS_REGEX='https?|ftp|file'
@@ -12,10 +12,10 @@ PROTOCOLS_REGEX='https?|ftp|file'
 # --------------------------------------------
   # Check if string is a valid URL. If no options are used, it is only validated
   # with URL_REGEX.
-  # Arguments:
-  #   1. String to check
+  # Usage:
+  #   isUrl <string to check>
   # Options:
-  #   -p  Check that the URL contains one of the protocols in PROTOCOLS_REGEX
+  #   -p    check that the URL contains one of the protocols in PROTOCOLS_REGEX
   isUrl() {
     local OPT OPTIND
     getopts :p OPT
@@ -28,11 +28,11 @@ PROTOCOLS_REGEX='https?|ftp|file'
 
   # Check if string is a valid website URL. If no options are used, it is only
   # validated with URL_REGEX and checked to begin with "www." and contain a dot
-  # and not at the beginning or end.
-  # Arguments:
-  #   1. String to check
+  # (and not at the beginning or end).
+  # Usage:
+  #   isWebsiteUrl <string to check>
   # Options:
-  #   -p  Check that the URL contains the "http[s]://" protocol prefix
+  #   -p    check that the URL contains the "http[s]://" protocol prefix
   isWebsiteUrl() {
     local OPT OPTIND
     getopts :p OPT
@@ -40,8 +40,8 @@ PROTOCOLS_REGEX='https?|ftp|file'
     [ "${OPT}" = 'p' ] && local urlRegex="(https?://)"
     local urlRegex+="(www\.)"
     urlRegex="^${urlRegex}"
-    # To not check if the URL contains a dot, comment the following assignment
-    # statement
+    # comment the following assignment statement to not check if the URL
+    # contains a dot
     urlRegex+="[-A-Za-z0-9+&@#\/%?=~_|!:,;]+[.]"
     urlRegex+="${URL_REGEX}$"
     [[ "${1}" =~ ${urlRegex} ]] && return 0 || return 1

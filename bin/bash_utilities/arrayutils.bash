@@ -5,9 +5,8 @@
 
 # Validation
 # --------------------------------------------
-  # Arguments:
-  #   1. Value
-  #   2. Array (passed by reference)
+  # Usage:
+  #   arrayContainsValue <value> <array reference>
   arrayContainsValue() {
     local arr="${2}[@]"
     arr=("${!arr}")
@@ -16,9 +15,8 @@
     return 1
   }
 
-  # Arguments:
-  #   1. Key
-  #   2. Array (passed by reference)
+  # Usage:
+  #   arrayContainsKey <key> <array reference>
   arrayContainsKey() {
     local arr="${2}[@]"
     arr=("${!arr}")
@@ -28,9 +26,8 @@
   }
 
   # Check if a value matches an array regex value.
-  # Arguments:
-  #   1. Regex
-  #   2. Array (passed by reference)
+  # Usage:
+  #   arrayContainsValueByRegex <regex> <array reference>
   arrayContainsValueByRegex() {
     local arr="${2}[@]"
     arr=("${!arr}")
@@ -40,9 +37,8 @@
   }
 
   # Check if array contains a value that is a prefix for the given value.
-  # Arguments:
-  #   1. Value
-  #   2. Array (passed by reference)
+  # Usage:
+  #   arrayContainsPrefixForValue <value> <array reference>
   arrayContainsPrefixForValue() {
     local arr="${2}[@]"
     arr=("${!arr}")
@@ -53,9 +49,8 @@
 
 # Getters
 # --------------------------------------------
-  # Arguments:
-  #   1. Value
-  #   2. Array (passed by reference)
+  # Usage:
+  #   getArrayValue <value> <array reference>
   getArrayValue() {
     local arr="${2}[@]"
     arr=("${!arr}")
@@ -64,9 +59,8 @@
   }
 
   # Get the position of an array element matching a value.
-  # Arguments:
-  #   1. Value
-  #   2. Array (passed by reference)
+  # Usage:
+  #   getPositionOfArrayElement <value> <array reference>
   getPositionOfArrayElement() {
     local arr="${2}[@]"
     arr=("${!arr}")
@@ -75,9 +69,8 @@
   }
 
   # Get the first value in the array that contains the given string.
-  # Arguments:
-  #   1. String
-  #   2. Array (passed by reference)
+  # Usage:
+  #   getFirstArrayValueContainingString <string> <array reference>
   getFirstArrayValueContainingString() {
     local arr="${2}[@]"
     arr=("${!arr}")
@@ -87,8 +80,8 @@
 
 # Manipulation
 # --------------------------------------------
-  # Usage:
-  #   newArr=($(removeElementFromArray <value> <array_ref>))
+  # Usage example:
+  #   newArr=($(removeElementFromArray <value> <array reference>))
   removeElementFromArray() {
     local arr="${2}[@]"
     arr=("${!arr}")
@@ -102,8 +95,8 @@
     echo "${arr[@]}"
   }
 
-  # Usage:
-  #   newArr=($(removeDuplicatesFromArray <array_ref>))
+  # Usage example:
+  #   newArr=($(removeDuplicatesFromArray <array reference>))
   removeDuplicatesFromArray() {
     local arr="${1}[@]"
     arr=("${!arr}")
@@ -119,13 +112,12 @@
 
 # Sets
 # --------------------------------------------
-  # Intersection of two arrays (e.g. A=(1 3 9 2 7); B=(2 5 3 7 5); Res=(3 2 7)).
-  # Usage:
-  #   newArr=($(getIntersection <array1_ref> <array2_ref>))
+  # Get the intersection of two arrays (e.g. A=(1 3 9 2 7); B=(2 5 3 7 5); Res=(
+  # 3 2 7)).
   getIntersection() {
     local arr1="${1}[@]"
-    arr1=(${!arr1})
     local arr2="${2}[@]"
+    arr1=(${!arr1})
     arr2=(${!arr2})
     local retArr
     for arr1Val in "${arr1[@]}"; do
@@ -141,13 +133,12 @@
     echo "${retArr[@]}"
   }
 
-  # Union of two arrays (e.g. A=(5 7 1 1 4); B=(3 1 4 1 9); Res=(5 7 1 4 3 9)).
-  # Usage:
-  #   newArr=($(getUnion <array1_ref> <array2_ref>))
+  # Get the union of two arrays (e.g. A=(5 7 1 1 4); B=(3 1 4 1 9); Res=(5 7 1
+  # 4 3 9)).
   getUnion() {
     local arr1="${1}[@]"
-    arr1=(${!arr1})
     local arr2="${2}[@]"
+    arr1=(${!arr1})
     arr2=(${!arr2})
     local retArr
     for arr1Val in "${arr1[@]}"; do
@@ -165,14 +156,12 @@
     echo "${retArr[@]}"
   }
 
-  # Difference between array1 and array2 (i.e. elements in array1 that are not
-  # in array2; e.g. A=(3 6 2 1 5 1 1); B=(2 4 6); Res=(3 1 5)).
-  # Usage:
-  #   newArr=($(getDifference <array1_ref> <array2_ref>))
+  # Get the difference between array 1 and array 2 (i.e. elements in array 1
+  # that are not in array 2; e.g. A=(3 6 2 1 5 1 1); B=(2 4 6); Res=(3 1 5)).
   getDifference() {
     local arr1="${1}[@]"
-    arr1=(${!arr1})
     local arr2="${2}[@]"
+    arr1=(${!arr1})
     arr2=(${!arr2})
     local retArr
     for arr1Val in "${arr1[@]}"; do
@@ -188,10 +177,9 @@
 
 # Parsing
 # --------------------------------------------
-  # Join elements of an array by a delimiter.
-  # Arguments:
-  #   1. Delimiter
-  #   2. Array (passed by reference)
+  # Join the elements of an array by a delimiter.
+  # Usage:
+  #   joinArrayBy <delimiter> <array reference>
   joinArrayBy() {
     local delim="${1}"
     local arr="${2}[@]"
@@ -202,13 +190,12 @@
 
 # Other
 # --------------------------------------------
-  # Create pairs between array1 and array2 (e.g. A=(0 12); B=(4 5); Res=(
-  # "0:4" "0:5" "12:4" "12:5")).
-  # Usage: newArr=($(createPairs <array1_ref> <array2_ref>))
+  # Create pairs between array 1 and array 2 (e.g. A=(0 12); B=(4 5); Res=("0:4"
+  # "0:5" "12:4" "12:5")).
  createPairs() {
     local arr1="${1}[@]"
-    arr1=(${!arr1})
     local arr2="${2}[@]"
+    arr1=(${!arr1})
     arr2=(${!arr2})
     local retArr
     for arr1Val in ${arr1[@]}; do
@@ -228,12 +215,10 @@
 # Sets
 # --------------------------------------------
 #   # Union of two arrays (e.g. A=(5 7 1 1 4); B=(3 1 4 1 9); Res=(5 7 3 1 4 9)).
-#   # Usage:
-#   #   newArr=($(getUnion <array1_ref> <array2_ref>))
 #   getUnion() {
 #     local arr1="${1}[@]"
-#     arr1=(${!arr1})
 #     local arr2="${2}[@]"
+#     arr1=(${!arr1})
 #     arr2=(${!arr2})
 #     local retArr
 #     local i=0 j=0

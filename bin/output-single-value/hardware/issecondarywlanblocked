@@ -4,8 +4,7 @@
 # adapter) is soft blocked.
 # 
 # Note:
-#   If a secondary WLAN device does not exist, the primary one will be checked
-#   instead.
+#   The primary WLAN device will be checked if a secondary one does not exist.
 # 
 
 IS_SECONDARY_WLAN_SOFT_BLOCKED="$(rfkill list wlan | sed -n \

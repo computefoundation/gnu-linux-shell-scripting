@@ -6,7 +6,7 @@
 # ======= CONFIGURATIONS ==============
 
 # Set this to true to not allow an archived directory to overwrite a current one
-# with the same name; the script will exist and nothing will be extracted.
+# with the same name. The script will exist and nothing will be extracted.
 readonly DO_NOT_EXTRACT_IF_DIRECTORY_EXISTS=false
 
 # ======= ! CONFIGURATIONS ==============
@@ -37,7 +37,7 @@ if [ -z "${1}" ]; then
 fi
 
 checkIfOutDirExists() {
-  outDir="$(basename "${1}" "${2}")"
+  local outDir="$(basename "${1}" "${2}")"
   if [[ -d "${outDir}" && "${DO_NOT_EXTRACT_IF_DIRECTORY_EXISTS}" = true ]]
   then
     echo "extract: directory \"${outDir}\" exists;"\

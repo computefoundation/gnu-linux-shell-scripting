@@ -22,8 +22,8 @@ case "${ACTION}" in
   # Usage:
   #   ... export <collection name> [out directory]
   # 
-  #   collection name:     also used as the name for the JSON file.
-  #   out directory:       default is current.
+  #       collection name:     also used as the name for the JSON file
+  #       out directory:       default is current
   'export')
     if [ "$#" -ge 1 ]; then
       collName="${1}"
@@ -44,7 +44,7 @@ case "${ACTION}" in
   # Usage:
   #   ... import <JSON file name> [collection name]
   # 
-  #   collection name:     default is JSON file name.
+  #       collection name:     default is JSON file name
   # 
   # Note:
   #   If needing to import multiple MongoDB documents within a single JSON
@@ -72,7 +72,7 @@ case "${ACTION}" in
   # Usage:
   #   ... dump [collection name] [out directory]
   # 
-  #   collection name:     default is all.
+  #       collection name:     default is all
   'dump')
     if [ "$#" -ge 1 ]; then
       opts+="--collection ${1}"

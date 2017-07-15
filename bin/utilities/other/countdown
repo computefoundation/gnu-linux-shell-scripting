@@ -12,7 +12,7 @@
 # ======= CONFIGURATIONS ==============
 
 # Set this to true to print days also.
-PRINT_DAYS_ALSO=false
+readonly PRINT_DAYS_ALSO=false
 
 # ======= ! CONFIGURATIONS ==============
 
@@ -24,18 +24,18 @@ elif [[ ! "${1}" =~ ^[0-9]+$ ]]; then
   exit 1
 fi
 
-CURR_DATE="$(date +%s)"
-DATE_START="$((CURR_DATE + ${1}))"
+currDate="$(date +%s)"
+readonly DATE_START="$((currDate + "${1}"))"
 
-while [ "${DATE_START}" -ge "${CURR_DATE}" ]; do
+while [ "${DATE_START}" -ge "${currDate}" ]; do
   sleep 0.1
 
-  CURR_DATE="$(date +%s)"
-  secondsRemaining="$((DATE_START - CURR_DATE))"
+  currDate="$(date +%s)"
+  secondsRemaining="$((DATE_START - currDate))"
   secondsFrmtd="$(date -u --date @${secondsRemaining} +%H:%M:%S)"
 
   if [ "${PRINT_DAYS_ALSO}" = 'true' ]; then
-    days="$(( ( DATE_START - CURR_DATE * 1 ) / 86400 ))"
+    days="$(( ( DATE_START - currDate * 1 ) / 86400 ))"
     output="     ${days} day(s) and ${secondsFrmtd}\r"
   else
     output="     ${secondsFrmtd}\r"

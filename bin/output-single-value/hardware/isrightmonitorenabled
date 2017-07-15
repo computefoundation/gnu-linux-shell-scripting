@@ -15,11 +15,10 @@
 #        will be in the format "<TYPE>,<OFFSET>").
 # 
 # Notes:
-#   Monitors after the second will be ignored.
+#   All monitors after the second will be ignored.
 # 
-#   If more than one monitor is enabled, the right monitor is considered the one
-#   with the lowest non-zero X offset. The left monitor is always the first one
-#   with a zero X offset.
+#   The right monitor is considered the one with the lowest non-zero X offset.
+#   The left monitor is always the first one with a zero X offset.
 # 
 
 while getopts :o OPT; do
@@ -57,11 +56,9 @@ if [ "${#xrandrMntrs[@]}" -ge 2 ]; then
 
   if [ -n "${RIGHT_MONITOR_TYPE}" ]; then
     retStr="${RIGHT_MONITOR_TYPE}"
-
     if [ "${OUTPUT_OFFSET}" = 'true' ]; then
       retStr+=",${RIGHT_MONITOR_OFFST}"
     fi
-
     echo "${retStr}"
     exit 0
   else

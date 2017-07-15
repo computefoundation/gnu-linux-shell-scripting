@@ -2,8 +2,8 @@
 # 
 # Open a new terminal optionally with an initial command to run.
 # 
-# A small layer for configuring terminal and window settings is additionally
-# provided.
+# Additional features:
+#   A small layer for configuring terminal and window settings is provided.
 # 
 # Returns:
 #   The window ID of the new terminal window.
@@ -100,8 +100,8 @@ fi
 getWindIdByPid() {
   while IFS= read line; do
     if [[ "${line}" =~ (0x)([0-9a-z]+)([ ][- ][0-9]+[ ])([0-9]*) ]]; then
-      winId="${BASH_REMATCH[1]}${BASH_REMATCH[2]}"
-      pid="${BASH_REMATCH[4]}"
+      local winId="${BASH_REMATCH[1]}${BASH_REMATCH[2]}"
+      local pid="${BASH_REMATCH[4]}"
       if [ "${pid}" -eq "${1}" ]; then
         echo "${winId}"
         break

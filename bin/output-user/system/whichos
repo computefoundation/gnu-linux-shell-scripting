@@ -10,10 +10,6 @@ OS="$(uname -s)"
 REV="$(uname -r)"
 MACH="$(uname -m)"
 
-GetVersionFromFile() {
-  VERSION="$(cat "${1}" | tr '\n' ' ' | sed s/.*VERSION.*=\ //)"
-}
-
 case "${OS}" in
   'SunOS')
     OS=Solaris

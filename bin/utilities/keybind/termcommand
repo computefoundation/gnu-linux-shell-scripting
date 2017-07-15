@@ -34,12 +34,6 @@
 #   the format "<class>.<classname>").
 # 
 
-# Delay time as set by --delay; command may still always run correctly if no
-# default is given, however, on a mid-grade computer, it may rarely paste the
-# command too quickly after the terminal window has been focused, causing only
-# a part of the command to run.
-OPT_AUTOMTN_DELAY_TIME='.02'
-
 OPTS="$(getopt -q -o c:,t:,d:,l,r --long class:,title:,delay:,last,refocus -n \
     'termcommand' -- "${@}")"
 if [ "$?" -ne 0 ]; then
@@ -68,24 +62,34 @@ while true; do
   shift
 done
 
+# The command may still always run correctly if no delay time is given, however,
+# on a mid-grade computer, it may rarely paste the command too quickly after the
+# terminal window has been focused. This causes only a part of the command to
+# run.
+if [ -z "${OPT_AUTOMTN_DELAY_TIME}" ]; then
+  OPT_AUTOMTN_DELAY_TIME='.02'
+fi
+
 if [[ -z "${TERM_CLASS}" && -z "${TERM_TITLE}" ]]; then
   notify-send 'termcommand (err): must use option --class or --title'
   exit 1
 fi
 
-if [[ "$#" -eq 0 && -z ${OPT_LAST_COMMAND} ]]; then
+if [[ "$#" -eq 0 && -z "${OPT_LAST_COMMAND}" ]]; then
+  # uncomment the following to show an error
   # notify-send 'termcommand: no command to execute'
   exit
 fi
 
 getWindIdByName() {
-  windIds=("$(wmctrl -l | awk -v srch="${1}" '{$2=$3=""; windName = \
+  local windIds=("$(wmctrl -l | awk -v srch="${1}" '{$2=$3=""; windName = \
       gensub(/([^ ]*)(.*)/, "\\2", "g", $0)} windName ~ srch {print $1}')")
   [ $((${#windIds[@]})) -ge 1 ] && echo "${windIds[0]}"
 }
 
 getFirstWindIdInClass() {
-  classWindIds=($(wmctrl -lx | awk -v class="${1}" '$3 ~ class {print $1}'))
+  local classWindIds=($(wmctrl -lx | awk -v class="${1}" '$3 ~ class \
+      {print $1}'))
   [ $((${#classWindIds[@]})) -ge 1 ] && echo "${classWindIds[0]}"
 }
 

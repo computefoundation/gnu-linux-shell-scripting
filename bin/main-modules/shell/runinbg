@@ -26,7 +26,7 @@
 #       and stderr.
 # 
 
-# Redirect output to /dev/null if stdout and stderr point to a terminal.
+# redirect output to /dev/null if stdout and stderr point to a terminal
 if test -t 1; then
   exec 1>/dev/null
 fi

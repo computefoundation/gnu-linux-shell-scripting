@@ -12,19 +12,19 @@
 # ======= CONFIGURATIONS ==============
 
 # Set this to true to print days also.
-PRINT_DAYS_ALSO=false
+readonly PRINT_DAYS_ALSO=false
 
 # ======= ! CONFIGURATIONS ==============
 
-CURR_DATE="$(date +%s)"
+readonly DATE_START="$(date +%s)"
 
 while true; do
   dateNow="$(date +%s)"
-  secondsElapsed="$((dateNow - CURR_DATE))"
+  secondsElapsed="$((dateNow - DATE_START))"
   secondsFrmtd="$(date -u --date @${secondsElapsed} +%H:%M:%S)"
 
   if [ "${PRINT_DAYS_ALSO}" = 'true' ]; then
-    days=$(( ( dateNow - CURR_DATE ) / 86400 ))
+    days=$(( ( dateNow - DATE_START ) / 86400 ))
     output="     ${days} day(s) and ${secondsFrmtd}\r"
   else
     output="     ${secondsFrmtd}\r"

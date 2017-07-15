@@ -6,14 +6,13 @@
 # Options and Arguments
 # --------------------------------------------
   # Extract all options and their arguments from a command's arguments. (Note:
-  # option arguments are captured for all options except the last).
-  # Usage:
+  # option arguments are extracted for all options except the last).
+  # Usage example:
   #   opts=($(extractOptions <command arguments string>))
   extractOptions() {
     local arr=(${@})
-    local opts
     if [[ "${arr[0]}" = '-'* ]]; then
-      opts="${arr[0]} "
+      local opts="${arr[0]} "
       for ((x=1; x<=${#arr[@]}; x++)); do
         if [[ "${arr[@]:x:1}" = '-'* ]]; then opts+="${arr[@]:x:1} "
         elif [[ "${arr[@]:((x+1)):1}" = '-'* ]]; then opts+="${arr[@]:x:1} "

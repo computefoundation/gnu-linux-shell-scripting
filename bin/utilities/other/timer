@@ -7,8 +7,8 @@
 # 
 # Dependencies:
 #   xterm (used as the terminal emulator; download xterm for quick and easy
-#         startup; if another terminal emulator is preferred, please adjust the
-#         command at the bottom)
+#       start up; if another terminal emulator is preferred, please adjust the
+#       command at the bottom)
 #   wmctrl (used to focus the terminal window when the timer is done)
 #   mpv (only needed if setting PLAY_SOUND_WHEN_FINISHED to true)
 # 
@@ -16,10 +16,10 @@
 # ======= CONFIGURATIONS ==============
 
 # Play a sound when the timer is finished.
-PLAY_SOUND_WHEN_FINISHED=false
+readonly PLAY_SOUND_WHEN_FINISHED=false
 
 # Sound file to play when the timer is finished.
-SOUND_FILE='/usr/share/orage/sounds/KDE_Beep_Digital_1.ogg'
+readonly SOUND_FILE='/usr/share/orage/sounds/KDE_Beep_Digital_1.ogg'
 
 # ======= ! CONFIGURATIONS ==============
 
@@ -34,10 +34,8 @@ elif [[ "${1}" -lt 1 || "${1}" -gt 120 ]]; then
   exit 1
 fi
 
-MINUTES="${1}"
-
 if [ "$#" -gt 1 ]; then
-  args="${2} ${3} ${4}"
+  args="${@:2}"
   termTtl="Timer: ${args::14}"
   [ "$#" -ge 5 ] && termTtl+='...'
 else
@@ -45,14 +43,14 @@ else
 fi
 
 countdown() {
-  local CURR_DATE="$(date +%s)"
-  local DATE_START="$((CURR_DATE + ${1}))"
+  local currDate="$(date +%s)"
+  local startDate="$((currDate + "${1}"))"
 
-  while [ "${DATE_START}" -ge "${CURR_DATE}" ]; do
+  while [ "${startDate}" -ge "${currDate}" ]; do
     sleep 0.1
-    CURR_DATE="$(date +%s)"
-    secondsRemaining="$((DATE_START - CURR_DATE))"
-    secondsFrmtd="$(date -u --date @${secondsRemaining} +%H:%M:%S)"
+    currDate="$(date +%s)"
+    secondsRemaining="$((startDate - currDate))"
+    secondsFrmtd="$(date -u --date @"${secondsRemaining}" +%H:%M:%S)"
     echo -ne "     ${secondsFrmtd}\r"
   done
 }
@@ -60,10 +58,10 @@ countdown() {
 export -f countdown
 
 termCmd="\
-echo -e \"\nTime: ${MINUTES} minutes\";
+echo -e \"\nTime: ${1} minutes\";
 [ "$#" -ge 2 ] && echo -e \"\nTask:\n\n    ${@:2}\";
 echo -e \"\n\nCountdown:\n\";
-countdown $((${MINUTES} * 60));
+countdown $((${1} * 60));
 echo;
 wmctrl -R \"${termTtl}\";
 clear;

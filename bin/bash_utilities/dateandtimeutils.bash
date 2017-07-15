@@ -7,8 +7,8 @@
 # --------------------------------------------
   # Format number of seconds (using either an integer or decimal) to millseconds
   # as a decimal.
-  # Arguments:
-  #   1. Seconds
+  # Usage:
+  #   secondsToMillisecondsDecimal <seconds>
   secondsToMillisecondsDecimal() {
     printf '%.4f' "$(bc <<< "${1}*1000")"
   }
@@ -16,8 +16,8 @@
   # Format number of seconds (using either an integer or decimal) to millseconds
   # as an integer rounded to the nearest tenths place (using round half towards
   # zero mode).
-  # Arguments:
-  #   1. Seconds
+  # Usage:
+  #   secondsToMilliseconds <seconds>
   secondsToMilliseconds() {
     printf '%.0f' "$(secondsToMillisecondsDecimal "${1}")"
   }
@@ -26,28 +26,26 @@
 # --------------------------------------------
   # Generate a random date between two dates specified by year, month and hour
   # and output in ISO 8601 format (e.g. "2004-02-25T16:18:13.489392193").
-  # 
   # Notes:
-  #   All generated years are within the century defined by DFLT_CENTURY_PREFIX.
-  # 
-  #   Date entites are inclusive of the previous entity, meaning the date/time
-  #   up until the next year/month/hour may be used (e.g. if the max hour is 15,
-  #   the minute used will be inclusive of the hour).
-  # 
+  #   -All generated years are within the century defined by
+  #    DFLT_CENTURY_PREFIX.
+  #   -Date entites are inclusive of the previous entity, meaning the date/time
+  #    up until the next year/month/hour may be used (e.g. if the max hour is
+  #    15, the minute used will be inclusive of the hour).
   # Usage:
   #   generateRandomDate <min/max date entities>
-  # 
-  #   min/max date entities: format in "YY[min],YY[max],MM[min],MM[max],HH[min],
-  #     HH[max]" (e.g. "02,06,01,08,15,19").
-  # 
+  #       min/max date entities: format in "YY[min],YY[max],MM[min],MM[max],
+  #         HH[min],HH[max]" (e.g. "02,06,01,08,15,19").
   # Options:
-  #   -t   get date as timestamp in the fomat [[CC]YY]MMDDhhmm[.ss]
+  #   -t    get date as timestamp in the fomat [[CC]YY]MMDDhhmm[.ss]
   generateRandomDate() {
     local DFLT_CENTURY_PREFIX='21'
     local OPT OPTIND
     getopts :t OPT
-    shift $((OPTIND-1))
-    exec 3>&1 4>&2; exec >/dev/tty 2>&1 # redirect all output to >/dev/tty
+    shift $((OPTIND - 1))
+    # redirect all output to >/dev/tty so errors will be printed to the terminal
+    # when this function is used in a subprocess.
+    exec 3>&1 4>&2; exec >/dev/tty 2>&1
     if [[ ! "${1}" =~ \
         [0-9]{1,2},[0-9]{1,2},[0-9]{1,2},[0-9]{1,2},[0-9]{1,2},[0-9]{1,2} ]]
     then

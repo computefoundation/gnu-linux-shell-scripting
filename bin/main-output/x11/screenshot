@@ -16,7 +16,7 @@
 # ======= CONFIGURATIONS ==============
 
 # Path where screenshot files are saved
-OUT_PATH="${HOME}"
+readonly OUT_PATH="${HOME}"
 
 # ======= ! CONFIGURATIONS ==============
 
@@ -42,44 +42,46 @@ extractFileExtension() {
   fi
 }
 
-# Utility function to return the next numbered file name.
-getIncrementedFilename() {
-  local filen="${1}"
-  [ "$#" -ge 2 ] && local path="${2}" || local path='.'
-  local fileExt="$(extractFileExtension "${filen}")"
-  [ -n "${fileExt}" ] && fileExt=".${fileExt}"
-  local fileBsn="${1%${fileExt}*}"
-  if [ "$(ls -Ad ${path}/${filen} 2>/dev/null)" ]; then
-    filen="${fileBsn}_2${fileExt}" # likely won't need to check after second
-    local mtchFilens=($(ls -Ad "${path}/${fileBsn}_"[0-9]*"${fileExt}" \
-        2>/dev/null))
-    if [ ${#mtchFilens[@]} -gt 0 ]; then
-      local num=2
-      for mf in "${mtchFilens[@]}"; do
-        local mf="${mf##*/}"
-        local mfBsn="${mf%${fileExt}*}"
-        local mfNum="${mfBsn##*_}"
-        # If using directory names, dos line endings must be removed for mfNum
-        # or arithmetic operations will result in a syntax error. Note: using
-        # regex as "${mfNum//$'\r'/}" and other operations do not work.
-        [[ ${mfNum} =~ [0-9]* ]] && mfNum="${BASH_REMATCH[0]}"
-        if [ ${mfNum} -gt ${num} ]; then
-          num=${mfNum}
+# Utility function to return the next number incremented file name.
+getIncrementedFileName() {
+  local fileName="${1}"
+  [ "$#" -ge 2 ] && local DIR="${2}" || local DIR='.'
+  local FILE_EXT="$(extractFileExtension "${fileName}")"
+  [ -n "${FILE_EXT}" ] && FILE_EXT=".${FILE_EXT}"
+  local FILE_BASE_NAME="${1%${FILE_EXT}*}"
+
+  local foundFiles=($(find "${DIR}" -maxdepth 1 -type f -regextype posix-awk \
+      -regex ".*/${FILE_BASE_NAME}[0-9]*${FILE_EXT}"))
+  if [ "${#foundFiles[@]}" -gt 0 ]; then
+    local fileNum=1
+    for foundFile in "${foundFiles[@]}"; do
+      local foundFile="${foundFile##*/}"
+      local foundFileBaseName="${foundFile%${FILE_EXT}*}"
+      local foundFileNum="$(echo "${foundFileBaseName}" | sed -e \
+          's/[^0-9]//g')"
+      if [ -n "${foundFileNum}" ]; then
+        # If using directory names, DOS line endings must be removed for
+        # foundFileNum or arithmetic operations will result in a syntax error.
+        # Note: using "${foundFileNum//$'\r'/}" and other operations do not
+        # work.
+        [[ "${foundFileNum}" =~ [0-9]* ]] && foundFileNum="${BASH_REMATCH[0]}"
+        if [ "${foundFileNum}" -gt "${fileNum}" ]; then
+          fileNum="${foundFileNum}"
         fi
-      done
-      filen="${fileBsn}_$((num + 1))${fileExt}"
-    fi
+      fi
+    done
+    fileName="${FILE_BASE_NAME}$((fileNum + 1))${FILE_EXT}"
   fi
-  echo "${filen}"
+  echo "${fileName}"
 }
 
 getActvWindId() {
   echo "$(xprop -root _NET_ACTIVE_WINDOW | cut -d ' ' -f 5 | rev | cut -c 2- | \
-    rev | sed 's/^0x/0x0/')"
+      rev | sed 's/^0x/0x0/')"
 }
 
 fileName="screenshot-${TYPE}.png"
-fileName="$(getIncrementedFilename "screenshot-${TYPE}.png" "${OUT_PATH}/")"
+fileName="$(getIncrementedFileName "screenshot-${TYPE}.png" "${OUT_PATH}/")"
 
 case "${TYPE}" in
   'full')

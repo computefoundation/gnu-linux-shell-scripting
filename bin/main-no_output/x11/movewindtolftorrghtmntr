@@ -78,7 +78,7 @@ getWindClassById() {
 }
 
 getWindClassByName() {
-  windClsses=("$(wmctrl -lx | awk -v srchTxt="${1}" '{$1=$2=$4=""; wn = \
+  local windClsses=("$(wmctrl -lx | awk -v srchTxt="${1}" '{$1=$2=$4=""; wn = \
       gensub(/([^ ]+[ ]+)(.*)/, "\\2", "g", $0); gsub(/ /, "", wn)} wn ~ \
       srchTxt {print $3}' | sort | uniq)")
   echo "${windClsses[0]}"
@@ -86,7 +86,7 @@ getWindClassByName() {
 
 getWindIdByName() {
   [ "$#" -eq 0 ] && return
-  windIds=("$(wmctrl -l | awk -v srchTxt="${1}" '{$2=$3=""; wn = \
+  local windIds=("$(wmctrl -l | awk -v srchTxt="${1}" '{$2=$3=""; wn = \
       gensub(/([^ ]*[ ]+)(.*)/, "\\2", "g", $0)} wn ~ srchTxt {print $1}')")
   echo "${windIds[@]}"
 }
@@ -131,7 +131,7 @@ fi
 
 # Utility function to retrieve the properties of the active window.
 setActiveWindowProperties() {
-  xwininfoOut="$(xwininfo -id "${1}")"
+  local xwininfoOut="$(xwininfo -id "${1}")"
   CURR_WIND_X_POS="$(echo "${xwininfoOut}" | grep 'Absolute upper-left X' | \
       awk '{print $4}')"
   CURR_WIND_Y_POS="$(echo "${xwininfoOut}" | grep 'Absolute upper-left Y' | \
@@ -146,7 +146,7 @@ setActiveWindowProperties() {
 isRightMonitorEnabled() {
   if [ -z "${RGHT_MNTR_WIDTH}" ]; then
     IFS=$'\n'
-    xrandrMntrs=($(xrandr --query | grep ' connected'))
+    local xrandrMntrs=($(xrandr --query | grep ' connected'))
     unset IFS
 
     if [ "${#xrandrMntrs[@]}" -ge 2 ]; then
@@ -161,7 +161,7 @@ isRightMonitorEnabled() {
 
           if [[ "${offst}" -gt 0 && (-z "${lwstNonZeroOffst}" || "${offst}" \
               -lt "${lwstNonZeroOffst}") ]]; then
-            lwstNonZeroOffst="${offst}"
+            local lwstNonZeroOffst="${offst}"
             RGHT_MNTR_WIDTH="${wdth}"
             RGHT_MNTR_OFFST="${offst}"
           fi

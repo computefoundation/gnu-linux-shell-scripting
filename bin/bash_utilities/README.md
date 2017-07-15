@@ -1,13 +1,13 @@
 
 ## bash_utilities/
 
-* [**arrayutils**](arrayutils): Bash array utilities
-* [**coreutils**](coreutils): Bash core utilities
-* [**dateandtimeutils**](dateandtimeutils): Bash date and time utilities
-* [**fileanddirectoryutils**](fileanddirectoryutils): Bash file and directory utilities
-* [**httputils**](httputils): Bash http utilities
-* [**numberutils**](numberutils): Bash number utilities
-* [**stringutils**](stringutils): Bash string utilities
+* [**arrayutils.bash**](arrayutils.bash): Bash array utilities
+* [**coreutils.bash**](coreutils.bash): Bash core utilities
+* [**dateandtimeutils.bash**](dateandtimeutils.bash): Bash date and time utilities
+* [**fileanddirectoryutils.bash**](fileanddirectoryutils.bash): Bash file and directory utilities
+* [**httputils.bash**](httputils.bash): Bash http utilities
+* [**numberutils.bash**](numberutils.bash): Bash number utilities
+* [**stringutils.bash**](stringutils.bash): Bash string utilities
 
 ### Usage Notes
 

@@ -11,7 +11,7 @@ use warnings;
 
 if (scalar @ARGV != 1) {
   exit;
-} elsif ($ARGV[0]  !~ m/^[0-9]+$/) {
+} elsif ($ARGV[0] !~ m/^[0-9]+$/) {
   exit;
 }
 
