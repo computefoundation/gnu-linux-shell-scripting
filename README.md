@@ -27,13 +27,13 @@ Scripts.
 
 Aliases and short functions.
 
-*Aliases and short functions are conceptually the same as scripts except they are primarily used for bash configurations and no more than three lines.*
+*Aliases and short functions are no more than three lines long and primarily used for bash configurations.*
 
 ### one-liners/
 
 One-liners.
 
-*One-liners are conceptually the same as scripts except they are meant to be extended.*
+*One-liners are meant to be extended.*
 
 ---
 
