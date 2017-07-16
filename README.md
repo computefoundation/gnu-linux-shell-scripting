@@ -52,87 +52,94 @@ A solution ...
 
 ## Examples
 
-The following solutions are included as an example:
+The following is a list of some of the solutions in *Linux-shell-base*:
 
-#### Utilities
+##### Utilities
 
 * [Open a new terminal optionally with an initial command to run.](bin/utilities/general/newterm)
 * [Execute a given command in (or run the last command of) a terminal emulator.](bin/utilities/keybind/termcommand)
 
-#### Solutions for Android
+##### Solutions for Android
 
 * [Send an sms using an Android device.](bin/android/sms)
 * [Watch and print X and Y screen tap coordinates of an Android device.](bin/android/getmobiletappos)
 
-#### Solutions for core aspects of the Linux operating system *(file, hardware, networking, x11, etc.)*
+##### Solutions for core aspects of the Linux operating system *(file, hardware, networking, x11, etc.)*
 
-##### ... with output
+###### ... with output
 
 * [Archive a file or directory with almost any archive format.](bin/main-output/file/archive)
 
-##### ... without output
+###### ... without output
 
 * [Move a window to the left or right monitor.](bin/main-no_output/x11/movewindtolftorrghtmntr)
 
-##### ... modules
+###### ... modules
 
 * [Run a command in the background.](bin/main-modules/shell/runinbg)
 * [Run a command when files have changed in the current directory.](bin/main-modules/file/inotify)
 
-#### Solutions for core aspects of the Linux operating system *(file, hardware, networking, x11, etc.)* providing output (values or information) only *(no actions performed)*
+##### Solutions for core aspects of the Linux operating system *(file, hardware, networking, x11, etc.)* providing output (values or information) only *(no actions performed)*
 
-##### ... as single-value for other programs
+###### ... as single-value for other programs
 
-* [Get the size of one or more file and/or directories as a plain number.](https://github.com/linux-shell-base/linux-shell-base/blob/master/one-liners/one-liners-output.bash)
+* [Get the size of one or more files and/or directories as a plain number.](https://github.com/linux-shell-base/linux-shell-base/blob/master/one-liners/one-liners-output.bash)
 * [Check if the primary wireless local area network device is soft blocked.](bin/output-single-value/hardware/iswlanblocked)
 * [Get the ID of a window by name or PID.](https://github.com/linux-shell-base/linux-shell-base/tree/master/bin/output-single-value#x11)
 
-##### ... as multi-value for other programs
+###### ... as multi-value for other programs
 
 * [Print paths of all subdirectories in the specified directory.](bin/output-multi-value/file/printsubdirpaths)
 
-##### ... as information for the user
+###### ... as information for the user
 
 * [Display useful host related informaton.](bin/output-user/networking/localhost)
 
-#### Utility modules *(scripts used in conjuction with command-line programs)*
+##### Utility modules *(scripts used in conjuction with command-line programs)*
 
 * [Return a file for a command using one of two search methods: 1. locate; 2. recursion.](bin/modules/file/returnfileforcmd)
 * [Execute a program and an action on the resulting window.](bin/modules/x11/exeprogandwindact)
 
-#### Solutions for mobile devices
+##### Solutions for mobile devices
 
 * [Mount and unmount an MTP device.](bin/mobile/mtp)
 
-#### Bash utility functions
+##### Bash utility functions
 
-* [Bash array utilities.](bin/bash_utilities/arrayutils)
-* [Bash date and time utilities.](bin/bash_utilities/dateandtimeutils)
+* [Bash array utilities.](bin/bash_utilities/arrayutils.bash)
+* [Bash date and time utilities.](bin/bash_utilities/dateandtimeutils.bash)
 
-#### Generic functions for third party applications
+##### Generic functions for third party applications
 
 * [Generic utility functions for MySQL.](bin/3rd_party_applications/database/mysqlutil)
 
 ## Excluded
 
-The following types of solutions are not included:
+The following is a list of the types of solutions excluded from *Linux-shell-base*:
 
 * File formatting or converting *(e.g. BMP to JPEG or CYMK colors to RGB colors)*.
 * Text formatting
 * OS or 3rd party application function specific.
 * Requiring very little research.
 
-## Packaged utilities
+## Installation
 
-*Linux-shell-base* has an extension [repository for packaged utilities][packaged-utilities].
+As *Linux-shell-base* is not a framework, there is no full build/install automation. Please simply clone the repository to obtain all the solutions.
 
-## Beginner's documentation
+To install only the essential solutions, please download ***install-essentials.sh*** with the following command and run it:
 
-[*Beginners-documentation*][beginners-documentation] is a repository providing documentation on Linux for new Linux users.
+```bash
+wget https://raw.githubusercontent.com/linux-shell-base/linux-shell-base/install/install-essentials.sh && \
+chmod +x install-essentials.sh
+```
 
-## Social
+## Relative repositories
 
-See the *Linux-shell-base* [Facebook page](https://www.facebook.com/linuxshellbase).
+*Linux-shell-base* has ...
+
+* an extension [repository for packaged utilities][packaged-utilities].
+
+* a [repository with documentation][beginners-documentation] on Linux for beginners.
 
 ## Notes
 
@@ -145,6 +152,10 @@ The goal of this repository is to be as comprehensive as possible. Contributions
 Credits will be placed in the wiki and can identify the user by name, username or URL. If a contributed solution is an alternative method/implementation to an already existing one, it will be given the same name with an incremented number, ordered by the most commonly accepted method/implementation. 
 
 Please send an email with any suggestions, comments or questions.
+
+## Social media
+
+See the [Facebook page](https://www.facebook.com/linuxshellbase) for *Linux-shell-base*.
 
 ## Posts/news
 
