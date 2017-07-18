@@ -1,15 +1,18 @@
 #!/usr/bin/env bash
 # 
-# Execute a given command in (or run the last command of) a terminal emulator.
+# Execute a command in (or run the last command of) a terminal emulator.
 # 
 # Usage:
-#   termcommand (--class <CLASS> | --title <TITLE>) [options] -- <command>
+#   termcommand (--class <TERM_CLASS> | --title <TERM_TITLE>) [options] --
+#           <command>
+# 
+#   -c --class <TERM_CLASS>    class of the terminal (required if --title is not
+#                              used)
+#   -t --title <TERM_TITLE>    partial or full window title of the terminal
+#                              (required if --class is not used; will override
+#                              --class if both are used)
 # 
 # Options:
-#   -c --class <CLASS>   class of the terminal (required if --title is not used)
-#   -t --title <TITLE>   partial or full window title of the terminal (required
-#                        if --class is not used; will override --class if both
-#                        are used)
 #   -d --delay <TIME>    delay time between focusing the terminal and pasting
 #                        the command in it; this is only needed if the command
 #                        is pasted too soon, causing none or a part of it to
@@ -20,12 +23,12 @@
 #   -r --refocus         refocus previously focused window after running command
 # 
 # Dependencies:
-#   xautomation (command "xte"; if xdotool is preferred, follow the instructions
-#     at the bottom where xte is used. [Note: Running the command with xdotool
-#     is significantly slower as it sends each character individually]).
+#   xautomation (if xdotool is preferred, follow the instructions at the bottom
+#     where xte is used. [Note: Running the command with xdotool is
+#     significantly slower as it sends each character individually]).
 # 
 # Notes:
-#   This script should be bound to a keybinding or used in a script.
+#   This utility should be used with a keybinding or in a script.
 # 
 #   If using the --last option and the last command in the terminal is moved to
 #   but not executed, increase the usleep time in the xte command.
@@ -112,7 +115,8 @@ if [ -n "${termWindId}" ]; then
   wmctrl -i -a "${termWindId}"
   [ -n "${OPT_AUTOMTN_DELAY_TIME}" ] && sleep "${OPT_AUTOMTN_DELAY_TIME}"
 
-  # To use xdotool, comment the xte code and uncomment the xdotool code.
+  # To use xdotool, comment the xte code sections and uncomment the xdotool code
+  # sections.
 
   if [ "${OPT_LAST_COMMAND}" = 'true' ]; then
     xte 'usleep 25000' 'key Up' 'key Return'

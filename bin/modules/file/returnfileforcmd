@@ -4,9 +4,8 @@
 #   1. Locate the file from a database (using a "locate" command).
 #   2. Recursively search from the current directory.
 # 
-# Additional features:
-#   This solution provides options to change the find occurrence and find all
-#   occurrences for both methods.
+# This solution provides an option to change the find occurrence and an option
+# to find all occurrences for both methods.
 # 
 # Examples:
 #   # use the locate method to locate a file for gedit
@@ -24,10 +23,11 @@
 #   geditr --a config.sh
 # 
 # Notes:
-#   There must exist a locate command in the user's PATH environment variable to
-#   use the locate method. It must return one or more file paths. The command
-#   name must be specified in LOCATE_COMMAND. (Note: A locate utility package is
-#   provided by linux-shell-base in the packaged-utilities repository).
+#   To use the locate method, there must exist a "locate" command in the user's
+#   PATH environment variable that returns one or more file paths for a given
+#   file name. The actual command name can be specified in the LOCATE_COMMAND
+#   variable in CONFIGURATIONS. (Note: A locate utility package is provided by
+#   linux-shell-base in the packaged-utilities repository).
 # 
 #   This script's options will override matching ones for the command in
 #   brackets. Therefore, it uses double dashes to avoid collision as much as
@@ -38,12 +38,14 @@
 
 # ======= CONFIGURATIONS ==============
 
+# Locate command.
 readonly LOCATE_COMMAND='locate'
 
 # Locate command option to locate directories only; can be empty.
 readonly LOCATE_COMMAND_DIRS_ONLY_OPT='-d'
 
-# Locate command option to change the find occurrence; can be empty.
+# Locate command option to change the find occurrence; must require a numerical
+# argument; can be empty.
 readonly LOCATE_COMMAND_FIND_OCCURRENCE_OPT='-o'
 
 # ======= ! CONFIGURATIONS ==============

@@ -7,7 +7,7 @@
 # 
 # Returns:
 #   The ID of the next window in the class. If no other windows in the class
-#   exist, the ID of the active window will be returned instead.
+#   exist, the ID of the active window will be returned.
 # 
 
 while getopts n: OPT; do

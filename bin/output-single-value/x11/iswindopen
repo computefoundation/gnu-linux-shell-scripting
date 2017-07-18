@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # 
-# Check if a window is open by name or in a class.
+# Check if a window is open by name or class.
 # 
 # Usage:
 #   iswindopen <window name>
@@ -8,10 +8,9 @@
 #   window name: case-sensitive; may contain regex
 # 
 # Options:
-#   -c    check if a window is open in a class instead of by name
-#         (case-sensitive; class can be specified using the full qualified class
-#         string (the class and classname; e.g. "xterm.XTerm"); does not allow
-#         allow regex)
+#   -c    check if a window is open by class instead of by name (case-sensitive;
+#         class can be specified using the full qualified class string [i.e.
+#         class and classname; e.g. "xterm.XTerm"]; does not allow regex)
 # 
 
 if [ "$#" -eq 0 ]; then

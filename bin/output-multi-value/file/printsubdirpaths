@@ -3,8 +3,7 @@
 # Print paths of all subdirectories in the specified directory.
 # 
 # Example:
-#   # output for a directory "documents/":
-# 
+#   # output for a sample directory "documents/":
 #   documents/reference/commands/
 #   documents/reference/guides_and_procedures/
 #   documents/reference/notes/

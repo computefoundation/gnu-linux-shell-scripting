@@ -7,10 +7,10 @@
 
 ### keybind/
 
-*Keybind utilities are run with a keybinding or in other scripts rather than directly in the terminal.*
+*Keybind utilities are used with a keybinding or in scripts rather than in the terminal.*
 
 * [**xselchangecase**](keybind/xselchangecase): Change the case of the selected text.
-* [**termcommand**](keybind/termcommand): Execute a given command in (or run the last command of) a terminal emulator.
+* [**termcommand**](keybind/termcommand): Execute a command in (or run the last command of) a terminal emulator.
 
 ### other/
 

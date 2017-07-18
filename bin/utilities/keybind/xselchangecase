@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 # 
-# Change the case of the selected text. This script should be bound to a
-# keybinding.
+# Change the case of the selected text.
 # 
-# Options (one required):
-#   --upper    change to uppercase
-#   --lower    change to lowercase
+# Usage:
+#   xselchangecase (--upper | --lower)
 # 
 # Notes:
+#   This utility should be used with a keybinding or in a script.
+# 
 #   If the text is not being converted, increase the usleep time in the xte
 #   command.
 # 

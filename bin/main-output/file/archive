@@ -21,7 +21,7 @@ printHelpMessage() {
 Usage:
   archive <file or directory> <archive type> [output_filename]
 
-  output_filename: should not include extension; original file name is default.
+  output_filename: should not include extension; default is original file name.
 
 Options:
   -h    print this help message
@@ -35,7 +35,7 @@ while getopts :vh OPT; do
     \?) echo -e "archive: option \"${OPTARG}\" unknown" 1>&2; exit 1;;
   esac
 done
-shift $((OPTIND -1))
+shift $((OPTIND - 1))
 
 if [ "$#" -lt 2 ]; then
   echo 'archive: invlaid arguments' 1>&2

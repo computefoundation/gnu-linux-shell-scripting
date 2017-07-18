@@ -2,8 +2,7 @@
 # 
 # Open a new terminal optionally with an initial command to run.
 # 
-# Additional features:
-#   A small layer for configuring terminal and window settings is provided.
+# A small layer for configuring terminal and window settings is provided.
 # 
 # Returns:
 #   The window ID of the new terminal window.
