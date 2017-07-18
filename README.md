@@ -1,6 +1,6 @@
 
 <p align='center'>
-  <img src='/../images/logo-light.png' width='32%' alt='logo-light.png'>
+  <img src='/../images/logo-light.png' width='30%' alt='logo-light.png'>
 </p>
 </br>
 
@@ -133,17 +133,17 @@ wget https://raw.githubusercontent.com/linux-shell-base/linux-shell-base/install
 chmod +x install-essentials.sh
 ```
 
-## Relative repositories
+## Notes
+
+* All initial solutions have been created and tested in Bash only *(and not Ksh, Zsh, etc.)* and were created with only slight attention to portability, however, they are updated to be more portable if changes are significant.
+
+## Other repositories
 
 *Linux-shell-base* has ...
 
 * an extension [repository for packaged utilities][packaged-utilities].
 
 * a [repository with documentation][beginners-documentation] on Linux for beginners.
-
-## Notes
-
-* All initial solutions have been created and tested in Bash only *(and not Ksh, Zsh, etc.)* and were created with only slight attention to portability, however, they are updated to be more portable if changes are significant.
 
 ## Contributing
 

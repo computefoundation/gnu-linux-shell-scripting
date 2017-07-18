@@ -14,7 +14,7 @@ count() { echo "${@}" | wc -c; }                                                
 # ~~~~~~~ 2.  PRODUCTIVITY ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #[General]
-thes() { dict -d moby-thesaurus "${1}" | less; }                                 # thes: find a word in a thesaurus
+thes() { dict -d moby-thesaurus "${1}" | less; }                                 # thes: find a word in the thesaurus
 
 # ~~~~~~~ 3.  NUMBER FORMATTING ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

@@ -42,8 +42,8 @@ cdff() { cd "$(find . -type f -name "*${1}*" -exec sh -c 'echo "${1%/*}"; kill \
   "$PPID"' sh {} \;)"; }                                                         # cdff: find file and cd to its directory; $1: file name
 
 cdfd() { cd $(find . -type d -name "*${1}*" -print -quit); }                     # cdfd: find directory and cd to it; $1: directory name
-eff() { ${EDITOR} $(find . -type f -name "*${1}*"); }                            # eff: find all files and open in editor; $1: file name
-rmff() { find . -name "*${1}*" -type f -print0  | xargs -0 rm -f; }              # rmff: find all files and delete; $1: file name
+effa() { ${EDITOR} $(find . -type f -name "*${1}*"); }                           # effa: find all files and open in editor; $1: file name
+rmffa() { find . -name "*${1}*" -type f -print0  | xargs -0 rm -f; }             # rmffa: find all files and delete; $1: file name
 
 #[Grep]
 egr() { ${EDITOR} $(/usr/bin/grep -l -R "${1}" .); }                             # egr: find all files containing the given text and edit; $1: text
