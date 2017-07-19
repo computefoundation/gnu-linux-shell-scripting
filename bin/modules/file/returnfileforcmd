@@ -90,7 +90,7 @@ for ((x=1; x<=$#; x++)); do
   fi
 done
 if [ -z "${execCmd}" ]; then
-  echo -e "returnfileforcmd: invalid arguments: \n   \"${@}\"" 1>&2
+  echo -e "returnfileforcmd: invalid arguments: \n   \"${@}\"\n" 1>&2
   printHelpMessage
   exit 1
 fi
@@ -98,7 +98,7 @@ fi
 execCmd="${execCmd#{}"
 execCmd="${execCmd%\}}"
 
-OPTS="$(getopt -q -o '#' --long l,r,f,d,1,2,3,4,5,6,7,8,9,a,e,help \
+OPTS="$(getopt -q -o '#' --long l,r,f,d,1,2,3,4,5,6,7,8,9,a,e,help -n \
     'returnfileforcmd' -- "${@}")"
 eval set -- "${OPTS}"
 while true; do
