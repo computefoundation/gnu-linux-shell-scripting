@@ -8,8 +8,8 @@
 
 # ~~~~~~~ 1.  FILE ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-# Get the size of one or more files and/or directories as a plain number.
-/usr/bin/du -cs <files and/or directories> | tail -1 | awk '{ print $1 }'
+# Get the size in megabytes of one or more files and/or directories as a plain number.
+du -csm <files and/or directories> | tail -1 | awk '{ print $1 }'
 
 # ~~~~~~~ 2.  HARDWARE ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
