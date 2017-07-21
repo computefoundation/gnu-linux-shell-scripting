@@ -1,7 +1,5 @@
 
-# one-liners/
-
-One-liners.
+One-liners for extended solutions.
 
 * [**one-liners-main.bash**](one-liners-main.bash): One-liners for core aspects of the Linux operating system *(file, hardware, networking, x11, etc.)*.
 

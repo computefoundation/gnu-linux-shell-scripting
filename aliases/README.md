@@ -1,7 +1,5 @@
 
-# aliases/
-
-Aliases and short functions for bash profiles.
+Aliases and short functions for bash configurations.
 
 * [**aliases-main.bash**](aliases-main.bash): Aliases and short functions for core aspects of the Linux operating system *(file, hardware, networking, x11, etc.)*.
 
@@ -15,4 +13,4 @@ Aliases and short functions for bash profiles.
 
 * Some aliases contain environment variables *(e.g. ${EDITOR})* which the user must either define or replace if possible.
 
-* Aliases that work with files are not created to work with space separated files.
+* Aliases that work with files do not support file names with spaces.

@@ -1,5 +1,5 @@
 
-# bin/
+Executable scripts.
 
 Directories are divided into different paradigms of the Linux application layer.
 
