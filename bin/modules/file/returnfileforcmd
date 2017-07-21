@@ -1,24 +1,24 @@
 #!/usr/bin/env bash
 # 
-# Return a file for a command using one of two methods:
-#   1. Locate the file from a database (using a "locate" command).
-#   2. Recursively search from the current directory.
+# Return a file for a command using one of two search methods:
+#   1. Locate from a database (using a "locate" command; see Notes)
+#   2. Recursively find from the current or specified directory
 # 
-# This solution provides an option to change the find occurrence and an option
-# to find all occurrences for both methods.
+# Options are provided to change the find occurrence and to find all occurrences
+# for both methods.
 # 
 # Examples:
-#   # use the locate method to locate a file for gedit
+#   # locate a file from a database for gedit
 #   alias geditloc='returnfileforcmd {gedit --new-window} --l'
 # 
-#   # use the recursive method to find a file for gedit
+#   # recursively find a file from the current or specified directory for gedit
 #   alias geditr='returnfileforcmd {gedit --new-window} --r'
 # 
-#   # same as previous except find files only
+#   # same as previous except allow files only to be returned
 #   alias geditr='returnfileforcmd {gedit --new-window} --r --f'
 # 
-#   # use them on their own or with other options such as --a to return all
-#   # occurrences
+#   # use the aliases on their own or with other options such as --a to return
+#   # all occurrences
 #   geditloc project-config.sh
 #   geditr --a config.sh
 # 
@@ -26,11 +26,11 @@
 #   To use the locate method, there must exist a "locate" command in the user's
 #   PATH environment variable that returns one or more file paths for a given
 #   file name. The actual command name can be specified in the LOCATE_COMMAND
-#   variable in CONFIGURATIONS. (Note: A locate utility package is provided by
-#   linux-shell-base in the packaged-utilities repository).
+#   variable in CONFIGURATIONS. (Note: A locate utility package is provided in
+#   the Packaged-utilities repository by Linux-shell-base).
 # 
-#   This script's options will override matching ones for the command in
-#   brackets. Therefore, it uses double dashes to avoid collision as much as
+#   Options in this module will override matching ones for the command in
+#   brackets. Therefore, they use double dashes to avoid collision as much as
 #   possible.
 # 
 #   This module does not support file names with spaces.
@@ -42,11 +42,11 @@
 readonly LOCATE_COMMAND='locate'
 
 # Locate command option to locate directories only; can be empty.
-readonly LOCATE_COMMAND_DIRS_ONLY_OPT='-d'
+readonly LOCATE_COMMAND_OPT_DIRS_ONLY='-d'
 
 # Locate command option to change the find occurrence; must require a numerical
 # argument; can be empty.
-readonly LOCATE_COMMAND_FIND_OCCURRENCE_OPT='-o'
+readonly LOCATE_COMMAND_OPT_FIND_OCCURRENCE='-o'
 
 # ======= ! CONFIGURATIONS ==============
 
@@ -74,15 +74,11 @@ Options:
   --e        test print the found file without executing the
              command
   --help     show this help message
-
-Notes:
-  If the file is not found, the command in the brackets will be run as normal
-  with the given arguments.
 "
 }
 
-# Note: The following could be done using bultin "set --", however, it removes
-# all arguments containing "?".
+# Note: The following could be done using "set", however, it removes all
+# arguments containing "?".
 for ((x=1; x<=$#; x++)); do
   if [[ "${@:x:1}" = *'}'* ]]; then
     execCmd="${@:1:x}"
@@ -129,14 +125,14 @@ case "${SEARCH_METHOD}" in
       exit 1
     fi
 
-    if [[ "${SEARCH_TYPE}" = 'd' && -n "${LOCATE_COMMAND_DIRS_ONLY_OPT}" ]]
+    if [[ "${SEARCH_TYPE}" = 'd' && -n "${LOCATE_COMMAND_OPT_DIRS_ONLY}" ]]
     then
-      lctOpts="${LOCATE_COMMAND_DIRS_ONLY_OPT}"
+      lctOpts="${LOCATE_COMMAND_OPT_DIRS_ONLY}"
     fi
 
     if [[ -n "${FIND_OCCURRENCE}" && -n \
-        "${LOCATE_COMMAND_FIND_OCCURRENCE_OPT}" ]]; then
-      lctOpts+=" ${LOCATE_COMMAND_FIND_OCCURRENCE_OPT} ${FIND_OCCURRENCE}"
+        "${LOCATE_COMMAND_OPT_FIND_OCCURRENCE}" ]]; then
+      lctOpts+=" ${LOCATE_COMMAND_OPT_FIND_OCCURRENCE} ${FIND_OCCURRENCE}"
     fi
 
     output="$(${LOCATE_COMMAND} ${lctOpts} "${@}")"

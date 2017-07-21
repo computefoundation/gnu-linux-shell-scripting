@@ -31,7 +31,7 @@
   #    DFLT_CENTURY_PREFIX.
   #   -Date entites are inclusive of the previous entity, meaning the date/time
   #    up until the next year/month/hour may be used (e.g. if the max hour is
-  #    15, the minute used will be inclusive of the hour).
+  #    15, the max time can be 15:59).
   # Usage:
   #   generateRandomDate <min/max date entities>
   #       min/max date entities: format in "YY[min],YY[max],MM[min],MM[max],

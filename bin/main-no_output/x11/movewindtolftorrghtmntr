@@ -2,8 +2,7 @@
 # 
 # Move a window to the left or right monitor.
 # 
-# This script additionally provides an option to match only windows in a certain
-# class.
+# An option is provided to match windows only in a certain class.
 # 
 # Dependencies:
 #   wmctrl (used to move the window)

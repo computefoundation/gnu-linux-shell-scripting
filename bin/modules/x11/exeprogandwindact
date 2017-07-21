@@ -33,7 +33,6 @@ WIND_ACTION() {
   # Create custom window action below
   
   # wmctrl "${iopt}" -r "${idOrTitle}" -b remove,maximized_vert,maximized_horz
-  # wmctrl "${iopt}" -r "${idOrTitle}" -b remove,maximized_vert,maximized_horz
 }
 
 # ======= ! CONFIGURATIONS ==============
@@ -141,7 +140,7 @@ getWindIdByPid() {
 }
 
 # ============================================
-#   Run the program
+#   Run the command
 # ============================================
 
 if [ -n "${PRE_EXEC_CMD}" ]; then
