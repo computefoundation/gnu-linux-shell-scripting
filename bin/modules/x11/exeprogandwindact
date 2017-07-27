@@ -18,9 +18,6 @@
 #       # would have to be
 #       <command> --opt='"opt_arg"'
 # 
-#   If the command's arguments contain newlines, the text on each new line will
-#   be interpreted as an individual command.
-# 
 
 # ======= CONFIGURATIONS ==============
 
