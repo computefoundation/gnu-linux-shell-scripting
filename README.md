@@ -2,7 +2,6 @@
 <p align='center'>
   <img src='/../images/logo-light.png' width='34.5%' alt='logo-light.png'>
 </p>
-<br>
 
 ---
 
@@ -14,22 +13,18 @@
 </p>
 <br>
 
-**Linux-shell-base** is a resource of standard foundational shell solutions for advancing computational efficiency in Linux targeting multiple paradigms of the application layer *(described in the [bin/ README](https://github.com/linux-shell-base/linux-shell-base/tree/master/bin#3rd_party_applications))*. Its solutions conform to three principles:
+**Linux-shell-base** is a foundational resource of standard shell solutions for advancing computational efficiency in Linux. It targets multiple paradigms of the application layer (described in the [bin/ README](https://github.com/linux-shell-base/linux-shell-base/tree/master/bin#3rd_party_applications)) with solutions that conform to three principles:
 
 1. Solve a fundamental problem in the Linux application layer.
 2. Require a considerable amount of research.
 3. Comply with the [UNIX philosophy](https://en.wikipedia.org/wiki/Unix_philosophy#Eric_Raymond.E2.80.99s_17_Unix_Rules).
 
----
-
-*Linux-shell-base* is a foundational approach to the [philosophy of computing](https://en.wikipedia.org/wiki/Unix_philosophy#The_UNIX_Programming_Environment). As a result, its primary goal is to provide *reusable* and *UNIX-centric* solutions. Its solutions therefore conform to the following rules:
+*Linux-shell-base* is a foundational approach to the [philosophy of computing](https://en.wikipedia.org/wiki/Unix_philosophy#The_UNIX_Programming_Environment) and therefore, its primary goal is to provide *reusable* and *UNIX-centric* solutions. As a result, each of its solutions conform to the following rules:
 
 * Provide documentation
-* Use a standard approach
 * Do not contain errors
-* Do not contain deprecated code
-* Use the least amount of code required
-* Use modern styled code
+* Use a standard approach
+* Do not contain deprecated or old styled code
 * Do not depend on any other solution
 * Include a source if exists
 
@@ -37,7 +32,7 @@ Additionally, each of its solutions conform to the respective [guideline][wiki].
 
 ## Examples
 
-The following is a list of one or two solutions in each paradigm of the application layer targeted by
+The following is a list of one or two examples from each paradigm of the application layer targeted by
 *Linux-shell-base*:
 
 ##### [Utilities](https://github.com/linux-shell-base/linux-shell-base/tree/master/bin/utilities#utilities)
@@ -105,8 +100,8 @@ The following is a list of the types of solutions excluded from *Linux-shell-bas
 
 * File formatting or converting *(e.g. BMP to JPEG or CYMK colors to RGB colors)*
 * Text formatting
+* Commands requiring very little research
 * OS or 3rd party application function specific
-* Requiring very little research
 
 ## Packaged utilities
 
