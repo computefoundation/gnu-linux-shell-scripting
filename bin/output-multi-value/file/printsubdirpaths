@@ -9,16 +9,16 @@
 #   documents/reference/notes/
 #   documents/bookmarks/general/
 #   documents/bookmarks/main/
-#   documents/bookmarks/subjects/
-#   documents/bookmarks/sundry/
+#   documents/bookmarks/products/
+#   documents/bookmarks/miscellaneous/
 # 
 # Usage:
 #   printsubdirpaths [directory]
 # 
-#   The current directory will be used if none is specified.
+#   directory: default is current
 # 
-# Note:
-#   Only directories with subdirectories will be printed.
+# Notes:
+#   Only subdirectories containing subdirectories will be printed.
 # 
 
 if [ "$#" -eq 0 ]; then

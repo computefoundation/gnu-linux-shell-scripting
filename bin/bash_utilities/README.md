@@ -11,4 +11,4 @@
 
 ### Usage Notes
 
-* Functions accept array arguments by reference. *(This means passing the name of the array rather than its values [e.g. an array X would be passed as "X" rather than "${X[@]}"]).*
+* Functions accept array arguments by reference. *(Therefore, arrays must be passed by name rather than value [e.g. an array X would be passed as "X" rather than "${X[@]}"]).*

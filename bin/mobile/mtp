@@ -2,7 +2,8 @@
 # 
 # Mount and unmount an MTP device.
 # 
-# Usage (script must be sourced for cd command to work):
+# Usage:
+#   (script must be sourced for cd to work)
 #   source mtp; mtp <action>
 # 
 #   action:

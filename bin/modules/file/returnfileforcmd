@@ -4,8 +4,9 @@
 #   1. Locate from a database (using a "locate" command; see Notes)
 #   2. Recursively find from the current or specified directory
 # 
-# Options are provided to change the find occurrence and to find all occurrences
-# for both methods.
+# Options are provided to find files or directories only and change the find
+# occurrence for both methods. An option is provided to return all occurrences
+# for the recursive method.
 # 
 # Examples:
 #   # locate a file from a database for gedit
@@ -17,17 +18,20 @@
 #   # same as previous except allow files only to be returned
 #   alias geditr='returnfileforcmd {gedit --new-window} --r --f'
 # 
-#   # use the aliases on their own or with other options such as --a to return
-#   # all occurrences
+#   # use the aliases on their own or with other options such as --3 to return
+#   # the third found occurrence
 #   geditloc project-config.sh
-#   geditr --a config.sh
+#   geditr --3 config.sh
 # 
 # Notes:
 #   To use the locate method, there must exist a "locate" command in the user's
 #   PATH environment variable that returns one or more file paths for a given
-#   file name. The actual command name can be specified in the LOCATE_COMMAND
-#   variable in CONFIGURATIONS. (Note: A locate utility package is provided in
-#   the Packaged-utilities repository by Linux-shell-base).
+#   file name. The actual command name is specified in the LOCATE_COMMAND
+#   variable in CONFIGURATIONS.
+#   (Note: The command should return files only and not directories by default.
+#   The "--f" option will not apply otherwise).
+#   (Note: A locate utility package is provided in the Packaged-utilities
+#   repository by Linux-shell-base).
 # 
 #   Options in this module will override matching ones for the command in
 #   brackets. Therefore, they use double dashes to avoid collision as much as
@@ -62,7 +66,7 @@ Usage:
              method; default is current.
 
 Options:
-  Note: This first set of options is used primarily with aliases.
+  Note: This first set of options is used primarily when defining aliases.
   --l        use the locate search method
   --r        use the recursive search method
   --f        return files only
@@ -100,7 +104,7 @@ eval set -- "${OPTS}"
 while true; do
   case "${1}" in
     --l) SEARCH_METHOD='locate';;
-    --r) SEARCH_METHOD='recursion';;
+    --r) SEARCH_METHOD='recursively find';;
     --f) SEARCH_TYPE='f';;
     --d) SEARCH_TYPE='d';;
     --1|--2|--3|--4|--5|--6|--7|--8|--9) FIND_OCCURRENCE="${1#'--'}";;
@@ -125,13 +129,13 @@ case "${SEARCH_METHOD}" in
       exit 1
     fi
 
-    if [[ "${SEARCH_TYPE}" = 'd' && -n "${LOCATE_COMMAND_OPT_DIRS_ONLY}" ]]
+    if [ "${SEARCH_TYPE}" = 'd' ] && [ -n "${LOCATE_COMMAND_OPT_DIRS_ONLY}" ]
     then
       lctOpts="${LOCATE_COMMAND_OPT_DIRS_ONLY}"
     fi
 
-    if [[ -n "${FIND_OCCURRENCE}" && -n \
-        "${LOCATE_COMMAND_OPT_FIND_OCCURRENCE}" ]]; then
+    if [ -n "${FIND_OCCURRENCE}" ] && [ -n \
+    		"${LOCATE_COMMAND_OPT_FIND_OCCURRENCE}" ]; then
       lctOpts+=" ${LOCATE_COMMAND_OPT_FIND_OCCURRENCE} ${FIND_OCCURRENCE}"
     fi
 
@@ -150,7 +154,7 @@ case "${SEARCH_METHOD}" in
     fi
     ;;
 
-  'recursion')
+  'recursively find')
     if [ "$#" -eq 0 ]; then
       echo 'returnfileforcmd: no file specified' 1>&2
       exit 1
