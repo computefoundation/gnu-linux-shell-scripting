@@ -19,9 +19,29 @@
 #   alias geditr='returnfileforcmd {gedit --new-window} --r --f'
 # 
 #   # use the aliases on their own or with other options such as --3 to return
-#   # the third found occurrence
-#   geditloc project-config.sh
-#   geditr --3 config.sh
+#   # the third found occurrence or --a to return all occurrences.
+#   geditloc --3 project-config.sh
+#   geditr --a config.sh
+# 
+# Usage:
+#   returnfileforcmd {<command to execute>} [options] <partial file name>
+#         [directory]
+# 
+#   directory: directory to search in; applies only to the recursive search
+#              method; default is current.
+# 
+# Options:
+#   Note: The first set of options is used primarily when defining aliases.
+#   --l        use the locate search method
+#   --r        use the recursive search method
+#   --f        return files only
+#   --d        return directories only
+# 
+#   --<1-9>    change the find occurrence
+#   --a        return all found occurrences instead of just the first
+#              (applies only to the recursive search method)
+#   --e        test print the found file without executing the
+#              command
 # 
 # Notes:
 #   To use the locate method, there must exist a "locate" command in the user's
@@ -54,33 +74,6 @@ readonly LOCATE_COMMAND_OPT_FIND_OCCURRENCE='-o'
 
 # ======= ! CONFIGURATIONS ==============
 
-printHelpMessage() {
-  echo -ne "\
-returnfileforcmd - Return a file for a command.
-
-Usage:
-  returnfileforcmd {<command to execute>} [options] <partial file name>
-        [directory]
-
-  directory: directory to search in; applies only with the recursive search
-             method; default is current.
-
-Options:
-  Note: This first set of options is used primarily when defining aliases.
-  --l        use the locate search method
-  --r        use the recursive search method
-  --f        return files only
-  --d        return directories only
-
-  --<1-9>    change the find occurrence
-  --a        use all occurrences instead of just the first
-             (only applies to the recursive method)
-  --e        test print the found file without executing the
-             command
-  --help     show this help message
-"
-}
-
 # Note: The following could be done using "set", however, it removes all
 # arguments containing "?".
 for ((x=1; x<=$#; x++)); do
@@ -90,15 +83,15 @@ for ((x=1; x<=$#; x++)); do
   fi
 done
 if [ -z "${execCmd}" ]; then
-  echo -e "returnfileforcmd: invalid arguments: \n   \"${@}\"\n" 1>&2
-  printHelpMessage
+  echo -e  'returnfileforcmd: invalid arguments:\nexecute command not'\
+      'specified' 1>&2
   exit 1
 fi
 
 execCmd="${execCmd#{}"
 execCmd="${execCmd%\}}"
 
-OPTS="$(getopt -q -o '#' --long l,r,f,d,1,2,3,4,5,6,7,8,9,a,e,help -n \
+OPTS="$(getopt -q -o '#' --long l,r,f,d,1,2,3,4,5,6,7,8,9,a,e -n \
     'returnfileforcmd' -- "${@}")"
 eval set -- "${OPTS}"
 while true; do
@@ -110,7 +103,6 @@ while true; do
     --1|--2|--3|--4|--5|--6|--7|--8|--9) FIND_OCCURRENCE="${1#'--'}";;
     --a) ALL_OCCURRENCES=true;;
     --e) PRINT_ONLY=true;;
-    --help) printHelpMessage; exit;;
     --) shift; break;;
     * ) break;;
   esac
@@ -135,7 +127,7 @@ case "${SEARCH_METHOD}" in
     fi
 
     if [ -n "${FIND_OCCURRENCE}" ] && [ -n \
-    		"${LOCATE_COMMAND_OPT_FIND_OCCURRENCE}" ]; then
+        "${LOCATE_COMMAND_OPT_FIND_OCCURRENCE}" ]; then
       lctOpts+=" ${LOCATE_COMMAND_OPT_FIND_OCCURRENCE} ${FIND_OCCURRENCE}"
     fi
 
