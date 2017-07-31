@@ -1,7 +1,10 @@
 
-<p align='center'>
-  <img src='/../images/logo-light.png' width='34.5%' alt='logo-light.png'>
-</p>
+<br>
+<div align='center'>
+  <img src='/../images/logo-light.png' width='37.2%' alt='logo-light.png'>
+</div>
+<br>
+<br>
 
 ---
 
@@ -13,26 +16,27 @@
 </p>
 <br>
 
-**Linux-shell-base** is a foundational resource of standard shell solutions for advancing computational efficiency in Linux. It targets multiple paradigms of the application layer (described in the [bin/ README](https://github.com/linux-shell-base/linux-shell-base/tree/master/bin#3rd_party_applications)) with solutions that conform to three principles:
+**Linux-shell-base** is a resource of general solutions for free and open source software. Its aim is to provide the next layer above the [GNU project](https://www.gnu.org/gnu/linux-and-gnu.en.html) to make Linux an easy to use operating system. Its solutions adhere to the following principles:
 
-1. Solve a fundamental problem in the Linux application layer.
+1. Solve a fundamental problem.
 2. Require a considerable amount of research.
 3. Comply with the [UNIX philosophy](https://en.wikipedia.org/wiki/Unix_philosophy#Eric_Raymond.E2.80.99s_17_Unix_Rules).
 
-*Linux-shell-base* is a foundational approach to the [philosophy of computing](https://en.wikipedia.org/wiki/Unix_philosophy#The_UNIX_Programming_Environment) and therefore, its primary goal is to provide *reusable* and *UNIX-centric* solutions. As a result, each of its solutions conform to the following rules:
+Its solutions adhere to the following general rules:
 
-* Provide documentation
-* Do not contain errors
 * Use a standard approach
-* Do not contain deprecated or old styled code
-* Do not depend on any other solution
+* Provide standard documentation
+* Do not contain errors
+* Do not contain deprecated or old-styled code
+* Prefer generic over 3rd-party dependencies
+* Be independent of other solutions
 * Include a source if exists
 
-Additionally, each of its solutions conform to the respective [guideline][wiki].
+Each solution additionally conforms to a [guideline][wiki].
 
-## Examples
+# Examples
 
-The following is a list of one or two examples from each paradigm of the application layer targeted by
+The following is a list of one or two examples from [each paradigm of the application layer](https://github.com/linux-shell-base/linux-shell-base/tree/master/bin) targeted by
 *Linux-shell-base*:
 
 ##### [Utilities](https://github.com/linux-shell-base/linux-shell-base/tree/master/bin/utilities#utilities)
@@ -40,7 +44,7 @@ The following is a list of one or two examples from each paradigm of the applica
 * [Open a new terminal optionally with an initial command to run.](bin/utilities/general/newterm)
 * [Execute a command in (or run the last command of) a terminal emulator.](bin/utilities/keybind/termcommand)
 
-##### [Solutions for Android](https://github.com/linux-shell-base/linux-shell-base/tree/master/bin/android#android)
+##### [Android](https://github.com/linux-shell-base/linux-shell-base/tree/master/bin/android#android)
 
 * [Send an sms using an Android device.](bin/android/sms)
 * [Watch and print X and Y screen tap coordinates of an Android device.](bin/android/getmobiletappos)
@@ -94,49 +98,43 @@ The following is a list of one or two examples from each paradigm of the applica
 * [Generic utility functions for MySQL.](bin/3rd_party_applications/database/mysqlutil)
 * [Generic utility functions for MongoDB.](bin/3rd_party_applications/database/mongodbutil)
 
-## Excluded solutions
+# Excluded solutions
 
-The following is a list of the types of solutions excluded from *Linux-shell-base*:
+The following is a list of types of solutions excluded from *Linux-shell-base*:
 
 * File formatting or converting *(e.g. BMP to JPEG or CYMK colors to RGB colors)*
 * Text formatting
-* Commands requiring very little research
-* OS or 3rd party application function specific
+* OS or architecture specific
 
-## Packaged utilities
+# Packaged utilities
 
-All solutions in *Linux-shell-base* are contained in no more than one file. It has an extension [repository for utilities consisting of more than one file][packaged-utilities].
+*Linux-shell-base* has an [extension repository for **utilities** consisting of more than one file][packaged-utilities].
 
-## Installation
+# Installation
 
 As *Linux-shell-base* is not a framework, there is no full installation. *(Please simply clone the repository).*
 
-To obtain only the essential solutions, download *install-essentials.sh* with the following command and run it:
+To obtain only the essential solutions, download *install-essentials.sh* with the following command and run it:  
+*(Note: All solutions will be downloaded to a single directory).*
 
 ```bash
 wget https://raw.githubusercontent.com/linux-shell-base/linux-shell-base/install/install-essentials.sh \
 && chmod +x install-essentials.sh
 ```
 
-## Contributing
+# Contributing
 
-*Linux-shell-base* aims to provide a comprehensive resource for the Linux community. Therefore, contributions are more than welcome. Please create a [pull request](https://gist.github.com/Chaser324/ce0505fbed06b947d962) or send an email to *main@linuxshellbase.com* if you would like to contribute a solution or suggest edits. Please make sure that the solution conforms to the principles and general solution rules listed above and the respective [guideline][wiki].
+*Linux-shell-base* aims to be as comprehensive as possible. Therefore, contributions are more than welcome. Please create a [pull request](https://gist.github.com/Chaser324/ce0505fbed06b947d962) to contribute a solution or suggest edits. Please make sure that the solution follows the principles and rules listed above. Credits will be placed in the wiki and can identify the user by name, username or URL.
 
-Credits will be placed in the wiki and can identify the user by name, username or URL. If a contributed solution is an alternative method/implementation to an already existing one, it will be given the same name with an incremented number, ordered by the most commonly accepted method/implementation.
+A contributed solution can be an alternative method/implementation to an already existing one. In this case, it will be given the same name with an incremented number.
 
-Please send an email with any suggestions, comments or questions.
+Please send an email to *main@linuxshellbase.com* with any suggestions, comments or questions.
 
-## Notes
+# Notes
 
 * This repository initially *(and currently)* consists of 60 scripts, 52 aliases and short functions and 4 one-liners.
 
 * All initial solutions have been created and tested in the Bash shell only and were created with only slight attention to portability. They are updated to be more portable if changes are significant however.
-
-## Background philosophy
-
-In 1961, NASA set out on a mission to send a manned rocket to the moon, Apollo 11, however, the calculations were far too complex to do by hand. As a result, NASA designed the Apollo Guidance Computer to do these calculations. In the modern day, a typical smartphone is millions times faster than NASA's computers were in 1969. Considering all the math NASA had done with these computers to calculate Apollo 11, should programmers today theoretically have mastered the foundational level of scripting? Linux users are still recreating foundational solutions to advance computational efficiency.
-
-There is a major incongruence between technology and the global software infrastructure. This infrastructure is primarily not designed for the user as most software development focuses on individual large-scale projects. To illustrate, a programmer creating a new project, such as a new search algorithm, video game, image editor or networking tool, for example, has to spend a great amount of time researching solutions to the problems created by it. Furthermore, however, he or she has to solve several foundational scripting problems in order to progressively build the project at a rate consistent with large-scale projects. With all the requirements in life, however, he or she may not get close because most of the time spent developing is at the foundational level of computing. In order for individuals to build software at a more consistent rate, there must exist more development towards foundational level of computing.
 
 
 
