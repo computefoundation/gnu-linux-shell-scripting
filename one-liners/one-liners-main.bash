@@ -4,7 +4,7 @@
 #    1.   Hardware
 # 
 
-# ~~~~~~~ 1.  HARDWARE ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ======= 1.  HARDWARE =========================================
 
 # Note: Hardware one-liners are intended to be system-independent, however, some may not work for certain systems.
 
