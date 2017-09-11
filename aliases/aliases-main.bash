@@ -7,7 +7,7 @@
 #    4.   Shell
 # 
 
-# ~~~~~~~ 1.  FILE ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ======= 1.  FILE =============================================
 
 #[Management]
 alias permnreadonly='chmod a-w'                                                  # permnreadonly: make a file read-only
@@ -15,12 +15,12 @@ alias permnreadonly='chmod a-w'                                                 
 #[Utilities]
 alias make1mb='mkfile 1m ./1MB.dat'                                              # make1mb: create a 1mb file of all zeros
 
-# ~~~~~~~ 2.  HARDWARE ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ======= 2.  HARDWARE =========================================
 
 #[Management]
 alias suspendmonitor='sleep .7; xset dpms force off'                             # suspendmonitor: suspend monitor
 
-# ~~~~~~~ 3.  NETWORKING ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ======= 3.  NETWORKING =======================================
 
 #[Local·network]
 alias enablenetw='nmcli n on'                                                    # enablenetw: enable network (requires networkmanager)
@@ -29,7 +29,7 @@ alias disablenetw='nmcli n off'                                                 
 #[System]
 alias flushdns='dscacheutil -flushcache'                                         # flushdns: flush DNS Cache
 
-# ~~~~~~~ 4.  SHELL ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ======= 4.  SHELL ============================================
 
 #[Find]
 cxff() { local o="$(find . -type f -wholename "*${1}*" -print -quit)"; [ -n \

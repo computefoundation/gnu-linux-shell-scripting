@@ -9,7 +9,7 @@
 #    6.   Shell
 # 
 
-# ~~~~~~~ 1.  SYSTEM ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ======= 1.  SYSTEM ===========================================
 
 #[Operating·system]
 alias osinfo='lsb_release -a'                                                    # osinfo: os information
@@ -26,7 +26,7 @@ alias fclist='fc-list | cut -f2 -d: | sort -u'                                  
 #[Device·management]
 udevattrs() { udevadm info -a -p "$(udevadm info -q path -n "${@}")"; }          # udevattrs: list udev attributes for a device
 
-# ~~~~~~~ 2.  FILE ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ======= 2.  FILE =============================================
 
 #[General]
 alias numfiles='echo "$(ls -1 | wc -l)"'                                         # numfiles: number of files and directories in current directory
@@ -35,7 +35,7 @@ alias largest='du -hsx * | sort -rh | head -10'                                 
 #[Stats]
 alias ll='command ls -FGlAhp'                                                    # ll: show permissions and owner of each file in current directory
 
-# ~~~~~~~ 3.  HARDWARE ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ======= 3.  HARDWARE =========================================
 
 #[CPU]
 alias cpuvend="cat /proc/cpuinfo | grep vendor | uniq | awk '{print \$3}'"       # cpuvend: cpu vendor
@@ -47,7 +47,7 @@ alias cpuasm="gcc -march=native -Q --help=target |grep masm= |awk '{print \$2}'"
 #[Status]
 alias batt='upower -i /org/freedesktop/UPower/devices/DisplayDevice | sed -n 12,12p' # batt: current battery status
 
-# ~~~~~~~ 4.  NETWORKING ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ======= 4.  NETWORKING =======================================
 
 #[Local·network]
 alias route='nmcli dev show'                                                     # route: local network information (requires networkmanager)
@@ -64,12 +64,12 @@ alias sshstatus='ss -tnlp'                                                      
 alias sshlist='sudo lsof -i -n | egrep \<ssh\>'                                  # sshlist: list tunnels created by the ssh daemon
 alias sshconn='sudo lsof -i -n | egrep \<sshd\>'                                 # sshconn: list tunnels/connections made to the ssh daemon
 
-# ~~~~~~~ 5.  X11 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ======= 5.  X11 ==============================================
 
 #[Events]
 alias getmousepos='watch -t -n 0.0001 xdotool getmouselocation'                  # getmousepos: watch and print mouse position
 
-# ~~~~~~~ 6.  SHELL ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ======= 6.  SHELL ============================================
 
 #[Find]
 ff() { local d='.'; [ "$#" -gt 1 ] && d="${2}"; local out="$(find "${d}" -type \
