@@ -10,8 +10,8 @@
 
 # ======= CONFIGURATIONS ==============
 
-# X and Y coordiantes of the Send button in the Messaging app. (This is used
-# only to ensure the message was sent and is not the primary method).
+# X and Y coordiantes of the Send button in the Messaging app (this is used only
+# to ensure the message was sent and is not the primary method).
 readonly MSG_SEND_BTN_X_Y='661 1226'
 
 # ======= ! CONFIGURATIONS ==============
@@ -25,7 +25,7 @@ readonly PHONE_NO="${1}"
 shift
 readonly MESSAGE="$(echo "${@}" | sed 's/\\n/${NL}/g')"
 
-# Screen must be on for an sms to be sent using this method
+# Screen must be on for an sms to be sent using this method.
 isScreenOn="$(adb -d shell 'dumpsys power' | grep mScreenOn)"
 
 # exit if no device was found
@@ -45,6 +45,7 @@ adb -d shell "NL=$'\n' ; am start -a android.intent.action.SENDTO -d \
 # if the messaging application is still open, the send button should be pressed.
 currPkg="$(adb -d shell dumpsys window windows | grep mCurrentFocus | cut \
     -d'/' -f1 | rev | cut -d' ' -f1 | rev)"
+
 if [ "${currPkg}" != 'com.android.mms' ]; then
   sleep .7
   adb -d shell "input tap ${MSG_SEND_BTN_X_Y}; input keyevent KEYCODE_HOME"

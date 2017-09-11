@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # 
-# Bash number utilities.
+# Bash number utilities
 # 
 
 # Validation

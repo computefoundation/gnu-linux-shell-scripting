@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # 
-# Bash array utilities.
+# Bash array utilities
 # 
 
 # Validation

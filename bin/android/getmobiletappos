@@ -2,8 +2,7 @@
 # 
 # Watch and print X and Y screen tap coordinates of an Android device.
 # 
-# Output is automatically converted from hexidecimal to decimal for easy
-# readability.
+# Output is converted from hexidecimal to decimal for easy readability.
 # 
 # Usage:
 #   getmobiletappos [seconds]

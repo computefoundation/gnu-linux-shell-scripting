@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # 
-# Bash file and directory utilities.
+# Bash file and directory utilities
 # 
 
 # Extraction

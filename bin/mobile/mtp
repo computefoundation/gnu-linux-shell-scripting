@@ -4,7 +4,7 @@
 # 
 # Usage:
 #   (script must be sourced for cd to work)
-#   source mtp; mtp <action>
+#   source mtp; _mtp <action>
 # 
 #   action:
 #     "mount" or "m" to mount
@@ -30,11 +30,11 @@ DEV_CD_DIR='Internal storage/DCIM/Camera'
 
 # ======= ! CONFIGURATIONS ==============
 
-mtp() {
-	if [ "$#" -eq 0 ]; then
-		echo 'mtp: no arguments: "mount", "m", "unmount" or "u" required' 1>&2
-		return 1
-	fi
+_mtp() {
+  if [ "$#" -eq 0 ]; then
+    echo 'mtp: no arguments: "mount", "m", "unmount" or "u" required' 1>&2
+    return 1
+  fi
 
   case "${1}" in
     'mount'|'m')

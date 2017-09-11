@@ -2,6 +2,9 @@
 # 
 # Get the class of a window by ID.
 # 
+# Usage:
+#   getwindclassbyid <window ID>
+# 
 # Returns:
 #   The full qualified class string (class and classname; e.g. "xterm.XTerm")).
 # 

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # 
-# Bash string utilities.
+# Bash string utilities
 # 
 
 # General

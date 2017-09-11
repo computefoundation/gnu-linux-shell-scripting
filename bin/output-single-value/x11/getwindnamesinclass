@@ -6,7 +6,7 @@
 #   getwindnamesinclass <window class>
 # 
 #   window class: case-sensitive; can match any part of the full qualified class
-#   string (class and classname; e.g. "xterm.XTerm")
+#                 string (class and classname; e.g. "xterm.XTerm")
 # 
 
 if [ "$#" -eq 0 ]; then

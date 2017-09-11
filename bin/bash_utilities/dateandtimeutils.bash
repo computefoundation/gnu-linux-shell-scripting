@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # 
-# Bash date and time utilities.
+# Bash date and time utilities
 # 
 
 # Conversion
@@ -35,7 +35,7 @@
   # Usage:
   #   generateRandomDate <min/max date entities>
   #       min/max date entities: format in "YY[min],YY[max],MM[min],MM[max],
-  #         HH[min],HH[max]" (e.g. "02,06,01,08,15,19").
+  #                              HH[min],HH[max]" (e.g. "02,06,01,08,15,19").
   # Options:
   #   -t    get date as timestamp in the fomat [[CC]YY]MMDDhhmm[.ss]
   generateRandomDate() {

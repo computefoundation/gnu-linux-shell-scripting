@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # 
-# Bash HTTP utilities.
+# Bash HTTP utilities
 # 
 
 # This regex only ensures that the URL contains safe characters.

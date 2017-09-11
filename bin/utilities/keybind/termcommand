@@ -6,20 +6,20 @@
 #   termcommand (--class <TERM_CLASS> | --title <TERM_TITLE>) [options] --
 #           <command>
 # 
-#   -c --class <TERM_CLASS>    class of the terminal (required if --title is not
-#                              used)
+#   -c --class <TERM_CLASS>    class of the terminal emulator (required if
+#                              --title is not used)
 #   -t --title <TERM_TITLE>    partial or full window title of the terminal
-#                              (required if --class is not used; will override
-#                              --class if both are used)
+#                              emulator (required if --class is not used; will
+#                              override --class if both are used)
 # 
 # Options:
-#   -d --delay <TIME>    delay time between focusing the terminal and pasting
-#                        the command in it; this is only needed if the command
-#                        is pasted too soon, causing none or a part of it to
-#                        run; (the recommended starting value is .03 to .1
+#   -d --delay <TIME>    delay time between focusing the terminal emulator and
+#                        pasting the command in it; this is only needed if the
+#                        command is pasted too soon, causing none or a part of
+#                        it to run; (the recommended starting value is .03 to .1
 #                        second)
-#   -l --last            run the last command of the terminal instead (will
-#                        ignore the command argument)
+#   -l --last            run the last command of the terminal emulator instead
+#                        (will ignore the command argument)
 #   -r --refocus         refocus previously focused window after running command
 # 
 # Dependencies:
@@ -30,8 +30,8 @@
 # Notes:
 #   This utility should be used with a keybinding or in a script.
 # 
-#   If using the --last option and the last command in the terminal is moved to
-#   but not executed, increase the usleep time in the xte command.
+#   If using the --last option and the last command in the terminal emulator is
+#   moved to but not executed, increase the usleep time in the xte command.
 # 
 #   The class name of a window can be retrieved with "wmctrl -lx" (it will be in
 #   the format "<class>.<classname>").

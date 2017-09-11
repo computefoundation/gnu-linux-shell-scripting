@@ -31,7 +31,7 @@
 #              method; default is current.
 # 
 # Options:
-#   Note: The first set of options is used primarily when defining aliases.
+#   (Note: The first set of options is used primarily in alias definitions).
 #   --l        use the locate search method
 #   --r        use the recursive search method
 #   --f        return files only

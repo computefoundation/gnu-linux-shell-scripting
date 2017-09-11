@@ -5,8 +5,8 @@
 # Usage:
 #   getwindidsinclass <window class>
 # 
-#   window class> case-sensitive; can match any part of the full qualified class
-#   string (class and classname; e.g. "xterm.XTerm")
+#   window class: case-sensitive; can match any part of the full qualified class
+#                 string (class and classname; e.g. "xterm.XTerm")
 # 
 # Returns:
 #   The window IDs in hexidecimal format.
