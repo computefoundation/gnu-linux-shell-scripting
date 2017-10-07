@@ -1,5 +1,5 @@
 
-Aliases and short functions for bash configurations.
+# aliases/
 
 * [**aliases-main.bash**](aliases-main.bash): Aliases and short functions for core aspects of the Linux operating system *(file, hardware, networking, x11, etc.)*.
 
