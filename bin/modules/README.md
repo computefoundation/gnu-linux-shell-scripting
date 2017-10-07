@@ -1,5 +1,5 @@
 
-## modules
+## modules/
 
 ### file/
 
@@ -7,4 +7,4 @@
 
 ### x11/
 
-* [**exeprogandwindact**](x11/exeprogandwindact): Execute a program and an action on the resulting window.
+* [**exeprogwithwindact**](x11/exeprogwithwindact): Execute a program with an action on the resulting window.

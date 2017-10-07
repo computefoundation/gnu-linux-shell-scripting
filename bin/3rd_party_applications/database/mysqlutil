@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # 
-# Generic utility functions for MySQL.
+# Generic utility functions for MySQL
 # 
 # Usage:
 #   mysqlutil <databaes user> <database name> <action>

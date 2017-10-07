@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # 
-# Execute a program and an action on the resulting window.
+# Execute a program with an action on the resulting window.
 # 
 # Dependencies:
 #   wmctrl (used to determine if the window is already open and get the window
@@ -40,7 +40,7 @@ printHelpMessage() {
 
 echo -ne "\
 Usage:
-  exeprogandwindact [options] -- <command> <window class> <delay time (sec)>
+  exeprogwithwindact [options] -- <command> <window class> <delay time (sec)>
 
   command:            command to run
   window class:       class of the window that is opened by the command
@@ -60,7 +60,7 @@ Options:
 }
 
 OPTS="$(getopt -o t:,g:,h --long title:,geometry:,pre-execute:,help -n \
-    'exeprogandwindact' -- "${@}")"
+    'exeprogwithwindact' -- "${@}")"
 [ "$?" -ne 0 ] && echo "exiting..." 1>&2 && exit 1
 eval set -- "${OPTS}"
 while true; do
@@ -68,7 +68,7 @@ while true; do
     --title|-t) WIND_TITLE="${2}"; shift;;
     --geometry|-g)
       if [[ ! "${2}" =~ [0-9]*,[0-9]*,[0-9]*,[0-9] ]]; then
-        echo -e 'exeprogandwindact: geometry not in correct format' 1>&2
+        echo -e 'exeprogwithwindact: geometry not in correct format' 1>&2
         printHelpMessage
         exit 1
       else
@@ -84,11 +84,11 @@ while true; do
 done
 
 if [ "$#" -eq 0 ]; then
-  echo -e 'exeprogandwindact: no arguments' 1>&2
+  echo -e 'exeprogwithwindact: no arguments' 1>&2
   printHelpMessage
   exit 1
 elif [ "$#" -lt 3 ]; then
-  echo -e 'exeprogandwindact: invalid number of arguments' 1>&2
+  echo -e 'exeprogwithwindact: invalid number of arguments' 1>&2
   printHelpMessage
   exit 1
 else
@@ -103,12 +103,12 @@ fi
 
 if [[ "${DELAY_TIME_BFR_RUNNING_ACT}" =~ ('.'*)([0-9]*) ]]; then
   if [[ -z "${BASH_REMATCH[1]}" && "${BASH_REMATCH[2]}" -gt 25 ]]; then
-    echo -e 'exeprogandwindact: delay time invalid: should not\n  be greater'\
+    echo -e 'exeprogwithwindact: delay time invalid: should not\n  be greater'\
         'than 25' 1>&2
     exit 1
   fi
 else
-  echo -e 'exeprogandwindact: delay time invalid: leading decimal\n  and'\
+  echo -e 'exeprogwithwindact: delay time invalid: leading decimal\n  and'\
       'numbers allowed only' 1>&2
   exit 1
 fi

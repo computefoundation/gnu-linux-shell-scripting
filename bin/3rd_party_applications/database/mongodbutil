@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # 
-# Generic utility functions for MongoDB.
+# Generic utility functions for MongoDB
 # 
 # Usage:
 #   mongodbutil <database name> <action> [action arguments]
