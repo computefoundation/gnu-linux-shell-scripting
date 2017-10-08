@@ -1,5 +1,5 @@
 
-## main-modules/
+## modules/main/
 
 ### file/
 

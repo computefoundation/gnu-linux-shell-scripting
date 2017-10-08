@@ -1,5 +1,5 @@
 
-## bash_utilities/
+## bash/
 
 * [**arrayutils.bash**](arrayutils.bash): Bash array utilities
 * [**coreutils.bash**](coreutils.bash): Bash core utilities
@@ -11,4 +11,4 @@
 
 ### Usage Notes
 
-* Functions accept array arguments by reference. *(Therefore, arrays must be passed by name rather than value [e.g. an array X would be passed as "X" rather than "${X[@]}"]).*
+* Utility functions accept array arguments by reference. *(Therefore, arrays must be passed by name rather than value [e.g. an array X would be passed as "X" rather than "${X[@]}"]).*

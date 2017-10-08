@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # 
-# Print paths of all subdirectories in the specified directory.
+# Print the paths of the subsubdirectories of the specified directory.
 # 
 # Example:
 #   # output for a sample directory "documents/":
@@ -13,7 +13,7 @@
 #   documents/bookmarks/miscellaneous/
 # 
 # Usage:
-#   printsubdirpaths [directory]
+#   printsubsubdirpaths [directory]
 # 
 #   directory: default is current
 # 

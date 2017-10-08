@@ -1,9 +1,9 @@
 
-## output-user/
+## main-output_only/user/
 
 ### networking/
 
-* [**localhost**](networking/localhost): Display useful host related informaton.
+* [**localhost**](networking/localhost): Display current host related information.
 
 ### system/
 

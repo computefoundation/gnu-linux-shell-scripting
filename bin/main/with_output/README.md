@@ -1,5 +1,5 @@
 
-## main-output/
+## main/with_output/
 
 ### file/
 

@@ -53,7 +53,7 @@ Solutions for the Bourne Again Shell (Bash)
 
 ## Main
 
-Solutions related to core aspects of the Linux operating system *(e.g. file, networking, x11)* performing an action, divided into three sections:
+Solutions related to core aspects of the Linux operating system *(e.g. file, networking, x11)* performing an action, divided into two sections:
   1. **With output**
 
   * [Archive a file or directory with almost any archive format.](bin/main/with_output/file/archive)
@@ -62,14 +62,9 @@ Solutions related to core aspects of the Linux operating system *(e.g. file, net
 
   * [Move a window to the left or right monitor.](bin/main/without_output/x11/movewindtolftorrghtmntr)
 
-  3. **Modules** - solutions used in conjuction with command-line programs
-
-  * [Run a command in the background.](bin/main/modules/shell/runinbg)
-  * [Run a command when files have changed in the current directory.](bin/main/modules/file/inotify)
-
 ## Main - output only
 
-Solutions related to core aspects of the Linux operating system performing no actions and providing output, divided into three sections:
+Solutions related to core aspects of the Linux operating system providing output without performing an action, divided into three sections:
   1. **Single-value**
 
   * [Get the size of one or more files and/or directories as a plain number.](https://github.com/linux-shell-base/linux-shell-base/blob/master/one-liners/one-liners-output.bash)
@@ -91,10 +86,17 @@ Solutions for mobile devices
 
 ## Modules
 
-Modules - solutions used in conjuction with command-line programs
+Modules - solutions used in conjuction with command-line programs, divided into two sections:
 
-* [Return a file for a command using one of two search methods: (1) Locate from a database; (2) Recursively find from the current or specified directory.](bin/modules/file/returnfileforcmd)
-* [Execute a program with an action on the resulting window.](bin/modules/x11/exeprogwithwindact)
+  1. **Main**: modules related to core aspects of the Linux operating system
+
+  * [Run a command in the background.](bin/modules/main/shell/runinbg)
+  * [Run a command when files have changed in the current directory.](bin/modules/main/file/inotify)
+
+  2. **Utility** modules
+
+  * [Return a file for a command using one of two search methods: (1) Locate from a database; (2) Recursively find from the current or specified directory.](bin/modules/utilities/file/returnfileforcmd)
+  * [Execute a program with an action on the resulting window.](bin/modules/utilities/x11/exeprogwithwindact)
 
 ## Utilities
 

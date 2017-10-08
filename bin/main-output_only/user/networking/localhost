@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # 
-# Display useful host related informaton.
+# Display current host related information.
 # 
 # Example:
 #   # output:
