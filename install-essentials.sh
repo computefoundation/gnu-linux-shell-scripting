@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 # 
-# Install script for essential solutions from Linux-shell-base.
+# Install script for essential solutions in Linux-shell-base.
 # 
 
 # ======= CONFIGURATIONS ==============
 
-# Directory where files will be downloaded.
+# Directory where files will be downloaded
 readonly DOWNLOAD_DIR="${HOME}"
 
 # ======= ! CONFIGURATIONS ==============
@@ -21,12 +21,12 @@ mkdir -p "${ESSNTLS_DIR}"
 exec 3>&1 4>&2; exec >/dev/null 2>&1 # redirect all output to /dev/null
 
 # ============================================
-#   Solutions from bin/
+#   Scripts
 # ============================================
 
 mkdir "${ESSNTLS_DIR}/bin"
 
-path='/bin/bash_utilities'
+path='/bin/bash'
 wget -P "${ESSNTLS_DIR}${path}" -i - <<EOF
   ${MASTER_URL}${path}/arrayutils.bash
   ${MASTER_URL}${path}/coreutils.bash
@@ -37,25 +37,17 @@ wget -P "${ESSNTLS_DIR}${path}" -i - <<EOF
   ${MASTER_URL}${path}/stringutils.bash
 EOF
 
-path='/bin/main-modules/shell'
+path='/bin/modules/main/shell'
 mkdir -p "${ESSNTLS_DIR}${path}" && cd "${ESSNTLS_DIR}${path}"
 wget "${MASTER_URL}${path}/runinbg"
 chmod +x runinbg
 
-path='/bin/main-output/file'
-mkdir -p "${ESSNTLS_DIR}${path}" && cd "${ESSNTLS_DIR}${path}"
-wget -i - <<EOF
-  ${MASTER_URL}${path}/archive
-  ${MASTER_URL}${path}/extract
-EOF
-chmod +x archive extract
-
-path='/bin/modules/file'
+path='/bin/modules/utilities/file'
 mkdir -p "${ESSNTLS_DIR}${path}" && cd "${ESSNTLS_DIR}${path}"
 wget "${MASTER_URL}${path}/returnfileforcmd"
 chmod +x returnfileforcmd
 
-path='/bin/output-single-value/hardware'
+path='/bin/main-output_only/single-value/hardware'
 mkdir -p "${ESSNTLS_DIR}${path}" && cd "${ESSNTLS_DIR}${path}"
 wget -i - <<EOF
   ${MASTER_URL}${path}/issecondarywlanblocked
@@ -63,7 +55,7 @@ wget -i - <<EOF
 EOF
 chmod +x issecondarywlanblocked iswlanblocked
 
-path='/bin/output-single-value/networking'
+path='/bin/main-output_only/single-value/networking'
 mkdir -p "${ESSNTLS_DIR}${path}" && cd "${ESSNTLS_DIR}${path}"
 wget -i - <<EOF
   ${MASTER_URL}${path}/connectedtointernet
@@ -71,7 +63,7 @@ wget -i - <<EOF
 EOF
 chmod +x connectedtointernet connectedtonetwork
 
-path='/bin/output-single-value/x11'
+path='/bin/main-output_only/single-value/x11'
 mkdir -p "${ESSNTLS_DIR}${path}" && cd "${ESSNTLS_DIR}${path}"
 wget -i - <<EOF
   ${MASTER_URL}${path}/getactvwindclass
@@ -104,22 +96,22 @@ wget "${MASTER_URL}${path}/termcommand"
 chmod +x termcommand
 
 # ============================================
-#   Solutions from aliases/
+#   Aliases and short functions
 # ============================================
 
-path="/aliases"
+path='/aliases'
 wget -P "${ESSNTLS_DIR}${path}" -i - <<EOF
   ${MASTER_URL}${path}/aliases-main.bash
-  ${MASTER_URL}${path}/aliases-output.bash
+  ${MASTER_URL}${path}/aliases-main-output_only.bash
   ${MASTER_URL}${path}/aliases-utilities.bash
 EOF
 
 # ============================================
-#   Solutions from one-liners/
+#   One-liners
 # ============================================
 
-path="/one-liners"
-wget -P "${ESSNTLS_DIR}${path}" "${MASTER_URL}${path}/one-liners-output.bash"
+path='/one-liners'
+wget -P "${ESSNTLS_DIR}${path}" "${MASTER_URL}${path}/one-liners-main-output_only.bash"
 
 
 exec >&3 2>&4 # redirect all output back to /dev/tty
