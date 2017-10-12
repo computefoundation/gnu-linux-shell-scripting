@@ -14,17 +14,18 @@
 <br>
 <br>
 
-**Linux-shell-base** is a resource to remove the incongruences of free and open source software, revive the [UNIX philosophy](https://en.wikipedia.org/wiki/Unix_philosophy#Eric_Raymond.E2.80.99s_17_Unix_Rules) and make computing easy (see the [background philosophy](https://github.com/linux-shell-base/linux-shell-base/wiki/Background-philosophy) to learn more). Its solutions target multiple application layer paradigms and adhere to one principle: remove an incongruence of free and open source software with respect to the fundamental principles of computing (i.e. the UNIX philosophy).
+Software developemnt and computing in general are difficult because free/libre and open source software (FLOSS) are based on architecture. **Linux-shell-base** is a resource to diminish the architecture of FLOSS with respect to computing by making them indirectly and eventually consistent with the [UNIX philosophy](https://en.wikipedia.org/wiki/Unix_philosophy) (see the [background philosophy](https://github.com/linux-shell-base/linux-shell-base/wiki/Background-philosophy) to learn more). This objective is achieved by providing solutions to problems with relation to the UNIX philosophy founded on the following principle: have only one possible solution regardless of all possible implementations.
 
-Its objective is achieved by allowing free and open source software to be more communicable and with solutions that adhere to the following rules:
+To achieve its objective, all solutions in *Linux-shell-base* must respect the principle of reusability. They therefore adhere to the following rules:
 
 * Use a standard approach
 * Provide documentation
 * Do not contain errors
 * Do not contain deprecated or old-styled code
-* Be independent of other solutions
 * Include a source if exists
-* Conform to a standard [guideline][wiki]
+* Do not depend on another solution
+
+All solutions additionally conform to a standard [guideline][wiki].
 
 # Paradigms
 
@@ -53,18 +54,18 @@ Solutions for the Bourne Again Shell (Bash)
 
 ## Main
 
-Solutions related to core aspects of the Linux operating system *(e.g. file, networking, x11)* performing an action, divided into two sections:
+Solutions for core aspects of the Linux operating system *(e.g. file, networking, x11)* performing an action, divided into two sections:
   1. **With output**
 
-  * [Archive a file or directory with almost any archive format.](bin/main/with_output/file/archive)
+  * [Take a screenshot.](bin/main/with_output/x11/screenshot)
 
   2. **Without output**
 
-  * [Move a window to the left or right monitor.](bin/main/without_output/x11/movewindtolftorrghtmntr)
+  * [Remove the last N entries from the bash history.](bin/main/without_output/shell/remlastnhistentries)
 
 ## Main - output only
 
-Solutions related to core aspects of the Linux operating system providing output without performing an action, divided into three sections:
+Solutions for core aspects of the Linux operating system providing output without performing an action, divided into three sections:
   1. **Single-value**
 
   * [Get the size of one or more files and/or directories as a plain number.](https://github.com/linux-shell-base/linux-shell-base/blob/master/one-liners/one-liners-output.bash)
@@ -73,10 +74,6 @@ Solutions related to core aspects of the Linux operating system providing output
   2. **Multi-value**
 
   * [Print the paths of the subsubdirectories of the specified directory.](bin/main-output_only/multi-value/file/printsubsubdirpaths)
-
-  3. **User**
-
-  * [Display current host related information.](bin/main-output_only/user/networking/localhost)
 
 ## Mobile
 
@@ -107,7 +104,7 @@ Utilities
 
 # Excluded solutions
 
-The following is a list of types of solutions excluded from *Linux-shell-base*:
+The following is a list of solutions excluded from *Linux-shell-base*:
 
 * File formatting or converting *(e.g. BMP to JPEG or CYMK colors to RGB colors)*
 * Text manipulation
@@ -121,7 +118,7 @@ The following is a list of types of solutions excluded from *Linux-shell-base*:
 
 As *Linux-shell-base* is not a framework, there is no installation process other than cloning the repository, however, essential solutions can be retrieved by downloading *install-essentials.sh* with the following command and running it.
 
-It provides 16 of the current 60 scripts, 50 of the current 52 aliases and short-functions and 3 of the current 4 one-liners in *Linux-shell-base*. All solutions are downloaded to a single directory in the user's home directory.
+It provides 16 of the current 52 scripts, 50 of the current 52 aliases and short-functions and 3 of the current 4 one-liners in *Linux-shell-base*. All solutions are downloaded to a single directory in the user's home directory.
 
 ```bash
 wget https://raw.githubusercontent.com/linux-shell-base/linux-shell-base/install/install-essentials.sh \
@@ -130,9 +127,9 @@ wget https://raw.githubusercontent.com/linux-shell-base/linux-shell-base/install
 
 # Contributing
 
-*Linux-shell-base* is perhaps unlike any other repository. It does not correspond to the normal patterns of software development and it's objective is not to create new free and open source software but to revive the UNIX philosophy in it. As a result, a solution must be able to achieve exactly the same action or output regardless of implementation.
+*Linux-shell-base* is perhaps unlike any other repository. It does not correspond to the normal patterns of software development. Its objective is not to create a new software tool but to revive the UNIX philosophy in FLOSS. Its solutions therefore incorporate philosophy.
 
-If you would like to help and contribute, please create a [pull request](https://gist.github.com/Chaser324/ce0505fbed06b947d962) and ensure that your solution adheres to the principle and general rules described above. If it does not conform to the respective [guideline][wiki], changes will be applied by *Linux-shell-base*. A contributed solution can be an alternative method/implementation to an already existing one. In this case, it will be given the same name with an incremented number.
+If you would like to help and contribute, please create a [pull request](https://gist.github.com/Chaser324/ce0505fbed06b947d962) and ensure that your solution adheres to the principle stated and rules listed above. If it does not, a reason and/or explanation on how it can be changed may be given. (You may send an email to *main@linuxshellbase.com* to ask if a solution will be accepted beforehand). If it does not conform to the respective [guideline][wiki], changes will be applied by *Linux-shell-base*. A contributed solution can achieve the same action and/or output as an already existing one. In this case, it must provide an alternative method/implementation.
 
 Finally, credits will be placed in the wiki and can identify the user by name, username or URL.
 
