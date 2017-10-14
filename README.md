@@ -14,7 +14,7 @@
 <br>
 <br>
 
-Software developemnt and computing in general are difficult because free/libre and open source software (FLOSS) are based on architecture. **Linux-shell-base** is a resource to diminish the architecture of FLOSS with respect to computing by making them indirectly and eventually consistent with the [UNIX philosophy](https://en.wikipedia.org/wiki/Unix_philosophy) (see the [background philosophy](https://github.com/linux-shell-base/linux-shell-base/wiki/Background-philosophy) to learn more). This objective is achieved by providing solutions to problems with relation to the UNIX philosophy founded on the following principle: have only one possible solution regardless of all possible implementations.
+**Linux-shell-base** is a resource to make free/libre and open source software (FLOSS) eventually consistent with the [UNIX philosophy](https://en.wikipedia.org/wiki/Unix_philosophy). This makes software development and general computing easy by diminishing architecture of FLOSS with respect to computing (see the [background philosophy](https://github.com/linux-shell-base/linux-shell-base/wiki/Background-philosophy) to learn more). This objective is achieved by providing solutions for application layer paradigms with relation to the UNIX philosophy. The problems of these solutions are founded on the following principle: have one possible solution regardless of all possible implementations. This is a repository used indefinitely in all areas of software development and computing.
 
 To achieve its objective, all solutions in *Linux-shell-base* must respect the principle of reusability. They therefore adhere to the following rules:
 
@@ -26,6 +26,15 @@ To achieve its objective, all solutions in *Linux-shell-base* must respect the p
 * Do not depend on another solution
 
 All solutions additionally conform to a standard [guideline][wiki].
+
+# Illustration
+
+The following diagram illustrates the *Linux-shell-base* philosophy. It is an abstract representation of FLOSS architecture-specificity. Everything that relates to the UNIX philosophy is in the bottom red box. Everything above it is where sections of the application layer paradigms are architecture specific and not consistent with the UNIX philosophy. The blue lines are solutions to diminish FLOSS architecture-specificity by relating a section of one application layer paradigm to the UNIX philosophy.
+
+<div align='center'>
+  <img src='/../images/FLOSS-architecture-specificity-graph.png' width='90%' alt='FLOSS-architecture-specificity-graph.png'>
+</div>
+<br>
 
 # Paradigms
 
