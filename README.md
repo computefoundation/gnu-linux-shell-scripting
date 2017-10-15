@@ -44,34 +44,34 @@ The following is a list of the application layer paradigms targeted by *Linux-sh
 
 Generic solutions for 3rd party applications
 
-* [Generic utility functions for MySQL](bin/3rd_party_applications/database/mysqlutil)
-* [Generic utility functions for MongoDB](bin/3rd_party_applications/database/mongodbutil)
+* [Generic utility functions for MySQL](scripts/3rd_party_applications/database/mysqlutil)
+* [Generic utility functions for MongoDB](scripts/3rd_party_applications/database/mongodbutil)
 
 ## Android
 
 Solutions for Android devices
 
-* [Send an sms using an Android device.](bin/android/sms)
-* [Watch and print X and Y screen tap coordinates of an Android device.](bin/android/getmobiletappos)
+* [Send an sms using an Android device.](scripts/android/sms)
+* [Watch and print X and Y screen tap coordinates of an Android device.](scripts/android/getmobiletappos)
 
 ## Programming languages
 
 Solutions for programming languages, (currently) divided into one section:
   1. The Bourne Again Shell (**Bash**)
 
-	* [Bash array utilities](bin/programming_languages/bash/arrayutils.bash)
-	* [Bash date and time utilities](bin/programming_languages/bash/dateandtimeutils.bash)
+	* [Bash array utilities](scripts/programming_languages/bash/arrayutils.bash)
+	* [Bash date and time utilities](scripts/programming_languages/bash/dateandtimeutils.bash)
 
 ## Main
 
 Solutions for core aspects of the Linux operating system *(e.g. file, networking, x11)* performing an action, divided into two sections:
   1. **With output**
 
-  * [Take a screenshot.](bin/main/with_output/x11/screenshot)
+  * [Take a screenshot.](scripts/main/with_output/x11/screenshot)
 
   2. **Without output**
 
-  * [Remove the last N entries from the bash history.](bin/main/without_output/shell/remlastnhistentries)
+  * [Remove the last N entries from the bash history.](scripts/main/without_output/shell/remlastnhistentries)
 
 ## Main - output only
 
@@ -79,17 +79,17 @@ Solutions for core aspects of the Linux operating system providing output withou
   1. **Single-value**
 
   * [Get the size of one or more files and/or directories as a plain number.](https://github.com/linux-shell-base/linux-shell-base/blob/master/one-liners/one-liners-main-output_only.bash)
-  * [Get the ID of a window by PID (and other X11 window management solutions).](https://github.com/linux-shell-base/linux-shell-base/tree/master/bin/main-output_only/single-value#x11)
+  * [Get the ID of a window by PID (and other X11 window management solutions).](https://github.com/linux-shell-base/linux-shell-base/tree/master/scripts/main-output_only/single-value#x11)
 
   2. **Multi-value**
 
-  * [Print the paths of the subsubdirectories of the specified directory.](bin/main-output_only/multi-value/file/printsubsubdirpaths)
+  * [Print the paths of the subsubdirectories of the specified directory.](scripts/main-output_only/multi-value/file/printsubsubdirpaths)
 
 ## Mobile
 
 Solutions for mobile devices
 
-* [Mount and unmount an MTP device.](bin/mobile/mtp)
+* [Mount and unmount an MTP device.](scripts/mobile/mtp)
 
 ## Modules
 
@@ -97,20 +97,20 @@ Modules - solutions used in conjuction with command-line programs, divided into 
 
   1. **Main**: modules related to core aspects of the Linux operating system
 
-  * [Run a command in the background.](bin/modules/main/shell/runinbg)
-  * [Run a command when files have changed in the current directory.](bin/modules/main/file/inotify)
+  * [Run a command in the background.](scripts/modules/main/shell/runinbg)
+  * [Run a command when files have changed in the current directory.](scripts/modules/main/file/inotify)
 
   2. **Utility** modules
 
-  * [Return a file for a command using one of two search methods: (1) Locate from a database; (2) Recursively find from the current or specified directory.](bin/modules/utilities/file/returnfileforcmd)
-  * [Execute a program with an action on the resulting window.](bin/modules/utilities/x11/exeprogwithwindact)
+  * [Return a file for a command using one of two search methods: (1) Locate from a database; (2) Recursively find from the current or specified directory.](scripts/modules/utilities/file/returnfileforcmd)
+  * [Execute a program with an action on the resulting window.](scripts/modules/utilities/x11/exeprogwithwindact)
 
 ## Utilities
 
 Utilities
 
-* [Open a new terminal optionally with an initial command to run.](bin/utilities/general/newterm)
-* [Execute a command in (or run the last command of) a terminal emulator.](bin/utilities/keybind/termcommand)
+* [Open a new terminal optionally with an initial command to run.](scripts/utilities/general/newterm)
+* [Execute a command in (or run the last command of) a terminal emulator.](scripts/utilities/keybind/termcommand)
 
 # Excluded solutions
 
