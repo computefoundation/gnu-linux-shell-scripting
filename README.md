@@ -54,12 +54,13 @@ Solutions for Android devices
 * [Send an sms using an Android device.](bin/android/sms)
 * [Watch and print X and Y screen tap coordinates of an Android device.](bin/android/getmobiletappos)
 
-## Bash
+## Programming languages
 
-Solutions for the Bourne Again Shell (Bash)
+Solutions for programming languages, (currently) divided into one section:
+  1. The Bourne Again Shell (**Bash**)
 
-* [Bash array utilities](bin/bash/arrayutils.bash)
-* [Bash date and time utilities](bin/bash/dateandtimeutils.bash)
+	* [Bash array utilities](bin/programming_languages/bash/arrayutils.bash)
+	* [Bash date and time utilities](bin/programming_languages/bash/dateandtimeutils.bash)
 
 ## Main
 
