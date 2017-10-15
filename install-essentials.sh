@@ -26,7 +26,7 @@ exec 3>&1 4>&2; exec >/dev/null 2>&1 # redirect all output to /dev/null
 
 mkdir "${ESSNTLS_DIR}/bin"
 
-path='/bin/bash'
+path='/scripts/bash'
 wget -P "${ESSNTLS_DIR}${path}" -i - <<EOF
   ${MASTER_URL}${path}/arrayutils.bash
   ${MASTER_URL}${path}/coreutils.bash
@@ -37,17 +37,17 @@ wget -P "${ESSNTLS_DIR}${path}" -i - <<EOF
   ${MASTER_URL}${path}/stringutils.bash
 EOF
 
-path='/bin/modules/main/shell'
+path='/scripts/modules/main/shell'
 mkdir -p "${ESSNTLS_DIR}${path}" && cd "${ESSNTLS_DIR}${path}"
 wget "${MASTER_URL}${path}/runinbg"
 chmod +x runinbg
 
-path='/bin/modules/utilities/file'
+path='/scripts/modules/utilities/file'
 mkdir -p "${ESSNTLS_DIR}${path}" && cd "${ESSNTLS_DIR}${path}"
 wget "${MASTER_URL}${path}/returnfileforcmd"
 chmod +x returnfileforcmd
 
-path='/bin/main-output_only/single-value/hardware'
+path='/scripts/main-output_only/single-value/hardware'
 mkdir -p "${ESSNTLS_DIR}${path}" && cd "${ESSNTLS_DIR}${path}"
 wget -i - <<EOF
   ${MASTER_URL}${path}/issecondarywlanblocked
@@ -55,7 +55,7 @@ wget -i - <<EOF
 EOF
 chmod +x issecondarywlanblocked iswlanblocked
 
-path='/bin/main-output_only/single-value/networking'
+path='/scripts/main-output_only/single-value/networking'
 mkdir -p "${ESSNTLS_DIR}${path}" && cd "${ESSNTLS_DIR}${path}"
 wget -i - <<EOF
   ${MASTER_URL}${path}/connectedtointernet
@@ -63,7 +63,7 @@ wget -i - <<EOF
 EOF
 chmod +x connectedtointernet connectedtonetwork
 
-path='/bin/main-output_only/single-value/x11'
+path='/scripts/main-output_only/single-value/x11'
 mkdir -p "${ESSNTLS_DIR}${path}" && cd "${ESSNTLS_DIR}${path}"
 wget -i - <<EOF
   ${MASTER_URL}${path}/getactvwindclass
@@ -85,12 +85,12 @@ wget -i - <<EOF
 EOF
 chmod +x *
 
-path='/bin/utilities/general'
+path='/scripts/utilities/general'
 mkdir -p "${ESSNTLS_DIR}${path}" && cd "${ESSNTLS_DIR}${path}"
 wget "${MASTER_URL}${path}/newterm"
 chmod +x newterm
 
-path='/bin/utilities/keybind'
+path='/scripts/utilities/keybind'
 mkdir -p "${ESSNTLS_DIR}${path}" && cd "${ESSNTLS_DIR}${path}"
 wget "${MASTER_URL}${path}/termcommand"
 chmod +x termcommand
