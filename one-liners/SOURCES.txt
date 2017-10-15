@@ -5,11 +5,8 @@ one-liners-main.bash:
   Set the backlight level:
       https://wiki.archlinux.org/index.php/backlight#ACPI
 
-one-liners-output.bash:
+one-liners-main-output_only.bash:
 
   Get the maximum backlight level:
       https://wiki.archlinux.org/index.php/backlight#ACPI
-
-  Get the IDs of all child windows in x11:
-      http://stackoverflow.com/a/2250879
 

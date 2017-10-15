@@ -1,9 +1,8 @@
-# one-liners-output.bash
+# one-liners-main-output_only.bash
 # 
 # Sections:
 #    1.   File
 #    2.   Hardware
-#    3.   X11
 # 
 
 # ======= 1.  FILE =============================================
@@ -18,9 +17,4 @@ du -csm <files and/or directories> | tail -1 | awk '{ print $1 }'
 # Get the maximum backlight level.
 # Note: The interface to the ACPI kernel module for video (e.g. intel_backlight) can be found with "ls /sys/class/backlight/".
 cat /sys/class/backlight/intel_backlight/max_brightness
-
-# ======= 3.  X11 ==============================================
-
-# Get the IDs of all child windows in x11.
-xwininfo -root -children | sed -e 's/^ *//' | grep -E "^0x" | awk '{ print $1 }'
 

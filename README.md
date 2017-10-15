@@ -77,7 +77,7 @@ Solutions for core aspects of the Linux operating system *(e.g. file, networking
 Solutions for core aspects of the Linux operating system providing output without performing an action, divided into three sections:
   1. **Single-value**
 
-  * [Get the size of one or more files and/or directories as a plain number.](https://github.com/linux-shell-base/linux-shell-base/blob/master/one-liners/one-liners-output.bash)
+  * [Get the size of one or more files and/or directories as a plain number.](https://github.com/linux-shell-base/linux-shell-base/blob/master/one-liners/one-liners-main-output_only.bash)
   * [Get the ID of a window by PID (and other X11 window management solutions).](https://github.com/linux-shell-base/linux-shell-base/tree/master/bin/main-output_only/single-value#x11)
 
   2. **Multi-value**
@@ -127,7 +127,7 @@ The following is a list of solutions excluded from *Linux-shell-base*:
 
 As *Linux-shell-base* is not a framework, there is no installation process other than cloning the repository, however, essential solutions can be retrieved by downloading *install-essentials.sh* with the following command and running it.
 
-It provides 16 of the current 52 scripts, 50 of the current 52 aliases and short-functions and 3 of the current 4 one-liners in *Linux-shell-base*. All solutions are downloaded to a single directory in the user's home directory.
+It provides 16 of the current 52 scripts, 50 of the current 52 aliases and short-functions and 3 of the current 3 one-liners in *Linux-shell-base*. All solutions are downloaded to a single directory in the user's home directory.
 
 ```bash
 wget https://raw.githubusercontent.com/linux-shell-base/linux-shell-base/install/install-essentials.sh \
