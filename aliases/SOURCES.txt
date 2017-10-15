@@ -4,7 +4,7 @@ aliases-main.bash:
 
   rmff: https://superuser.com/a/112079
 
-aliases-output.bash:
+aliases-main-output_only.bash:
 
   fclist: https://superuser.com/a/745890
 

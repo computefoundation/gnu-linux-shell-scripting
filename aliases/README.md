@@ -1,13 +1,7 @@
 
 # aliases/
 
-* [**aliases-main.bash**](aliases-main.bash): Aliases and short functions for core aspects of the Linux operating system *(file, hardware, networking, x11, etc.)*.
-
-* [**aliases-output.bash**](aliases-output.bash): Aliases and short functions for core aspects of the Linux operating system *(file, hardware, networking, x11, etc.)* providing output (information) only *(no actions performed)*.
-
-* [**aliases-utilities.bash**](aliases-utilities.bash): Utility aliases and short functions.
-
-* [**aliases-android.bash**](aliases-android.bash): Aliases and short functions for Android.
+This directory contains the aliases and short functions.
 
 ## Notes
 

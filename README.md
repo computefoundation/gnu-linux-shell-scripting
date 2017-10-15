@@ -127,7 +127,7 @@ The following is a list of solutions excluded from *Linux-shell-base*:
 
 As *Linux-shell-base* is not a framework, there is no installation process other than cloning the repository, however, essential solutions can be retrieved by downloading *install-essentials.sh* with the following command and running it.
 
-It provides 16 of the current 52 scripts, 50 of the current 52 aliases and short-functions and 3 of the current 3 one-liners in *Linux-shell-base*. All solutions are downloaded to a single directory in the user's home directory.
+It provides 24 of the current 52 scripts, 47 of the current 49 aliases and short-functions and 2 of the current 3 one-liners in *Linux-shell-base*. All solutions are downloaded to a single directory in the user's home directory.
 
 ```bash
 wget https://raw.githubusercontent.com/linux-shell-base/linux-shell-base/install/install-essentials.sh \
