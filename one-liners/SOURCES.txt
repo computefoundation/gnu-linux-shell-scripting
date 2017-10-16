@@ -1,11 +1,11 @@
 Sources for one-liners
 
-one-liners-main.bash:
+one-liners-main-without_output.bash:
 
   Set the backlight level:
       https://wiki.archlinux.org/index.php/backlight#ACPI
 
-one-liners-main-output_only.bash:
+one-liners-main-output_only-single-value.bash:
 
   Get the maximum backlight level:
       https://wiki.archlinux.org/index.php/backlight#ACPI

@@ -74,7 +74,7 @@ Solutions for core aspects of the Linux operating system *(e.g. file, networking
 
   3. Output only - single-value (solutions providing single-value output without performing an action)
 
-  * [Get the size of one or more files and/or directories as a plain number.](https://github.com/linux-shell-base/linux-shell-base/blob/master/one-liners/one-liners-main-output_only.bash)
+  * [Get the size of one or more files and/or directories as a plain number.](https://github.com/linux-shell-base/linux-shell-base/blob/master/one-liners/one-liners-main-output_only-single-value.bash)
 
   * [Check if the primary wireless local area network device is soft blocked.](scripts/main-output_only-single-value/hardware_management/iswlanblocked)
 
