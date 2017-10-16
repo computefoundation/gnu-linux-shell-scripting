@@ -1,6 +1,6 @@
 
-## main-with_output/
+# main-with_output/
 
-### x11/
+## x11/
 
 * [**screenshot**](x11/screenshot): Take a screenshot.

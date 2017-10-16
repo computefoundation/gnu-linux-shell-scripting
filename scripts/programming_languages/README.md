@@ -1,7 +1,7 @@
 
-## programming_languages/
+# programming_languages/
 
-### bash/
+## bash/
 
 * [**arrayutils.bash**](bash/arrayutils.bash): Bash array utilities
 * [**coreutils.bash**](bash/coreutils.bash): Bash core utilities
@@ -11,6 +11,6 @@
 * [**numberutils.bash**](bash/numberutils.bash): Bash number utilities
 * [**stringutils.bash**](bash/stringutils.bash): Bash string utilities
 
-#### Usage Notes
+### Usage Notes
 
 * Utility functions accept array arguments by reference. *(Therefore, arrays must be passed by name rather than value [e.g. an array X would be passed as "X" rather than "${X[@]}"]).*
