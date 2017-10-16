@@ -1,4 +1,6 @@
 
 ## mobile/
 
-* [**mtp**](mtp): Mount and unmount an MTP device.
+## management/
+
+* [**mtp**](management/mtp): Mount and unmount an MTP device.

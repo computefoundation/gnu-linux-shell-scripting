@@ -1,16 +1,12 @@
 
 ## utilities/
 
-### general/
-
-* [**newterm**](general/newterm): Open a new terminal optionally with an initial command to run.
-
 ### keybind/
 
 *Keybind utilities are used with a keybinding or in scripts rather than in the terminal.*
 
-* [**xselchangecase**](keybind/xselchangecase): Change the case of the selected text.
 * [**termcommand**](keybind/termcommand): Execute a command in (or run the last command of) a terminal emulator.
+* [**xselchangecase**](keybind/xselchangecase): Change the case of the selected text.
 
 ### other/
 
@@ -21,3 +17,7 @@
 ### productivity/
 
 * [**wttr**](productivity/wttr): Get weather information in the terminal.
+
+### program_management/
+
+* [**newterm**](program_management/newterm): Open a new terminal optionally with an initial command to run.
