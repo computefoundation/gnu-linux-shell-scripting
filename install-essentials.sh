@@ -24,9 +24,9 @@ exec 3>&1 4>&2; exec >/dev/null 2>&1 # redirect all output to /dev/null
 #   Scripts
 # ============================================
 
-mkdir "${ESSNTLS_DIR}/bin"
+mkdir "${ESSNTLS_DIR}/scripts"
 
-path='/scripts/bash'
+path='/scripts/programming_languages/bash'
 wget -P "${ESSNTLS_DIR}${path}" -i - <<EOF
   ${MASTER_URL}${path}/arrayutils.bash
   ${MASTER_URL}${path}/coreutils.bash
@@ -37,17 +37,17 @@ wget -P "${ESSNTLS_DIR}${path}" -i - <<EOF
   ${MASTER_URL}${path}/stringutils.bash
 EOF
 
-path='/scripts/modules/main/shell'
+path='/scripts/main-modules/shell_management'
 mkdir -p "${ESSNTLS_DIR}${path}" && cd "${ESSNTLS_DIR}${path}"
 wget "${MASTER_URL}${path}/runinbg"
 chmod +x runinbg
 
-path='/scripts/modules/utilities/file'
+path='/scripts/main-modules/file_management'
 mkdir -p "${ESSNTLS_DIR}${path}" && cd "${ESSNTLS_DIR}${path}"
 wget "${MASTER_URL}${path}/returnfileforcmd"
 chmod +x returnfileforcmd
 
-path='/scripts/main-output_only/single-value/hardware'
+path='/scripts/linux-output_only-single-value/hardware_management'
 mkdir -p "${ESSNTLS_DIR}${path}" && cd "${ESSNTLS_DIR}${path}"
 wget -i - <<EOF
   ${MASTER_URL}${path}/issecondarywlanblocked
@@ -55,7 +55,7 @@ wget -i - <<EOF
 EOF
 chmod +x issecondarywlanblocked iswlanblocked
 
-path='/scripts/main-output_only/single-value/networking'
+path='/scripts/linux-output_only-single-value/network_management'
 mkdir -p "${ESSNTLS_DIR}${path}" && cd "${ESSNTLS_DIR}${path}"
 wget -i - <<EOF
   ${MASTER_URL}${path}/connectedtointernet
@@ -63,7 +63,7 @@ wget -i - <<EOF
 EOF
 chmod +x connectedtointernet connectedtonetwork
 
-path='/scripts/main-output_only/single-value/x11'
+path='/scripts/linux-output_only-single-value/x11'
 mkdir -p "${ESSNTLS_DIR}${path}" && cd "${ESSNTLS_DIR}${path}"
 wget -i - <<EOF
   ${MASTER_URL}${path}/getactvwindclass
@@ -85,12 +85,12 @@ wget -i - <<EOF
 EOF
 chmod +x *
 
-path='/scripts/utilities/general'
+path='/scripts/utilities-primary/program_management'
 mkdir -p "${ESSNTLS_DIR}${path}" && cd "${ESSNTLS_DIR}${path}"
 wget "${MASTER_URL}${path}/newterm"
 chmod +x newterm
 
-path='/scripts/utilities/keybind'
+path='/scripts/utilities-primary/keybind'
 mkdir -p "${ESSNTLS_DIR}${path}" && cd "${ESSNTLS_DIR}${path}"
 wget "${MASTER_URL}${path}/termcommand"
 chmod +x termcommand
@@ -101,9 +101,11 @@ chmod +x termcommand
 
 path='/aliases'
 wget -P "${ESSNTLS_DIR}${path}" -i - <<EOF
-  ${MASTER_URL}${path}/aliases-main.bash
-  ${MASTER_URL}${path}/aliases-main-output_only.bash
-  ${MASTER_URL}${path}/aliases-utilities.bash
+  ${MASTER_URL}${path}/aliases-linux-with_output.bash
+  ${MASTER_URL}${path}/aliases-linux-without_output.bash
+  ${MASTER_URL}${path}/aliases-linux-output_only-multi-value.bash
+  ${MASTER_URL}${path}/aliases-linux-output_only-single-value.bash
+  ${MASTER_URL}${path}/aliases-utilities-primary.bash
 EOF
 
 # ============================================
@@ -111,7 +113,7 @@ EOF
 # ============================================
 
 path='/one-liners'
-wget -P "${ESSNTLS_DIR}${path}" "${MASTER_URL}${path}/one-liners-main-output_only.bash"
+wget -P "${ESSNTLS_DIR}${path}" "${MASTER_URL}${path}/one-liners-linux-output_only-single-value.bash"
 
 
 exec >&3 2>&4 # redirect all output back to /dev/tty
