@@ -1,17 +1,17 @@
 
-## main-output_only/single-value/
+## main-output_only-single-value/
 
-### hardware/
+### hardware_management/
 
-* [**isbluetoothblocked**](hardware/isbluetoothblocked): Check if the primary bluetooth device is soft blocked.
-* [**issecondarywlanblocked**](hardware/issecondarywlanblocked): Check if a secondary wireless local area network device (such as a USB Wi-Fi adapter) is soft blocked.
-* [**iswlanblocked**](hardware/iswlanblocked): Check if the primary wireless local area network device is soft blocked.
-* [**isrightmonitorenabled**](hardware/isrightmonitorenabled): Determine if a right monitor (a monitor positioned to the right of the leftmost monitor) is enabled.
+* [**isbluetoothblocked**](hardware_management/isbluetoothblocked): Check if the primary bluetooth device is soft blocked.
+* [**issecondarywlanblocked**](hardware_management/issecondarywlanblocked): Check if a secondary wireless local area network device (such as a USB Wi-Fi adapter) is soft blocked.
+* [**iswlanblocked**](hardware_management/iswlanblocked): Check if the primary wireless local area network device is soft blocked.
+* [**isrightmonitorenabled**](hardware_management/isrightmonitorenabled): Determine if a right monitor (a monitor positioned to the right of the leftmost monitor) is enabled.
 
-### networking/
+### networking_management/
 
-* [**connectedtointernet**](networking/connectedtointernet): Check if connected to the internet.
-* [**connectedtonetwork**](networking/connectedtonetwork): Check if connected to a network.
+* [**connectedtointernet**](networking_management/connectedtointernet): Check if connected to the internet.
+* [**connectedtonetwork**](networking_management/connectedtonetwork): Check if connected to a network.
 
 ### x11/
 

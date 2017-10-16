@@ -1,5 +1,5 @@
 
-## main/with_output/
+## main-with_output/
 
 ### x11/
 

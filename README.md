@@ -38,7 +38,7 @@ The following diagram illustrates the *Linux-shell-base* philosophy. It is an ab
 
 # Paradigms
 
-The following is a list of the application layer paradigms targeted by *Linux-shell-base* with examples:
+The following is a list of the application layer paradigms targeted by *Linux-shell-base* with one or more examples from all sections of each:
 
 ## 3rd party applications
 
@@ -56,7 +56,8 @@ Solutions for Android devices
 
 ## Programming languages
 
-Solutions for programming languages, (currently) divided into one section:
+Solutions for programming languages:
+
   1. The Bourne Again Shell (**Bash**)
 
 	* [Bash array utilities](scripts/programming_languages/bash/arrayutils.bash)
@@ -64,26 +65,27 @@ Solutions for programming languages, (currently) divided into one section:
 
 ## Main
 
-Solutions for core aspects of the Linux operating system *(e.g. file, networking, x11)* performing an action, divided into two sections:
-  1. **With output**
+Solutions for core aspects of the Linux operating system *(e.g. file, networking, x11)*, based on four *super* sections
 
-  * [Take a screenshot.](scripts/main/with_output/x11/screenshot)
+  1. With output (solutions performing an action with output)
 
-  2. **Without output**
+  * [Take a screenshot.](scripts/main-with_output/x11/screenshot)
 
-  * [Remove the last N entries from the bash history.](scripts/main/without_output/shell/remlastnhistentries)
+  2. Without output (solutions performing an action without output)
 
-## Main - output only
+  * [Remove the last N entries from the bash history.](scripts/main-without_output/shell_management/remlastnhistentries)
 
-Solutions for core aspects of the Linux operating system providing output without performing an action, divided into three sections:
-  1. **Single-value**
+  3. Output only - single-value (solutions providing single-value output without performing an action)
 
   * [Get the size of one or more files and/or directories as a plain number.](https://github.com/linux-shell-base/linux-shell-base/blob/master/one-liners/one-liners-main-output_only.bash)
-  * [Get the ID of a window by PID (and other X11 window management solutions).](https://github.com/linux-shell-base/linux-shell-base/tree/master/scripts/main-output_only/single-value#x11)
 
-  2. **Multi-value**
+  * [Check if the primary wireless local area network device is soft blocked.](scripts/main-output_only-single-value/hardware_management/iswlanblocked)
 
-  * [Print the paths of the subsubdirectories of the specified directory.](scripts/main-output_only/multi-value/file/printsubsubdirpaths)
+  * [Get the ID of a window by PID (and other X11 window management solutions).](https://github.com/linux-shell-base/linux-shell-base/tree/master/scripts/main-output_only-single-value#x11)
+
+  4. Output only - multi-value (solutions providing multi-value output without performing an action)
+
+	* [Print the paths of the subsubdirectories of the specified directory.](scripts/main-output_only-multi-value/file_management/printsubsubdirpaths)
 
 ## Mobile
 
@@ -97,7 +99,7 @@ Modules - solutions used in conjuction with command-line programs, divided into 
 
   1. **Main**: modules related to core aspects of the Linux operating system
 
-  * [Run a command in the background.](scripts/modules/main/shell/runinbg)
+  * [Run a command in the background.](scripts/modules/main/shell_management/runinbg)
   * [Run a command when files have changed in the current directory.](scripts/modules/main/file/inotify)
 
   2. **Utility** modules
