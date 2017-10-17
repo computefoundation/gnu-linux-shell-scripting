@@ -1,4 +1,4 @@
-# aliases-android.bash
+# aliases-mobile-android.bash
 # 
 # Sections:
 #    1.   TCP/IP

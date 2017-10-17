@@ -1,5 +1,5 @@
 
-# mobile/
+# mobile-generic/
 
 ## management/
 

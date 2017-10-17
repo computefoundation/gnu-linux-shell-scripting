@@ -31,13 +31,6 @@ The following diagram is an abstract representation of the architecture-specific
 
 The following is a list of the application layer paradigms targeted by *Linux-shell-base* with examples. All solutions in *Linux-shell-base* are divided into them.
 
-## Android
-
-Solutions for Android devices
-
-* [Send an sms using an Android device.](scripts/android/utilities/sms)
-* [Watch and print the X and Y screen tap coordinates of an Android device.](scripts/android/monitoring/getmobiletappos)
-
 ## Applications
 
 Generic solutions for applications
@@ -74,19 +67,13 @@ Solutions for core aspects of the Linux operating system *(e.g. file, networking
 
   4. Output only - multi-value (solutions providing multi-value output without performing an action)
 
-	* [Print the paths of the subsubdirectories of the specified directory.](scripts/linux-output_only-multi-value/file_management/printsubsubdirpaths)
+  * [Print the paths of the subsubdirectories of the specified directory.](scripts/linux-output_only-multi-value/file_management/printsubsubdirpaths)
 
   5. Modules (solutions used in conjuction with command-line programs)
 
-	* [Run a command in the background.](scripts/linux-modules/shell_management/runinbg)
-	* [Run a command when files have changed in the current directory.](scripts/linux-modules/file_management/inotify)
-	* [Return a file for a command using one of two search methods: (1) Locate from a database; (2) Recursively find from the current or specified directory.](scripts/linux-modules/file_management/returnfileforcmd)
-
-## Mobile
-
-Solutions for mobile devices
-
-* [Mount and unmount an MTP device.](scripts/mobile/management/mtp)
+  * [Run a command in the background.](scripts/linux-modules/shell_management/runinbg)
+  * [Run a command when files have changed in the current directory.](scripts/linux-modules/file_management/inotify)
+  * [Return a file for a command using one of two search methods: (1) Locate from a database; (2) Recursively find from the current or specified directory.](scripts/linux-modules/file_management/returnfileforcmd)
 
 ## Utilities
 
@@ -94,12 +81,25 @@ Utilities, based on two *super* sections
 
   1. Primary
 
-	* [Open a new terminal optionally with an initial command to run.](scripts/utilities-primary/program_management/newterm)
-	* [Execute a command in (or run the last command of) a terminal emulator.](scripts/utilities-primary/keybind/termcommand)
+  * [Open a new terminal optionally with an initial command to run.](scripts/utilities-primary/program_management/newterm)
+  * [Execute a command in (or run the last command of) a terminal emulator.](scripts/utilities-primary/keybind/termcommand)
 
   2. Modules (solutions used in conjuction with command-line programs)
 
-	* [Execute a program with an action on the resulting window.](scripts/utilities-modules/x11/exeprogwithwindact)
+  * [Execute a program with an action on the resulting window.](scripts/utilities-modules/x11/exeprogwithwindact)
+
+## Mobile
+
+Solutions for mobile devices, based on two *super* sections
+
+  1. Android (solutions for Android devices)
+
+  * [Send an sms using an Android device.](scripts/mobile-android/utilities/sms)
+  * [Watch and print the X and Y screen tap coordinates of an Android device.](scripts/mobile-android/monitoring/getmobiletappos)
+
+  2. Generic (generic solutions for mobile devices)
+
+  * [Mount and unmount an MTP device.](scripts/mobile-generic/management/mtp)
 
 # Packaged utilities
 
