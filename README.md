@@ -3,15 +3,7 @@
 <div align='center'>
   <img src='/../images/logo-light.png' width='37.2%' alt='logo-light.png'>
 </div>
-<br>
-<br>
-
-<p align='center'>
-  <a href='https://github.com/linux-shell-base/packaged-utilities'>Packaged utilities</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <a href='https://github.com/linux-shell-base/linux-shell-base#contributing'>Contributing</a>
-</p>
-<br>
-<br>
+<br><br><br>
 
 **Linux-shell-base** is a resource to make free/libre and open source software (FLOSS) eventually consistent with the [UNIX philosophy](https://en.wikipedia.org/wiki/Unix_philosophy). It is used indefinitely in all areas of individual software development and general computing, making them easy and efficient by diminishing the architecture of FLOSS with respect to the UNIX philosophy (see the [background philosophy](https://github.com/linux-shell-base/linux-shell-base/wiki/Background-philosophy) for an overview). This objective is achieved by making paradigms of the application layer congruent with the UNIX philosophy. The solutions used to make them congruent solve problems founded on the following principle: have one possible solution with respect to all possible implementations.
 
