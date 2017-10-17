@@ -1,5 +1,5 @@
 
-# main-without_output/
+# linux-without_output/
 
 ## shell_management/
 

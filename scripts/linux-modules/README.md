@@ -1,5 +1,5 @@
 
-# main-modules/
+# linux-modules/
 
 ## file_management/
 

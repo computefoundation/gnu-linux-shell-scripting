@@ -52,35 +52,35 @@ Solutions for programming languages
 * [Bash array utilities](scripts/programming_languages/bash/arrayutils.bash)
 * [Bash date and time utilities](scripts/programming_languages/bash/dateandtimeutils.bash)
 
-## Main
+## Linux
 
 Solutions for core aspects of the Linux operating system *(e.g. file, networking, x11)*, based on five *super* sections
 
   1. With output (solutions performing an action with output)
 
-  * [Take a screenshot.](scripts/main-with_output/x11/screenshot)
+  * [Take a screenshot.](scripts/linux-with_output/x11/screenshot)
 
   2. Without output (solutions performing an action without output)
 
-  * [Remove the last N entries from the bash history.](scripts/main-without_output/shell_management/remlastnhistentries)
+  * [Remove the last N entries from the bash history.](scripts/linux-without_output/shell_management/remlastnhistentries)
 
   3. Output only - single-value (solutions providing single-value output without performing an action)
 
-  * [Get the size of one or more files and/or directories as a plain number.](https://github.com/linux-shell-base/linux-shell-base/blob/master/one-liners/one-liners-main-output_only-single-value.bash)
+  * [Get the size of one or more files and/or directories as a plain number.](https://github.com/linux-shell-base/linux-shell-base/blob/master/one-liners/one-liners-linux-output_only-single-value.bash)
 
-  * [Check if the primary wireless local area network device is soft blocked.](scripts/main-output_only-single-value/hardware_management/iswlanblocked)
+  * [Check if the primary wireless local area network device is soft blocked.](scripts/linux-output_only-single-value/hardware_management/iswlanblocked)
 
-  * [Get the ID of a window by PID (and other X11 window management solutions).](https://github.com/linux-shell-base/linux-shell-base/tree/master/scripts/main-output_only-single-value#x11)
+  * [Get the ID of a window by PID (and other X11 window management solutions).](https://github.com/linux-shell-base/linux-shell-base/tree/master/scripts/linux-output_only-single-value#x11)
 
   4. Output only - multi-value (solutions providing multi-value output without performing an action)
 
-	* [Print the paths of the subsubdirectories of the specified directory.](scripts/main-output_only-multi-value/file_management/printsubsubdirpaths)
+	* [Print the paths of the subsubdirectories of the specified directory.](scripts/linux-output_only-multi-value/file_management/printsubsubdirpaths)
 
   5. Modules (solutions used in conjuction with command-line programs)
 
-	* [Run a command in the background.](scripts/main-modules/shell_management/runinbg)
-	* [Run a command when files have changed in the current directory.](scripts/main-modules/file_management/inotify)
-	* [Return a file for a command using one of two search methods: (1) Locate from a database; (2) Recursively find from the current or specified directory.](scripts/main-modules/file_management/returnfileforcmd)
+	* [Run a command in the background.](scripts/linux-modules/shell_management/runinbg)
+	* [Run a command when files have changed in the current directory.](scripts/linux-modules/file_management/inotify)
+	* [Return a file for a command using one of two search methods: (1) Locate from a database; (2) Recursively find from the current or specified directory.](scripts/linux-modules/file_management/returnfileforcmd)
 
 ## Mobile
 

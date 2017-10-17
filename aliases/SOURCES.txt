@@ -1,14 +1,14 @@
 Sources for aliases and short functions
 
-aliases-main-without_output.bash:
+aliases-linux-without_output.bash:
 
   rmff: https://superuser.com/a/112079
 
-aliases-main-output_only-multi-value.bash:
+aliases-linux-output_only-multi-value.bash:
 
   fclist: https://superuser.com/a/745890
 
-aliases-mobile-android.bash:
+aliases-android.bash:
 
   androidwlanip: http://stackoverflow.com/a/3623727
   androidcellip: http://stackoverflow.com/a/3623727

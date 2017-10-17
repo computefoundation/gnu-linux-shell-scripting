@@ -1,4 +1,4 @@
-# aliases-main-without_output.bash
+# aliases-linux-without_output.bash
 # 
 # Sections:
 #    1.   File management

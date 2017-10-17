@@ -1,5 +1,5 @@
 
-# main-with_output/
+# linux-with_output/
 
 ## x11/
 

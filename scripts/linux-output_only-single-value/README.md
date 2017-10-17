@@ -1,5 +1,5 @@
 
-# main-output_only-single-value/
+# linux-output_only-single-value/
 
 ## hardware_management/
 

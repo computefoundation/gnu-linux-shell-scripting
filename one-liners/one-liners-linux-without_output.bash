@@ -1,4 +1,4 @@
-# one-liners-main-without_output.bash
+# one-liners-linux-without_output.bash
 # 
 # Sections:
 #    1.   Hardware

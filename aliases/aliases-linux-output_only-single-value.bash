@@ -1,4 +1,4 @@
-# aliases-main-output_only-single-value.bash
+# aliases-linux-output_only-single-value.bash
 # 
 # Sections:
 #    1.   System management
