@@ -1,4 +1,4 @@
-# aliases-utilities.bash
+# aliases-utilities-primary.bash
 # 
 # Sections:
 #    1.   Typography

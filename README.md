@@ -54,7 +54,7 @@ Solutions for programming languages
 
 ## Main
 
-Solutions for core aspects of the Linux operating system *(e.g. file, networking, x11)*, based on four *super* sections
+Solutions for core aspects of the Linux operating system *(e.g. file, networking, x11)*, based on five *super* sections
 
   1. With output (solutions performing an action with output)
 
@@ -76,31 +76,30 @@ Solutions for core aspects of the Linux operating system *(e.g. file, networking
 
 	* [Print the paths of the subsubdirectories of the specified directory.](scripts/main-output_only-multi-value/file_management/printsubsubdirpaths)
 
+  5. Modules (solutions used in conjuction with command-line programs)
+
+	* [Run a command in the background.](scripts/main-modules/shell_management/runinbg)
+	* [Run a command when files have changed in the current directory.](scripts/main-modules/file_management/inotify)
+	* [Return a file for a command using one of two search methods: (1) Locate from a database; (2) Recursively find from the current or specified directory.](scripts/main-modules/file_management/returnfileforcmd)
+
 ## Mobile
 
 Solutions for mobile devices
 
 * [Mount and unmount an MTP device.](scripts/mobile/management/mtp)
 
-## Modules
-
-Solutions used in conjuction with command-line programs, based on two *super* sections
-
-  1. Main (modules for core aspects of the Linux operating system)
-
-	* [Run a command in the background.](scripts/modules-main/shell_management/runinbg)
-	* [Run a command when files have changed in the current directory.](scripts/modules-main/file_management/inotify)
-
-  2. Utility (modules providing utility functions)
-
-	* [Return a file for a command using one of two search methods: (1) Locate from a database; (2) Recursively find from the current or specified directory.](scripts/modules-utilities/file_management/returnfileforcmd)
-
 ## Utilities
 
-Utilities
+Utilities, based on two *super* sections
 
-* [Open a new terminal optionally with an initial command to run.](scripts/utilities/program_management/newterm)
-* [Execute a command in (or run the last command of) a terminal emulator.](scripts/utilities/keybind/termcommand)
+  1. Primary
+
+	* [Open a new terminal optionally with an initial command to run.](scripts/utilities-primary/program_management/newterm)
+	* [Execute a command in (or run the last command of) a terminal emulator.](scripts/utilities-primary/keybind/termcommand)
+
+  2. Modules (solutions used in conjuction with command-line programs)
+
+	* [Execute a program with an action on the resulting window.](scripts/utilities-modules/x11/exeprogwithwindact)
 
 # Packaged utilities
 
