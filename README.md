@@ -119,7 +119,7 @@ Please send an email to *main@linuxshellbase.com* with any suggestions, comments
 
 As *Linux-shell-base* is not a framework, there is no full installation other than cloning the repository, however, essential solutions can be retrieved by downloading *install-essentials.sh* with the following command and running it.
 
-It provides 31 of the current 48 scripts, 45 of the current 47 aliases and short-functions and 2 of the current 3 one-liners in *Linux-shell-base*. All solutions are downloaded to a single directory in the user's home directory.
+It provides 31 of the current 49 scripts, 45 of the current 47 aliases and short-functions and 2 of the current 3 one-liners in *Linux-shell-base*. All solutions are downloaded to a single directory in the user's home directory.
 
 ```bash
 wget https://raw.githubusercontent.com/linux-shell-base/linux-shell-base/install/install-essentials.sh \

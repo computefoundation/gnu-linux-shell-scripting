@@ -16,3 +16,7 @@
 ## program_management/
 
 * [**newterm**](program_management/newterm): Open a new terminal optionally with an initial command to run.
+
+## text_manipulation/
+
+* [**reprec**](text_manipulation/reprec): Replace a matching string in all files recursively.

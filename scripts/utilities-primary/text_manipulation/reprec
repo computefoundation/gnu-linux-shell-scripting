@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+# 
+# Replace a matching string in all files recursively.
+# 
+# Regex characters in both the original and replacement texts are escaped,
+# allowing string matches and replacements to be made exactly as they are typed.
+# An option is provided to backup the directory in which replacements are made
+# recursively.
+# 
+# Usage:
+#   reprec <text to replace> <replacement text>
+# 
+
+# ======= CONFIGURATIONS ==============
+
+# Backup the directory in which text is being replaced recursively.
+readonly BACKUP=true
+
+# Directory where backups are stored
+readonly BACKUP_DIR="${HOME}/reprec-backups"
+
+# ======= ! CONFIGURATIONS ==============
+
+if [ "$#" -ne 2 ]; then
+  echo 'reprec: invalid number of arguments' 1>&2
+  exit 1
+elif [ -z "${1}" ]; then
+  echo 'reprec: first argument empty' 1>&2
+  exit 1
+fi
+
+if [ "${BACKUP}" != 'false' ]; then
+  if [ ! -d "${BACKUP_DIR}" ]; then
+    mkdir -p "${BACKUP_DIR}"
+  fi
+
+  cp -R "$PWD" "${BACKUP_DIR}"
+fi
+
+ARGS[0]="$(echo "${1}" | sed 's/[]\/$*.^|[]/\\&/g')"
+ARGS[1]="$(echo "${2}" | sed 's/[\/&]/\\&/g')"
+
+find . -type f -print0 | xargs -0 sed -i "s/${ARGS[0]}/${ARGS[1]}/g"
+
