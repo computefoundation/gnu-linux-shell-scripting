@@ -30,15 +30,15 @@ The following is a list of all application layer paradigms targeted by *Linux-sh
 
 Generic solutions for applications
 
-* [Generic RDBMS functions for MySQL](scripts/applications/databases/mysqlutil)
-* [Generic utility functions for MongoDB](scripts/applications/databases/mongodbutil)
+* [Generic RDBMS functions for MySQL](functions/applications/databases/mysqlutil)
+* [Generic utility functions for MongoDB](functions/applications/databases/mongodbutil)
 
 ## Programming languages
 
 Solutions for programming languages
 
-* [Bash array utilities](scripts/programming_languages/bash/arrayutils.bash)
-* [Bash date and time utilities](scripts/programming_languages/bash/dateandtimeutils.bash)
+* [Bash array utilities](functions/programming_languages/bash/arrayutils.bash)
+* [Bash date and time utilities](functions/programming_languages/bash/dateandtimeutils.bash)
 
 ## Linux
 

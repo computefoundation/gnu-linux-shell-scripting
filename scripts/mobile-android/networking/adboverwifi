@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+# 
+# Enable ADB over Wi-Fi for an Android device (root permissions not required).
+# 
+# Steps:
+#   1. Connect Android device to Wi-Fi network.
+#   2. Connect Android device over USB.
+#   3. Run script.
+# 
+# Note:
+#   To return to USB mode, run "adb usb". To disconnect all devices, run
+#   "adb disconnect".
+#   
+#   If connection over Wi-Fi fails, try simply rerunning the script. If that
+#   does not work, restart the adb server with "adb kill-server && adb
+#   start-server".
+#   
+# Sources:
+#   https://developer.android.com/studio/command-line/adb.html#wireless
+#   http://stackoverflow.com/a/3623727
+# 
+
+# ======= CONFIGURATIONS ======================
+
+# WLAN network interface; will be "wlan0", "eth0" or "tiwlan0" depending on the
+# device; to find out which, connect the device to the Wi-Fi network and run
+# "adb shell ip -f inet addr".
+readonly WLAN_NETWORK_INTERFACE='wlan0'
+
+# ======= ! CONFIGURATIONS ======================
+
+WLAN_IP="$(adb shell ip -f inet addr show "${WLAN_NETWORK_INTERFACE}" | sed -n \
+    '2{p;q}' | tr -s ' ' | awk -F'[/ ]' '{print $3}')"
+
+if [ -n "${WLAN_IP}" ]; then
+  if adb devices -l | grep -q 'device usb'; then
+    adb tcpip 5555
+    echo -ne '\nadboverwifi: disconnect USB cable from device now\nand press'\
+      'enter to continue\n'
+    read -n1 -s -t 15 -p ''
+    echo
+  fi
+
+  adb connect "${WLAN_IP}"
+fi
