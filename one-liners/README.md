@@ -1,5 +1,4 @@
 
 # one-liners/
 
-This directory contains the one-liners.
-
+This directory contains one-liners.

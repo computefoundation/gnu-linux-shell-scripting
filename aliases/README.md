@@ -1,7 +1,7 @@
 
 # aliases/
 
-This directory contains the aliases and short functions.
+This directory contains aliases and short functions.
 
 ## Notes
 
