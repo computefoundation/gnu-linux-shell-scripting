@@ -5,31 +5,26 @@
 </div>
 <br><br><br>
 
-**Linux-shell-base** is a resource to make free/libre and open source software (FLOSS) eventually consistent with the [UNIX philosophy](https://en.wikipedia.org/wiki/Unix_philosophy). It is used indefinitely in all areas of individual software development and general computing, making them easy and efficient by diminishing the architecture of FLOSS with respect to the UNIX philosophy (see the [background philosophy](https://github.com/linux-shell-base/linux-shell-base/wiki/Background-philosophy) for an overview). This objective is achieved by making paradigms of the application layer congruent with the UNIX philosophy. The solutions used to make them congruent solve problems founded on the following principle: have one possible solution with respect to all possible implementations.
+**Linux-shell-base** is a resource making the global infrastructure of free/libre and open source software (FLOSS) consistent with the UNIX philosophy *(see [Illustration and background philosophy](https://github.com/linux-shell-base/linux-shell-base/wiki/Illustration-and-background-philosophy) to learn more)*. This objective is achieved by providing solutions to problems founded on the following two principles:
+
+1. Have one possible solution with respect to all possible implementations.
+2. Relate to at least one other section of any application layer paradigm.
+
+Overall, this repository makes efficient computing achievable by providing solutions to foundational problems.
 
 As one core characteristic of *Linux-shell-base* is reusability, each solution adheres to the following rules:
 
 * Use a standard approach
 * Provide documentation
-* Do not contain errors
 * Do not contain deprecated or old-styled code
 * Include a source if exists
 * Do not depend on another solution
 
 All solutions additionally conform to a standard [guideline][wiki].
 
-# Illustration
-
-The following diagram is an abstract representation of the architecture-specificity of sections of multiple paradigms of the application layer. These paradigms relate to the UNIX philosophy in the red box. The blue lines are solutions to relate sections of these paradigms to the UNIX philosophy.
-
-<div align='center'>
-  <img src='/../images/FLOSS-architecture-specificity-graph.png' width='90%' alt='FLOSS-architecture-specificity-graph.png'>
-</div>
-<br>
-
 # Paradigms
 
-The following is a list of the application layer paradigms targeted by *Linux-shell-base* with examples. All solutions in *Linux-shell-base* are divided into them.
+The following is a list of all application layer paradigms targeted by *Linux-shell-base* with examples.
 
 ## Applications
 
@@ -47,7 +42,7 @@ Solutions for programming languages
 
 ## Linux
 
-Solutions for core aspects of the Linux operating system *(e.g. file, networking, x11)*, based on five *super* sections
+Solutions for core aspects of the Linux operating system *(e.g. file management, network management, x11)*, based on five *super* sections:
 
   1. With output (solutions performing an action with output)
 
@@ -77,7 +72,7 @@ Solutions for core aspects of the Linux operating system *(e.g. file, networking
 
 ## Utilities
 
-Utilities, based on two *super* sections
+Utilities, based on two *super* sections:
 
   1. Primary
 
@@ -90,7 +85,7 @@ Utilities, based on two *super* sections
 
 ## Mobile
 
-Solutions for mobile devices, based on two *super* sections
+Solutions for mobile devices, based on two *super* sections:
 
   1. Android (solutions for Android devices)
 
@@ -107,11 +102,13 @@ Solutions for mobile devices, based on two *super* sections
 
 # Contributing
 
-*Linux-shell-base* does not correspond to the normal patterns of software development. Its objective is not to create a new software tool but to revive the UNIX philosophy in FLOSS. Its solutions therefore incorporate philosophy.
+If you would like to help and contribute, please ensure that your contribution adheres to the principles and rules listed above. A reason and/or explanation on how it can be changed may be given if it does not. (Please send an email to ensure a solution will be accepted). Finally, changes will be applied by *Linux-shell-base* if the contribution does not conform to the respective [guideline][wiki].
 
-If you would like to help and contribute, please create a [pull request](https://gist.github.com/Chaser324/ce0505fbed06b947d962) and ensure that your solution adheres to the principle stated and rules listed above. If it does not, a reason and/or explanation on how it can be changed may be given. (You may send an email to *main@linuxshellbase.com* to ask if a solution will be accepted beforehand). If it does not conform to the respective [guideline][wiki], changes will be applied by *Linux-shell-base*. Finally, a contributed solution may be an alternative method/implementation of an already existing solution.
+Credits will be placed in the wiki.
 
-Credits will be placed in the wiki and can identify the user by name, username or URL.
+Here is the list of [needed solutions](https://github.com/linux-shell-base/linux-shell-base/wiki/Needed-solutions). It can also be used for ideas.
+
+A contribution may provide an alternative implementation of an already existing solution, however, it must have substantial reason (e.g. it solves the same problem with a different dependency or language).
 
 Please send an email to *main@linuxshellbase.com* with any suggestions, comments or questions.
 
@@ -119,7 +116,14 @@ Please send an email to *main@linuxshellbase.com* with any suggestions, comments
 
 As *Linux-shell-base* is not a framework, there is no full installation other than cloning the repository, however, essential solutions can be retrieved by downloading *install-essentials.sh* with the following command and running it.
 
-It provides 31 of the current 49 scripts, 45 of the current 47 aliases and short-functions and 2 of the current 3 one-liners in *Linux-shell-base*. All solutions are downloaded to a single directory in the user's home directory.
+It provides the following:
+
+* 30 of the current 45 scripts
+* 2 of the current 4 functions scripts
+* 45 of the current 47 aliases and short-functions
+* 2 of the current 3 one-liners
+
+All solutions are downloaded to a single directory in the user's home directory.
 
 ```bash
 wget https://raw.githubusercontent.com/linux-shell-base/linux-shell-base/install/install-essentials.sh \
