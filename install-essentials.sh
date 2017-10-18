@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # 
-# Install script for essential solutions in Linux-shell-base.
+# Install script for essential solutions from Linux-shell-base.
 # 
 
 # ======= CONFIGURATIONS ==============
@@ -11,110 +11,117 @@ readonly DOWNLOAD_DIR="${HOME}"
 # ======= ! CONFIGURATIONS ==============
 
 readonly MASTER_URL='https://raw.githubusercontent.com/linux-shell-base/linux-shell-base/master'
-readonly ESSNTLS_DIR="${DOWNLOAD_DIR}/linux-shell-base-essentials"
+readonly LSB_ESSNTLS_DIR="${DOWNLOAD_DIR}/linux-shell-base-essentials"
 
-echo -e "::Downloading files to ${ESSNTLS_DIR}\n  Please wait"
+echo -e "::Downloading files to ${LSB_ESSNTLS_DIR}\n  Please wait"
 
-[ -d "${ESSNTLS_DIR}" ] && rm -Rf "${ESSNTLS_DIR}"
-mkdir -p "${ESSNTLS_DIR}"
+[ -d "${LSB_ESSNTLS_DIR}" ] && rm -Rf "${LSB_ESSNTLS_DIR}"
+mkdir -p "${LSB_ESSNTLS_DIR}"
 
 exec 3>&1 4>&2; exec >/dev/null 2>&1 # redirect all output to /dev/null
 
 # ============================================
-#   Scripts
+#   Utility functions
 # ============================================
 
-mkdir "${ESSNTLS_DIR}/scripts"
-
-path='/scripts/programming_languages/bash'
-wget -P "${ESSNTLS_DIR}${path}" -i - <<EOF
-  ${MASTER_URL}${path}/arrayutils.bash
-  ${MASTER_URL}${path}/coreutils.bash
-  ${MASTER_URL}${path}/dateandtimeutils.bash
-  ${MASTER_URL}${path}/fileanddirectoryutils.bash
-  ${MASTER_URL}${path}/httputils.bash
-  ${MASTER_URL}${path}/numberutils.bash
-  ${MASTER_URL}${path}/stringutils.bash
-EOF
-
-path='/scripts/main-modules/shell_management'
-mkdir -p "${ESSNTLS_DIR}${path}" && cd "${ESSNTLS_DIR}${path}"
-wget "${MASTER_URL}${path}/runinbg"
-chmod +x runinbg
-
-path='/scripts/main-modules/file_management'
-mkdir -p "${ESSNTLS_DIR}${path}" && cd "${ESSNTLS_DIR}${path}"
-wget "${MASTER_URL}${path}/returnfileforcmd"
-chmod +x returnfileforcmd
-
-path='/scripts/linux-output_only-single-value/hardware_management'
-mkdir -p "${ESSNTLS_DIR}${path}" && cd "${ESSNTLS_DIR}${path}"
-wget -i - <<EOF
-  ${MASTER_URL}${path}/issecondarywlanblocked
-  ${MASTER_URL}${path}/iswlanblocked
-EOF
-chmod +x issecondarywlanblocked iswlanblocked
-
-path='/scripts/linux-output_only-single-value/network_management'
-mkdir -p "${ESSNTLS_DIR}${path}" && cd "${ESSNTLS_DIR}${path}"
-wget -i - <<EOF
-  ${MASTER_URL}${path}/connectedtointernet
-  ${MASTER_URL}${path}/connectedtonetwork
-EOF
-chmod +x connectedtointernet connectedtonetwork
-
-path='/scripts/linux-output_only-single-value/x11'
-mkdir -p "${ESSNTLS_DIR}${path}" && cd "${ESSNTLS_DIR}${path}"
-wget -i - <<EOF
-  ${MASTER_URL}${path}/getactvwindclass
-  ${MASTER_URL}${path}/getactvwindid
-  ${MASTER_URL}${path}/getactvwindname
-  ${MASTER_URL}${path}/getactvwindpid
-  ${MASTER_URL}${path}/getfirstwindidinclass
-  ${MASTER_URL}${path}/getfirstwindnameinclass
-  ${MASTER_URL}${path}/getnextwindidinactvclass
-  ${MASTER_URL}${path}/getwindclassbyid
-  ${MASTER_URL}${path}/getwindclassbyname
-  ${MASTER_URL}${path}/getwindidbyname
-  ${MASTER_URL}${path}/getwindidbypid
-  ${MASTER_URL}${path}/getwindidsinclass
-  ${MASTER_URL}${path}/getwindnamebyid
-  ${MASTER_URL}${path}/getwindnamesinclass
-  ${MASTER_URL}${path}/getwindpidbyid
-  ${MASTER_URL}${path}/iswindopen
-EOF
-chmod +x *
-
-path='/scripts/utilities-primary/program_management'
-mkdir -p "${ESSNTLS_DIR}${path}" && cd "${ESSNTLS_DIR}${path}"
-wget "${MASTER_URL}${path}/newterm"
-chmod +x newterm
-
-path='/scripts/utilities-primary/keybind'
-mkdir -p "${ESSNTLS_DIR}${path}" && cd "${ESSNTLS_DIR}${path}"
-wget "${MASTER_URL}${path}/termcommand"
-chmod +x termcommand
+# Run wget for the given files in the given URL and run necessary post-set-up.
+# Usage:
+#   mwget <directory> <file names for wget...>
+mwget() {
+  for fileNameArg in "${@: 2}"; do
+    local filesList+="${fileNameArg} "
+    local wgetFilesList+="${MASTER_URL}${1}/${fileNameArg}"$'\n'
+  done
+  wget -P "${LSB_ESSNTLS_DIR}${1}" -i - <<-EOF
+    ${wgetFilesList}
+	EOF
+  cd "${LSB_ESSNTLS_DIR}${1}"
+  for file in ${filesList}; do
+    if [ -n "${file##*.*}" ]; then
+      chmod +x "${file}"
+    fi
+  done
+}
 
 # ============================================
-#   Aliases and short functions
+#   Solutions - Scripts
 # ============================================
 
-path='/aliases'
-wget -P "${ESSNTLS_DIR}${path}" -i - <<EOF
-  ${MASTER_URL}${path}/aliases-linux-with_output.bash
-  ${MASTER_URL}${path}/aliases-linux-without_output.bash
-  ${MASTER_URL}${path}/aliases-linux-output_only-multi-value.bash
-  ${MASTER_URL}${path}/aliases-linux-output_only-single-value.bash
-  ${MASTER_URL}${path}/aliases-utilities-primary.bash
-EOF
+mwget '/scripts/linux-modules/shell_management' \
+  'runinbg';
+
+mwget '/scripts/linux-modules/file_management' \
+  'returnfileforcmd';
+
+mwget '/scripts/linux-output_only-single-value/hardware_management' \
+  'issecondarywlanblocked' \
+  'iswlanblocked';
+
+mwget '/scripts/linux-output_only-single-value/network_management' \
+  'connectedtointernet' \
+  'connectedtonetwork';
+
+mwget '/scripts/linux-output_only-single-value/x11' \
+  'getactvwindclass' \
+  'getactvwindid' \
+  'getactvwindname' \
+  'getactvwindpid' \
+  'getfirstwindidinclass' \
+  'getfirstwindnameinclass' \
+  'getnextwindidinactvclass' \
+  'getwindclassbyid' \
+  'getwindclassbyname' \
+  'getwindidbyname' \
+  'getwindidbypid' \
+  'getwindidsinclass' \
+  'getwindnamebyid' \
+  'getwindnamesinclass' \
+  'getwindpidbyid' \
+  'iswindopen';
+
+mwget '/scripts/utilities-primary/program_management' \
+  'newterm';
+
+mwget '/scripts/utilities-primary/keybind' \
+  'termcommand';
+
+mwget '/scripts/utilities-primary/text_manipulation' \
+  'reprec';
 
 # ============================================
-#   One-liners
+#   Solutions - Functions
 # ============================================
 
-path='/one-liners'
-wget -P "${ESSNTLS_DIR}${path}" "${MASTER_URL}${path}/one-liners-linux-output_only-single-value.bash"
+mwget '/functions/programming_languages/bash' \
+  'arrayutils.bash' \
+  'coreutils.bash' \
+  'dateandtimeutils.bash' \
+  'fileanddirectoryutils.bash' \
+  'httputils.bash' \
+  'numberutils.bash' \
+  'stringutils.bash';
 
+# ============================================
+#   Solutions - Aliases and short functions
+# ============================================
+
+mwget '/aliases' \
+  'aliases-linux-with_output.bash' \
+  'aliases-linux-without_output.bash' \
+  'aliases-linux-output_only-multi-value.bash' \
+  'aliases-linux-output_only-single-value.bash' \
+  'aliases-utilities-primary.bash';
+
+# ============================================
+#   Solutions - One-liners
+# ============================================
+
+mwget '/one-liners' \
+  'one-liners-linux-output_only-single-value.bash';
+
+# ============================================
+#   Finish
+# ============================================
 
 exec >&3 2>&4 # redirect all output back to /dev/tty
 echo '::Finished'
