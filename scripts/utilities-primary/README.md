@@ -1,6 +1,14 @@
 
 # utilities/
 
+## general_program_management/
+
+* [**newterm**](general_program_management/newterm): Open a new terminal optionally with an initial command to run.
+
+## general_text_manipulation/
+
+* [**reprec**](general_text_manipulation/reprec): Replace a matching string in all files recursively.
+
 ## keybind/
 
 *Keybind utilities are used with a keybinding or in a script rather than the terminal.*
@@ -12,11 +20,3 @@
 
 * [**countdown**](other/countdown): Run a countdown timer in the terminal.
 * [**stopwatch**](other/stopwatch): Run a stopwatch in the terminal.
-
-## program_management/
-
-* [**newterm**](program_management/newterm): Open a new terminal optionally with an initial command to run.
-
-## text_manipulation/
-
-* [**reprec**](text_manipulation/reprec): Replace a matching string in all files recursively.

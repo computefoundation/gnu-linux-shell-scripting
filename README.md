@@ -76,7 +76,7 @@ Utilities, based on two *super* sections:
 
   1. Primary
 
-  * [Open a new terminal optionally with an initial command to run.](scripts/utilities-primary/program_management/newterm)
+  * [Open a new terminal optionally with an initial command to run.](scripts/utilities-primary/general_program_management/newterm)
   * [Execute a command in (or run the last command of) a terminal emulator.](scripts/utilities-primary/keybind/termcommand)
 
   2. Modules (solutions used in conjuction with command-line programs)
