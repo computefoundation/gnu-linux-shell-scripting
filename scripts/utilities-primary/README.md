@@ -3,7 +3,7 @@
 
 ## general_program_management/
 
-* [**newterm**](general_program_management/newterm): Open a new terminal optionally with an initial command to run.
+* [**newterm**](general_program_management/newterm): Open a new terminal with an initial command to run.
 
 ## general_text_manipulation/
 

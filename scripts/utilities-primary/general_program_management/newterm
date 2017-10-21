@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # 
-# Open a new terminal optionally with an initial command to run.
+# Open a new terminal with an initial command to run.
 # 
 # A small layer for configuring terminal and window settings is provided.
 # 
@@ -25,7 +25,7 @@ readonly DEFAULT_GEOMETRY='82x44+190+100'
 
 printHelpMessage() {
   echo -ne "\
-Open a new terminal optionally with an initial command to run.
+Open a new terminal with an initial command to run.
 
 Usage:
   newterm [options] -- [initial command]
