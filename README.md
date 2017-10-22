@@ -50,7 +50,7 @@ Solutions for core aspects of the Linux operating system *(e.g. file management,
 
   2. Without output (solutions performing an action without output)
 
-  * [Remove the last N entries from the bash history.](scripts/linux-without_output/shell_management/remlastnhistentries)
+  * [Rename all files with a matching name recursively.](scripts/linux-without_output/file_management/renrec)
 
   3. Output only - single-value (solutions providing single-value output without performing an action)
 
@@ -118,7 +118,7 @@ As *Linux-shell-base* is not a framework, there is no full installation other th
 
 It provides the following:
 
-* 30 of the current 45 scripts
+* 30 of the current 46 scripts
 * 2 of the current 4 functions scripts
 * 45 of the current 47 aliases and short-functions
 * 2 of the current 3 one-liners

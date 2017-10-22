@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# 
+# Rename all files with a matching name recursively.
+# 
+# Usage:
+#   renrec <old file name> <new file name>
+# 
+
+if [ "$#" -ne 2 ]; then
+  echo 'renrec: invalid number of arguments' 1>&2
+  exit 1
+fi
+
+find . -depth -type f -name "${1}" | while IFS= read -r file; do
+  mv -i "${file}" "$(dirname "${file}")/${2}"
+done
