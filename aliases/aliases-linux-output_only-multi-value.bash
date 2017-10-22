@@ -24,7 +24,6 @@ alias fclist='fc-list | cut -f2 -d: | sort -u'                                  
 # ======= 3.  FILE MANAGEMENT ==================================
 
 #[General]
-alias numfiles='echo "$(ls -1 | wc -l)"'                                         # numfiles: get the number of non-hidden files and directories in the current directory
 alias largest='du -hsx * | sort -rh | head -10'                                  # largest: list the ten largest non-hidden files and directories in the current directory
 
 #[Status]

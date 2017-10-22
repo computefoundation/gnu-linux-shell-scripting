@@ -2,8 +2,9 @@
 # 
 # Sections:
 #    1.   System management
-#    2.   Network management
-#    3.   Hardware management
+#    2.   File management
+#    3.   Network management
+#    4.   Hardware management
 # 
 
 # ======= 1.  SYSTEM MANAGEMENT ================================
@@ -14,12 +15,17 @@ alias ostrgarch='llc --version | grep Default | tr -s " " | cut -d " " -f4'     
 #[Processes]
 getpid() { lsof -t -c "${@}" 2>/dev/null; }                                      # getpid: get the ID of a process by name; $1: process name (e.g. "/d$/" to get PIDs for processes ending in "d")
 
-# ======= 2.  NETWORKING MANAGEMENT ============================
+# ======= 2.  FILE MANAGEMENT ==================================
+
+#[General]
+alias numfiles='echo "$(ls -1 | wc -l)"'                                         # numfiles: get the number of non-hidden files and directories in the current directory
+
+# ======= 3.  NETWORKING MANAGEMENT ============================
 
 #[Internet]
 alias myip='curl ipecho.net/plain; echo'                                         # myip: get the public IPv4 address
 
-# ======= 3.  HARDWARE MANAGEMENT ==============================
+# ======= 4.  HARDWARE MANAGEMENT ==============================
 
 #[Information]
 alias cpuvend="cat /proc/cpuinfo | grep vendor | uniq | awk '{print \$3}'"       # cpuvend: get the vendor name of the current CPU
