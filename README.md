@@ -68,7 +68,6 @@ Solutions for core aspects of the Linux operating system *(e.g. file management,
 
   * [Run a command in the background.](scripts/linux-modules/shell_management/runinbg)
   * [Run a command when files have changed in the current directory.](scripts/linux-modules/file_management/inotify)
-  * [Return one or more files for a command using one of two search methods: (1) Locate from a database; (2) Recursively find from the current or specified directory.](scripts/linux-modules/file_management/returnfilesforcmd)
 
 ## Utilities
 
@@ -81,6 +80,7 @@ Utilities, based on two *super* sections:
 
   2. Modules (solutions used in conjuction with command-line programs)
 
+  * [Return one or more files for a command using one of two search methods: (1) Locate from a database; (2) Recursively find from the current or specified directory.](scripts/utilities-modules/general_program_management/returnfilesforcmd)
   * [Execute a program with an action on the resulting window.](scripts/utilities-modules/x11/exeprogwithwindact)
 
 ## Mobile
