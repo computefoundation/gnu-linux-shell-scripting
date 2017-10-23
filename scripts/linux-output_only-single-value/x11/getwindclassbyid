@@ -6,11 +6,12 @@
 #   getwindclassbyid <window ID>
 # 
 # Returns:
-#   The full qualified class string (class and classname; e.g. "xterm.XTerm")).
+#   Full qualified class string (i.e. class and classname; e.g. "xterm.XTerm"))
+#   of the window.
 # 
 
 if [ "$#" -eq 0 ]; then
-  exit
+  exit 1
 elif [[ ! "${1}" =~ '0x'.* ]]; then
   echo 'getwindclassbyid: argument not in hexidecimal format' 1>&2
   exit 1

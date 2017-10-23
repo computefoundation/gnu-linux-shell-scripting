@@ -8,13 +8,13 @@
 #   window name: case-sensitive; matched partially
 # 
 # Returns:
-#   The full qualified class string (class and classname; e.g. "xterm.XTerm").
-#   If more than one class is found for all matched windows, each class will be
-#   returned.
+#   Full qualified class string (i.e. class and classname; e.g. "xterm.XTerm");
+#   if more than one class is found for all matched windows, each class will be
+#   returned separated by a newline.
 # 
 
 if [ "$#" -eq 0 ]; then
-  exit
+  exit 1
 fi
 
 WINDOW_CLASSES=("$(wmctrl -lx | awk -v srchTxt="${1}" '{$1=$2=$4=""; wn = \

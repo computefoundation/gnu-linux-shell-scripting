@@ -8,12 +8,11 @@
 #   window name: case-sensitive; matched partially
 # 
 # Returns:
-#   The ID of the window. If more than one window is matched, all of their IDs
-#   will be returned.
+#   ID of window; if more than one window is matched, all IDs are returned.
 # 
 
 if [ "$#" -eq 0 ]; then
-  exit
+  exit 1
 fi
 
 WINDOW_IDS=("$(wmctrl -l | awk -v srchTxt="${1}" '{$2=$3=""; wn = \

@@ -10,9 +10,9 @@ use strict;
 use warnings;
 
 if (scalar @ARGV != 1) {
-  exit;
+  exit 1;
 } elsif ($ARGV[0] !~ m/^[0-9]+$/) {
-  exit;
+  exit 1;
 }
 
 my $ARG_PID = $ARGV[0];
