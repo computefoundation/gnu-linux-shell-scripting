@@ -13,14 +13,9 @@
 #                              override --class if both are used)
 # 
 # Options:
-#   -d --delay <TIME>    delay time between focusing the terminal emulator and
-#                        pasting the command in it; this is only needed if the
-#                        command is pasted too soon, causing none or a part of
-#                        it to run; (the recommended starting value is .03 to .1
-#                        second)
 #   -l --last            run the last command of the terminal emulator instead
 #                        (will ignore the command argument)
-#   -r --refocus         refocus previously focused window after running command
+#   -r --refocus         refocus previous window after running command
 # 
 # Dependencies:
 #   xautomation (if xdotool is preferred, follow the instructions at the bottom
@@ -37,7 +32,7 @@
 #   the format "<class>.<classname>").
 # 
 
-OPTS="$(getopt -q -o c:,t:,d:,l,r --long class:,title:,delay:,last,refocus -n \
+OPTS="$(getopt -q -o c:,t:,l,r --long class:,title:,last,refocus -n \
     'termcommand' -- "${@}")"
 if [ "$?" -ne 0 ]; then
   # output errors as a desktop notification since this script is meant to be
@@ -50,13 +45,6 @@ while true; do
   case "${1}" in
     --class|-c) TERM_CLASS="${2}"; shift;;
     --title|-t) TERM_TITLE="${2}"; shift;;
-    --delay|-d)
-      [[ ! "${2}" =~ ^[0-9]*(\.[0-9]+)?$ ]] && \
-          notify-send 'termcommand (err): invalid time for option --delay' && \
-          exit 1
-      OPT_AUTOMTN_DELAY_TIME="${2}"
-      shift
-      ;;
     --last|-l) OPT_LAST_COMMAND=true;;
     --refocus|-r) OPT_REFOCUS=true;;
     --) shift; break;;
@@ -65,13 +53,17 @@ while true; do
   shift
 done
 
-# The command may still always run correctly if no delay time is given, however,
-# on a mid-grade computer, it may rarely paste the command too quickly after the
-# terminal window has been focused. This causes only a part of the command to
-# run.
-if [ -z "${OPT_AUTOMTN_DELAY_TIME}" ]; then
-  OPT_AUTOMTN_DELAY_TIME='.02'
-fi
+# ======= CONFIGURATIONS ==============
+
+# This is the delay time for pasting the command in the terminal emulator.
+# With no delay time, on a fast computer, the terminal emulator may focused
+# quick enough to allow the full command to be pasted, however, on a mid-grade
+# computer, it may not, causing causes only a part or none of the command to
+# be pasted. This should be adjusted according to the user's needs. (Note:
+# this delay time is also applied before refocusing the previous window).
+readonly PASTE_DELAY_TIME='.15'
+
+# ======= ! CONFIGURATIONS ==============
 
 if [[ -z "${TERM_CLASS}" && -z "${TERM_TITLE}" ]]; then
   notify-send 'termcommand (err): must use option --class or --title'
@@ -79,7 +71,7 @@ if [[ -z "${TERM_CLASS}" && -z "${TERM_TITLE}" ]]; then
 fi
 
 if [[ "$#" -eq 0 && -z "${OPT_LAST_COMMAND}" ]]; then
-  # uncomment the following to show an error
+  # uncomment the following to show an error.
   # notify-send 'termcommand: no command to execute'
   exit
 fi
@@ -113,26 +105,37 @@ if [ -n "${termWindId}" ]; then
   fi
 
   wmctrl -i -a "${termWindId}"
-  [ -n "${OPT_AUTOMTN_DELAY_TIME}" ] && sleep "${OPT_AUTOMTN_DELAY_TIME}"
+  [ -n "${PASTE_DELAY_TIME}" ] && sleep "${PASTE_DELAY_TIME}"
 
   # To use xdotool, comment the xte code sections and uncomment the xdotool code
   # sections.
 
   if [ "${OPT_LAST_COMMAND}" = 'true' ]; then
+    #------- xte -----------
     xte 'usleep 25000' 'key Up' 'key Return'
 
-    #------- 1. xdotool -----------
-
+    #------- xdotool -----------
     # xdotool sleep .007 key Up key Return
   else
-		xte <<-EOF
-			str ${@}
-			usleep 14000
-			key Return
-		EOF
+    #------- xte -----------
+    # Xte sometimes fails to completely paste a string with more than 249
+    # characters. As a result, a string with more than 249 characters is pasted
+    # by every 249 character part.
+    argStr="${@}"
+    if [ "${#argStr}" -gt 249 ]; then
+      for ((i=0; i<=${#argStr}; i+=249)); do
+        xte "str ${argStr:${i}:249}"
+      done
+      xte 'key Return'
+    else
+			xte <<-EOF
+				str ${@}
+				usleep 14000
+				key Return
+			EOF
+    fi
 
-    #------- 2. xdotool -----------
-
+    #------- xdotool -----------
     # xdotool type "${@}"
     # # must run a separate xdotool command as "type" will type everything after
     # # it; also a much higher sleep time is needed as xdotool types each
@@ -141,7 +144,7 @@ if [ -n "${termWindId}" ]; then
   fi
 
   if [ "${OPT_REFOCUS}" = 'true' ]; then
-    [ -n "${OPT_AUTOMTN_DELAY_TIME}" ] && sleep "${OPT_AUTOMTN_DELAY_TIME}"
+    [ -n "${PASTE_DELAY_TIME}" ] && sleep "${PASTE_DELAY_TIME}"
     wmctrl -i -a "${currWindId}"
   fi
 fi
