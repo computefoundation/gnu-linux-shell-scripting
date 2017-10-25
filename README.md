@@ -1,20 +1,19 @@
 
 <br>
 <div align='center'>
-  <img src='/../images/logo-light.png' width='37.2%' alt='logo-light.png'>
+  <img src='/../images/logo-light.png' width='39%' alt='logo-light.png'>
 </div>
 <br><br><br>
 
-**Linux-shell-base** is a resource of shell solutions reviving the UNIX philosophy in free/libre and open source software (FLOSS). Its purpose is to make individual software development and computing efficient by diminishing the architecture of FLOSS with respect to the UNIX philosophy. The problems it solves are founded on the following two principles:
+**Linux-shell-base** is a resource making efficient computing achievable by reviving the UNIX philosophy in free/libre and open source software (FLOSS). It provides shell solutions based on principles of FLOSS with respect to the UNIX philosophy that respect any other section of any paradigm of the application layer (see [Theory and illustration](https://github.com/linux-shell-base/linux-shell-base/wiki/Theory-and-background-philosophy#theory-and-illustration) to learn more).
 
-1. Have one possible solution with respect to all possible implementations.
-2. Relate to at least one other section of any application layer paradigm.
+Overall, Linux-shell-base is the resource for Linux users who achieve computational efficiency without frameworks.
 
-See [Illustration and background philosophy](https://github.com/linux-shell-base/linux-shell-base/wiki/Illustration-and-background-philosophy) to gain a better understanding of how Linux-shell-base achieves its objective and learn how it originated.
+*See [Background philosophy](https://github.com/linux-shell-base/linux-shell-base/wiki/Theory-and-background-philosophy#background-philosophy) to learn why efficient computing does not exist today and how Linux-shell-base originated.*
 
 # Application layer paradigms
 
-The following is a list of all application layer paradigms targeted by Linux-shell-base with examples.
+The following is a list of all application layer paradigms targeted by Linux-shell-base. Each paradigm includes one or two example solutions.
 
 ## Applications
 
@@ -45,7 +44,6 @@ Solutions for core aspects of the Linux operating system *(e.g. file management,
 #### 3. Output only - single-value (providing single-value output without performing an action)
 
 * [Get the size of one or more files and/or directories as a plain number.](https://github.com/linux-shell-base/linux-shell-base/blob/master/one-liners/one-liners-linux-output_only-single-value.bash)
-
 * [Get the ID of a window by PID.](scripts/linux-output_only-single-value/x11/getwindidbypid)
 
 #### 4. Output only - multi-value (providing multi-value output without performing an action)
@@ -69,7 +67,6 @@ Utilities, based on two *super* sections:
 #### 2. Modules (used in conjuction with command-line programs)
 
 * [Return one or more files for a command using one of two search methods: (1) Locate from a database; (2) Recursively find from the current or specified directory.](scripts/utilities-modules/general_program_management/returnfilesforcmd)
-* [Execute a program with an action on the resulting window.](scripts/utilities-modules/x11/exeprogwithwindact)
 
 ## Mobile
 
