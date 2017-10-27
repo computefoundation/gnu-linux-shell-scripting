@@ -10,13 +10,13 @@
 # 
 # Examples:
 #   # locate a file from a database for gedit
-#   alias geditloc='returnfilesforcmd {gedit --new-window} --l'
+#   alias geditloc='returnfileforcmd {gedit --new-window} --l'
 # 
-#   # recursively find a file from the current or specified directory for gedit
-#   alias geditr='returnfilesforcmd {gedit --new-window} --r'
+#   # recursively find a file for gedit
+#   alias geditr='returnfileforcmd {gedit --new-window} --r'
 # 
 #   # same as previous except allow files only to be returned
-#   alias geditr='returnfilesforcmd {gedit --new-window} --r --f'
+#   alias geditr='returnfileforcmd {gedit --new-window} --r --f'
 # 
 #   # use the aliases on their own or with other options such as --3 to return
 #   # the third found occurrence or --a to return all occurrences.
@@ -24,7 +24,7 @@
 #   geditr --a config.sh
 # 
 # Usage:
-#   returnfilesforcmd {<command to execute>} [options] <partial file name>
+#   returnfileforcmd {<command to execute>} [options] <partial file name>
 #         [directory]
 # 
 #   directory: directory to search in; applies only to the recursive search
@@ -47,11 +47,10 @@
 #   To use the locate method, there must exist a "locate" command in the user's
 #   PATH environment variable that returns one or more file paths for a given
 #   file name. The actual command name is specified in the LOCATE_COMMAND
-#   variable in CONFIGURATIONS.
-#   (Note: The command should return files only and not directories by default.
-#   The "--f" option will not apply otherwise).
-#   (Note: A locate utility package is provided in the Packaged-utilities
-#   repository by Linux-shell-base).
+#   variable in CONFIGURATIONS. Notes: (1) The command should return files only
+#   and not directories by default. The "--f" option will not apply otherwise.
+#   (2) A locate utility package is provided in the Packaged-utilities
+#   repository by Linux-shell-base.
 # 
 #   Options in this module will override matching ones for the command in
 #   brackets. Therefore, they use double dashes to avoid collision as much as
@@ -83,7 +82,7 @@ for ((x=1; x<=$#; x++)); do
   fi
 done
 if [ -z "${execCmd}" ]; then
-  echo -e  'returnfilesforcmd: invalid arguments:\nexecute command not'\
+  echo -e  'returnfileforcmd: invalid arguments:\nexecute command not'\
       'specified' 1>&2
   exit 1
 fi
@@ -92,7 +91,7 @@ execCmd="${execCmd#{}"
 execCmd="${execCmd%\}}"
 
 OPTS="$(getopt -q -o '#' --long l,r,f,d,1,2,3,4,5,6,7,8,9,a,e -n \
-    'returnfilesforcmd' -- "${@}")"
+    'returnfileforcmd' -- "${@}")"
 eval set -- "${OPTS}"
 while true; do
   case "${1}" in
@@ -112,11 +111,11 @@ done
 case "${SEARCH_METHOD}" in
   'locate')
     if [ "$#" -eq 0 ]; then
-      echo 'returnfilesforcmd: no file specified' 1>&2
+      echo 'returnfileforcmd: no file specified' 1>&2
       exit 1
     fi
     if ! hash ${LOCATE_COMMAND} > /dev/null 2>&1; then
-      echo "returnfilesforcmd: command \"${LOCATE_COMMAND}\" does not"\
+      echo "returnfileforcmd: command \"${LOCATE_COMMAND}\" does not"\
           "exist" 1>&2
       exit 1
     fi
@@ -134,7 +133,7 @@ case "${SEARCH_METHOD}" in
     output="$(${LOCATE_COMMAND} ${lctOpts} "${@}")"
 
     if [ -z "${output}" ]; then
-      echo 'returnfilesforcmd: no files or directories found' 1>&2
+      echo 'returnfileforcmd: no files or directories found' 1>&2
     else
       output="$(echo "${output}" | sed 's/ /\\n/g')"
 
@@ -148,7 +147,7 @@ case "${SEARCH_METHOD}" in
 
   'recursively find')
     if [ "$#" -eq 0 ]; then
-      echo 'returnfilesforcmd: no file specified' 1>&2
+      echo 'returnfileforcmd: no file specified' 1>&2
       exit 1
     elif [ "$#" -ge 2 ]; then
       dir="${2}"
@@ -163,7 +162,7 @@ case "${SEARCH_METHOD}" in
     output="$(find "${dir}" ${optType} -name "*${1}*" 2>/dev/null)"
 
     if [ -z "${output}" ]; then
-      echo 'returnfilesforcmd: no files or directories found' 1>&2
+      echo 'returnfileforcmd: no files or directories found' 1>&2
     else
       if [ "${ALL_OCCURRENCES}" != 'true' ]; then
         if [ -n "${FIND_OCCURRENCE}" ]; then
