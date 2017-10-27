@@ -1,9 +1,5 @@
 
-<br>
-<div align='center'>
-  <img src='/../images/logo-light.png' width='39%' alt='logo-light.png'>
-</div>
-<br><br><br>
+<img src='/../images/logo-light.png' width='25%' align='left' alt='logo-light.png'>
 
 **Linux-shell-base** is a resource making efficient computing achievable by reviving the UNIX philosophy in free/libre and open source software (FLOSS). It provides shell solutions based on principles of FLOSS with respect to the UNIX philosophy that respect any other section of any paradigm of the application layer (see [Theory and illustration](https://github.com/linux-shell-base/linux-shell-base/wiki/Theory-and-background-philosophy#theory-and-illustration) to learn more).
 
@@ -66,7 +62,7 @@ Utilities, based on two *super* sections:
 
 #### 2. Modules (used in conjuction with command-line programs)
 
-* [Return one or more files for a command using one of two search methods: (1) Locate from a database; (2) Recursively find from the current or specified directory.](scripts/utilities-modules/general_program_management/returnfilesforcmd)
+* [Return one or more files for a command using one of two search methods: (1) Locate from a database; (2) Recursively find from the current or specified directory.](scripts/utilities-modules/general_program_management/returnfileforcmd)
 
 ## Mobile
 
