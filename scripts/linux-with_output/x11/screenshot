@@ -6,8 +6,8 @@
 #   screenshot [method]
 # 
 #   method:
-#     "full": entire screen (default)
-#     "section": section of the screen
+#     full: entire screen (default)
+#     section: section of the screen
 # 
 # Dependencies:
 #   maim
@@ -15,7 +15,7 @@
 
 # ======= CONFIGURATIONS ==============
 
-# Path where screenshot files are saved
+# Output path of screenshot files
 readonly OUT_PATH="${HOME}"
 
 # ======= ! CONFIGURATIONS ==============
@@ -26,9 +26,9 @@ if [ "$#" -ge 1 ]; then
     exit 1
   fi
 
-  TYPE="${1}"
+  readonly TYPE="${1}"
 else
-  TYPE='full'
+  readonly TYPE='full'
 fi
 
 # Utility function to extract a file's extension using just the file name.
