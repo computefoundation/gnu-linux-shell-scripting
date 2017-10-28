@@ -31,10 +31,10 @@ alias ll='command ls -FGlAhp'                                                   
 
 #[Searching]
 ff() { local d='.'; [ "$#" -gt 1 ] && d="${2}"; local out="$(find "${d}" -type \
-  f -name "*${1}*")"; [ -n "${out}" ] && echo "${out}"; }                        # ff: find one or more files recursively from the current or specificed directory; $1: file to search; $2: optional directory to search from (default is current)
+  f -name "*${1}*")"; [ -n "${out}" ] && echo "${out}"; }                        # ff: find one or more files recursively; $1: file to search; $2: directory to search from (optional; default is current)
 
 fd() { local d='.'; [ "$#" -gt 1 ] && d="${2}"; local out="$(find "${d}" -type \
-  d -name "*${1}*")"; [ -n "${out}" ] && echo "${out}"; }                        # fd: find one or more directories recursively from the current or specificed directory; $1: directory to search; $2: optional directory to search from (default is current)
+  d -name "*${1}*")"; [ -n "${out}" ] && echo "${out}"; }                        # fd: find one or more directories recursively; $1: directory to search; $2: directory to search from (optional; default is current)
 
 # ======= 4.  NETWORKING MANAGEMENT ============================
 

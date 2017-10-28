@@ -14,13 +14,13 @@ alias permnreadonly='chmod a-w'                                                 
 
 #[Searching]
 cdff() { cd "$(find . -type f -name "*${1}*" -exec sh -c 'echo "${1%/*}"; kill \
-  "$PPID"' sh {} \;)"; }                                                         # cdff: find a file recursively from the current directory and cd to its directory; $1: file name
+  "$PPID"' sh {} \;)"; }                                                         # cdff: find a file recursively and cd to its directory; $1: file name
 
-cdfd() { cd $(find . -type d -name "*${1}*" -print -quit); }                     # cdfd: find a directory recursively from the current directory and cd to it; $1: directory name
-effa() { ${EDITOR} $(find . -type f -name "*${1}*"); }                           # effa: find all files recursively from the current directory and open them in the default editor; $1: file name
-rmffa() { find . -name "*${1}*" -type f -print0  | xargs -0 rm -f; }             # rmffa: find all files recursively from the current directory and delete them; $1: file name
+cdfd() { cd $(find . -type d -name "*${1}*" -print -quit); }                     # cdfd: find a directory recursively and cd to it; $1: directory name
+effa() { ${EDITOR} $(find . -type f -name "*${1}*"); }                           # effa: find all files recursively and open them in the default editor; $1: file name
+rmffa() { find . -name "*${1}*" -type f -print0  | xargs -0 rm -f; }             # rmffa: find all files recursively and delete them; $1: file name
 
-egr() { ${EDITOR} $(/usr/bin/grep -l -R "${1}" .); }                             # egr: find all files containing the given text recursively from the current directory and open them in the default editor; $1: text
+egr() { ${EDITOR} $(/usr/bin/grep -l -R "${1}" .); }                             # egr: find all files containing the given text recursively and open them in the default editor; $1: text
 
 # ======= 2.  NETWORKING MANAGEMENT ============================
 
