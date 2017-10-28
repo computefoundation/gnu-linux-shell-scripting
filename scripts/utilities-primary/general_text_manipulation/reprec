@@ -17,7 +17,7 @@
 readonly BACKUP=true
 
 # Directory where backups are stored
-readonly BACKUP_DIR="${HOME}/reprec-backups"
+readonly BACKUP_DIR="${HOME}/.linux-shell-base/reprec-backups"
 
 # ======= ! CONFIGURATIONS ==============
 
