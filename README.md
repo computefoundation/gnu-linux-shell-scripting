@@ -1,11 +1,11 @@
 
-<img src='/../images/logo-light.png' width='25%' align='left' alt='logo-light.png'>
+<img src='/../images/logo-light.png' width='28%' align='left' alt='logo-light.png'>
+<br>
 
-**Linux-shell-base** is a resource making efficient computing achievable by reviving the UNIX philosophy in free/libre and open source software (FLOSS). It provides shell solutions based on principles of FLOSS with respect to the UNIX philosophy that respect any other section of any paradigm of the application layer (see [Theory and illustration](https://github.com/linux-shell-base/linux-shell-base/wiki/Theory-and-background-philosophy#theory-and-illustration) to learn more).
+General computing efficiency does not exist because the UNIX philosophy is absent in software. **Linux-shell-base** is presenting the UNIX philosophy to free/libre and open source software (FLOSS) by diminishing the architecture of FLOSS with shell solutions for the foundation of computing. These shell solutions solve problems for sections of application layer paradigms with respect to the UNIX philosophy. Overall, its purpose is to make general computing efficient (see [Theory](https://github.com/linux-shell-base/linux-shell-base/wiki/Theory-and-background-philosophy#theory) to learn more).
+<br><br><br>
 
-Overall, Linux-shell-base is the resource for Linux users who achieve computational efficiency without frameworks.
-
-*See [Background philosophy](https://github.com/linux-shell-base/linux-shell-base/wiki/Theory-and-background-philosophy#background-philosophy) to learn why efficient computing does not exist today and how Linux-shell-base originated.*
+*See [Background philosophy](https://github.com/linux-shell-base/linux-shell-base/wiki/Theory-and-background-philosophy#background-philosophy) to learn more about the reason general computing efficiency does not exist and how Linux-shell-base originated.*
 
 # Application layer paradigms
 
@@ -27,7 +27,7 @@ Solutions for programming languages
 
 ## Linux
 
-Solutions for core aspects of the Linux operating system *(e.g. file management, network management, X11)*, based on five *super* sections:
+Solutions with respect to core aspects of the GNU/Linux operating system *(e.g. file, network, X11 and shell management)*, based on five *super* sections:
 
 #### 1. With output (performing an action with output)
 
@@ -101,7 +101,7 @@ As Linux-shell-base is not a framework, there is no installation process, howeve
 
 It provides the following:
 
-* 30 of the current 46 scripts
+* 25 of the current 46 scripts
 * 2 of the current 4 functions scripts
 * 45 of the current 47 aliases and short-functions
 * 2 of the current 3 one-liners
