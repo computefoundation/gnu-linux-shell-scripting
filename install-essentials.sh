@@ -50,9 +50,6 @@ mwget() {
 mwget '/scripts/linux-modules/shell_management' \
   'runinbg';
 
-mwget '/scripts/linux-modules/file_management' \
-  'returnfileforcmd';
-
 mwget '/scripts/linux-output_only-single-value/hardware_management' \
   'issecondarywlanblocked' \
   'iswlanblocked';
@@ -79,14 +76,17 @@ mwget '/scripts/linux-output_only-single-value/x11' \
   'getwindpidbyid' \
   'iswindopen';
 
-mwget '/scripts/utilities-primary/program_management' \
+mwget '/scripts/utilities-main/general_program_management' \
   'newterm';
 
-mwget '/scripts/utilities-primary/keybind' \
+mwget '/scripts/utilities-main/general_text_manipulation' \
+  'reprec';
+
+mwget '/scripts/utilities-main/keybind' \
   'termcommand';
 
-mwget '/scripts/utilities-primary/text_manipulation' \
-  'reprec';
+mwget '/scripts/utilities-modules/general_program_management' \
+  'returnfileforcmd';
 
 # ============================================
 #   Solutions - Functions
@@ -110,7 +110,7 @@ mwget '/aliases' \
   'aliases-linux-without_output.bash' \
   'aliases-linux-output_only-multi-value.bash' \
   'aliases-linux-output_only-single-value.bash' \
-  'aliases-utilities-primary.bash';
+  'aliases-utilities-main.bash';
 
 # ============================================
 #   Solutions - One-liners
