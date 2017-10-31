@@ -29,12 +29,12 @@ alias largest='du -hsx * | sort -rh | head -10'                                 
 #[Status]
 alias ll='command ls -FGlAhp'                                                    # ll: list the permissions and owner of each file in the current directory
 
-#[Searching]
-ff() { local d='.'; [ "$#" -gt 1 ] && d="${2}"; local out="$(find "${d}" -type \
-  f -name "*${1}*")"; [ -n "${out}" ] && echo "${out}"; }                        # ff: find one or more files recursively; $1: file to search; $2: directory to search from (optional; default is current)
+#[Find/Search]
+ff() { [ "$#" -gt 1 ] && local d="${2}" || local d='.'; local out="$(find \
+  "${d}" -type f -name "*${1}*")"; [ -n "${out}" ] && echo "${out}"; }           # ff: find one or more files recursively; $1: file to search; $2: directory to search from (optional; default is current)
 
-fd() { local d='.'; [ "$#" -gt 1 ] && d="${2}"; local out="$(find "${d}" -type \
-  d -name "*${1}*")"; [ -n "${out}" ] && echo "${out}"; }                        # fd: find one or more directories recursively; $1: directory to search; $2: directory to search from (optional; default is current)
+fd() { [ "$#" -gt 1 ] && local d="${2}" || local d='.'; local out="$(find \
+  "${d}" -type d -name "*${1}*")"; [ -n "${out}" ] && echo "${out}"; }           # fd: find one or more directories recursively; $1: directory to search; $2: directory to search from (optional; default is current)
 
 # ======= 4.  NETWORKING MANAGEMENT ============================
 
