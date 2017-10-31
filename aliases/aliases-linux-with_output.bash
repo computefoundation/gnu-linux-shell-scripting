@@ -14,9 +14,6 @@ cxff() { local o="$(find $PWD -type f -wholename "*${1}*" -print -quit)"; [ -n \
 cxfd() { local o="$(find $PWD -type d -wholename "*${1}*" -print -quit)"; [ -n \
   "${o}" ] && echo "${o}" && echo -n "${o}" | xclip -r -selection c; }           # cxfd: find a directory recursively and copy its absolute path to the X11 clipboard; $1: file name
 
-#[Utilities]
-alias make1mb='mkfile 1m ./1MB.dat'                                              # make1mb: create a 1mb file of all zeros
-
 # ======= 4.  SHELL ============================================
 
 #[Builtin·utilities]

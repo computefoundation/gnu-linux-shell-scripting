@@ -103,7 +103,7 @@ It provides the following:
 
 * 25 of the current 46 scripts
 * 2 of the current 4 functions scripts
-* 45 of the current 47 aliases and short-functions
+* 44 of the current 46 aliases and short-functions
 * 2 of the current 3 one-liners
 
 All solutions are downloaded to a single directory in the user's home directory.
