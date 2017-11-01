@@ -27,26 +27,22 @@ Solutions for programming languages
 
 ## Linux
 
-Solutions with respect to core aspects of the GNU/Linux operating system *(e.g. file and system management and X11)*, based on five *super* sections:
+Solutions with respect to core aspects of the GNU/Linux operating system *(e.g. file and system management and X11)*, based on four *super* sections:
 
-#### 1. With output (actions with output)
-
-(currently none)
-
-#### 2. Without output (actions without output)
+#### 1. Main (actions)
 
 * [Rename all files matching a name recursively.](scripts/linux-without_output/file_management/renrec)
 
-#### 3. Output only - single-value (single-value output and no actions)
+#### 2. Output only - single-value (providing single-value output without performing an action)
 
 * [Get the size of one or more files and/or directories as a plain number.](https://github.com/linux-shell-base/linux-shell-base/blob/master/one-liners/one-liners-linux-output_only-single-value.bash)
 * [Get the ID of a window by PID.](scripts/linux-output_only-single-value/x11/getwindidbypid)
 
-#### 4. Output only - multi-value (multi-value output and no actions)
+#### 3. Output only - multi-value (multi-value output and no actions)
 
 * [Print the paths of the subsubdirectories of the specified directory.](scripts/linux-output_only-multi-value/file_management/printsubsubdirpaths)
 
-#### 5. Modules (solutions used in conjuction with command-line programs)
+#### 4. Modules (used in conjuction with command-line programs)
 
 * [Run a command in the background.](scripts/linux-modules/shell_management/runinbg)
 * [Run a command when files have changed in the current directory.](scripts/linux-modules/file_management/inotify)

@@ -1,6 +1,6 @@
 Sources for one-liners
 
-one-liners-linux-without_output.bash:
+one-liners-linux-main.bash:
 
   Set the backlight level:
       https://wiki.archlinux.org/index.php/backlight#ACPI

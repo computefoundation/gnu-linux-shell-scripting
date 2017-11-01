@@ -1,6 +1,6 @@
 Sources for aliases and short functions
 
-aliases-linux-without_output.bash:
+aliases-main.bash:
 
   rmffa: https://superuser.com/a/112079
 
