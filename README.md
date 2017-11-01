@@ -55,10 +55,10 @@ Solutions with respect to core aspects of the GNU/Linux operating system *(e.g. 
 
 Utilities, based on two *super* sections:
 
-#### 1. Primary
+#### 1. Main (performing an action)
 
-* [Open a new terminal with an initial command to run.](scripts/utilities-primary/general_program_management/newterm)
-* [Execute a command in (or run the last command of) a terminal emulator.](scripts/utilities-primary/keybind/termcommand)
+* [Open a new terminal with an initial command to run.](scripts/utilities-main/general_program_management/newterm)
+* [Execute a command in (or run the last command of) a terminal emulator.](scripts/utilities-main/keybind/termcommand)
 
 #### 2. Modules (solutions used in conjuction with command-line programs)
 
