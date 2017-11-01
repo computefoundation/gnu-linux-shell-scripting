@@ -19,7 +19,6 @@ shift 3
 
 case "${ACTION}" in
   # Create the database from an SQL file.
-  # 
   # Usage:
   #   ... create <create SQL file>
   'create')
@@ -43,7 +42,6 @@ case "${ACTION}" in
     ;;
     
   # Drop all tables in the database.
-  # 
   # Usage:
   #   ... droptables
   'droptables')
@@ -67,7 +65,6 @@ case "${ACTION}" in
     ;;
     
   # Clear data from all tables in the database.
-  # 
   # Usage:
   #   ... cleardata
   'cleardata')
@@ -78,7 +75,6 @@ case "${ACTION}" in
     ;;
     
   # Export the database.
-  # 
   # Usage:
   #   ... export
   'export')
@@ -90,5 +86,4 @@ case "${ACTION}" in
     ;;
 
 esac
-
 

@@ -2,7 +2,7 @@
 <img src='/../images/logo-light.png' width='27%' align='left' alt='logo-light.png'>
 <br><br>
 
-**Linux-shell-base** is a shell resource reviving the UNIX philosophy in free/libre and open source software to make general computing efficient.
+**Linux-shell-base** is a resource of solutions reviving the UNIX philosophy in free/libre and open source software to make general computing efficient.
 
 *See [Theory](https://github.com/linux-shell-base/linux-shell-base/wiki/Theory-and-background-philosophy#theory) to learn more.*
 <br><br><br>
@@ -16,7 +16,7 @@ Linux-shell-base provides solutions for multiple paradigms of the application la
 Generic solutions for applications
 
 * [Generic RDBMS functions for MySQL](functions/applications/databases/mysqlutil)
-* [Generic utility functions for MongoDB](functions/applications/databases/mongodbutil)
+* [Generic NoSQL database functions for MongoDB](functions/applications/databases/mongodbutil)
 
 ## Programming languages
 

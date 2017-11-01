@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # 
-# Generic utility functions for MongoDB
+# Generic NoSQL database functions for MongoDB
 # 
 # Usage:
 #   mongodbutil <database name> <action> [action arguments]
@@ -17,8 +17,7 @@ readonly ACTION="${2}"
 shift 2
 
 case "${ACTION}" in
-  # Export data to JSON file.
-  # 
+  # Export the data to a JSON file.
   # Usage:
   #   ... export <collection name> [out directory]
   # 
@@ -39,8 +38,7 @@ case "${ACTION}" in
     mongoexport --db "${DB_NAME}" ${opts} --jsonArray
     ;;
 
-  # Import data from JSON file.
-  # 
+  # Import data from a JSON file.
   # Usage:
   #   ... import <JSON file name> [collection name]
   # 
@@ -66,9 +64,8 @@ case "${ACTION}" in
     mongoimport --db "${DB_NAME}" --file "${1}" ${opts}
     ;;
 
-  # Dump database (outputs BSON files in contrast to export which outputs JSON
-  # files).
-  # 
+  # Dump the database (outputs BSON files in contrast to export which outputs
+  # JSON files).
   # Usage:
   #   ... dump [collection name] [out directory]
   # 
@@ -86,7 +83,6 @@ case "${ACTION}" in
     ;;
 
   # Restore data from BSON files.
-  # 
   # Usage:
   #   ... restore <file or directory containing exported data>
   'restore')
@@ -103,7 +99,6 @@ case "${ACTION}" in
     ;;
 
   # Drop the database.
-  # 
   # Usage:
   #   ... drop
   'drop')
@@ -111,7 +106,6 @@ case "${ACTION}" in
     ;;
 
   # Drop all databases.
-  # 
   # Usage:
   #   ... drop_all
   'drop_all')
@@ -127,14 +121,13 @@ case "${ACTION}" in
     ;;
 
   # Print general information for the database.
-  # 
   # Usage:
   #   ... info
   # 
   # Note:
   #   Information for all databases will be printed if DB_NAME empty.
   'info')
-    /usr/bin/mongo --eval "var param1='${DB_NAME}'" --shell <<-EOF
+		/usr/bin/mongo --eval "var param1='${DB_NAME}'" --shell <<-EOF
 			db = db.getSiblingDB('admin');
 			dbs = db.getMongo().getDBNames();
 
@@ -162,17 +155,4 @@ case "${ACTION}" in
     ;;
 
 esac
-
-
-
-# 
-# ================================================
-#   REFERENCES
-# ================================================
-# 
-# The following link provides a table that maps the most common mongo shell
-# helpers to their JavaScript equivalents:
-# 
-# https://docs.mongodb.org/manual/tutorial/write-scripts-for-the-mongo-shell/#differences-between-interactive-and-scripted-mongo
-# 
 
