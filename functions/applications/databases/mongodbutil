@@ -120,35 +120,6 @@ case "${ACTION}" in
 		EOF
     ;;
 
-  # Print general information for the database.
-  # Usage:
-  #   ... info
-  # 
-  # Note:
-  #   Information for all databases will be printed if DB_NAME empty.
-  'info')
-		/usr/bin/mongo --eval "var param1='${DB_NAME}'" --shell <<-EOF
-			db = db.getSiblingDB('admin');
-			dbs = db.getMongo().getDBNames();
-
-			if (param1) {
-				dbs = JSON.parse('[ ' + JSON.stringify(param1) + ' ]');
-			}
-
-			print('\nDatabase collections and counts:');
-			for (var i = 0; i < dbs.length; i++) {
-				db = db.getSiblingDB(dbs[i]);
-				print('  ' + dbs[i]);
-				cols = db.getCollectionNames();
-				cols.forEach(function(collection) {
-					col = db.getCollection(collection);
-					print('    ' + collection + ': ' + col.count());
-				});
-			}
-			print();
-		EOF
-    ;;
-
   *)
     echo "mongodbutil: unknown action \"${ACTION}\"" 1>&2
     exit 1
