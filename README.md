@@ -40,7 +40,8 @@ Solutions with respect to core aspects of the GNU/Linux operating system *(e.g. 
 
 #### 3. Output only - multi-value (multi-value output and no actions)
 
-* [Print the paths of the subsubdirectories of the specified directory.](scripts/linux-output_only-multi-value/file_management/printsubsubdirpaths)
+* [Recursively find and list one or more files.](aliases/aliases-linux-output_only-multi-value.bash)
+* [List all open TCP and UDP ports.](aliases/aliases-linux-output_only-multi-value.bash)
 
 #### 4. Modules (used in conjuction with command-line programs)
 
@@ -97,7 +98,7 @@ As Linux-shell-base is not a framework, there is no installation process, howeve
 
 It provides the following:
 
-* 25 of the current 45 scripts
+* 24 of the current 44 scripts
 * 2 of the current 4 functions scripts
 * 40 of the current 42 aliases and short-functions
 * 2 of the current 3 one-liners
