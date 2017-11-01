@@ -35,7 +35,7 @@ Solutions with respect to core aspects of the GNU/Linux operating system *(e.g. 
 
 #### 2. Without output (actions without output)
 
-* [Rename all files with a matching name recursively.](scripts/linux-without_output/file_management/renrec)
+* [Rename all files matching a name recursively.](scripts/linux-without_output/file_management/renrec)
 
 #### 3. Output only - single-value (single-value output and no actions)
 

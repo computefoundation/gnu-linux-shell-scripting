@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # 
-# Rename all files with a matching name recursively.
+# Rename all files matching a name recursively.
 # 
 # Usage:
 #   renrec <old file name> <new file name>
