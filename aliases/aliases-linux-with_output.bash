@@ -19,5 +19,5 @@ cxfd() { [ "$#" -gt 1 ] && local p="${2}" || local p="$PWD"; local o="$(find \
 # ======= 2.  SHELL MANAGEMENT =================================
 
 #[Builtin·utilities]
-cpv() { local a=(${@:1:$(($#-1))}); rsync -ah --progress "${a[@]}" "${@: -1}"; } # cpv: use alternative for builtin cp with progress output (note: do not include a trailing slash to copy a directory)
+cpv() { local a=(${@:1:$(($#-1))}); rsync -ah --progress "${a[@]}" "${@: -1}"; } # cpv: copy a file or directory with progress output (note: do not include a trailing slash to copy a directory)
 

@@ -31,7 +31,7 @@ Solutions with respect to core aspects of the GNU/Linux operating system *(e.g. 
 
 #### 1. With output (actions with output)
 
-* [Take a screenshot.](scripts/linux-with_output/x11/screenshot)
+* [Copy a file or directory with progress output.](aliases/aliases-linux-with_output.bash)
 
 #### 2. Without output (actions without output)
 
@@ -101,7 +101,7 @@ As Linux-shell-base is not a framework, there is no installation process, howeve
 
 It provides the following:
 
-* 25 of the current 46 scripts
+* 25 of the current 45 scripts
 * 2 of the current 4 functions scripts
 * 44 of the current 46 aliases and short-functions
 * 2 of the current 3 one-liners
