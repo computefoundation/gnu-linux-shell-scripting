@@ -31,7 +31,7 @@ Solutions with respect to core aspects of the GNU/Linux operating system *(e.g. 
 
 #### 1. With output (actions with output)
 
-* [Copy a file or directory with progress output.](aliases/aliases-linux-with_output.bash)
+(currently none)
 
 #### 2. Without output (actions without output)
 
@@ -103,7 +103,7 @@ It provides the following:
 
 * 25 of the current 45 scripts
 * 2 of the current 4 functions scripts
-* 44 of the current 46 aliases and short-functions
+* 40 of the current 42 aliases and short-functions
 * 2 of the current 3 one-liners
 
 All solutions are downloaded to a single directory in the user's home directory.

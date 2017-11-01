@@ -2,7 +2,7 @@ Sources for aliases and short functions
 
 aliases-linux-without_output.bash:
 
-  rmff: https://superuser.com/a/112079
+  rmffa: https://superuser.com/a/112079
 
 aliases-linux-output_only-multi-value.bash:
 

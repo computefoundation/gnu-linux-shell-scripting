@@ -28,11 +28,7 @@ rmffa() { find . -name "*${1}*" -type f -print0  | xargs -0 rm -f; }            
 egr() { [ "$#" -gt 1 ] && local d="${2}" || local d='.'; ${EDITOR} \
   $(/usr/bin/grep -l -R "${1}" "${d}"); }                                        # egr: find all files recursively containing the given text and open them in the default editor; $1: text; $2: directory (optional; default is current)
 
-# ======= 2.  NETWORKING MANAGEMENT ============================
-
-#[Local·network]
-alias enablenetw='nmcli n on'                                                    # enablenetw: enable the local network (requires NetworkManager)
-alias disablenetw='nmcli n off'                                                  # disablenetw: disable the local network (requires NetworkManager)
+# ======= 2.  NETWORK MANAGEMENT ===============================
 
 #[Internet]
 alias flushdns='dscacheutil -flushcache'                                         # flushdns: flush the DNS Cache
@@ -44,10 +40,8 @@ alias suspendmonitor='sleep .7; xset dpms force off'                            
 
 # ======= 4.  X11 ==============================================
 
-#[Copy·and·paste]
+#[Clipboard]
 alias cdpx='cd "$(xclip -o -selection c)"'                                       # cdpx: cd to the directory path currently pasted in the X11 clipboard
 alias epx='${EDITOR} "$(xclip -o -selection c)"'                                 # epx: open the file from the path currently pasted in the X11 clipboard in the default editor
-
-#[X11]
 alias pxsel='echo -n "$(xsel)"'                                                  # pxsel: paste the currently selected text to the X11 clipboard
 

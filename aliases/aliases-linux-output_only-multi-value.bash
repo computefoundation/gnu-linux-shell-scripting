@@ -2,10 +2,9 @@
 # 
 # Sections:
 #    1.   System management
-#    2.   Software and applications
-#    3.   File management
-#    4.   Network management
-#    5.   X11
+#    2.   File management
+#    3.   Network management
+#    4.   X11
 # 
 
 # ======= 1.  SYSTEM MANAGEMENT ================================
@@ -16,27 +15,19 @@ processes() { ps -u "${USER}" -o pid,%cpu,%mem,start,time,bsdtime; }            
 #[Device·management]
 udevattrs() { udevadm info -a -p "$(udevadm info -q path -n "${@}")"; }          # udevattrs: list the udev attributes for a device; $1: device name (e.g. "/dev/sda1")
 
-# ======= 2.  SOFTWARE AND APPLICATIONS ========================
-
-#[Fonts]
-alias fclist='fc-list | cut -f2 -d: | sort -u'                                   # fclist: list the names of all installed fonts
-
-# ======= 3.  FILE MANAGEMENT ==================================
-
-#[General]
-alias largest='du -hsx * | sort -rh | head -10'                                  # largest: list the ten largest non-hidden files and directories in the current directory
+# ======= 2.  FILE MANAGEMENT ==================================
 
 #[Status]
 alias ll='command ls -FGlAhp'                                                    # ll: list the permissions and owner of each file in the current directory
 
-#[Find/Search]
+#[Searching]
 ff() { [ "$#" -gt 1 ] && local d="${2}" || local d='.'; local out="$(find \
-  "${d}" -type f -name "*${1}*")"; [ -n "${out}" ] && echo "${out}"; }           # ff: find one or more files recursively; $1: file to search; $2: directory to search from (optional; default is current)
+  "${d}" -type f -name "*${1}*")"; [ -n "${out}" ] && echo "${out}"; }           # ff: recursively find and list one or more files; $1: file name; $2: directory to search from (optional; default is current)
 
 fd() { [ "$#" -gt 1 ] && local d="${2}" || local d='.'; local out="$(find \
-  "${d}" -type d -name "*${1}*")"; [ -n "${out}" ] && echo "${out}"; }           # fd: find one or more directories recursively; $1: directory to search; $2: directory to search from (optional; default is current)
+  "${d}" -type d -name "*${1}*")"; [ -n "${out}" ] && echo "${out}"; }           # fd: recursively find and list one or more directories; $1: directory name; $2: directory to search from (optional; default is current)
 
-# ======= 4.  NETWORKING MANAGEMENT ============================
+# ======= 3.  NETWORKING MANAGEMENT ============================
 
 #[Local·network]
 alias ports='sudo ss -antu'                                                      # ports: list all open TCP and UDP ports
@@ -51,8 +42,8 @@ alias sshstatus='ss -tnlp'                                                      
 alias sshlist='sudo lsof -i -n | egrep \<ssh\>'                                  # sshlist: list all tunnels created by the SSH daemon
 alias sshconn='sudo lsof -i -n | egrep \<sshd\>'                                 # sshconn: list all tunnels/connections made to the SSH daemon
 
-# ======= 5.  X11 ==============================================
+# ======= 4.  X11 ==============================================
 
-#[Monitoring]
+#[Hardware]
 alias getmousepos='watch -t -n 0.0001 xdotool getmouselocation'                  # getmousepos: watch and print the current mouse position
 
