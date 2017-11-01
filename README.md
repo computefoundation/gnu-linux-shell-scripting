@@ -1,15 +1,15 @@
 
-<img src='/../images/logo-light.png' width='28%' align='left' alt='logo-light.png'>
-<br>
+<img src='/../images/logo-light.png' width='27%' align='left' alt='logo-light.png'>
+<br><br>
 
-General computing efficiency does not exist because the UNIX philosophy is absent in software. **Linux-shell-base** is presenting the UNIX philosophy to free/libre and open source software (FLOSS) by diminishing the architecture of FLOSS with shell solutions for the foundation of computing. These shell solutions solve problems for sections of application layer paradigms with respect to the UNIX philosophy. Overall, its purpose is to make general computing efficient (see [Theory](https://github.com/linux-shell-base/linux-shell-base/wiki/Theory-and-background-philosophy#theory) to learn more).
+**Linux-shell-base** is a shell resource reviving the UNIX philosophy in free/libre and open source software to make general computing efficient.
+
+*See [Theory](https://github.com/linux-shell-base/linux-shell-base/wiki/Theory-and-background-philosophy#theory) to learn more.*
 <br><br><br>
-
-*See [Background philosophy](https://github.com/linux-shell-base/linux-shell-base/wiki/Theory-and-background-philosophy#background-philosophy) to learn more about the reason general computing efficiency does not exist and how Linux-shell-base originated.*
 
 # Application layer paradigms
 
-The following is a list of all application layer paradigms targeted by Linux-shell-base. Each paradigm includes one or two example solutions.
+Linux-shell-base provides solutions for multiple paradigms of the application layer. The following is a list of them with one or two examples for each.
 
 ## Applications
 
@@ -27,26 +27,26 @@ Solutions for programming languages
 
 ## Linux
 
-Solutions with respect to core aspects of the GNU/Linux operating system *(e.g. file, network, X11 and shell management)*, based on five *super* sections:
+Solutions with respect to core aspects of the GNU/Linux operating system *(e.g. file and system management and X11)*, based on five *super* sections:
 
-#### 1. With output (performing an action with output)
+#### 1. With output (actions with output)
 
 * [Take a screenshot.](scripts/linux-with_output/x11/screenshot)
 
-#### 2. Without output (performing an action without output)
+#### 2. Without output (actions without output)
 
 * [Rename all files with a matching name recursively.](scripts/linux-without_output/file_management/renrec)
 
-#### 3. Output only - single-value (providing single-value output without performing an action)
+#### 3. Output only - single-value (single-value output and no actions)
 
 * [Get the size of one or more files and/or directories as a plain number.](https://github.com/linux-shell-base/linux-shell-base/blob/master/one-liners/one-liners-linux-output_only-single-value.bash)
 * [Get the ID of a window by PID.](scripts/linux-output_only-single-value/x11/getwindidbypid)
 
-#### 4. Output only - multi-value (providing multi-value output without performing an action)
+#### 4. Output only - multi-value (multi-value output and no actions)
 
 * [Print the paths of the subsubdirectories of the specified directory.](scripts/linux-output_only-multi-value/file_management/printsubsubdirpaths)
 
-#### 5. Modules (used in conjuction with command-line programs)
+#### 5. Modules (solutions used in conjuction with command-line programs)
 
 * [Run a command in the background.](scripts/linux-modules/shell_management/runinbg)
 * [Run a command when files have changed in the current directory.](scripts/linux-modules/file_management/inotify)
@@ -60,7 +60,7 @@ Utilities, based on two *super* sections:
 * [Open a new terminal with an initial command to run.](scripts/utilities-primary/general_program_management/newterm)
 * [Execute a command in (or run the last command of) a terminal emulator.](scripts/utilities-primary/keybind/termcommand)
 
-#### 2. Modules (used in conjuction with command-line programs)
+#### 2. Modules (solutions used in conjuction with command-line programs)
 
 * [Return one or more files for a command using one of two search methods: (1) Locate from a database; (2) Recursively find from the current or specified directory.](scripts/utilities-modules/general_program_management/returnfileforcmd)
 
@@ -68,7 +68,7 @@ Utilities, based on two *super* sections:
 
 Solutions for mobile devices, based on two *super* sections:
 
-#### 1. Android (for Android devices)
+#### 1. Android (Android devices)
 
 * [Send an sms using an Android device.](scripts/mobile-android/utilities/sms)
 * [Watch and print the X and Y screen tap coordinates of an Android device.](scripts/mobile-android/monitoring/getmobiletappos)
@@ -83,7 +83,7 @@ Linux-shell-base has an [extension repository for *utilities* consisting of more
 
 # Contributing
 
-The goal of Linux-shell-base is to revive the UNIX philosophy as much as possible to provide a foundation for efficient computing. Contributions are therefore more than welcome.
+The goal of Linux-shell-base is to revive the UNIX philosophy in free/libre and open source software as much as possible. Contributions are therefore more than welcome.
 
 If you would like to help and contribute, please ensure that your contribution adheres to the principles and rules listed above. A reason and/or explanation on how it can be changed may be given if it doesn't. (Please send an email to ensure a solution will be accepted). Finally, changes will be applied by Linux-shell-base if the contribution does not conform to the respective [guideline][wiki].
 
