@@ -17,6 +17,15 @@ getpid() { lsof -t -c "${@}" 2>/dev/null; }                                     
 
 # ======= 2.  FILE MANAGEMENT ==================================
 
+#[Searching]
+cxff() { [ "$#" -gt 1 ] && local p="${2}" || local p="$PWD"; local o="$(find \
+  "${p}" -type f -wholename "*${1}*" -print -quit)"; [ -n "${o}" ] && echo \
+  "${o}" | tee /dev/tty | xclip -r -selection c; }                               # cxff: find a file recursively and copy its absolute path to the X11 clipboard; $1: file name; $2: directory (optional; default is current)
+
+cxfd() { [ "$#" -gt 1 ] && local p="${2}" || local p="$PWD"; local o="$(find \
+  "${p}" -type d -wholename "*${1}*" -print -quit)"; [ -n "${o}" ] && echo \
+  "${o}" | tee /dev/tty | xclip -r -selection c; }                               # cxfd: find a directory recursively and copy its absolute path to the X11 clipboard; $1: file name; $2: directory (optional; default is current)
+
 #[General]
 alias numfiles='echo "$(ls -1 | wc -l)"'                                         # numfiles: get the number of non-hidden files and directories in the current directory
 
