@@ -1,15 +1,15 @@
 
-<img src='/../images/logo-light.png' width='27%' align='left' alt='logo-light.png'>
-<br><br>
+<img src='/../images/logo-light.png' width='35%' align='left' alt='logo-light.png'>
+<br><br><br><br>
 
-**Linux-shell-base** is a resource of solutions reviving the UNIX philosophy in free/libre and open source software to make general computing efficient.
+**Linux-shell-base** is a resource of UNIX-founded shell solutions making computing with free/libre and open source software efficient.
 
-*See [Theory](https://github.com/linux-shell-base/linux-shell-base/wiki/Theory-and-background-philosophy#theory) to learn more.*
-<br><br><br>
+See [Background philosophy](https://github.com/linux-shell-base/linux-shell-base/wiki/Theory-and-background-philosophy#background-philosophy) to learn why and [Theory](https://github.com/linux-shell-base/linux-shell-base/wiki/Theory-and-background-philosophy#theory) to learn how.
+<br><br><br><br><br>
 
 # Application layer paradigms
 
-Linux-shell-base provides solutions for multiple paradigms of the application layer. The following is a list of them with one or two examples for each.
+Linux-shell-base targets the following application layer paradigms:
 
 ## Applications
 
@@ -27,13 +27,13 @@ Solutions for programming languages
 
 ## Linux
 
-Solutions with respect to core aspects of the GNU/Linux operating system *(e.g. file and system management and X11)*, based on four *super* sections:
+Solutions with respect to core Linux operating system tools and aspects *(e.g. GNU, file and system management and X11)*, based on four *super* sections:
 
-#### 1. Main (actions)
+#### 1. Main (actions with or without output)
 
 * [Rename all files matching a name recursively.](scripts/linux-without_output/file_management/renrec)
 
-#### 2. Output only - single-value (providing single-value output without performing an action)
+#### 2. Output only - single-value (single-value output and no actions)
 
 * [Get the size of one or more files and/or directories as a plain number.](https://github.com/linux-shell-base/linux-shell-base/blob/master/one-liners/one-liners-linux-output_only-single-value.bash)
 * [Get the ID of a window by PID.](scripts/linux-output_only-single-value/x11/getwindidbypid)
@@ -52,12 +52,12 @@ Solutions with respect to core aspects of the GNU/Linux operating system *(e.g. 
 
 Utilities, based on two *super* sections:
 
-#### 1. Main (performing an action)
+#### 1. Main (actions with or without output)
 
 * [Open a new terminal with an initial command to run.](scripts/utilities-main/general_program_management/newterm)
 * [Execute a command in (or run the last command of) a terminal emulator.](scripts/utilities-main/keybind/termcommand)
 
-#### 2. Modules (solutions used in conjuction with command-line programs)
+#### 2. Modules (used in conjuction with command-line programs)
 
 * [Return one or more files for a command using one of two search methods: (1) Locate from a database; (2) Recursively find from the current or specified directory.](scripts/utilities-modules/general_program_management/returnfileforcmd)
 
