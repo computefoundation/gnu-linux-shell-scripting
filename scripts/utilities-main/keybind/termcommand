@@ -32,6 +32,18 @@
 #   the format "<class>.<classname>").
 # 
 
+# ======= CONFIGURATIONS ==============
+
+# This is the delay time for pasting the command in the terminal emulator.
+# With no delay time, on a fast computer, the terminal emulator may focused
+# quick enough to allow the full command to be pasted, however, on a mid-grade
+# computer, it may not, causing causes only a part or none of the command to
+# be pasted. This should be adjusted according to the user's needs. (Note:
+# this delay time is also applied before refocusing the previous window).
+readonly PASTE_DELAY_TIME='.15'
+
+# ======= ! CONFIGURATIONS ==============
+
 OPTS="$(getopt -q -o c:,t:,l,r --long class:,title:,last,refocus -n \
     'termcommand' -- "${@}")"
 if [ "$?" -ne 0 ]; then
@@ -52,18 +64,6 @@ while true; do
   esac
   shift
 done
-
-# ======= CONFIGURATIONS ==============
-
-# This is the delay time for pasting the command in the terminal emulator.
-# With no delay time, on a fast computer, the terminal emulator may focused
-# quick enough to allow the full command to be pasted, however, on a mid-grade
-# computer, it may not, causing causes only a part or none of the command to
-# be pasted. This should be adjusted according to the user's needs. (Note:
-# this delay time is also applied before refocusing the previous window).
-readonly PASTE_DELAY_TIME='.15'
-
-# ======= ! CONFIGURATIONS ==============
 
 if [[ -z "${TERM_CLASS}" && -z "${TERM_TITLE}" ]]; then
   notify-send 'termcommand (err): must use option --class or --title'
@@ -111,13 +111,13 @@ if [ -n "${termWindId}" ]; then
   # sections.
 
   if [ "${OPT_LAST_COMMAND}" = 'true' ]; then
-    #------- xte -----------
+    # ---------  xte  ---------
     xte 'usleep 25000' 'key Up' 'key Return'
 
-    #------- xdotool -----------
+    # ---------  xdotool  ---------
     # xdotool sleep .007 key Up key Return
   else
-    #------- xte -----------
+    # ---------  xte  ---------
     # Xte sometimes fails to completely paste a string with more than 249
     # characters. As a result, a string with more than 249 characters is pasted
     # by every 249 character part.
@@ -135,7 +135,7 @@ if [ -n "${termWindId}" ]; then
 			EOF
     fi
 
-    #------- xdotool -----------
+    # ---------  xdotool  ---------
     # xdotool type "${@}"
     # # must run a separate xdotool command as "type" will type everything after
     # # it; also a much higher sleep time is needed as xdotool types each
