@@ -15,15 +15,15 @@ Linux-shell-base targets the following application layer paradigms:
 
 Generic solutions for applications
 
-* [Generic RDBMS functions for MySQL](functions/applications/databases/mysqlutil)
-* [Generic NoSQL database functions for MongoDB](functions/applications/databases/mongodbutil)
+* [Generic RDBMS functions for MySQL](functions_scripts/applications/databases/mysqlutil)
+* [Generic NoSQL database functions for MongoDB](functions_scripts/applications/databases/mongodbutil)
 
 ## Programming languages
 
 Solutions for programming languages
 
-* [Bash array utilities](functions/programming_languages/bash/arrayutils.bash)
-* [Bash date and time utilities](functions/programming_languages/bash/dateandtimeutils.bash)
+* [Bash array utilities](functions_scripts/programming_languages/bash/arrayutils.bash)
+* [Bash date and time utilities](functions_scripts/programming_languages/bash/dateandtimeutils.bash)
 
 ## Linux
 
