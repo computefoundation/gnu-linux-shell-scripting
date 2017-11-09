@@ -92,7 +92,7 @@ mwget '/scripts/utilities-modules/general_program_management' \
 #   Solutions - Functions
 # ============================================
 
-mwget '/functions/programming_languages/bash' \
+mwget '/functions_scripts/programming_languages/bash' \
   'arrayutils.bash' \
   'coreutils.bash' \
   'dateandtimeutils.bash' \
