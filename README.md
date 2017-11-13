@@ -1,10 +1,10 @@
 
-<img src='/../images/logo-light.png' width='35%' align='left' alt='logo-light.png'>
-<br><br><br><br>
+<img src='/../images/logo-light.png' width='32.2%' align='left' alt='logo-light.png'>
+<br><br><br>
 
-**Linux-shell-base** is a resource of UNIX-founded shell solutions making computing with free/libre and open source software efficient.
+**Linux-shell-base** provides shell solutions for free/libre and open source software making general computing efficient.
 
-See [Background philosophy](https://github.com/linux-shell-base/linux-shell-base/wiki/Theory-and-background-philosophy#background-philosophy) to learn why and [Theory](https://github.com/linux-shell-base/linux-shell-base/wiki/Theory-and-background-philosophy#theory) to learn how.
+See [Theory](https://github.com/linux-shell-base/linux-shell-base/wiki/Theory) and [Background philosophy](https://github.com/linux-shell-base/linux-shell-base/wiki/Background-philosophy) to learn more.
 <br><br><br><br><br>
 
 # Application layer paradigms
@@ -25,9 +25,9 @@ Solutions for programming languages
 * [Bash array utilities](functions_scripts/programming_languages/bash/arrayutils.bash)
 * [Bash date and time utilities](functions_scripts/programming_languages/bash/dateandtimeutils.bash)
 
-## Linux
+## GNU/Linux
 
-Solutions with respect to core Linux operating system tools and aspects *(e.g. GNU, file and system management and X11)*, based on four *super* sections:
+Solutions for foundational concepts of the GNU/Linux operating system *(e.g. operating system tools, file, system and window management)*, based on four *super* sections:
 
 #### 1. Main (actions with or without output)
 
@@ -82,13 +82,11 @@ Linux-shell-base has an [extension repository for *utilities* consisting of more
 
 The goal of Linux-shell-base is to revive the UNIX philosophy in free/libre and open source software as much as possible. Contributions are therefore more than welcome.
 
-If you would like to help and contribute, please ensure that your contribution adheres to the principles and rules listed above. A reason and/or explanation on how it can be changed may be given if it doesn't. (Please send an email to ensure a solution will be accepted). Finally, changes will be applied by Linux-shell-base if the contribution does not conform to the respective [guideline][wiki].
+If you would like to help and contribute, please ensure that your contribution adheres to the respective [guidelines](https://github.com/linux-shell-base/linux-shell-base/wiki). Please send an email if you are unsure a solution will be accepted. A contribution may provide an alternative implementation of an already existing solution, however, it must have substantial reason (e.g. it solves the same problem with a different dependency or language).
 
 Credits will be placed in the wiki.
 
 Here is a list of [needed solutions](https://github.com/linux-shell-base/linux-shell-base/wiki/Needed-solutions). It can also be used for ideas.
-
-A contribution may provide an alternative implementation of an already existing solution, however, it must have substantial reason (e.g. it solves the same problem with a different dependency or language).
 
 Please send an email to *main@linuxshellbase.com* with any suggestions, comments or questions.
 
