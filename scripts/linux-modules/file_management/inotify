@@ -6,8 +6,7 @@
 #   inotify <command to run>
 # 
 # Usage note:
-#   Run this script in the directory it is to monitor and give it one or more
-#   commands to run.
+#   Run this script in the directory it is to monitor.
 # 
 # Dependencies:
 #   inotify-tools
