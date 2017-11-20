@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 # 
-# Generic RDBMS functions for MySQL
+# RDBMS functions for MySQL
 # 
 # Usage:
-#   mysqlutil <databaes user> <database name> <action>
+#   mysqlutils <databaes user> <database name> <action>
 # 
 
 if [ "$#" -lt 3 ]; then
-  echo -e  'mysqlutil: invalid number of arguments; database user,\n' \
+  echo -e  'mysqlutils: invalid number of arguments; database user,\n' \
       '  database name and action required' 1>&2
   exit 1
 fi
@@ -23,11 +23,11 @@ case "${ACTION}" in
   #   ... create <create SQL file>
   'create')
     if [ "$#" -eq 0 ]; then
-      echo "mysqlutil: no SQL file specified" 1>&2
+      echo "mysqlutils: no SQL file specified" 1>&2
       exit 1
     fi
     if [ ! -f "${1}" ]; then
-      echo "mysqlutil: file \"${1}\" not found" 1>&2
+      echo "mysqlutils: file \"${1}\" not found" 1>&2
       exit 1
     fi
 
@@ -37,7 +37,7 @@ case "${ACTION}" in
       bash ${0} 'droptables' "${DB_USER}" "${DB_NAME}"
       mysql -u"${DB_USER}" "${DB_NAME}" < "${1}"
     else
-      echo "mysqlutil: database \"${DB_NAME}\" not found" 1>&2
+      echo "mysqlutils: database \"${DB_NAME}\" not found" 1>&2
     fi
     ;;
     
@@ -82,7 +82,7 @@ case "${ACTION}" in
     ;;
     
   *)
-    echo "mysqlutil: unknown action \"${ACTION}\"" 1>&2
+    echo "mysqlutils: unknown action \"${ACTION}\"" 1>&2
     ;;
 
 esac

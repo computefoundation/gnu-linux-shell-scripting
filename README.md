@@ -13,10 +13,10 @@ Linux-shell-base targets the following application layer paradigms:
 
 ## Applications
 
-Generic solutions for applications
+Solutions for applications
 
-* [Generic RDBMS functions for MySQL](functions_scripts/applications/databases/mysqlutil)
-* [Generic NoSQL database functions for MongoDB](functions_scripts/applications/databases/mongodbutil)
+* [RDBMS functions for MySQL](functions_scripts/applications/databases/mysqlutils)
+* [NoSQL functions for MongoDB](functions_scripts/applications/databases/mongodbutils)
 
 ## Programming languages
 
@@ -80,9 +80,9 @@ Linux-shell-base has an [extension repository for *utilities* consisting of more
 
 # Contributing
 
-The goal of Linux-shell-base is to revive the UNIX philosophy in free/libre and open source software as much as possible. Contributions are therefore more than welcome.
+The goal of Linux-shell-base is to make general computing as efficient much as possible. Contributions are therefore more than welcome.
 
-If you would like to help and contribute, please ensure that your contribution adheres to the respective [guidelines](https://github.com/linux-shell-base/linux-shell-base/wiki). Please send an email if you are unsure a solution will be accepted. A contribution may provide an alternative implementation of an already existing solution, however, it must have substantial reason (e.g. it solves the same problem with a different dependency or language).
+If you would like to help and contribute, please ensure that your contribution adheres to the respective [guidelines](https://github.com/linux-shell-base/linux-shell-base/wiki) and send an email if you are unsure it will be accepted. A contribution may be an alternative implementation of an already existing solution, however, it must have substantial reason (e.g. it solves the same problem with a different dependency or language).
 
 Credits will be placed in the wiki.
 

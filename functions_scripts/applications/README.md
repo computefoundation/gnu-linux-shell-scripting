@@ -3,5 +3,5 @@
 
 ## databases/
 
-* [**mongodbutil**](databases/mongodbutil): Generic RDBMS functions for MongoDB
-* [**mysqlutil**](databases/mysqlutil): Generic NoSQL database functions for MySQL
+* [**mongodbutils**](databases/mongodbutils): RDBMS functions for MongoDB
+* [**mysqlutils**](databases/mysqlutils): NoSQL functions for MySQL

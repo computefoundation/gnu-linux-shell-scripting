@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 # 
-# Generic NoSQL database functions for MongoDB
+# NoSQL functions for MongoDB
 # 
 # Usage:
-#   mongodbutil <database name> <action> [action arguments]
+#   mongodbutils <database name> <action> [action arguments]
 # 
 
 if [ "$#" -lt 2 ]; then
-  echo -e  'mongodbutil: invalid number of arguments; database name\n  and' \
+  echo -e  'mongodbutils: invalid number of arguments; database name\n  and' \
       'action required' 1>&2
   exit 1
 fi
@@ -49,11 +49,11 @@ case "${ACTION}" in
   #   array, use the "--jsonArray" option at the end of mongoimport.
   'import')
     if [ "$#" -eq 0 ]; then
-      echo "mongodbutil: no directory specified" 1>&2
+      echo "mongodbutils: no directory specified" 1>&2
       exit 1
     fi
     if [ ! -f "${1}" ]; then
-      echo "mongodbutil: cannot import: file \"${1}\" does not exist" 1>&2
+      echo "mongodbutils: cannot import: file \"${1}\" does not exist" 1>&2
       exit 1
     fi
 
@@ -87,11 +87,11 @@ case "${ACTION}" in
   #   ... restore <file or directory containing exported data>
   'restore')
     if [ -z "${1}" ]; then
-      echo "mongodbutil: no directory specified"  1>&2
+      echo "mongodbutils: no directory specified"  1>&2
       exit 1
     fi
     if [ ! -d "${1}" ]; then
-      echo "mongodbutil: directory \"${1}\" does not exist"  1>&2
+      echo "mongodbutils: directory \"${1}\" does not exist"  1>&2
       exit 1
     fi
 
@@ -121,7 +121,7 @@ case "${ACTION}" in
     ;;
 
   *)
-    echo "mongodbutil: unknown action \"${ACTION}\"" 1>&2
+    echo "mongodbutils: unknown action \"${ACTION}\"" 1>&2
     exit 1
     ;;
 
