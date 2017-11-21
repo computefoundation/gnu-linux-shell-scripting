@@ -17,14 +17,15 @@ getpid() { lsof -t -c "${@}" 2>/dev/null; }                                     
 
 # ======= 2.  FILE MANAGEMENT ==================================
 
-#[Searching]
-cxff() { [ "$#" -gt 1 ] && local p="${2}" || local p="$PWD"; local o="$(find \
-  "${p}" -type f -wholename "*${1}*" -print -quit)"; [ -n "${o}" ] && echo \
-  "${o}" | tee /dev/tty | xclip -r -selection c; }                               # cxff: find a file recursively and copy its absolute path to the X11 clipboard; $1: file name; $2: directory (optional; default is current)
+#[Finding]
+fff() { find . -type f -name "*${1}*" -print -quit; }                            # fff: find the first file recursively; $1: file name
+fdf() { find . -type d -name "*${1}*" -print -quit; }                            # fdf: find the first directory recursively; $1: directory name
 
-cxfd() { [ "$#" -gt 1 ] && local p="${2}" || local p="$PWD"; local o="$(find \
-  "${p}" -type d -wholename "*${1}*" -print -quit)"; [ -n "${o}" ] && echo \
-  "${o}" | tee /dev/tty | xclip -r -selection c; }                               # cxfd: find a directory recursively and copy its absolute path to the X11 clipboard; $1: file name; $2: directory (optional; default is current)
+fffa() { find . -type f -wholename "*${1}*" -print -quit; }                      # fffa: find the first file recursively and return its absolute path; $1: file name
+fdfa() { find . -type d -wholename "*${1}*" -print -quit; }                      # fdfa: find the first directory recursively and return its absolute path; $1: directory name
+
+ffd() { echo "$(find . -type f -name "*${1}*" -exec sh -c 'echo "${1%/*}"; \
+  kill "$PPID"' sh {} \;)" ;}                                                    # ffd: find the first file recursively and print its containing directory; $1: file name
 
 #[General]
 alias numfiles='echo "$(ls -1 | wc -l)"'                                         # numfiles: get the number of non-hidden files and directories in the current directory

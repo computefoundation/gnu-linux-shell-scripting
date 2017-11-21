@@ -12,22 +12,6 @@
 #[Permission·management]
 alias permnreadonly='chmod a-w'                                                  # permnreadonly: change the permisson status of a file to read-only
 
-#[Searching]
-cdff() { [ "$#" -gt 1 ] && local d="${2}" || local d='.'; cd "$(find "${d}" \
-  -type f -name "*${1}*" -exec sh -c 'echo "${1%/*}"; kill "$PPID"' sh {} \;)" \
-  ; }                                                                            # cdff: find a file recursively and cd to its directory; $1: file name; $2: directory (optional; default is current)
-
-cdfd() { [ "$#" -gt 1 ] && local d="${2}" || local d='.'; cd $(find "${d}" \
-  -type d -name "*${1}*" -print -quit); }                                        # cdfd: find a directory recursively and cd to it; $1: directory name; $2: directory (optional; default is current)
-
-effa() { [ "$#" -gt 1 ] && local d="${2}" || local d='.'; ${EDITOR} $(find \
-  "${d}" -type f -name "*${1}*"); }                                              # effa: find all files recursively and open them in the default editor; $1: file name; $2: directory (optional; default is current)
-
-rmffa() { find . -name "*${1}*" -type f -print0  | xargs -0 rm -f; }             # rmffa: find all files recursively and delete them; $1: file name
-
-egr() { [ "$#" -gt 1 ] && local d="${2}" || local d='.'; ${EDITOR} \
-  $(/usr/bin/grep -l -R "${1}" "${d}"); }                                        # egr: find all files recursively containing the given text and open them in the default editor; $1: text; $2: directory (optional; default is current)
-
 # ======= 2.  NETWORK MANAGEMENT ===============================
 
 #[Internet]

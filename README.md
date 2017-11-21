@@ -98,7 +98,7 @@ It provides the following:
 
 * 24 of the current 44 scripts
 * 2 of the current 4 functions scripts
-* 40 of the current 42 aliases and short-functions
+* 39 of the current 41 aliases and short-functions
 * 2 of the current 3 one-liners
 
 All solutions are downloaded to a single directory in the user's home directory.
