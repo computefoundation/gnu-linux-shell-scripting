@@ -74,36 +74,27 @@ Solutions for mobile devices, based on two *super* sections:
 
 # Packaged utilities
 
-Linux-shell-base has an [extension repository for *utilities* consisting of more than one file][packaged-utilities].
+Linux-shell-base has an [extension repository for packaged utilities][packaged-utilities].
 
 # Contributing
 
-The goal of Linux-shell-base is to make general computing as efficient much as possible. Contributions are therefore more than welcome.
+If you would like to contribute, please ensure that your contribution adheres to the respective [guidelines](https://github.com/linux-shell-base/linux-shell-base/wiki). Here is a list of [needed solutions](https://github.com/linux-shell-base/linux-shell-base/wiki/Needed-solutions); it can be used for ideas.
 
-If you would like to help and contribute, please ensure that your contribution adheres to the respective [guidelines](https://github.com/linux-shell-base/linux-shell-base/wiki) and send an email if you are unsure it will be accepted. A contribution may be an alternative implementation of an already existing solution, however, it must have substantial reason (e.g. it solves the same problem with a different dependency or language).
+An alternative implementation to an already existing solution will be accepted only if it has substantial reason, such as using a different dependency or language.
 
-Credits will be placed in the wiki.
-
-Here is a list of [needed solutions](https://github.com/linux-shell-base/linux-shell-base/wiki/Needed-solutions). It can also be used for ideas.
+Finally, credits will be placed in the wiki.
 
 Please send an email to *main@linuxshellbase.com* with any suggestions, comments or questions.
 
-# Install essentials
+Thanks.
 
-As Linux-shell-base is not a framework, there is no installation process, however, essential solutions can be retrieved by downloading *install-essentials.sh* with the following command and running it.
+# Download essentials
 
-It provides the following:
-
-* 24 of the current 44 scripts
-* 2 of the current 4 functions scripts
-* 39 of the current 41 aliases and short-functions
-* 2 of the current 3 one-liners
-
-All solutions are downloaded to a single directory in the user's home directory.
+To download the essential solutions, retrieve *download-essentials.sh* with following command and run it:
 
 ```bash
-wget https://raw.githubusercontent.com/linux-shell-base/linux-shell-base/install/install-essentials.sh \
-&& chmod +x install-essentials.sh
+wget https://raw.githubusercontent.com/linux-shell-base/linux-shell-base/install/download-essentials.sh \
+&& chmod +x download-essentials.sh
 ```
 
 
