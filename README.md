@@ -1,11 +1,9 @@
 
 <img src='/../images/logo-light.png' width='32.2%' align='left' alt='logo-light.png'>
-<br><br><br>
+<br><br><br><br>
 
-**Linux-shell-base** provides shell solutions for free/libre and open source software making general computing efficient.
-
-See [Theory](https://github.com/linux-shell-base/linux-shell-base/wiki/Theory) and [Background philosophy](https://github.com/linux-shell-base/linux-shell-base/wiki/Background-philosophy) to learn more.
-<br><br><br><br><br>
+**Linux-shell-base** is a resource of UNIX-based solutions for the GNU/Linux shell.
+<br><br><br><br><br><br>
 
 # Application layer paradigms
 
