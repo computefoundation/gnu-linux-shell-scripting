@@ -23,7 +23,6 @@ alias ll='command ls -FGlAhp'                                                   
 #[Finding]
 ff() { find . -type f -name "*${1}*"; }                                          # ff: find one or more files recursively and list them; $1: file name
 fd() { find . -type d -name "*${1}*"; }                                          # fd: find one or more directories recursively and list them; $1: directory name
-
 ffgr() { /usr/bin/grep -l -R "${1}" .; }                                         # ffgr: find all files recursively containing the given text and list them; $1: text
 
 # ======= 3.  NETWORKING MANAGEMENT ============================

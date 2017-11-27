@@ -20,10 +20,8 @@ getpid() { lsof -t -c "${@}" 2>/dev/null; }                                     
 #[Finding]
 fff() { find . -type f -name "*${1}*" -print -quit; }                            # fff: find the first file recursively; $1: file name
 fdf() { find . -type d -name "*${1}*" -print -quit; }                            # fdf: find the first directory recursively; $1: directory name
-
-fffa() { find . -type f -wholename "*${1}*" -print -quit; }                      # fffa: find the first file recursively and return its absolute path; $1: file name
-fdfa() { find . -type d -wholename "*${1}*" -print -quit; }                      # fdfa: find the first directory recursively and return its absolute path; $1: directory name
-
+fffa() { find "$PWD" -type f -name "*${1}*" -print -quit; }                      # fffa: find the first file recursively and return its absolute path; $1: file name
+fdfa() { find "$PWD" -type d -name "*${1}*" -print -quit; }                      # fdfa: find the first directory recursively and return its absolute path; $1: directory name
 ffd() { echo "$(find . -type f -name "*${1}*" -exec sh -c 'echo "${1%/*}"; \
   kill "$PPID"' sh {} \;)" ;}                                                    # ffd: find the first file recursively and print its containing directory; $1: file name
 
