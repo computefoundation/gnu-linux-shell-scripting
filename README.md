@@ -59,6 +59,10 @@ Utilities, based on two *super* sections:
 
 * [Return one or more files for a command using one of two search methods: (1) Locate from a database; (2) Recursively find from the current or specified directory.](scripts/utilities-modules/general_program_management/returnfileforcmd)
 
+---
+
+Linux-shell-base has an [extension repository for utilities consisting of more than one file][packaged-utilities].
+
 ## Mobile
 
 Solutions for mobile devices, based on two *super* sections:
@@ -71,10 +75,6 @@ Solutions for mobile devices, based on two *super* sections:
 #### 2. Generic (generic solutions for mobile devices)
 
 * [Mount and unmount an MTP device.](scripts/mobile-generic/management/mtp)
-
-# Packaged utilities
-
-Linux-shell-base has an [extension repository for packaged utilities][packaged-utilities].
 
 # Contributing
 
