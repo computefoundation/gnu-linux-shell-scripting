@@ -1,13 +1,14 @@
 
-<img src='/../images/logo-light.png' width='32.2%' align='left' alt='logo-light.png'>
+<img src='https://raw.githubusercontent.com/unix-base/home/images/linux-shell-base_logo.png' width='32.2%' align='left' alt='linux-shell-base_logo.png'>
 <br><br><br><br>
 
-**Linux-shell-base** is a resource of UNIX-based solutions for the GNU/Linux shell.
-<br><br><br><br><br><br>
+**Linux-shell-base** is a resource of UNIX-based solutions for the  
+GNU/Linux shell.
+<br><br><br><br><br>
 
 # Application layer paradigms
 
-Linux-shell-base targets the following application layer paradigms:
+Linux-shell-base provides solutions for the following application layer paradigms:
 
 ## Applications
 
@@ -99,5 +100,5 @@ wget https://raw.githubusercontent.com/linux-shell-base/linux-shell-base/install
 
 
 
-[packaged-utilities]: https://github.com/linux-shell-base/packaged-utilities
-[wiki]: https://github.com/linux-shell-base/linux-shell-base/wiki
+[packaged-utilities]: https://github.com/unix-base/linux-shell-base-packaged-utilities
+[wiki]: https://github.com/unix-base/linux-shell-base/wiki
