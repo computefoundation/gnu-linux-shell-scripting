@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # 
-# Open a new terminal with an initial command to run.
+# Open a new terminal with an initial command.
 # 
 # A small layer for configuring terminal and window settings is provided.
 # 

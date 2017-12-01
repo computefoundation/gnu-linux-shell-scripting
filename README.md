@@ -53,7 +53,7 @@ Utilities, based on two *super* sections:
 
 #### 1. Main (actions with or without output)
 
-* [Open a new terminal with an initial command to run.](scripts/utilities-main/general_program_management/newterm)
+* [Open a new terminal with an initial command.](scripts/utilities-main/general_program_management/newterm)
 * [Execute a command in (or run the last command of) a terminal emulator.](scripts/utilities-main/keybind/termcommand)
 
 #### 2. Modules (used in conjuction with command-line programs)
