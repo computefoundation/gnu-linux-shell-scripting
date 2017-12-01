@@ -34,12 +34,10 @@
 
 # ======= CONFIGURATIONS ==============
 
-# This is the delay time for pasting the command in the terminal emulator.
-# With no delay time, on a fast computer, the terminal emulator may focused
-# quick enough to allow the full command to be pasted, however, on a mid-grade
-# computer, it may not, causing causes only a part or none of the command to
-# be pasted. This should be adjusted according to the user's needs. (Note:
-# this delay time is also applied before refocusing the previous window).
+# This is the delay time for pasting the given command to the terminal emulator.
+# With no delay time, the terminal emulator may focused too quickly, causing
+# none or only a part of the command to be pasted. (Note: this delay time is
+# also applied when refocusing the previously focused window).
 readonly PASTE_DELAY_TIME='.15'
 
 # ======= ! CONFIGURATIONS ==============
