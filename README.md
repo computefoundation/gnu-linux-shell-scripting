@@ -1,8 +1,8 @@
 
-<img src='https://raw.githubusercontent.com/unix-base/home/images/linux-shell-base_logo.png' width='32.2%' align='left' alt='linux-shell-base_logo.png'>
+<img src='https://raw.githubusercontent.com/unix-foundation/home/images/linux-shell-base_logo.png' width='32.2%' align='left' alt='linux-shell-base_logo.png'>
 <br><br><br><br>
 
-**Linux-shell-base** is a resource of UNIX-based solutions for the GNU/Linux shell.
+**Linux-shell-base** is a resource of UNIX-founded solutions for the GNU/Linux shell.
 <br><br><br><br><br><br>
 
 # Application layer paradigms
@@ -84,7 +84,7 @@ An alternative implementation to an already existing solution will be accepted o
 
 Finally, credits will be placed in the wiki.
 
-Please send an email to *main@linuxshellbase.com* with any suggestions, comments or questions.
+Please send an email to *main@unixfoundation.org* with any suggestions, comments or questions.
 
 Thanks.
 
@@ -99,5 +99,5 @@ wget https://raw.githubusercontent.com/linux-shell-base/linux-shell-base/install
 
 
 
-[packaged-utilities]: https://github.com/unix-base/linux-shell-base-packaged-utilities
-[wiki]: https://github.com/unix-base/linux-shell-base/wiki
+[packaged-utilities]: https://github.com/unix-foundation/linux-shell-base-packaged-utilities
+[wiki]: https://github.com/unix-foundation/linux-shell-base/wiki
