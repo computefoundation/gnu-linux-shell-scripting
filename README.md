@@ -2,9 +2,8 @@
 <img src='https://raw.githubusercontent.com/unix-base/home/images/linux-shell-base_logo.png' width='32.2%' align='left' alt='linux-shell-base_logo.png'>
 <br><br><br><br>
 
-**Linux-shell-base** is a resource of UNIX-based solutions for the  
-GNU/Linux shell.
-<br><br><br><br><br>
+**Linux-shell-base** is a resource of UNIX-based solutions for the GNU/Linux shell.
+<br><br><br><br><br><br>
 
 # Application layer paradigms
 
