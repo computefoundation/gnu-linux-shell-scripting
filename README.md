@@ -90,9 +90,9 @@ Thanks.
 
 # Download essentials
 
-To download the essential solutions, retrieve *download-essentials.sh* with following command and run it:
+To download the essential solutions, retrieve *download-Shell-essentials.sh* with following command and run it:
 
 ```bash
-wget https://raw.githubusercontent.com/unix-foundation/shell/install/download-essentials.sh \
-&& chmod +x download-essentials.sh
+wget https://raw.githubusercontent.com/unix-foundation/shell/download/download-Shell-essentials.sh \
+&& chmod +x download-Shell-essentials.sh
 ```
