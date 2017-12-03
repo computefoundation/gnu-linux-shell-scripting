@@ -1,13 +1,13 @@
 
-<img src='https://raw.githubusercontent.com/unix-foundation/home/images/linux-shell-base_logo.png' width='32.2%' align='left' alt='linux-shell-base_logo.png'>
-<br><br><br><br>
+<img src='https://raw.githubusercontent.com/unix-foundation/home/images/shell_logo.png' width='33.5%' align='left' alt='shell_logo.png'>
+<br><br><br>
 
-**Linux-shell-base** is a resource of UNIX-founded solutions for the GNU/Linux shell.
+**Shell** is a resource of UNIX-founded solutions for the GNU/Linux shell.
 <br><br><br><br><br><br>
 
 # Application layer paradigms
 
-Linux-shell-base provides solutions for the following application layer paradigms:
+Shell provides solutions for the following application layer paradigms:
 
 ## Applications
 
@@ -33,7 +33,7 @@ Solutions for foundational concepts of the GNU/Linux operating system *(e.g. ope
 
 #### 2. Output only - single-value (single-value output and no actions)
 
-* [Get the size of one or more files and/or directories as a plain number.](https://github.com/linux-shell-base/linux-shell-base/blob/master/one-liners/one-liners-linux-output_only-single-value.bash)
+* [Get the size of one or more files and/or directories as a plain number.](one-liners/one-liners-linux-output_only-single-value.bash)
 * [Get the ID of a window by PID.](scripts/linux-output_only-single-value/x11/getwindidbypid)
 
 #### 3. Output only - multi-value (multi-value output and no actions)
@@ -61,7 +61,7 @@ Utilities, based on two *super* sections:
 
 ---
 
-Linux-shell-base has an [extension repository for utilities consisting of more than one file][packaged-utilities].
+Shell has an [extension repository for utilities consisting of more than one file](https://github.com/unix-foundation/shell--packaged-utilities).
 
 ## Mobile
 
@@ -78,13 +78,13 @@ Solutions for mobile devices, based on two *super* sections:
 
 # Contributing
 
-If you would like to contribute, please ensure that your contribution adheres to the respective [guidelines](https://github.com/linux-shell-base/linux-shell-base/wiki). Here is a list of [needed solutions](https://github.com/linux-shell-base/linux-shell-base/wiki/Needed-solutions); it can be used for ideas.
+If you would like to contribute, please ensure that your contribution adheres to the respective [guidelines](https://github.com/unix-foundation/shell/wiki). Here is a list of [needed solutions](https://github.com/unix-foundation/shell/wiki/Needed-solutions); it can be used for ideas.
 
 An alternative implementation to an already existing solution will be accepted only if it has substantial reason, such as using a different dependency or language.
 
 Finally, credits will be placed in the wiki.
 
-Please send an email to *main@unixfoundation.org* with any suggestions, comments or questions.
+Please send an email to main@unixfoundation.org with any suggestions, comments or questions.
 
 Thanks.
 
@@ -93,11 +93,6 @@ Thanks.
 To download the essential solutions, retrieve *download-essentials.sh* with following command and run it:
 
 ```bash
-wget https://raw.githubusercontent.com/linux-shell-base/linux-shell-base/install/download-essentials.sh \
+wget https://raw.githubusercontent.com/unix-foundation/shell/install/download-essentials.sh \
 && chmod +x download-essentials.sh
 ```
-
-
-
-[packaged-utilities]: https://github.com/unix-foundation/linux-shell-base-packaged-utilities
-[wiki]: https://github.com/unix-foundation/linux-shell-base/wiki
