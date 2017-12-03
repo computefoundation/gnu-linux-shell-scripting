@@ -29,7 +29,7 @@ Solutions for foundational concepts of the GNU/Linux operating system *(e.g. ope
 
 #### 1. Main (actions with or without output)
 
-* [Rename all files matching a name recursively.](scripts/linux-without_output/file_management/renrec)
+* [Rename all files matching a name recursively.](scripts/linux-main/file_management/renrec)
 
 #### 2. Output only - single-value (single-value output and no actions)
 
