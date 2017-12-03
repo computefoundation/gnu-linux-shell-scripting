@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # 
-# Install script for essential solutions from Linux-shell-base.
+# Script to download essential solutions from Shell.
 # 
 
 # ======= CONFIGURATIONS ==============
@@ -10,8 +10,8 @@ readonly DOWNLOAD_DIR="${HOME}"
 
 # ======= ! CONFIGURATIONS ==============
 
-readonly MASTER_URL='https://raw.githubusercontent.com/linux-shell-base/linux-shell-base/master'
-readonly LSB_ESSNTLS_DIR="${DOWNLOAD_DIR}/linux-shell-base-essentials"
+readonly MASTER_URL='https://raw.githubusercontent.com/unix-foundation/shell/master'
+readonly LSB_ESSNTLS_DIR="${DOWNLOAD_DIR}/shell-essentials"
 
 echo -e "::Downloading files to ${LSB_ESSNTLS_DIR}\n  Please wait"
 
