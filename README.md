@@ -1,5 +1,5 @@
 
-<img src='https://raw.githubusercontent.com/unix-foundation/shell/images/logo.png' width='33.5%' align='left' alt='logo.png'>
+<img src='https://raw.githubusercontent.com/unixfoundation/shell/images/logo.png' width='33.5%' align='left' alt='logo.png'>
 <br><br><br>
 
 **Shell** is a resource of UNIX-founded solutions for the GNU/Linux shell. It provides shell solutions for free/libre and open source software in multiple paradigms of the application layer.
@@ -61,7 +61,7 @@ Utilities, based on two *super* sections:
 
 ---
 
-Shell has an [extension repository for utilities consisting of more than one file](https://github.com/unix-foundation/shell--packaged-utilities).
+Shell has an [extension repository for utilities consisting of more than one file](https://github.com/unixfoundation/shell--packaged-utilities).
 
 ## Mobile
 
@@ -78,7 +78,7 @@ Solutions for mobile devices, based on two *super* sections:
 
 # Contributing
 
-If you would like to contribute, please ensure that your contribution adheres to the respective [guidelines](https://github.com/unix-foundation/shell/wiki). Here is a list of [needed solutions](https://github.com/unix-foundation/shell/wiki/Needed-solutions); it can be used for ideas.
+If you would like to contribute, please ensure that your contribution adheres to the respective [guidelines](https://github.com/unixfoundation/shell/wiki). Here is a list of [needed solutions](https://github.com/unixfoundation/shell/wiki/Needed-solutions); it can be used for ideas.
 
 An alternative implementation to an already existing solution will be accepted only if it has substantial reason, such as using a different dependency or language.
 
@@ -93,6 +93,6 @@ Thanks.
 To download the essential solutions, retrieve *download-Shell-essentials.sh* with following command and run it:
 
 ```bash
-wget https://raw.githubusercontent.com/unix-foundation/shell/download/download-Shell-essentials.sh \
+wget https://raw.githubusercontent.com/unixfoundation/shell/download/download-Shell-essentials.sh \
 && chmod +x download-Shell-essentials.sh
 ```
