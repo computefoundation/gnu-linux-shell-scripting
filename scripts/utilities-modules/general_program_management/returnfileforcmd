@@ -46,11 +46,11 @@
 # Notes:
 #   To use the locate method, there must exist a "locate" command in the user's
 #   PATH environment variable that returns one or more file paths for a given
-#   file name. The actual command name is specified in the LOCATE_COMMAND
-#   variable in CONFIGURATIONS. Notes: (1) The command should return files only
+#   file name. (The actual command name is specified in the LOCATE_COMMAND
+#   variable in CONFIGURATIONS). The command should return ordinary files only
 #   and not directories by default. The "--f" option will not apply otherwise.
-#   (2) A locate utility package is provided in the Packaged-utilities
-#   repository by Linux-shell-base.
+#   Note: A locate utility package is provided by the shell--packaged-utilities
+#   repository.
 # 
 #   Options in this module will override matching ones for the command in
 #   brackets. Therefore, they use double dashes to avoid collision as much as
