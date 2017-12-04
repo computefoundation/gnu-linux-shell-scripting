@@ -93,6 +93,6 @@ Thanks.
 To download the essential solutions, retrieve *download-Shell-essentials.sh* with following command and run it:
 
 ```bash
-wget https://raw.githubusercontent.com/unixfoundation/shell/download/download-Shell-essentials.sh \
-&& chmod +x download-Shell-essentials.sh
+url='https://raw.githubusercontent.com/unixfoundation/shell/download_scripts'\
+'/download-Shell-essentials.sh' && wget "${url}" && chmod +x download-Shell-essentials.sh
 ```
