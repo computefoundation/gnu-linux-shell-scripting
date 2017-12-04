@@ -1,5 +1,5 @@
 
-<img src='https://raw.githubusercontent.com/unix-foundation/home/images/shell_logo.png' width='33.5%' align='left' alt='shell_logo.png'>
+<img src='https://raw.githubusercontent.com/unix-foundation/shell/images/logo.png' width='33.5%' align='left' alt='logo.png'>
 <br><br><br>
 
 **Shell** is a resource of UNIX-founded solutions for the GNU/Linux shell. It provides shell solutions for free/libre and open source software in multiple paradigms of the application layer.
