@@ -1,13 +1,5 @@
 Sources for aliases and short functions
 
-aliases-gnu-linux-main.bash:
-
-  rmffa: https://superuser.com/a/112079
-
-aliases-gnu-linux-output_only-multi-value.bash:
-
-  fclist: https://superuser.com/a/745890
-
 aliases-mobile-android.bash:
 
   androidwlanip: http://stackoverflow.com/a/3623727
