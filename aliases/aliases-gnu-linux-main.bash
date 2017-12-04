@@ -1,4 +1,4 @@
-# aliases-main.bash
+# aliases-gnu-linux-main.bash
 # 
 # Sections:
 #    1.   File management

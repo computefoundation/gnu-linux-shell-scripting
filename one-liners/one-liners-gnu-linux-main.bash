@@ -1,4 +1,4 @@
-# one-liners-linux-main.bash
+# one-liners-gnu-linux-main.bash
 # 
 # Sections:
 #    1.   Hardware

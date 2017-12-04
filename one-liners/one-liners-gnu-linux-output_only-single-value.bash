@@ -1,4 +1,4 @@
-# one-liners-linux-output_only-single-value.bash
+# one-liners-gnu-linux-output_only-single-value.bash
 # 
 # Sections:
 #    1.   File

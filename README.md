@@ -29,22 +29,22 @@ Solutions for foundational concepts of the GNU/Linux operating system *(e.g. ope
 
 #### 1. Main (actions with or without output)
 
-* [Rename all files matching a name recursively.](scripts/linux-main/file_management/renrec)
+* [Rename all files matching a name recursively.](scripts/gnu-linux-main/file_management/renrec)
 
 #### 2. Output only - single-value (single-value output and no actions)
 
-* [Get the size of one or more files and/or directories as a plain number.](one-liners/one-liners-linux-output_only-single-value.bash)
-* [Get the ID of a window by PID.](scripts/linux-output_only-single-value/x11/getwindidbypid)
+* [Get the size of one or more files and/or directories as a plain number.](one-liners/one-liners-gnu-linux-output_only-single-value.bash)
+* [Get the ID of a window by PID.](scripts/gnu-linux-output_only-single-value/x11/getwindidbypid)
 
 #### 3. Output only - multi-value (multi-value output and no actions)
 
-* [Recursively find and list one or more files.](aliases/aliases-linux-output_only-multi-value.bash)
-* [List all open TCP and UDP ports.](aliases/aliases-linux-output_only-multi-value.bash)
+* [Recursively find and list one or more files.](aliases/aliases-gnu-linux-output_only-multi-value.bash)
+* [List all open TCP and UDP ports.](aliases/aliases-gnu-linux-output_only-multi-value.bash)
 
 #### 4. Modules (used in conjuction with command-line programs)
 
-* [Run a command in the background.](scripts/linux-modules/shell_management/runinbg)
-* [Run a command when files have changed in the current directory.](scripts/linux-modules/file_management/inotify)
+* [Run a command in the background.](scripts/gnu-linux-modules/shell_management/runinbg)
+* [Run a command when files have changed in the current directory.](scripts/gnu-linux-modules/file_management/inotify)
 
 ## Utilities
 

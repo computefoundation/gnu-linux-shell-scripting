@@ -1,10 +1,10 @@
 Sources for aliases and short functions
 
-aliases-main.bash:
+aliases-gnu-linux-main.bash:
 
   rmffa: https://superuser.com/a/112079
 
-aliases-linux-output_only-multi-value.bash:
+aliases-gnu-linux-output_only-multi-value.bash:
 
   fclist: https://superuser.com/a/745890
 

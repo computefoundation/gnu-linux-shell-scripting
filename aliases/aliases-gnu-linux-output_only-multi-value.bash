@@ -1,4 +1,4 @@
-# aliases-linux-output_only-multi-value.bash
+# aliases-gnu-linux-output_only-multi-value.bash
 # 
 # Sections:
 #    1.   System management
