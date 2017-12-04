@@ -17,7 +17,7 @@
 readonly BACKUP=true
 
 # Directory where backups are stored
-readonly BACKUP_DIR="${HOME}/.linux-shell-base/reprec-backups"
+readonly BACKUPS_DIR="${HOME}/.unixfoundation/shell/reprec-backups/"
 
 # ======= ! CONFIGURATIONS ==============
 
@@ -30,11 +30,11 @@ elif [ -z "${1}" ]; then
 fi
 
 if [ "${BACKUP}" != 'false' ]; then
-  if [ ! -d "${BACKUP_DIR}" ]; then
-    mkdir -p "${BACKUP_DIR}"
+  if [ ! -d "${BACKUPS_DIR}" ]; then
+    mkdir -p "${BACKUPS_DIR}"
   fi
 
-  cp -R "$PWD" "${BACKUP_DIR}"
+  cp -R "$PWD" "${BACKUPS_DIR}"
 fi
 
 ARGS[0]="$(echo "${1}" | sed 's/[]\/$*.^|[]/\\&/g')"
