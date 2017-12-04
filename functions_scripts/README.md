@@ -3,4 +3,4 @@
 
 This directory contains functions scripts.
 
-Functions scripts consist of small related solutions as functions.
+Functions scripts are scripts consisting of small functions relative to a larger solution.
