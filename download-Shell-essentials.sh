@@ -47,18 +47,18 @@ mwget() {
 #   Solutions - Scripts
 # ============================================
 
-mwget '/scripts/linux-modules/shell_management' \
+mwget '/scripts/gnu-linux-modules/shell_management' \
   'runinbg';
 
-mwget '/scripts/linux-output_only-single-value/hardware_management' \
+mwget '/scripts/gnu-linux-output_only-single-value/hardware_management' \
   'issecondarywlanblocked' \
   'iswlanblocked';
 
-mwget '/scripts/linux-output_only-single-value/network_management' \
+mwget '/scripts/gnu-linux-output_only-single-value/network_management' \
   'connectedtointernet' \
   'connectedtonetwork';
 
-mwget '/scripts/linux-output_only-single-value/x11' \
+mwget '/scripts/gnu-linux-output_only-single-value/x11' \
   'getactvwindclass' \
   'getactvwindid' \
   'getactvwindname' \
@@ -106,10 +106,10 @@ mwget '/functions_scripts/programming_languages/bash' \
 # ============================================
 
 mwget '/aliases' \
-  'aliases-linux-with_output.bash' \
-  'aliases-linux-without_output.bash' \
-  'aliases-linux-output_only-multi-value.bash' \
-  'aliases-linux-output_only-single-value.bash' \
+  'aliases-gnu-linux-with_output.bash' \
+  'aliases-gnu-linux-without_output.bash' \
+  'aliases-gnu-linux-output_only-multi-value.bash' \
+  'aliases-gnu-linux-output_only-single-value.bash' \
   'aliases-utilities-main.bash';
 
 # ============================================
@@ -117,7 +117,7 @@ mwget '/aliases' \
 # ============================================
 
 mwget '/one-liners' \
-  'one-liners-linux-output_only-single-value.bash';
+  'one-liners-gnu-linux-output_only-single-value.bash';
 
 # ============================================
 #   Finish
