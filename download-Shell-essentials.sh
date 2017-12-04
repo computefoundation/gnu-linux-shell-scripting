@@ -10,7 +10,7 @@ readonly DOWNLOAD_DIR="${HOME}"
 
 # ======= ! CONFIGURATIONS ==============
 
-readonly MASTER_URL='https://raw.githubusercontent.com/unix-foundation/shell/master'
+readonly MASTER_URL='https://raw.githubusercontent.com/unixfoundation/shell/master'
 readonly LSB_ESSNTLS_DIR="${DOWNLOAD_DIR}/shell-essentials"
 
 echo -e "::Downloading files to ${LSB_ESSNTLS_DIR}\n  Please wait"
