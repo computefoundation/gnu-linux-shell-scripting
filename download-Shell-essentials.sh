@@ -11,12 +11,12 @@ readonly DOWNLOAD_DIR="${HOME}"
 # ======= ! CONFIGURATIONS ==============
 
 readonly MASTER_URL='https://raw.githubusercontent.com/unixfoundation/shell/master'
-readonly LSB_ESSNTLS_DIR="${DOWNLOAD_DIR}/shell-essentials"
+readonly BASE_DIR="${DOWNLOAD_DIR}/shell-essentials"
 
-echo -e "::Downloading files to ${LSB_ESSNTLS_DIR}\n  Please wait"
+echo -e "::Downloading files to ${BASE_DIR}\n  Please wait"
 
-[ -d "${LSB_ESSNTLS_DIR}" ] && rm -Rf "${LSB_ESSNTLS_DIR}"
-mkdir -p "${LSB_ESSNTLS_DIR}"
+[ -d "${BASE_DIR}" ] && rm -Rf "${BASE_DIR}"
+mkdir -p "${BASE_DIR}"
 
 exec 3>&1 4>&2; exec >/dev/null 2>&1 # redirect all output to /dev/null
 
@@ -32,10 +32,10 @@ mwget() {
     local filesList+="${fileNameArg} "
     local wgetFilesList+="${MASTER_URL}${1}/${fileNameArg}"$'\n'
   done
-  wget -P "${LSB_ESSNTLS_DIR}${1}" -i - <<-EOF
+  wget -P "${BASE_DIR}${1}" -i - <<-EOF
     ${wgetFilesList}
 	EOF
-  cd "${LSB_ESSNTLS_DIR}${1}"
+  cd "${BASE_DIR}${1}"
   for file in ${filesList}; do
     if [ -n "${file##*.*}" ]; then
       chmod +x "${file}"
@@ -77,16 +77,16 @@ mwget '/scripts/gnu-linux-output_only-single-value/x11' \
   'iswindopen';
 
 mwget '/scripts/utilities-main/general_program_management' \
-  'newterm';
+  'opennewterm';
 
 mwget '/scripts/utilities-main/general_text_manipulation' \
-  'reprec';
+  'replrec';
 
 mwget '/scripts/utilities-main/keybind' \
-  'termcommand';
+  'exectermcommand';
 
 mwget '/scripts/utilities-modules/general_program_management' \
-  'returnfileforcmd';
+  'retfileforcmd';
 
 # ============================================
 #   Solutions - Functions
