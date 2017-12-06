@@ -3,7 +3,7 @@
 
 ## general_program_management/
 
-* [**returnfileforcmd**](general_program_management/returnfileforcmd): Return one or more files for a command using one of two search methods: (1) Locate from a database; (2) Recursively find from the current or specified directory.
+* [**retfileforcmd**](general_program_management/retfileforcmd): Return one or more files for a command using one of two search methods: (1) Locate from a database; (2) Recursively find from the current or specified directory.
 
 ## x11/
 

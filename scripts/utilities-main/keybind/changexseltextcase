@@ -3,7 +3,7 @@
 # Change the case of the selected text.
 # 
 # Usage:
-#   xselchangecase (--upper | --lower)
+#   changexseltextcase (--upper | --lower)
 # 
 # Notes:
 #   This utility should be used with a keybinding or in a script.

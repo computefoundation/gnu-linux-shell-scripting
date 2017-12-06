@@ -8,7 +8,7 @@
 # recursively.
 # 
 # Usage:
-#   reprec <text to replace> <replacement text>
+#   replrec <text to replace> <replacement text>
 # 
 
 # ======= CONFIGURATIONS ==============
@@ -17,15 +17,15 @@
 readonly BACKUP=true
 
 # Directory where backups are stored
-readonly BACKUPS_DIR="${HOME}/.unixfoundation/shell/reprec-backups/"
+readonly BACKUPS_DIR="${HOME}/.unixfoundation/shell/replrec-backups/"
 
 # ======= ! CONFIGURATIONS ==============
 
 if [ "$#" -ne 2 ]; then
-  echo 'reprec: invalid number of arguments' 1>&2
+  echo 'replrec: invalid number of arguments' 1>&2
   exit 1
 elif [ -z "${1}" ]; then
-  echo 'reprec: first argument empty' 1>&2
+  echo 'replrec: first argument empty' 1>&2
   exit 1
 fi
 

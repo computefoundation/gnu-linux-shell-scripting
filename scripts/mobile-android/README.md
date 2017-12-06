@@ -12,5 +12,5 @@
 
 ## utilities/
 
-* [**contactinfo**](utilities/contactinfo): Get contact info from an Android device.
-* [**sms**](utilities/sms): Send an sms using an Android device.
+* [**getmobilecontactinfo**](utilities/getmobilecontactinfo): Get contact info from an Android device.
+* [**sendsms**](utilities/sendsms): Send an sms using an Android device.

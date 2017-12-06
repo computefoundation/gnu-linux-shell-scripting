@@ -10,7 +10,7 @@
 # ======= 1.  SYSTEM MANAGEMENT ================================
 
 #[Processes]
-processes() { ps -u "${USER}" -o pid,%cpu,%mem,start,time,bsdtime; }             # processes: list the processes owned by the current user
+procs() { ps -u "${USER}" -o pid,%cpu,%mem,start,time,bsdtime; }                 # procs: list the processes owned by the current user
 
 #[Device·management]
 udevattrs() { udevadm info -a -p "$(udevadm info -q path -n "${@}")"; }          # udevattrs: list the udev attributes for a device; $1: device name (e.g. "/dev/sda1")
@@ -33,7 +33,7 @@ alias portsp='sudo lsof -i -P'                                                  
 alias portsl='sudo ss -lntu'                                                     # portsl: list all listening ports
 
 #[Internet]
-alias myiploc='curl ipinfo.io'                                                   # myiploc: get the public IPv4 address with the current location information
+alias myiploc='curl ipinfo.io'                                                   # myiploc: get the public IPv4 address with current location information
 
 #[SSH]
 alias sshstatus='ss -tnlp'                                                       # sshstatus: list the ports listening for a SSH
@@ -43,5 +43,5 @@ alias sshconn='sudo lsof -i -n | egrep \<sshd\>'                                
 # ======= 4.  X11 ==============================================
 
 #[Hardware]
-alias getmousepos='watch -t -n 0.0001 xdotool getmouselocation'                  # getmousepos: watch and print the current mouse position
+alias mousepos='watch -t -n 0.0001 xdotool getmouselocation'                     # mousepos: watch and print the current mouse position
 

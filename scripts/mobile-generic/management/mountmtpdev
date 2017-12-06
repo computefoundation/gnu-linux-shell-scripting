@@ -4,7 +4,7 @@
 # 
 # Usage:
 #   (script must be sourced for cd to work)
-#   source mtp; _mtp <action>
+#   source mountmtpdev; _mountmtpdev <action>
 # 
 #   action:
 #     "mount" or "m" to mount
@@ -19,6 +19,9 @@
 #       sudo groupadd fuse
 #       sudo gpasswd -a "${USER}" fuse
 # 
+# Note:
+#  This has only been tested with Android devices.
+# 
 
 # ======= CONFIGURATIONS ==============
 
@@ -30,9 +33,10 @@ DEV_CD_DIR='Internal storage/DCIM/Camera'
 
 # ======= ! CONFIGURATIONS ==============
 
-_mtp() {
+_mountmtpdev() {
   if [ "$#" -eq 0 ]; then
-    echo 'mtp: no arguments: "mount", "m", "unmount" or "u" required' 1>&2
+    echo 'mountmtpdev: no arguments: "mount", "m", "unmount" or "u" required' \
+        1>&2
     return 1
   fi
 
@@ -57,7 +61,7 @@ _mtp() {
 
       fusermount -u "${MOUNTPOINT_DIR}"
       if [ "$?" -eq 0 ] && ! mount | grep "${MOUNTPOINT_DIR}" >/dev/null; then
-        echo "mtp: device successfully unmounted from ${MOUNTPOINT_DIR}"
+        echo "mountmtpdev: device successfully unmounted from ${MOUNTPOINT_DIR}"
       fi
       ;;
   esac

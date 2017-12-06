@@ -3,4 +3,4 @@
 
 ## management/
 
-* [**mtp**](management/mtp): Mount and unmount an MTP device.
+* [**mountmtpdev**](management/mountmtpdev): Mount and unmount an MTP device.

@@ -3,11 +3,11 @@
 # Rename all files matching a name recursively.
 # 
 # Usage:
-#   renrec <old file name> <new file name>
+#   renmrec <old file name> <new file name>
 # 
 
 if [ "$#" -ne 2 ]; then
-  echo 'renrec: invalid number of arguments' 1>&2
+  echo 'renmrec: invalid number of arguments' 1>&2
   exit 1
 fi
 

@@ -3,7 +3,7 @@
 # Send an sms using an Android device.
 # 
 # Usage:
-#   sms <phone no.> <message>
+#   sendsms <phone no.> <message>
 # 
 #   message: may contain "\n" for newlines.
 # 
@@ -17,7 +17,7 @@ readonly MSG_SEND_BTN_X_Y='661 1226'
 # ======= ! CONFIGURATIONS ==============
 
 if [ "$#" -lt 2 ]; then
-  echo 'sms: invalid number of arguments' 1>&2
+  echo 'sendsms: invalid number of arguments' 1>&2
   exit 1
 fi
 

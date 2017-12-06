@@ -3,7 +3,7 @@
 # Run a countdown timer in the terminal.
 # 
 # Usage:
-#   countdown <seconds>
+#   runcountdowntimer <seconds>
 # 
 # Source:
 #   https://superuser.com/a/611582
@@ -17,10 +17,10 @@ readonly PRINT_DAYS_ALSO=false
 # ======= ! CONFIGURATIONS ==============
 
 if [ "$#" -eq 0 ]; then
-  echo 'countdown: time required in seconds' 1>&2
+  echo 'runcountdowntimer: time required in seconds' 1>&2
   exit 1
 elif [[ ! "${1}" =~ ^[0-9]+$ ]]; then
-  echo 'countdown: argument must be a number (seconds)' 1>&2
+  echo 'runcountdowntimer: argument must be a number (seconds)' 1>&2
   exit 1
 fi
 

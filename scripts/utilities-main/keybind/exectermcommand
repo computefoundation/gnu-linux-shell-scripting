@@ -3,7 +3,7 @@
 # Execute a command in (or run the last command of) a terminal emulator.
 # 
 # Usage:
-#   termcommand (--class <TERM_CLASS> | --title <TERM_TITLE>) [options] --
+#   exectermcommand (--class <TERM_CLASS> | --title <TERM_TITLE>) [options] --
 #           <command>
 # 
 #   -c --class <TERM_CLASS>    class of the terminal emulator (required if
@@ -43,11 +43,11 @@ readonly PASTE_DELAY_TIME='.15'
 # ======= ! CONFIGURATIONS ==============
 
 OPTS="$(getopt -q -o c:,t:,l,r --long class:,title:,last,refocus -n \
-    'termcommand' -- "${@}")"
+    'exectermcommand' -- "${@}")"
 if [ "$?" -ne 0 ]; then
   # output errors as a desktop notification since this script is meant to be
   # used with a keybinding and errors printed to stderr will not be seen.
-  notify-send 'termcommand (err): unrecognized option'
+  notify-send 'exectermcommand (err): unrecognized option'
   exit 1
 fi
 eval set -- "${OPTS}"
@@ -64,13 +64,13 @@ while true; do
 done
 
 if [[ -z "${TERM_CLASS}" && -z "${TERM_TITLE}" ]]; then
-  notify-send 'termcommand (err): must use option --class or --title'
+  notify-send 'exectermcommand (err): must use option --class or --title'
   exit 1
 fi
 
 if [[ "$#" -eq 0 && -z "${OPT_LAST_COMMAND}" ]]; then
   # uncomment the following to show an error.
-  # notify-send 'termcommand: no command to execute'
+  # notify-send 'exectermcommand: no command to execute'
   exit
 fi
 

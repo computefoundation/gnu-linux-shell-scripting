@@ -10,7 +10,7 @@
 # ======= 1.  FILE MANAGEMENT ==================================
 
 #[Permission·management]
-alias permnreadonly='chmod a-w'                                                  # permnreadonly: change the permisson status of a file to read-only
+alias permreadonly='chmod a-w'                                                   # permreadonly: change the permisson status of a file to read-only
 
 # ======= 2.  NETWORK MANAGEMENT ===============================
 
@@ -25,7 +25,7 @@ alias suspendmonitor='sleep .7; xset dpms force off'                            
 # ======= 4.  X11 ==============================================
 
 #[Clipboard]
-alias cdpx='cd "$(xclip -o -selection c)"'                                       # cdpx: cd to the directory path currently pasted in the X11 clipboard
-alias epx='${EDITOR} "$(xclip -o -selection c)"'                                 # epx: open the file from the path currently pasted in the X11 clipboard in the default editor
+alias cdpx='cd "$(xclip -o -selection c)"'                                       # cdpx: cd to the directory path in the X11 clipboard
+alias epx='${EDITOR} "$(xclip -o -selection c)"'                                 # epx: open the path in the X11 clipboard in the default editor
 alias pxsel='echo -n "$(xsel)"'                                                  # pxsel: paste the currently selected text to the X11 clipboard
 

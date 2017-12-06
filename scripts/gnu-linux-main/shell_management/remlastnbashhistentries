@@ -1,22 +1,22 @@
 #!/usr/bin/env bash
 # 
-# Remove the last N entries from the bash history.
+# Remove the last N bash history entries.
 # 
 # Usage (script must be sourced for history command to work):
-#   source remlastnhistentries; _remlastnhistentries <1-100>
+#   source remlastnbashhistentries; _remlastnbashhistentries <1-100>
 # 
 # Source:
 #   http://unix.stackexchange.com/a/65076
 # 
 
-_remlastnhistentries() {
+_remlastnbashhistentries() {
   local numCurrHistEntries="$(history | wc -l)"
 
   if [ "$#" -eq 0 ]; then
-    echo -e 'remlastnhistentries: no argument' 1>&2
+    echo -e 'remlastnbashhistentries: no argument' 1>&2
     return 1
   elif [[ ! "${1}" =~ ^[0-9]+$ || "${1}" -lt 1 || "${1}" -gt 100 ]]; then
-    echo -e 'remlastnhistentries: invalid argument; must be a number\n'\
+    echo -e 'remlastnbashhistentries: invalid argument; must be a number\n'\
         ' between 1 and 100 (inclusive)' 1>&2
     return 1
   fi

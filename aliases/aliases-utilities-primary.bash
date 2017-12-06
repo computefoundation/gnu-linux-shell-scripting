@@ -8,7 +8,7 @@
 # ======= 1.  TYPOGRAPHY =======================================
 
 #[General]
-count() { echo "${@}" | wc -c; }                                                 # count: count the number of characters in a string
+countchars() { echo "${@}" | wc -c; }                                            # countchars: count the number of characters in a string
 
 # ======= 3.  NUMBER FORMATTING ================================
 

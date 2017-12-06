@@ -28,7 +28,7 @@ printHelpMessage() {
 Open a new terminal with an initial command to run.
 
 Usage:
-  newterm [options] -- [initial command]
+  opennewterm [options] -- [initial command]
 
 Options:
   -t --title <TITLE>        title
@@ -40,7 +40,7 @@ Options:
 }
 
 OPTS="$(getopt -o t:g:s:wh --long title:,geometry:,fs:,font-size:,white-bg, \
-    --long help -n 'newterm' -- "${@}")"
+    --long help -n 'opennewterm' -- "${@}")"
 [ "$?" -ne 0 ] && echo "exiting..." 1>&2 && exit 1
 eval set -- "${OPTS}"
 while true; do
@@ -49,7 +49,7 @@ while true; do
     --geometry|-g) OPT_GEOMETRY="${2}"; shift;;
     --font-size|--fs|-s)
         if [[ ! "${2}" =~ ^[0-9]+$ ]]; then
-          echo "newterm: argument for option ${1} must be a number" 1>&2
+          echo "opennewterm: argument for option ${1} must be a number" 1>&2
           exit 1
         else
           OPT_FONT_SIZE="${2}"; shift

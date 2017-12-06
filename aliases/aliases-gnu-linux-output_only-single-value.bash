@@ -10,7 +10,7 @@
 # ======= 1.  SYSTEM MANAGEMENT ================================
 
 #[Operating·system]
-alias ostrgarch='llc --version | grep Default | tr -s " " | cut -d " " -f4'      # ostrgarch: print the current OS target architecture (requires llvm)
+alias ostargarch='llc --version | grep Default | tr -s " " | cut -d " " -f4'     # ostargarch: print the current OS target architecture (requires llvm)
 
 #[Processes]
 getpid() { lsof -t -c "${@}" 2>/dev/null; }                                      # getpid: get the ID of a process by name; $1: process name (e.g. "/d$/" to get PIDs for processes ending in "d")

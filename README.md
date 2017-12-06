@@ -29,7 +29,7 @@ Solutions for foundational concepts of the GNU/Linux operating system *(e.g. ope
 
 #### 1. Main (actions with or without output)
 
-* [Rename all files matching a name recursively.](scripts/gnu-linux-main/file_management/renrec)
+* [Rename all files matching a name recursively.](scripts/gnu-linux-main/file_management/renmrec)
 
 #### 2. Output only - single-value (single-value output and no actions)
 
@@ -52,12 +52,12 @@ Utilities, based on two *super* sections:
 
 #### 1. Main (actions with or without output)
 
-* [Open a new terminal with an initial command.](scripts/utilities-main/general_program_management/newterm)
-* [Execute a command in (or run the last command of) a terminal emulator.](scripts/utilities-main/keybind/termcommand)
+* [Open a new terminal with an initial command.](scripts/utilities-main/general_program_management/opennewterm)
+* [Execute a command in (or run the last command of) a terminal emulator.](scripts/utilities-main/keybind/exectermcommand)
 
 #### 2. Modules (used in conjuction with command-line programs)
 
-* [Return one or more files for a command using one of two search methods: (1) Locate from a database; (2) Recursively find from the current or specified directory.](scripts/utilities-modules/general_program_management/returnfileforcmd)
+* [Return one or more files for a command using one of two search methods: (1) Locate from a database; (2) Recursively find from the current or specified directory.](scripts/utilities-modules/general_program_management/retfileforcmd)
 
 ---
 
@@ -69,12 +69,12 @@ Solutions for mobile devices, based on two *super* sections:
 
 #### 1. Android (Android devices)
 
-* [Send an sms using an Android device.](scripts/mobile-android/utilities/sms)
+* [Send an sms using an Android device.](scripts/mobile-android/utilities/sendsms)
 * [Watch and print the X and Y screen tap coordinates of an Android device.](scripts/mobile-android/monitoring/getmobiletappos)
 
 #### 2. Generic (generic solutions for mobile devices)
 
-* [Mount and unmount an MTP device.](scripts/mobile-generic/management/mtp)
+* [Mount and unmount an MTP device.](scripts/mobile-generic/management/mountmtpdev)
 
 # Contributing
 
