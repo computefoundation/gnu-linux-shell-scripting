@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # 
-# Open a new terminal with an initial command.
+# Open a new terminal emulator with an initial command.
 # 
 # Usage:
 #   opennewterm [initial command]

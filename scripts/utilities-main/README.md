@@ -3,7 +3,7 @@
 
 ## general_program_management/
 
-* [**opennewterm**](general_program_management/opennewterm): Open a new terminal with an initial command.
+* [**opennewterm**](general_program_management/opennewterm): Open a new terminal emulator with an initial command.
 
 ## general_text_manipulation/
 
