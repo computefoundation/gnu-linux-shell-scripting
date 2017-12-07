@@ -2,95 +2,16 @@
 # 
 # Open a new terminal with an initial command.
 # 
-# A small layer for configuring terminal and window settings is provided.
+# Usage:
+#   opennewterm [initial command]
 # 
 # Returns:
-#   The window ID of the new terminal window.
+#   The window ID of the new terminal emulator window.
 # 
 # Dependencies:
 #   xterm (the terminal emulator used)
-#   wmctrl (used to get the window ID of the terminal window and output it for
-#     the caller)
+#   wmctrl (used to get the window ID of the new terminal emulator window)
 # 
-
-# ======= CONFIGURATIONS ==============
-
-readonly FONT_FACE='DejaVu Sans Mono'
-
-readonly DEFAULT_FONT_SIZE=12
-
-readonly DEFAULT_GEOMETRY='82x44+190+100'
-
-# ======= ! CONFIGURATIONS ==============
-
-printHelpMessage() {
-  echo -ne "\
-Open a new terminal with an initial command to run.
-
-Usage:
-  opennewterm [options] -- [initial command]
-
-Options:
-  -t --title <TITLE>        title
-  -g --geometry <GEOMETRY>  window geometry (WIDTHxHEIGHT+X+Y)
-  -s --fs --font-size <SIZE>   font size
-  -w --white-bg             use white background
-  -h --help                 show help message
-"
-}
-
-OPTS="$(getopt -o t:g:s:wh --long title:,geometry:,fs:,font-size:,white-bg, \
-    --long help -n 'opennewterm' -- "${@}")"
-[ "$?" -ne 0 ] && echo "exiting..." 1>&2 && exit 1
-eval set -- "${OPTS}"
-while true; do
-  case "${1}" in
-    --title|-t) OPT_TITLE="${2}"; shift;;
-    --geometry|-g) OPT_GEOMETRY="${2}"; shift;;
-    --font-size|--fs|-s)
-        if [[ ! "${2}" =~ ^[0-9]+$ ]]; then
-          echo "opennewterm: argument for option ${1} must be a number" 1>&2
-          exit 1
-        else
-          OPT_FONT_SIZE="${2}"; shift
-        fi;;
-    --white-bg|-w) OPT_WHITE_BACKGROUND=true;;
-    --help|-h) printHelpMessage; exit;;
-    --) shift; break;;
-    * ) break;;
-  esac
-  shift
-done
-
-if [ -n "${OPT_TITLE}" ]; then
-  allowTtlOps='false'
-  title="${OPT_TITLE}"
-else
-  allowTtlOps='true'
-fi
-
-if [ -n "${OPT_FONT_SIZE}" ]; then
-  fontSize="${OPT_FONT_SIZE}"
-else
-  fontSize="${DEFAULT_FONT_SIZE}"
-fi
-
-if [ "${OPT_WHITE_BACKGROUND}" = 'true' ]; then
-  colorProps='-fg #000000 -bg #FFFFFF'
-else
-  colorProps='-fg #FFFFFF -bg #000000'
-fi
-
-if [ -n "${OPT_GEOMETRY}" ]; then
-  geometry="${OPT_GEOMETRY}"
-else
-  if [ "${OPT_SECOND_SCREEN}" = 'true' ] && [ "$(xrandr --query | grep -c \
-      ' connected')" -ge 2 ]; then
-    geometry="${SECOND_SCREEN_GEOMETRY}"
-  else
-    geometry="${DEFAULT_GEOMETRY}"
-  fi
-fi
 
 # ============================================
 #   Utilitiy functions
@@ -110,7 +31,7 @@ getWindIdByPid() {
 }
 
 # ============================================
-#   Launch terminal
+#   Launch terminal emulator
 # ============================================
 
 nohup xterm -sl 9000 -xrm "XTerm.vt100.allowTitleOps: ${allowTtlOps}" -title \
