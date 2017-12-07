@@ -49,8 +49,6 @@
 #   file name. (The actual command name is specified in the LOCATE_COMMAND
 #   variable in CONFIGURATIONS). The command should return ordinary files only
 #   and not directories by default. The "--f" option will not apply otherwise.
-#   Note: A locate utility package is provided by the shell--packaged-utilities
-#   repository.
 # 
 #   Options in this module will override matching ones for the command in
 #   brackets. Therefore, they use double dashes to avoid collision as much as
