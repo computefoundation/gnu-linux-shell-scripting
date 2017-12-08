@@ -86,7 +86,8 @@ mwget '/scripts/utilities-main/keybind' \
   'exectermcommand';
 
 mwget '/scripts/utilities-modules/general_program_management' \
-  'retfileforcmd';
+  'findfileforcmd' \
+  'locfileforcmd';
 
 # ============================================
 #   Solutions - Functions
