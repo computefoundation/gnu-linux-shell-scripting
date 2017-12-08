@@ -1,0 +1,152 @@
+#!/usr/bin/env bash
+# 
+# Recursively find a file or directory for a command.
+# 
+# Examples:
+#   # recursively find a file with a name containing "stat" for vim
+#   findfileforcmd {vim} stat
+# 
+#   # recursively find a directory with a name containing "docu" for thunar
+#   findfileforcmd {thunar} --d docu
+# 
+#   # same as previous, except return the third occurrence
+#   findfileforcmd {thunar} --d --3 docu
+# 
+# Usage:
+#   findfileforcmd {<command to execute>} [options] <partial or full file name>
+#         [directory]
+# 
+#   [directory]: directory to search in; default is current.
+# 
+# Options:
+#   --d        return a directory instead of a file
+#   --<1-9>    return the specified occurrence
+#   --a        return all occurrences
+#   --p        print the returned files or directories only
+# 
+# Exit codes:
+#   0: file or directory found
+#   1: error occurred or file or directory not found
+# 
+# Notes:
+#   The options for this utility use double dashes to avoid overriding the
+#   options for the command in the brackets.
+# 
+
+# ======= CONFIGURATIONS ==============
+
+# Set this variable to "true" to support file names with spaces. If true and
+# all occurrences are returned using option --a, only the last occurrence
+# will be used by most execute commands.
+readonly SUPPORT_FILE_NAMES_WITH_SPACES='false'
+
+# ======= ! CONFIGURATIONS ==============
+
+# ============================================
+#   Get the execute command
+# ============================================
+
+# Note: The following could be done using command "set", however, command "set"
+# removes all arguments containing "?".
+
+for ((x=1; x<="$#"; x++)); do
+  if [[ "${@:x:1}" = *'}'* ]]; then
+    EXEC_CMD="${@:1:x}"
+    shift "${x}"
+  fi
+done
+
+if [ -z "${EXEC_CMD}" ]; then
+  echo -e  'findfileforcmd: invalid arguments:\nexecute command not specified' \
+      1>&2
+  exit 1
+fi
+
+EXEC_CMD="${EXEC_CMD#{}"
+EXEC_CMD="${EXEC_CMD%\}}"
+
+# ============================================
+#   Process prerequisites
+# ============================================
+
+if [ "$#" -eq 0 ]; then
+  echo 'findfileforcmd: no file or directory name specified' 1>&2
+  exit 1
+fi
+
+# ============================================
+#   Process options and arguments
+# ============================================
+
+OPTS="$(getopt -o '#' --long d,1,2,3,4,5,6,7,8,9,a,p -n 'findfileforcmd' -- \
+    "${@}")"
+[ "$?" -ne 0 ] && exit 1
+eval set -- "${OPTS}"
+
+while true; do
+  case "${1}" in
+    --d) RET_DIRS='true';;
+    --1|--2|--3|--4|--5|--6|--7|--8|--9) RET_OCCUR="${1#'--'}";;
+    --a) RET_ALL_OCCUR='true';;
+    --p) PRINT_ONLY='true';;
+    --) shift; break;;
+    * ) break;;
+  esac
+  shift
+done
+
+# ============================================
+#   Process the find command options
+# ============================================
+
+if [ "$#" -ge 2 ]; then
+  findDir="${2}"
+else
+  findDir='.'
+fi
+
+if [ "${RET_DIRS}" = 'true' ]; then
+  findOptType='-type d'
+else
+  findOptType='-type f'
+fi
+
+if [ -z "${RET_OCCUR}" ] && [ "${RET_ALL_OCCUR}" != 'true' ]; then
+  findOptsPrintQuit='-print -quit'
+fi
+
+# ============================================
+#   Begin the find process
+# ============================================
+
+findOutput="$(find "${findDir}" ${findOptType} -name "*${1}*" \
+    ${findOptsPrintQuit} 2>/dev/null)"
+
+if [ -z "${findOutput}" ]; then
+  echo "findfileforcmd: file or directory \"${@}\" not found" 1>&2
+  exit 1
+fi
+
+if [ "${RET_ALL_OCCUR}" != 'true' ]; then
+  if [ -n "${RET_OCCUR}" ]; then
+    findOutputNumOccurs="$(echo "${findOutput}" | wc -l)"
+
+    if [ "${RET_OCCUR}" -gt "${findOutputNumOccurs}" ]; then
+      RET_OCCUR="${findOutputNumOccurs}"
+    fi
+    findOutput="$(echo "${findOutput}" | sed "${RET_OCCUR}q;d")"
+  else
+    findOutput="$(echo "${findOutput}" | sed "1q;d")"
+  fi
+fi
+
+if [ "${PRINT_ONLY}" = 'true' ]; then
+  echo "${findOutput}"
+else
+  if [ "${SUPPORT_FILE_NAMES_WITH_SPACES}" = 'true' ]; then
+    ${EXEC_CMD} "${findOutput}"
+  else
+    ${EXEC_CMD} ${findOutput}
+  fi
+fi
+

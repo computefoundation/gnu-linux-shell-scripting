@@ -57,7 +57,7 @@ Utilities, based on two *super* sections:
 
 #### 2. Modules (used in conjuction with command-line programs)
 
-* [Return one or more files for a command using one of two search methods: (1) Locate from a database; (2) Recursively find from the current or specified directory.](scripts/utilities-modules/general_program_management/retfileforcmd)
+* [Recursively find a file or directory for a command.](scripts/utilities-modules/general_program_management/findfileforcmd)
 
 ---
 

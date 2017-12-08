@@ -1,0 +1,140 @@
+#!/usr/bin/env bash
+# 
+# Locate a file from a database for a command.
+# 
+# Examples:
+#   # locate a file from a database with a name containing "stat" for vim
+#   locfileforcmd {vim} stat
+# 
+#   # locate a directory from a database with a name containing "docu" for
+#   # thunar
+#   locfileforcmd {thunar} --d docu
+# 
+#   # same as previous, except return the third occurrence
+#   locfileforcmd {thunar} --d --3 docu
+# 
+# Usage:
+#   locfileforcmd {<command to execute>} [options] <partial or full file name>
+# 
+# Usage note:
+#   Variable LOC_FILE_CMD must define a command that returns a file or directory
+#   path for a given file or directory name. This command must return ordinary
+#   files by default and directories via the option specified by
+#   LOC_FILE_CMD_OPT_RET_DIRS for option --d to apply.
+# 
+# Options:
+#   --d        return a directory instead of a file
+#   --<1-9>    return the specified occurrence
+#   --p        print the returned files or directories only
+# 
+# Exit codes:
+#   0: file or directory found
+#   1: error occurred or file or directory not found
+# 
+# Notes:
+#   The options for this utility use double dashes to avoid overriding the
+#   options for the command in the brackets.
+# 
+
+# ======= CONFIGURATIONS ==============
+
+# Locatefile command
+readonly LOC_FILE_CMD='locate'
+
+# Locate file command option to return directories only; can be empty
+readonly LOC_FILE_CMD_OPT_RET_DIRS='-d'
+
+# Locate file command option to change the located occurrence; can be empty;
+# must require a numerical argument
+readonly LOC_FILE_CMD_OPT_LOC_OCCUR='-o'
+
+# ======= ! CONFIGURATIONS ==============
+
+# ============================================
+#   Get the execute command
+# ============================================
+
+# Note: The following could be done using command "set", however, command "set"
+# removes all arguments containing "?".
+
+for ((x=1; x<="$#"; x++)); do
+  if [[ "${@:x:1}" = *'}'* ]]; then
+    EXEC_CMD="${@:1:x}"
+    shift "${x}"
+  fi
+done
+
+if [ -z "${EXEC_CMD}" ]; then
+  echo -e  'locfileforcmd: invalid arguments:\nexecute command not specified' \
+      1>&2
+  exit 1
+fi
+
+EXEC_CMD="${EXEC_CMD#{}"
+EXEC_CMD="${EXEC_CMD%\}}"
+
+# ============================================
+#   Process prerequisites
+# ============================================
+
+if [ "$#" -eq 0 ]; then
+  echo 'locfileforcmd: no file or directory name specified' 1>&2
+  exit 1
+fi
+
+if ! hash "${LOC_FILE_CMD}" >/dev/null 2>&1; then
+  echo "locfileforcmd: command \"${LOC_FILE_CMD}\" does not exist" 1>&2
+  exit 1
+fi
+
+# ============================================
+#   Process options and arguments
+# ============================================
+
+OPTS="$(getopt -o '#' --long d,1,2,3,4,5,6,7,8,9,p -n 'locfileforcmd' -- \
+    "${@}")"
+[ "$?" -ne 0 ] && exit 1
+eval set -- "${OPTS}"
+
+while true; do
+  case "${1}" in
+    --d) RET_DIRS='true';;
+    --1|--2|--3|--4|--5|--6|--7|--8|--9) RET_OCCUR="${1#'--'}";;
+    --p) PRINT_ONLY='true';;
+    --) shift; break;;
+    * ) break;;
+  esac
+  shift
+done
+
+# ============================================
+#   Process the locate file command options
+# ============================================
+
+if [ "${RET_DIRS}" = 'true' ] && [ -n "${LOC_FILE_CMD_OPT_RET_DIRS}" ]; then
+  locfileOpts="${LOC_FILE_CMD_OPT_RET_DIRS}"
+fi
+
+if [ -n "${RET_OCCUR}" ] && [ -n "${LOC_FILE_CMD_OPT_LOC_OCCUR}" ]; then
+  locfileOpts+=" ${LOC_FILE_CMD_OPT_LOC_OCCUR} ${RET_OCCUR}"
+fi
+
+# ============================================
+#   Begin the locate process
+# ============================================
+
+locfileOutput="$(${LOC_FILE_CMD} ${locfileOpts} "${@}")"
+
+if [ -z "${locfileOutput}" ]; then
+  echo "locfileforcmd: file or directory \"${@}\" not found" 1>&2
+  exit 1
+fi
+
+locfileOutput="$(echo "${locfileOutput}" | sed 's/ /\\n/g')"
+
+if [ "${PRINT_ONLY}" = 'true' ]; then
+  echo "${locfileOutput}"
+else
+  ${EXEC_CMD} "${locfileOutput}"
+fi
+
