@@ -14,7 +14,7 @@ Shell provides solutions for the following application layer paradigms:
 Solutions for applications
 
 * [RDBMS functions for MySQL](functions_scripts/applications/databases/mysqlutils)
-* [NoSQL functions for MongoDB](functions_scripts/applications/databases/mongodbutils)
+* [Check if a PostgreSQL database exists.](one-liners/one-liners-applications.bash)
 
 ## Programming languages
 
