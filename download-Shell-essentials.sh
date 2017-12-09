@@ -83,6 +83,7 @@ mwget '/scripts/utilities-main/general_text_manipulation' \
   'replrec';
 
 mwget '/scripts/utilities-main/keybind' \
+  'execlasttermcommand' \
   'exectermcommand';
 
 mwget '/scripts/utilities-modules/general_program_management' \
