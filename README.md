@@ -38,7 +38,7 @@ Solutions for foundational concepts of the GNU/Linux operating system *(e.g. ope
 
 #### 3. Output only - multi-value (multi-value output and no actions)
 
-* [Recursively find and list one or more files.](aliases/aliases-gnu-linux-output_only-multi-value.bash)
+* [Recursively find all files containing a given text.](aliases/aliases-gnu-linux-output_only-multi-value.bash)
 * [List all open TCP and UDP ports.](aliases/aliases-gnu-linux-output_only-multi-value.bash)
 
 #### 4. Modules (used in conjuction with command-line programs)

@@ -21,9 +21,9 @@ udevattrs() { udevadm info -a -p "$(udevadm info -q path -n "${@}")"; }         
 alias ll='command ls -FGlAhp'                                                    # ll: list the permissions and owner of each file in the current directory
 
 #[Finding]
-ff() { find . -type f -name "*${1}*"; }                                          # ff: find one or more files recursively and list them; $1: file name
-fd() { find . -type d -name "*${1}*"; }                                          # fd: find one or more directories recursively and list them; $1: directory name
-ffgr() { /usr/bin/grep -l -R "${1}" .; }                                         # ffgr: find all files recursively containing the given text and list them; $1: text
+ff() { find . -type f -name "*${1}*"; }                                          # ff: recursively find all files matching a name name; $1: file name
+fd() { find . -type d -name "*${1}*"; }                                          # fd: recursively find all directories matching a name name; $1: directory name
+ffgr() { /usr/bin/grep -l -R "${1}" .; }                                         # ffgr: recursively find all files containing a given text; $1: text to search
 
 # ======= 3.  NETWORKING MANAGEMENT ============================
 
