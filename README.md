@@ -53,7 +53,7 @@ Utilities, based on two *super* sections:
 #### 1. Main (actions with or without output)
 
 * [Open a new terminal emulator with an initial command.](scripts/utilities-main/general_program_management/opennewterm)
-* [Execute a command in (or run the last command of) a terminal emulator.](scripts/utilities-main/keybind/exectermcommand)
+* [Execute a command in a terminal emulator.](scripts/utilities-main/keybind/exectermcommand)
 
 #### 2. Modules (used in conjuction with command-line programs)
 
@@ -78,7 +78,7 @@ Solutions for mobile devices, based on two *super* sections:
 
 # Contributing
 
-If you would like to contribute, please ensure that your contribution adheres to the respective [guidelines](https://github.com/unixfoundation/shell/wiki). Here is a list of [needed solutions](https://github.com/unixfoundation/shell/wiki/Needed-solutions); it can be used for ideas.
+If you would like to contribute, please ensure that your contribution adheres to the respective [guideline](https://github.com/unixfoundation/shell/wiki). Here is a list of [needed solutions](https://github.com/unixfoundation/shell/wiki/Needed-solutions); it can be used for ideas.
 
 An alternative implementation to an already existing solution will be accepted only if it has substantial reason, such as using a different dependency or language.
 

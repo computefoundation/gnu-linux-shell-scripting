@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 # 
-# Execute a command in a terminal emulator.
+# Execute the last command of a terminal emulator.
 # 
 # Usage:
-#   exectermcommand (--class <TERM_CLASS> | --title <TERM_TITLE>) [options] --
-#           <command>
+#   execlasttermcommand (--class <TERM_CLASS> | --title <TERM_TITLE>) [options]
+#           -- <command>
 # 
 # Options:
 #   -c --class <TERM_CLASS>    class of the terminal emulator (required if
@@ -27,6 +27,9 @@
 # Notes:
 #   This utility should be used with a keybinding or in a script.
 # 
+#   If the last command in the terminal emulator is  moved to but not executed,
+#   increase the usleep time in the xte command.
+# 
 
 # ======= CONFIGURATIONS ==============
 
@@ -39,12 +42,12 @@ readonly XEVENTS_DELAY_TIME='.15'
 
 # ======= ! CONFIGURATIONS ==============
 
-OPTS="$(getopt -q -o c:,t:,r --long class:,title:,refocus -n 'exectermcommand' \
-    -- "${@}")"
+OPTS="$(getopt -q -o c:,t:,r --long class:,title:,refocus -n \
+    'execlasttermcommand' -- "${@}")"
 if [ "$?" -ne 0 ]; then
   # output errors as a desktop notification since this script is meant to be
   # used with a keybinding and errors printed to stderr will not be seen.
-  notify-send 'exectermcommand (err): unrecognized option'
+  notify-send 'execlasttermcommand (err): unrecognized option'
   exit 1
 fi
 eval set -- "${OPTS}"
@@ -61,13 +64,7 @@ while true; do
 done
 
 if [ -z "${TERM_CLASS}" ] && [ -z "${TERM_TITLE}" ]; then
-  notify-send 'exectermcommand (err): must use option --class or --title'
-  exit 1
-fi
-
-if [ "$#" -eq 0 ]; then
-  # print to the terminal for testing purposes
-  echo 'exectermcommand: no execute command provided' 1>&2
+  notify-send 'execlasttermcommand (err): must use option --class or --title'
   exit 1
 fi
 
@@ -117,30 +114,11 @@ if [ -n "${termWindId}" ]; then
   
   # ---------  xte  ---------
 
-  # Note: Xte sometimes fails to completely paste a string with more than 249
-  # characters. As a result, a string with more than 249 characters is pasted
-  # by every 249 character part.
-  argStr="${@}"
-  if [ "${#argStr}" -gt 249 ]; then
-    for ((i=0; i<=${#argStr}; i+=249)); do
-      xte "str ${argStr:${i}:249}"
-    done
-    xte 'key Return'
-  else
-		xte <<-EOF
-			str ${@}
-			usleep 14000
-			key Return
-		EOF
-  fi
+  xte 'usleep 25000' 'key Up' 'key Return'
 
   # ---------  xdotool  ---------
 
-  # xdotool type "${@}"
-  # # must run a separate xdotool command as "type" will type everything after
-  # # it; also a much higher sleep time is needed as xdotool types each
-  # # character (instead of pasting the string).
-  # xdotool sleep .5 key Return
+  # xdotool sleep .007 key Up key Return
 
   if [ "${OPT_REFOCUS}" = 'true' ]; then
     [ -n "${XEVENTS_DELAY_TIME}" ] && sleep "${XEVENTS_DELAY_TIME}"

@@ -13,8 +13,9 @@
 
 *Keybind utilities are used with a keybinding or in a script rather than the terminal.*
 
-* [**exectermcommand**](keybind/exectermcommand): Execute a command in (or run the last command of) a terminal emulator.
 * [**changexseltextcase**](keybind/changexseltextcase): Change the case of the selected text.
+* [**execlasttermcommand**](keybind/execlasttermcommand): Execute the last command of a terminal emulator.
+* [**exectermcommand**](keybind/exectermcommand): Execute a command in a terminal emulator.
 
 ## other/
 
