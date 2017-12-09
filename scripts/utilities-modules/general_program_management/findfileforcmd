@@ -1,16 +1,17 @@
 #!/usr/bin/env bash
 # 
-# Recursively find a file or directory for a command.
+# Recursively find and return a file or directory for a command.
 # 
 # Examples:
-#   # recursively find a file with a name containing "stat" for vim
+#   # recursively find and return a file with a name containing "stat" for vim
 #   findfileforcmd {vim} stat
 # 
-#   # recursively find a directory with a name containing "docu" for thunar
-#   findfileforcmd {thunar} --d docu
+#   # recursively find and return a directory with a name containing "docume"
+#   # for thunar
+#   findfileforcmd {thunar} --d docume
 # 
 #   # same as previous, except return the third occurrence
-#   findfileforcmd {thunar} --d --3 docu
+#   findfileforcmd {thunar} --d --3 docume
 # 
 # Usage:
 #   findfileforcmd {<command to execute>} [options] <partial or full file name>

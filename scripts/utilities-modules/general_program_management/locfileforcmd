@@ -1,13 +1,12 @@
 #!/usr/bin/env bash
 # 
-# Locate a file from a database for a command.
+# Locate and return a file or directory for a command.
 # 
 # Examples:
-#   # locate a file from a database with a name containing "stat" for vim
+#   # locate and return a file with a name containing "stat" for vim
 #   locfileforcmd {vim} stat
 # 
-#   # locate a directory from a database with a name containing "docu" for
-#   # thunar
+#   # locate and return a directory with a name containing "docu" for thunar
 #   locfileforcmd {thunar} --d docu
 # 
 #   # same as previous, except return the third occurrence

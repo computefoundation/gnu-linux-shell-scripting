@@ -1,6 +1,6 @@
 
 <img src='https://raw.githubusercontent.com/unixfoundation/shell/images/logo.png' width='33.5%' align='left' alt='logo.png'>
-<br><br><br>
+<br><br>
 
 **Shell** is a resource of Unix-founded solutions for the GNU/Linux shell. It targets multiple paradigms of the application layer.
 <br><br><br><br><br>
@@ -57,7 +57,7 @@ Utilities, based on two *super* sections:
 
 #### 2. Modules (used in conjuction with command-line programs)
 
-* [Recursively find a file or directory for a command.](scripts/utilities-modules/general_program_management/findfileforcmd)
+* [Recursively find and return a file or directory for a command.](scripts/utilities-modules/general_program_management/findfileforcmd)
 
 ---
 
