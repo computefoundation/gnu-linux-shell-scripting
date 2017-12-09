@@ -7,7 +7,7 @@
 
 ## general_text_manipulation/
 
-* [**replrec**](general_text_manipulation/replrec): Replace a matching string in all files recursively.
+* [**replrec**](general_text_manipulation/replrec): Replace a string recursively.
 
 ## keybind/
 

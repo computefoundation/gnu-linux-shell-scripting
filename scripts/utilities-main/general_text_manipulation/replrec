@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # 
-# Replace a matching string in all files recursively.
+# Replace a string recursively.
 # 
 # Regex characters in both the original and replacement texts are escaped,
 # allowing string matches and replacements to be made exactly as they are typed.
