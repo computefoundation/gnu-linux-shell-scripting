@@ -2,7 +2,7 @@
 <img src='https://raw.githubusercontent.com/unixfoundation/shell/images/logo.png' width='33.5%' align='left' alt='logo.png'>
 <br><br>
 
-**Shell** is a resource of Unix-founded solutions for the GNU/Linux shell. It targets multiple paradigms of the application layer.
+**Shell** is a resource of Unix-founded solutions for the shell. It targets multiple paradigms of the application layer.
 <br><br><br><br><br>
 
 # Application layer paradigms
@@ -25,7 +25,7 @@ Solutions for programming languages
 
 ## GNU/Linux
 
-Solutions for foundational concepts of the GNU/Linux operating system *(e.g. operating system tools, file, system and window management)*, based on four *super* sections:
+Solutions with respect to core components of the GNU/Linux operating system *(file, system and window management, operating system tools, etc.)*, based on four *super* sections:
 
 #### 1. Main (actions with or without output)
 
