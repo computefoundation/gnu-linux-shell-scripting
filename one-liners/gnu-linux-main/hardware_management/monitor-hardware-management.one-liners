@@ -1,0 +1,10 @@
+# monitor-hardware-management.one-liners
+# 
+# Monitor hardware management one liners
+# 
+
+# Set the backlight level.
+# Note: The interface to the ACPI kernel module for video (e.g. intel_backlight) can be found by running
+#   "ls /sys/class/backlight/".
+tee /sys/class/backlight/intel_backlight/brightness <<< <backlight level>
+

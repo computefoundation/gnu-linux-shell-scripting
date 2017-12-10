@@ -14,7 +14,7 @@ Shell provides solutions for the following application layer paradigms:
 Solutions for applications
 
 * [RDBMS functions for MySQL](functions_scripts/applications/databases/mysqlutils)
-* [Check if a PostgreSQL database exists.](one-liners/one-liners-applications.bash)
+* [Check if a PostgreSQL database exists.](one-liners/applications/database/postgresql-database.one-liners)
 
 ## Programming languages
 
@@ -33,7 +33,7 @@ Solutions with respect to core components of the GNU/Linux operating system *(fi
 
 #### 2. Output only - single-value (single-value output and no actions)
 
-* [Get the size of one or more files and/or directories as a plain number.](one-liners/one-liners-gnu-linux-output_only-single-value.bash)
+* [Get the size of one or more files and/or directories as a plain number.](one-liners/gnu-linux-output_only-single-value/file_management/get-file-information-file-management.one-liners)
 * [Get the ID of a window by PID.](scripts/gnu-linux-output_only-single-value/x11/getwindidbypid)
 
 #### 3. Output only - multi-value (multi-value output and no actions)

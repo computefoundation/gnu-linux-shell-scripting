@@ -1,0 +1,8 @@
+# get-file-information-file-management.one-liners
+# 
+# Get file information file management one-liners
+# 
+
+# Get the size in megabytes of one or more files and/or directories as a plain number.
+du -csm <files and/or directories> | tail -1 | awk '{ print $1 }'
+

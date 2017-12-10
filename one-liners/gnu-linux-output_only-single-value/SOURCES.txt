@@ -1,0 +1,7 @@
+Sources for gnu-linux-output_only-single-value one-liners
+
+hardware_management/monitor-hardware-management.one-liners:
+
+  Get the maximum backlight level:
+      https://wiki.archlinux.org/index.php/backlight#ACPI
+

@@ -1,0 +1,7 @@
+Sources for gnu-linux-main one-liners
+
+hardware_management/monitor-hardware-management.one-liners:
+
+  Set the backlight level:
+      https://wiki.archlinux.org/index.php/backlight#ACPI
+

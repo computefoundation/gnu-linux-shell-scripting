@@ -1,10 +1,7 @@
-# one-liners-gnu-linux-output_only-multi-value.bash
+# find-files-and-directories-file-management.one-liners
 # 
-# Sections:
-#    1.   File management
+# Find files and directories file management one-liners
 # 
-
-# ======= 1.  FILE MANAGEMENT ==================================
 
 # Recursively find all non-hidden files matching a name.
 find . \( ! -name '.*' \) -type f -name '*<file_name>*'
