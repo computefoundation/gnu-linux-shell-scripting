@@ -1,5 +1,5 @@
 
-# gnu-linux-main/
+# gnulinux-main/
 
 ## hardware_management/
 

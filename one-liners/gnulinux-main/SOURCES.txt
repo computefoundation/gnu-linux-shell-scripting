@@ -1,4 +1,4 @@
-Sources for gnu-linux-main one-liners
+Sources for gnulinux-main one-liners
 
 hardware_management/monitor-hardware-management.one-liners:
 

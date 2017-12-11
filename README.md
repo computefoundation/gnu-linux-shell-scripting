@@ -29,22 +29,22 @@ Solutions with respect to core components of the GNU/Linux operating system *(fi
 
 #### 1. Main (actions with or without output)
 
-* [Recursively find and rename all files matching a name.](scripts/gnu-linux-main/file_management/renmrec)
+* [Recursively find and rename all files matching a name.](scripts/gnulinux-main/file_management/renmrec)
 
 #### 2. Output only - single-value (single-value output and no actions)
 
-* [Get the size of one or more files and/or directories as a plain number.](one-liners/gnu-linux-output_only-single-value/file_management/get-file-information-file-management.one-liners)
-* [Get the ID of a window by PID.](scripts/gnu-linux-output_only-single-value/x11_management/getwindidbypid)
+* [Get the size of one or more files and/or directories as a plain number.](one-liners/gnulinux-output_only-single-value/file_management/get-file-information-file-management.one-liners)
+* [Get the ID of a window by PID.](scripts/gnulinux-output_only-single-value/x11_management/getwindidbypid)
 
 #### 3. Output only - multi-value (multi-value output and no actions)
 
-* [Recursively find all files containing a given text.](aliases/aliases-gnu-linux-output_only-multi-value.bash)
-* [List all open TCP and UDP ports.](aliases/aliases-gnu-linux-output_only-multi-value.bash)
+* [Recursively find all files containing a given text.](aliases/aliases-gnulinux-output_only-multi-value.bash)
+* [List all open TCP and UDP ports.](aliases/aliases-gnulinux-output_only-multi-value.bash)
 
 #### 4. Modules (used in conjuction with command-line programs)
 
-* [Run a command in the background.](scripts/gnu-linux-modules/shell_management/runinbg)
-* [Run a command when files have changed in the current directory.](scripts/gnu-linux-modules/file_management/inotify)
+* [Run a command in the background.](scripts/gnulinux-modules/shell_management/runinbg)
+* [Run a command when files have changed in the current directory.](scripts/gnulinux-modules/file_management/inotify)
 
 ## Utilities
 

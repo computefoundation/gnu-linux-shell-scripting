@@ -1,0 +1,9 @@
+# general-network-management.aliases
+# 
+# General network management aliases
+# 
+
+alias ports='sudo ss -antu'                                                      # ports: list all open TCP and UDP ports
+alias portsp='sudo lsof -i -P'                                                   # portsp: list all open ports with their PIDs
+alias portsl='sudo ss -lntu'                                                     # portsl: list all listening ports
+

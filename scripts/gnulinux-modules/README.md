@@ -1,5 +1,5 @@
 
-# gnu-linux-modules/
+# gnulinux-modules/
 
 ## file_management/
 

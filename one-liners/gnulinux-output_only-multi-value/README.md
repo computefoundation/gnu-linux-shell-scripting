@@ -1,5 +1,5 @@
 
-# gnu-linux-output_only-multi-value/
+# gnulinux-output_only-multi-value/
 
 ## file_management/
 

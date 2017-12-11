@@ -1,0 +1,7 @@
+# internet-network-management.aliases
+# 
+# Internet network management aliases
+# 
+
+alias myiploc='curl ipinfo.io'                                                   # myiploc: get the public IPv4 address with current location information
+

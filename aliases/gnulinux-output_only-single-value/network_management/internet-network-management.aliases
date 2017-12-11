@@ -1,0 +1,7 @@
+# internet-network-management.aliases
+# 
+# Internet network management aliases
+# 
+
+alias myip='curl ipecho.net/plain; echo'                                         # myip: get the current public IPv4 address
+
