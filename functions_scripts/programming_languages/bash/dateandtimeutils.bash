@@ -29,24 +29,20 @@
   # "2004-04-25T16:18:13.489392193").
   # Usage:
   #   generateRandomDate <min and max date entities>
-  # 
-  #   min and max date entities: format in "YY(min),YY(max),[MM(min),MM(max),
-  #     [DD(min),DD(max),[hh(min),hh(max)]]]"
-  # 
+  #       min and max date entities: format in "YY(min),YY(max),[MM(min),
+  #         MM(max),[DD(min),DD(max),[hh(min),hh(max)]]]"
   # Examples:
   #   generateRandomDate '05,09,04,11,15,31'
   #   # "2007-04-25T16:18:13.489392193"
   #   generateRandomDate '42,56,09,10,03,08,19,22'
   #   # "2045-10-07T22:33:42.730192851"
-  # 
   # Options:
   #   -t     get date as timestamp in the fomat [[CC]YY]MMDDhhmm[.ss]
-  # 
   # Notes:
-  #   All generated years are within the century defined by DFLT_CENTURY_PREFIX.
-  # 
-  #   Each date entity is inclusive of the previous entity (e.g. if the max hour
-  #   is 15, the max time with minutes can be 15:59).
+  #   -All generated years are within the century defined by
+  #    DFLT_CENTURY_PREFIX.
+  #   -Each date entity is inclusive of the previous entity (e.g. if the max
+  #    hour is 15, the max time with minutes can be 15:59).
   generateRandomDate() {
     local DFLT_CENTURY_PREFIX='21'
     local OPT OPTIND
