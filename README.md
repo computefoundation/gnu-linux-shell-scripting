@@ -70,7 +70,7 @@ Solutions for mobile devices, based on two *super* sections:
 #### 1. Android (Android devices)
 
 * [Send an sms using an Android device.](scripts/mobile-android/utilities/sendsms)
-* [Watch and print the X and Y screen tap coordinates of an Android device.](scripts/mobile-android/monitoring/getmobiletappos)
+* [Watch and print the X and Y screen tap coordinates of an Android device.](scripts/mobile-android/hardware_management/getmobilescreentappos)
 
 #### 2. Generic (generic solutions for mobile devices)
 
