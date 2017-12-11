@@ -1,0 +1,9 @@
+# ssh-network-management.aliases
+# 
+# SSH network management aliases
+# 
+
+alias sshstatus='ss -tnlp'                                                       # sshstatus: list the ports listening for a SSH connection
+alias sshlist='sudo lsof -i -n | egrep \<ssh\>'                                  # sshlist: list all tunnels created by the SSH daemon
+alias sshconn='sudo lsof -i -n | egrep \<sshd\>'                                 # sshconn: list all tunnels/connections made to the SSH daemon
+

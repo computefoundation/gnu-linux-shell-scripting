@@ -1,7 +1,7 @@
 
 # aliases/
 
-This directory contains aliases and short functions.
+This directory contains aliases. Aliases also constitute as frequently used short functions.
 
 ## Notes
 
@@ -10,3 +10,4 @@ This directory contains aliases and short functions.
 * Aliases that work with files do not support file names with spaces.
 
 * Some aliases require a common dependency (e.g. gcc).
+

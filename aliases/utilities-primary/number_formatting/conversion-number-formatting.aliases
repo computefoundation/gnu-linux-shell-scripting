@@ -1,0 +1,8 @@
+# conversion-number-formatting.aliases
+# 
+# Conversion number formatting utility aliases
+# 
+
+hextodec() { local hexFrmtd="${1#*'0x'}"; echo "$((16#"${hexFrmtd}"))"; }        # hextodec: convert a hexidecimal number to decimal
+dectohex() { printf '%#010x\n' "${1}"; }                                         # dectohex: convert a decimal number to hexidecimal
+

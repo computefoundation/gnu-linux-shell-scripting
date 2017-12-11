@@ -1,0 +1,7 @@
+# general-typography.aliases
+# 
+# General typography utility aliases
+# 
+
+countchars() { echo "${@}" | wc -c; }                                            # countchars: count the number of characters in a string
+

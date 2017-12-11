@@ -1,0 +1,7 @@
+# internet-network-management.aliases
+# 
+# Internet network management aliases
+# 
+
+alias flushdns='dscacheutil -flushcache'                                         # flushdns: flush the DNS Cache
+

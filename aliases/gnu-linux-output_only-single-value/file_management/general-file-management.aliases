@@ -1,0 +1,7 @@
+# general-file-management.aliases
+# 
+# General file management aliases
+# 
+
+alias numf='echo "$(ls -1 | wc -l)"'                                             # numf: print the number of non-hidden files and directories in the current directory
+

@@ -1,0 +1,7 @@
+# monitor-hardware-management.aliases
+# 
+# Monitor hardware management aliases
+# 
+
+alias suspendmonitor='sleep .7; xset dpms force off'                             # suspendmonitor: suspend the monitor
+
