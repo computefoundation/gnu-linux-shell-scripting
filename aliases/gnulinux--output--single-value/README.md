@@ -3,7 +3,6 @@
 
 ## file_management/
 
-* [**Find files and directories management aliases**](file_management/find-files-and-directories-management.aliases)
 * [**General file management aliases**](file_management/general-file-management.aliases)
 
 ## hardware_management/

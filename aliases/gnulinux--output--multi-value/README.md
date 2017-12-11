@@ -4,7 +4,7 @@
 ## file_management/
 
 * [**File permissions file management aliases**](file_management/file-permissions-file-management.aliases)
-* [**Find files and directories file management aliases**](file_management/find-files-and-directories-file-management.aliases)
+* [**General file management aliases**](file_management/general-file-management.aliases)
 
 ## network_management/
 
