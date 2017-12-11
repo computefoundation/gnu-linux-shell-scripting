@@ -1,6 +1,6 @@
-# find-files-and-directories-file-management.one-liners
+# general-file-management.one-liners
 # 
-# Find files and directories file management one-liners
+# General file management one-liners
 # 
 
 # Recursively find all non-hidden files matching a name.
