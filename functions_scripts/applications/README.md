@@ -1,7 +1,7 @@
 
 # applications/
 
-## databases/
+## database/
 
-* [**mongodbutils**](databases/mongodbutils): RDBMS functions for MongoDB
-* [**mysqlutils**](databases/mysqlutils): NoSQL functions for MySQL
+* [**mongodbutils**](database/mongodbutils): RDBMS functions for MongoDB
+* [**mysqlutils**](database/mysqlutils): NoSQL functions for MySQL
