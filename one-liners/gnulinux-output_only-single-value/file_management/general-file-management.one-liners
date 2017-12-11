@@ -1,6 +1,6 @@
-# get-file-information-file-management.one-liners
+# general-file-management.one-liners
 # 
-# Get file information file management one-liners
+# General file management one-liners
 # 
 
 # Get the size in megabytes of one or more files and/or directories as a plain number.

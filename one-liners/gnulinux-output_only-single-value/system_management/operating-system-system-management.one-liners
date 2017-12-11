@@ -1,0 +1,8 @@
+# operating-system-system-management.one-liners
+# 
+# Operating system system management one-liners
+# 
+
+# Print the target architecture of the current OS (requires llvm)
+llc --version | grep Default | tr -s ' ' | cut -d ' ' -f4
+

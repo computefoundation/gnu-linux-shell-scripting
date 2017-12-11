@@ -1,0 +1,8 @@
+# udev-device-management.one-liner
+# 
+# Udev device management one-liner
+# 
+
+# List the udev attributes for a device.
+udevadm info -a -p "$(udevadm info -q path -n '<device name (e.g. '/dev/sda1')>')"
+
