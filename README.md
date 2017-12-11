@@ -29,22 +29,22 @@ Solutions with respect to core components of the GNU/Linux operating system *(fi
 
 #### 1. Main (actions with or without output)
 
-* [Recursively find and rename all files matching a name.](scripts/gnulinux-main/file_management/renmrec)
+* [Recursively find and rename all files matching a name.](scripts/gnulinux--main/file_management/renmrec)
 
 #### 2. Output only - single-value (single-value output and no actions)
 
-* [Get the size of one or more files and/or directories as a plain number.](one-liners/gnulinux-output_only-single-value/file_management/get-file-information-file-management.one-liners)
-* [Get the ID of a window by PID.](scripts/gnulinux-output_only-single-value/x11_management/getwindidbypid)
+* [Get the size of one or more files and/or directories as a plain number.](one-liners/gnulinux--output_only--single-value/file_management/get-file-information-file-management.one-liners)
+* [Get the ID of a window by PID.](scripts/gnulinux--output_only--single-value/x11_management/getwindidbypid)
 
 #### 3. Output only - multi-value (multi-value output and no actions)
 
-* [Recursively find all files containing a given text.](aliases/aliases-gnulinux-output_only-multi-value.bash)
-* [List all open TCP and UDP ports.](aliases/aliases-gnulinux-output_only-multi-value.bash)
+* [Recursively find all files containing a given text.](aliases/gnulinux--output_only--multi-value/file_management/file-permissions-file-management.aliases)
+* [List all open TCP and UDP ports.](aliases/gnulinux--output_only--multi-value/network_management/general-network-management.aliases)
 
 #### 4. Modules (used in conjuction with command-line programs)
 
-* [Run a command in the background.](scripts/gnulinux-modules/shell_management/runinbg)
-* [Run a command when files have changed in the current directory.](scripts/gnulinux-modules/file_management/inotify)
+* [Run a command in the background.](scripts/gnulinux--modules/shell_management/runinbg)
+* [Run a command when files have changed in the current directory.](scripts/gnulinux--modules/file_management/inotify)
 
 ## Utilities
 
@@ -52,12 +52,12 @@ Utilities, based on two *super* sections:
 
 #### 1. Main (actions with or without output)
 
-* [Open a new terminal emulator with an initial command.](scripts/utilities-main/general_program_management/opennewterm)
-* [Execute a command in a terminal emulator.](scripts/utilities-main/keybind/exectermcommand)
+* [Open a new terminal emulator with an initial command.](scripts/utilities--main/general_program_management/opennewterm)
+* [Execute a command in a terminal emulator.](scripts/utilities--main/keybind/exectermcommand)
 
 #### 2. Modules (used in conjuction with command-line programs)
 
-* [Recursively find and return a file or directory for a command.](scripts/utilities-modules/general_program_management/findfileforcmd)
+* [Recursively find and return a file or directory for a command.](scripts/utilities--modules/general_program_management/findfileforcmd)
 
 ---
 
@@ -69,12 +69,12 @@ Solutions for mobile devices, based on two *super* sections:
 
 #### 1. Android (Android devices)
 
-* [Send an sms using an Android device.](scripts/mobile-android/utilities/sendsms)
-* [Watch and print the X and Y screen tap coordinates of an Android device.](scripts/mobile-android/hardware_management/getmobilescreentappos)
+* [Send an sms using an Android device.](scripts/mobile--android/utilities/sendsms)
+* [Watch and print the X and Y screen tap coordinates of an Android device.](scripts/mobile--android/hardware_management/getmobilescreentappos)
 
 #### 2. Generic (generic solutions for mobile devices)
 
-* [Mount and unmount an MTP device.](scripts/mobile-generic/management/mountmtpdev)
+* [Mount and unmount an MTP device.](scripts/mobile--generic/management/mountmtpdev)
 
 # Contributing
 
