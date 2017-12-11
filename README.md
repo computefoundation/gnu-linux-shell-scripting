@@ -31,15 +31,14 @@ Solutions with respect to core components of the GNU/Linux operating system *(fi
 
 * [Recursively find and rename all files matching a name.](scripts/gnulinux--main/file_management/renmrec)
 
-#### 2. Output only - single-value (single-value output and no actions)
+#### 2. Output - single-value (single-value output and no actions)
 
-* [Get the size of one or more files and/or directories as a plain number.](one-liners/gnulinux--output_only--single-value/file_management/get-file-information-file-management.one-liners)
-* [Get the ID of a window by PID.](scripts/gnulinux--output_only--single-value/x11_management/getwindidbypid)
+* [Get the size of one or more files and/or directories as a plain number.](one-liners/gnulinux--output--single-value/file_management/general-file-management.one-liners)
+* [Get the ID of a window by PID.](scripts/gnulinux--output--single-value/x11_management/getwindidbypid)
 
-#### 3. Output only - multi-value (multi-value output and no actions)
+#### 3. Output - multi-value (multi-value output and no actions)
 
-* [Recursively find all files containing a given text.](aliases/gnulinux--output_only--multi-value/file_management/file-permissions-file-management.aliases)
-* [List all open TCP and UDP ports.](aliases/gnulinux--output_only--multi-value/network_management/general-network-management.aliases)
+* [Recursively find all files containing a given text.](aliases/gnulinux--output--multi-value/file_management/file-permissions-file-management.aliases)
 
 #### 4. Modules (used in conjuction with command-line programs)
 

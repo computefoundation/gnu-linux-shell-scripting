@@ -1,7 +1,0 @@
-# device-hardware-management.aliases
-# 
-# Device hardware management aliases
-# 
-
-alias batthrs='upower -i /org/freedesktop/UPower/devices/DisplayDevice | sed -n 12,12p | awk "{print $4}"' # batthrs: get the number of remaining hours for the battery power
-

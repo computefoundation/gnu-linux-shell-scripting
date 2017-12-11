@@ -1,9 +1,0 @@
-# find-files-and-directories-file-management.aliases
-# 
-# Find files and directories file management aliases
-# 
-
-ff() { find . -type f -name "*${1}*"; }                                          # ff: recursively find all files matching a name name; $1: file name
-fd() { find . -type d -name "*${1}*"; }                                          # fd: recursively find all directories matching a name name; $1: directory name
-ffgr() { /usr/bin/grep -l -R "${1}" .; }                                         # ffgr: recursively find all files containing a given text; $1: text to search
-

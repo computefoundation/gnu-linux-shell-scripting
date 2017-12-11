@@ -1,5 +1,5 @@
 
-# gnulinux--output_only--multi-value/
+# gnulinux--output--multi-value/
 
 ## device_management/
 

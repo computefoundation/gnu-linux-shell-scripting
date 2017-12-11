@@ -1,7 +1,0 @@
-# file-permissions-file-management.aliases
-# 
-# File permissions file management aliases
-# 
-
-alias ll='command ls -FGlAhp'                                                    # ll: list the permissions and owner of each file in the current directory
-

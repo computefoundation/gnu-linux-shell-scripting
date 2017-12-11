@@ -1,7 +1,0 @@
-# processes-system-management.aliases
-# 
-# Processes system management aliases
-# 
-
-procs() { ps -u "${USER}" -o pid,%cpu,%mem,start,time,bsdtime; }                 # procs: list the processes owned by the current user
-
