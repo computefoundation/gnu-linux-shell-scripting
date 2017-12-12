@@ -5,14 +5,14 @@
 # Output is converted from hexidecimal to decimal for easy readability.
 # 
 # Usage:
-#   getmobiletappos [seconds]
+#   getmobilescreentappos [seconds]
 # 
 #   seconds (optional): number of seconds to watch for tap events.
 # 
 
 # ======= CONFIGURATIONS ==============
 
-# Defult number of seconds to watch for tap events.
+# Defult number of seconds to watch for tap events
 readonly WATCH_TIME=5
 
 # ======= ! CONFIGURATIONS ==============
