@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 # 
-# Check if the primary bluetooth device is soft blocked.
+# File:
+#   isbluetoothblocked
+# 
+# Description:
+#   Check if the primary bluetooth device is soft blocked.
 # 
 
 IS_BLUETOOTH_SOFT_BLOCKED="$(rfkill list bluetooth | sed -n \

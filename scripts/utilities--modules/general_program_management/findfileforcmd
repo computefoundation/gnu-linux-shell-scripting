@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 # 
-# Recursively find a file or directory for a command.
+# File:
+#   findfileforcmd
+# 
+# Description:
+#   Recursively find a file or directory for a command.
 # 
 # Examples:
 #   # recursively find and return a file with a name containing "stat" for vim

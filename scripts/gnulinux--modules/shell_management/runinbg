@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 # 
-# Run a command in the background.
+# File:
+#   runinbg
+# 
+# Description:
+#   Run a command in the background.
 # 
 # Usage:
 #   runinbg <command>

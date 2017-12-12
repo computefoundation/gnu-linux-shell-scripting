@@ -1,6 +1,9 @@
-# operating-system-system-management.one-liners
 # 
-# Operating system system management one-liners
+# File:
+#   operating-system-system-management.one-liners
+# 
+# Description:
+#   Operating system system management one-liners
 # 
 
 # Print the target architecture of the current OS (requires llvm)

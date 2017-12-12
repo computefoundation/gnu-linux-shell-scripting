@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 # 
-# Bash array utilities
+# File:
+#   arrayutils.bash
+# 
+# Description:
+#   Bash array utilities
 # 
 
 # Validation
@@ -49,6 +53,7 @@
 
 # Getters
 # --------------------------------------------
+  # Get a value from an array
   # Usage:
   #   getArrayValue <value> <array reference>
   getArrayValue() {
@@ -80,8 +85,8 @@
 
 # Manipulation
 # --------------------------------------------
-  # Usage example:
-  #   newArr=($(removeElementFromArray <value> <array reference>))
+  # Usage:
+  #   removeElementFromArray <value> <array reference>
   removeElementFromArray() {
     local arr="${2}[@]"
     arr=("${!arr}")
@@ -95,8 +100,8 @@
     echo "${arr[@]}"
   }
 
-  # Usage example:
-  #   newArr=($(removeDuplicatesFromArray <array reference>))
+  # Usage:
+  #   removeDuplicatesFromArray <array reference>
   removeDuplicatesFromArray() {
     local arr="${1}[@]"
     arr=("${!arr}")
@@ -112,8 +117,9 @@
 
 # Sets
 # --------------------------------------------
-  # Get the intersection of two arrays (e.g. A=(1 3 9 2 7); B=(2 5 3 7 5); Res=(
-  # 3 2 7)).
+  # Get the intersection of two arrays.
+  # Example:
+  #   A=(1 3 9 2 7); B=(2 5 3 7 5); Res=(3 2 7)
   getIntersection() {
     local arr1="${1}[@]"
     local arr2="${2}[@]"
@@ -133,8 +139,9 @@
     echo "${retArr[@]}"
   }
 
-  # Get the union of two arrays (e.g. A=(5 7 1 1 4); B=(3 1 4 1 9); Res=(5 7 1
-  # 4 3 9)).
+  # Get the union of two arrays.
+  # Example:
+  #   A=(5 7 1 1 4); B=(3 1 4 1 9); Res=(5 7 1 4 3 9)
   getUnion() {
     local arr1="${1}[@]"
     local arr2="${2}[@]"
@@ -157,7 +164,9 @@
   }
 
   # Get the difference between array 1 and array 2 (i.e. elements in array 1
-  # that are not in array 2; e.g. A=(3 6 2 1 5 1 1); B=(2 4 6); Res=(3 1 5)).
+  # that are not in array 2).
+  # Example:
+  #   A=(3 6 2 1 5 1 1); B=(2 4 6); Res=(3 1 5)
   getDifference() {
     local arr1="${1}[@]"
     local arr2="${2}[@]"
@@ -190,8 +199,9 @@
 
 # Other
 # --------------------------------------------
-  # Create pairs between array 1 and array 2 (e.g. A=(0 12); B=(4 5); Res=("0:4"
-  # "0:5" "12:4" "12:5")).
+  # Create pairs between array 1 and array 2.
+  # Example:
+  #   A=(0 12); B=(4 5); Res=("0:4" "0:5" "12:4" "12:5")
  createPairs() {
     local arr1="${1}[@]"
     local arr2="${2}[@]"
@@ -214,7 +224,9 @@
 # 
 # Sets
 # --------------------------------------------
-#   # Union of two arrays (e.g. A=(5 7 1 1 4); B=(3 1 4 1 9); Res=(5 7 3 1 4 9)).
+#   # Get the union of two arrays.
+#   # Example:
+#   #   A=(5 7 1 1 4); B=(3 1 4 1 9); Res=(5 7 3 1 4 9)
 #   getUnion() {
 #     local arr1="${1}[@]"
 #     local arr2="${2}[@]"

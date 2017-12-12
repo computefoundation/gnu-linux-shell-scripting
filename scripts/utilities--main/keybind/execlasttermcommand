@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 # 
-# Execute the last command of a terminal emulator.
+# File:
+#   execlasttermcommand
+# 
+# Description:
+#   Execute the last command of a terminal emulator.
 # 
 # Usage:
 #   execlasttermcommand (--class <TERM_CLASS> | --title <TERM_TITLE>) [options]

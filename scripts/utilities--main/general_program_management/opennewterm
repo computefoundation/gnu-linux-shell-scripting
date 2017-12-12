@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 # 
-# Open a new terminal emulator with an initial command.
+# File:
+#   opennewterm
+# 
+# Description:
+#   Open a new terminal emulator with an initial command.
 # 
 # Usage:
 #   opennewterm [initial command]

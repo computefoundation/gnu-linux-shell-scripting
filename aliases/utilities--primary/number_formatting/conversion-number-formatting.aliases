@@ -1,6 +1,9 @@
-# conversion-number-formatting.aliases
 # 
-# Conversion number formatting utility aliases
+# File:
+#   conversion-number-formatting.aliases
+# 
+# Description:
+#   Conversion number formatting utility aliases
 # 
 
 hextodec() { local hexFrmtd="${1#*'0x'}"; echo "$((16#"${hexFrmtd}"))"; }        # hextodec: convert a hexidecimal number to decimal

@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 # 
-# Bash HTTP utilities
+# File:
+#   httputils.bash
+# 
+# Description:
+#   Bash HTTP utilities
 # 
 
 # This regex only ensures that the URL contains safe characters.
@@ -10,12 +14,13 @@ PROTOCOLS_REGEX='https?|ftp|file'
 
 # Validation
 # --------------------------------------------
-  # Check if string is a valid URL. If no options are used, it is only validated
-  # with URL_REGEX.
+  # Check if a string is a valid URL.
   # Usage:
   #   isUrl <string to check>
   # Options:
-  #   -p    check that the URL contains one of the protocols in PROTOCOLS_REGEX
+  #   -p    check that the string contains one of the protocols in
+  #         PROTOCOLS_REGEX; if not used, the string is validated only with
+  #         URL_REGEX.
   isUrl() {
     local OPT OPTIND
     getopts :p OPT
@@ -26,13 +31,13 @@ PROTOCOLS_REGEX='https?|ftp|file'
     [[ "${1}" =~ ${urlRegex} ]] && return 0 || return 1
   }
 
-  # Check if string is a valid website URL. If no options are used, it is only
-  # validated with URL_REGEX and checked to begin with "www." and contain a dot
-  # (and not at the beginning or end).
+  # Check if a string is a valid website URL.
   # Usage:
   #   isWebsiteUrl <string to check>
   # Options:
-  #   -p    check that the URL contains the "http[s]://" protocol prefix
+  #   -p    check that the string contains the "http[s]://" protocol prefix; if
+  #         not used, it is only validated with URL_REGEX and checked to begin
+  #         with "www." and contain a dot (and not at the beginning or end).
   isWebsiteUrl() {
     local OPT OPTIND
     getopts :p OPT

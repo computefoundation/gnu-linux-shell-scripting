@@ -1,6 +1,9 @@
-# cpu-hardware-management.one-liners
 # 
-# CPU hardware management one liners
+# File:
+#   cpu-hardware-management.one-liners
+# 
+# Description:
+#   CPU hardware management one liners
 # 
 
 # Get the vendor name of the current CPU

@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 # 
-# Run a command when files have changed in the current directory. 
+# File:
+#   inotify
+# 
+# Description:
+#   Run a command when files have changed in the current directory. 
 # 
 # Usage:
 #   inotify <command to run>

@@ -1,9 +1,13 @@
 #!/usr/bin/env bash
 # 
-# Get the ID of a window by PID (if the process has a window).
+# File:
+#   getwindidbypid
+# 
+# Description:
+#   Get the ID of a window by PID (if the process has a window).
 # 
 # Usage:
-#   getwindidbypid <PID>
+#   getwindidbypid <pid>
 # 
 
 if [[ "$#" -eq 0 || ! "${1}" =~ ^[0-9]+$ ]]; then

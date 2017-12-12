@@ -1,11 +1,15 @@
 #!/usr/bin/env bash
 # 
-# Get the name of a window by ID.
+# File:
+#   getwindnamebyid
+# 
+# Description:
+#   Get the name of a window by ID.
 # 
 # Usage:
-#   getwindnamebyid <window ID>
+#   getwindnamebyid <window_id>
 # 
-#   window ID: must be in hexidecimal format
+#   <window_id>: must be in hexidecimal format
 # 
 
 if [ "$#" -eq 0 ]; then

@@ -1,6 +1,9 @@
-# udev-device-management.one-liners
 # 
-# Udev device management one-liners
+# File:
+#   udev-device-management.one-liners
+# 
+# Description:
+#   Udev device management one-liners
 # 
 
 # List the udev attributes for a device.

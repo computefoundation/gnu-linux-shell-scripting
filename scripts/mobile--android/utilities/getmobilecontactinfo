@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 # 
-# Get contact info from an Android device.
+# File:
+#   getmobilecontactinfo
+# 
+# Description:
+#   Get contact info from an Android device.
 # 
 # Usage:
 #   getmobilecontactinfo <contact phone or name>

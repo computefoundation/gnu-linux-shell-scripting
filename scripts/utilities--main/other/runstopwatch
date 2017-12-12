@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 # 
-# Run a stopwatch in the terminal.
+# File:
+#   runstopwatch
+# 
+# Description:
+#   Run a stopwatch in the terminal.
 # 
 # Usage:
 #   runstopwatch

@@ -1,6 +1,9 @@
-# file-permissions-file-management.aliases
 # 
-# File permissions file management aliases
+# File:
+#   file-permissions-file-management.aliases
+# 
+# Description:
+#   File permissions file management aliases
 # 
 
 alias permreadonly='chmod a-w'                                                   # permreadonly: change the permisson status of a file to read-only

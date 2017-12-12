@@ -1,28 +1,32 @@
 #!/usr/bin/env bash
 # 
-# Bash date and time utilities
+# File:
+#   dateandtimeutils.bash
+# 
+# Description:
+#   Bash date and time utilities
 # 
 
 # Conversion
 # --------------------------------------------
-  # Format number of seconds (using either an integer or decimal) to millseconds
-  # as a decimal.
+  # Convert a time in seconds (using either an integer or decimal) to
+  # millseconds as a decimal.
   # Usage:
   #   secondsToMillisecondsDecimal <seconds>
   secondsToMillisecondsDecimal() {
     printf '%.4f' "$(bc <<< "${1}*1000")"
   }
 
-  # Format number of seconds (using either an integer or decimal) to millseconds
-  # as an integer rounded to the nearest tenths place (using round half towards
-  # zero mode).
+  # Convert a time in seconds (using either an integer or decimal) to
+  # millseconds as an integer rounded to the nearest tenths place (using round
+  # half towards zero mode).
   # Usage:
   #   secondsToMilliseconds <seconds>
   secondsToMilliseconds() {
     printf '%.0f' "$(secondsToMillisecondsDecimal "${1}")"
   }
 
-# Value generation
+# Random generation
 # --------------------------------------------
   # Generate a random date between two dates specified by year and optionally
   # month, day of month and hour and output in ISO 8601 format (e.g.

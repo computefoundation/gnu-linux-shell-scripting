@@ -1,6 +1,9 @@
-# postgresql-database.one-liners
 # 
-# PostgreSQL database one-liners
+# File:
+#   postgresql-database.one-liners
+# 
+# Description:
+#   PostgreSQL database one-liners
 # 
 
 # Check if a PostgreSQL database exists.

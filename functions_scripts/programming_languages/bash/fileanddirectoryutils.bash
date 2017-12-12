@@ -1,14 +1,18 @@
 #!/usr/bin/env bash
 # 
-# Bash file and directory utilities
+# File:
+#   fileanddirectoryutils.bash
+# 
+# Description:
+#   Bash file and directory utilities
 # 
 
 # Extraction
 # --------------------------------------------
-  # Extract a the extension from a file name using best guess: get all text
-  # after the last or second to last dot if it exists.
+  # Extract a the extension from a file name using a best guess method: get all
+  # text after the last or second to last dot if it exists.
   # Usage:
-  #   extractFileExtension <file name>
+  #   extractFileExtension <file_name>
   extractFileExtension() {
     if [[ "${1}" = *'.'* ]]; then
       local fileName="${1%.*}" ext="${1##*.}"
@@ -68,15 +72,4 @@
     fi
     echo "${fileName}"
   }
-
-
-
-# ============================================================
-#   REFERENCE
-# ============================================================
-# 
-#   isDirectoryEmpty() {
-#     if [ "$(ls -A "${1}")" ]; then return 0; else return 1; fi
-#   }
-# 
 

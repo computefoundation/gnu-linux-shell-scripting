@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 # 
-# Remove the last N bash history entries.
+# File:
+#   remlastnbashhistentries
+# 
+# Description:
+#   Remove the last N bash history entries.
 # 
 # Usage (script must be sourced for history command to work):
 #   source remlastnbashhistentries; _remlastnbashhistentries <1-100>

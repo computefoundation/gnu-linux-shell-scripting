@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 # 
-# Execute a command in a terminal emulator.
+# File:
+#   exectermcommand
+# 
+# Description:
+#   Execute a command in a terminal emulator.
 # 
 # Usage:
 #   exectermcommand (--class <TERM_CLASS> | --title <TERM_TITLE>) [options] --

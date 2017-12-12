@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 # 
-# Turn an Android device screen off if on.
+# File:
+#   turnmobilescreenoff
+# 
+# Description:
+#   Turn an Android device screen off if on.
 # 
 
 readonly IS_SCREEN_ON="$(adb -d shell 'dumpsys power' | grep mScreenOn)"

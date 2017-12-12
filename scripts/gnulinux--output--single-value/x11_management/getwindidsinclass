@@ -1,15 +1,19 @@
 #!/usr/bin/env bash
 # 
-# Get the IDs of all windows in a class.
+# File:
+#   getwindidsinclass
+# 
+# Description:
+#   Get the IDs of all windows in a class.
 # 
 # Usage:
-#   getwindidsinclass <window class>
+#   getwindidsinclass <window_class>
 # 
-#   window class: case-sensitive; can match any part of the full qualified class
-#                 string (class and classname; e.g. "xterm.XTerm")
+#   <window_class>: case-sensitive; can match any part of the full qualified
+#                   class string (class and classname; e.g. "xterm.XTerm")
 # 
 # Returns:
-#   Window IDs in hexidecimal format separated by a space.
+#   Window IDs in hexidecimal format separated by a space
 # 
 
 if [ "$#" -eq 0 ]; then

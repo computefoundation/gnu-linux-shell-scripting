@@ -1,18 +1,23 @@
 #!/usr/bin/env bash
 # 
-# Determine if a right monitor (a monitor positioned to the right of the
-# leftmost monitor) is enabled.
+# File:
+#   isrightmonitorenabled
+# 
+# Description:
+#   Determine if a right monitor (a monitor positioned to the right of the
+#   leftmost monitor) is enabled.
+# 
+# Returns:
+#   Monitor type (e.g. "DP", "HDMI", "VGA", "TV", "DVI1") if the monitor is
+#   enabled
 # 
 # Exit codes:
 #   0: is enabled
 #   1: is not enabled
 # 
-# If the monitor is enabled, its type will also be printed (e.g. "DP", "HDMI",
-# "VGA", "TV", "DVI1", "LVDS").
-# 
 # Options:
-#   -o   output offset/starting position of right monitor also (return string
-#        will be in the format "<TYPE>,<OFFSET>").
+#   -o    also output offset/starting position of right monitor (returns string
+#         in the format "<TYPE>,<OFFSET>")
 # 
 # Notes:
 #   All monitors after the second will be ignored.

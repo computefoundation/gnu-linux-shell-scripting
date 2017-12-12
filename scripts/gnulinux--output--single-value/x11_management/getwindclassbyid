@@ -1,13 +1,17 @@
 #!/usr/bin/env bash
 # 
-# Get the class of a window by ID.
+# File:
+#   getwindclassbyid
+# 
+# Description:
+#   Get the class of a window by ID.
 # 
 # Usage:
-#   getwindclassbyid <window ID>
+#   getwindclassbyid <window_id>
 # 
 # Returns:
 #   Full qualified class string (i.e. class and classname; e.g. "xterm.XTerm"))
-#   of the window.
+#   of window
 # 
 
 if [ "$#" -eq 0 ]; then

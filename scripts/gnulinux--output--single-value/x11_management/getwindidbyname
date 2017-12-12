@@ -1,14 +1,18 @@
 #!/usr/bin/env bash
 # 
-# Get the ID of a window by name.
+# File:
+#   getwindidbyname
+# 
+# Description:
+#   Get the ID of a window by name.
 # 
 # Usage:
-#   getwindidbyname <window name>
+#   getwindidbyname <window_name>
 # 
-#   window name: case-sensitive; matched partially
+#   <window_name>: case-sensitive; matched partially
 # 
 # Returns:
-#   ID of window; if more than one window is matched, all IDs are returned.
+#   window ID; multiple IDs if more than one window is matched
 # 
 
 if [ "$#" -eq 0 ]; then

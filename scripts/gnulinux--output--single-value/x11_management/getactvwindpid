@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 # 
-# Get the PID of the active window.
+# File:
+#   getactvwindpid
+# 
+# Description:
+#   Get the PID of the active window.
 # 
 
 getActvWindId() {

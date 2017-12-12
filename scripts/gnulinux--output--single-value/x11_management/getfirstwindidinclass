@@ -1,15 +1,20 @@
 #!/usr/bin/env bash
 # 
-# Get the ID of the first active window in a class.
+# File:
+#   getfirstwindidinclass
+# 
+# Description:
+#   Get the ID of the first active window in a class.
 # 
 # Options:
-#   -n [NAME]   Only windows with titles partially matched by NAME.
+#   -n [name]    return only IDs of windows with titles partially matched by
+#                [name]
 # 
 # Usage:
-#   getfirstwindidinclass <window class>
+#   getfirstwindidinclass <window_class>
 # 
-#   window class: case-sensitive; can match any part of the full qualified class
-#                 string (i.e. class and classname; e.g. "xterm.XTerm")
+#   <window_class>: case-sensitive; can match any part of the full qualified
+#                   class string (i.e. class and classname; e.g. "xterm.XTerm")
 # 
 
 while getopts n: OPT; do

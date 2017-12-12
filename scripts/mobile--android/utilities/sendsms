@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 # 
-# Send an sms using an Android device.
+# File:
+#   sendsms
+# 
+# Description:
+#   Send an sms using an Android device.
 # 
 # Usage:
 #   sendsms <phone no.> <message>

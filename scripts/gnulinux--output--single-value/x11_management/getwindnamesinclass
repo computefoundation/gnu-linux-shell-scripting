@@ -1,12 +1,16 @@
 #!/usr/bin/env bash
 # 
-# Get the names of all windows in a class.
+# File:
+#   getwindnamesinclass
+# 
+# Description:
+#   Get the names of all windows in a class.
 # 
 # Usage:
-#   getwindnamesinclass <window class>
+#   getwindnamesinclass <window_class>
 # 
-#   window class: case-sensitive; can match any part of the full qualified class
-#                 string (i.e. class and classname; e.g. "xterm.XTerm")
+#   <window_class>: case-sensitive; can match any part of the full qualified
+#                   class string (i.e. class and classname; e.g. "xterm.XTerm")
 # 
 
 if [ "$#" -eq 0 ]; then

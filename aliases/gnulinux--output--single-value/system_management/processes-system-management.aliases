@@ -1,6 +1,9 @@
-# processes-system-management.aliases
 # 
-# Processes system management aliases
+# File:
+#   processes-system-management.aliases
+# 
+# Description:
+#   Processes system management aliases
 # 
 
 getpid() { lsof -t -c "${@}" 2>/dev/null; }                                      # getpid: get the ID of a process by name; $1: process name (e.g. "/d$/" to get PIDs for processes ending in "d")

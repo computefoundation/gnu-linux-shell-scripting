@@ -1,11 +1,15 @@
 #!/usr/bin/env bash
 # 
-# Get the PID of a window by ID.
+# File:
+#   getwindpidbyid
+# 
+# Description:
+#   Get the PID of a window by ID.
 # 
 # Usage:
-#   getwindpidbyid <window ID>
+#   getwindpidbyid <window_id>
 # 
-#   window ID: must be in hexidecimal format
+#   <window_id>: must be in hexidecimal format
 # 
 
 if [ "$#" -eq 0 ]; then

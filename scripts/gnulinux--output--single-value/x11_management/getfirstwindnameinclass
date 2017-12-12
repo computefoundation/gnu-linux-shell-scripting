@@ -1,12 +1,16 @@
 #!/usr/bin/env bash
 # 
-# Get the name of the first active window in a class.
+# File:
+#   getfirstwindnameinclass
+# 
+# Description:
+#   Get the name of the first active window in a class.
 # 
 # Usage:
-#   getfirstwindnameinclass <window class>
+#   getfirstwindnameinclass <window_class>
 # 
-#   window class: case-sensitive; can match any part of the full qualified class
-#                 string (i.e. class and classname; e.g. "xterm.XTerm")
+#   <window_class>: case-sensitive; can match any part of the full qualified
+#                   class string (i.e. class and classname; e.g. "xterm.XTerm")
 # 
 
 if [ "$#" -eq 0 ]; then

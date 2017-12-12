@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 # 
-# Change the case of the selected text.
+# File:
+#   changexseltextcase
+# 
+# Description:
+#   Change the case of the selected text.
 # 
 # Usage:
 #   changexseltextcase (--upper | --lower)

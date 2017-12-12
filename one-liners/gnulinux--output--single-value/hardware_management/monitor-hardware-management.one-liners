@@ -1,6 +1,9 @@
-# monitor-hardware-management.one-liners
 # 
-# Monitor hardware management one liners
+# File:
+#   monitor-hardware-management.one-liners
+# 
+# Description:
+#   Monitor hardware management one liners
 # 
 
 # Get the maximum backlight level.

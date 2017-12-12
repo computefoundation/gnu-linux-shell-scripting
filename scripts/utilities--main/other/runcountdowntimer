@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 # 
-# Run a countdown timer in the terminal.
+# File:
+#   runcountdowntimer
+# 
+# Description:
+#   Run a countdown timer in the terminal.
 # 
 # Usage:
 #   runcountdowntimer <seconds>

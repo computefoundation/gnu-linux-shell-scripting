@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 # 
-# Locate a file or directory for a command.
+# File:
+#   locfileforcmd
+# 
+# Description:
+#   Locate a file or directory for a command.
 # 
 # Examples:
 #   # locate and return a file with a name containing "stat" for vim

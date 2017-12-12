@@ -1,14 +1,19 @@
 #!/usr/bin/env bash
 # 
-# Bash core utilities
+# File:
+#   coreutils.bash
+# 
+# Description:
+#   Bash core utilities
 # 
 
 # Options and Arguments
 # --------------------------------------------
-  # Extract all options and their arguments from a command's arguments. (Note:
-  # option arguments are extracted for all options except the last).
-  # Usage example:
-  #   opts=($(extractOptions <command arguments string>))
+  # Extract all options and their arguments from a command.
+  # Usage:
+  #   extractOptions <command_arguments_string>
+  # Note:
+  #   Option arguments are extracted for all options except the last.
   extractOptions() {
     local arr=(${@})
     if [[ "${arr[0]}" = '-'* ]]; then

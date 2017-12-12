@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 # 
-# MongoDB general NoSQL utility functions
+# File:
+#   mongodbutils
+# 
+# Description:
+#   MongoDB general NoSQL utility functions
 # 
 # Usage:
 #   mongodbutils <action>
@@ -12,7 +16,10 @@ if [ "$#" -lt 1 ]; then
 fi
 
 case "${1}" in
-  # Drop all databases.
+  # Name:
+  #   drop_all
+  # Description:
+  #   Drop all databases.
   # Usage:
   #   ... drop_all
   'drop_all')

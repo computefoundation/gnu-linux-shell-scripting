@@ -1,9 +1,14 @@
 #!/usr/bin/env bash
 # 
-# Get the class of the active window.
+# File:
+#   getactvwindclass
+# 
+# Description:
+#   Get the class of the active window.
 # 
 # Returns:
-#   Full qualified class string (class and classname; e.g. "xterm.XTerm")).
+#   Full qualified class string (class and classname; e.g. "xterm.XTerm")) of
+#   window
 # 
 
 getActvWindId() {

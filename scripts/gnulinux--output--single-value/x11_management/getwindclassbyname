@@ -1,16 +1,20 @@
 #!/usr/bin/env bash
 # 
-# Get the class of a window by name.
+# File:
+#   getwindclassbyname
+# 
+# Description:
+#   Get the class of a window by name.
 # 
 # Usage:
-#   getwindclassbyname <window name>
+#   getwindclassbyname <window_name>
 # 
-#   window name: case-sensitive; matched partially
+#   <window_name>: case-sensitive; matched partially
 # 
 # Returns:
-#   Full qualified class string (i.e. class and classname; e.g. "xterm.XTerm");
-#   if more than one class is found for all matched windows, each class will be
-#   returned separated by a newline.
+#   Full qualified class string (i.e. class and classname; e.g. "xterm.XTerm")
+#   of window; multiple class strings separated by a newline if more than one
+#   class exists
 # 
 
 if [ "$#" -eq 0 ]; then

@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 # 
-# Bash string utilities
+# File:
+#   stringutils.bash
+# 
+# Description:
+#   Bash string utilities
 # 
 
 # General
@@ -22,18 +26,19 @@
     fi
     if [ "$#" -eq 2 ]; then
       if [[ "${2}" =~ ^[0-9]+$ && "${2}" -gt 0 ]]; then
-        local rptCnt="${2}"
+        local reptCount="${2}"
         if [[ -n "${RPT_COUNT_MAX}" && "${RPT_COUNT_MAX}" -ge 0 ]]; then
-          [ "${rptCnt}" -gt "${RPT_COUNT_MAX}" ] && rptCnt="${RPT_COUNT_MAX}"
+          [ "${reptCount}" -gt "${RPT_COUNT_MAX}" ] && \
+              reptCount="${RPT_COUNT_MAX}"
         fi
-        for i in $(seq 1 "${rptCnt}"); do
-          local retTxt+="${1}"
+        for i in $(seq 1 "${reptCount}"); do
+          local retText+="${1}"
         done
       fi
     elif [ "$#" -eq 1 ]; then
-      retTxt="${1}"
+      retText="${1}"
     fi
-    echo "${retTxt}"
+    echo "${retText}"
   }
 
   # Prepend the given prefix to all delimited substrings in the full string.
@@ -45,8 +50,8 @@
   prependToSubstrings() {
     [ "$#" -ne 3 ] && echo "${1}" && return 1
     IFS="${2}"; for str in ${1}; do
-        local retTxt+="${3}${str}${2}"; done; unset IFS
-    [ ! "${1: -1}" = "${2}" ] && retTxt="${retTxt%${2}}"
-    echo "${retTxt}"
+        local retText+="${3}${str}${2}"; done; unset IFS
+    [ ! "${1: -1}" = "${2}" ] && retText="${retText%${2}}"
+    echo "${retText}"
   }
 

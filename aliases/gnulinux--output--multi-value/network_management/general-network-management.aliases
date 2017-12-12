@@ -1,6 +1,9 @@
-# general-network-management.aliases
 # 
-# General network management aliases
+# File:
+#   general-network-management.aliases
+# 
+# Description:
+#   General network management aliases
 # 
 
 alias ports='sudo ss -antu'                                                      # ports: list all open TCP and UDP ports

@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 # 
-# Check if connected to a network.
+# File:
+#   connectedtonetwork
+# 
+# Description:
+#   Check if connected to a network.
 # 
 # Dependencies:
 #   networkmanager

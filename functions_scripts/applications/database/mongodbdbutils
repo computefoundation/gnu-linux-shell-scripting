@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 # 
-# General NoSQL utility functions for a MongoDB database
+# File:
+#   mongodbdbutils
+# 
+# Description:
+#   General NoSQL utility functions for a MongoDB database
 # 
 # Usage:
 #   mongodbdbutils <database_name> <action> [action_arguments]
@@ -17,7 +21,10 @@ readonly ACTION="${2}"
 shift 2
 
 case "${ACTION}" in
-  # Import data from a JSON file.
+  # Name:
+  #   import
+  # Description:
+  #   Import data from a JSON file.
   # Usage:
   #   ... import <json_file_name> [collection_name]
   #           collection name:     collection name in the database; default is
@@ -39,7 +46,10 @@ case "${ACTION}" in
     mongoimport --db "${DB_NAME}" --file "${1}" ${opts}
     ;;
 
-  # Export the data to a JSON file.
+  # Name:
+  #   export_to_json_file
+  # Description:
+  #   Export the data to a JSON file.
   # Usage:
   #   ... export_to_json_file <collection name> [directory]
   #           collection name:     collection name in the database; also used as
@@ -60,7 +70,10 @@ case "${ACTION}" in
     mongoexport --db "${DB_NAME}" ${opts} --jsonArray
     ;;
 
-  # Dump the database to BSON files.
+  # Name:
+  #   dump_to_bson_files
+  # Description:
+  #   Dump the database to BSON files.
   # Usage:
   #   ... dump_to_bson_files [collection_name] [directory]
   #           collection name:     collection name in the database; default is
@@ -78,7 +91,10 @@ case "${ACTION}" in
     mongodump --db "${DB_NAME}" ${opts}
     ;;
 
-  # Restore data from one or more BSON files.
+  # Name:
+  #   restore_from_bson_files
+  # Description:
+  #   Restore data from one or more BSON files.
   # Usage:
   #   ... restore_from_bson_files <bson_file_or_directory_containing_bson_files>
   'restore_from_bson_files')
@@ -91,7 +107,10 @@ case "${ACTION}" in
     mongorestore "${1}"
     ;;
 
-  # Drop the database.
+  # Name:
+  #   drop
+  # Description:
+  #   Drop the database.
   # Usage:
   #   ... drop
   'drop')

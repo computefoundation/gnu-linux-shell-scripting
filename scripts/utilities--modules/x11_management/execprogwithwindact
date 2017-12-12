@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 # 
-# Execute a program with an action on the resulting window.
+# File:
+#   execprogwithwindact
+# 
+# Description:
+#   Execute a program with an action on the resulting window.
 # 
 # Dependencies:
 #   wmctrl (used to determine if the window is already open and get the window

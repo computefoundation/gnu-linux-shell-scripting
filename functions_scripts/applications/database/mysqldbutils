@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 # 
-# Generic RDBMS utility functions for a MySQL database
+# File:
+#   mysqldbutils
+# 
+# Description:
+#   Generic RDBMS utility functions for a MySQL database
 # 
 # Usage:
 #   mysqldbutils <databaes_user> <database_name> <action>
@@ -18,7 +22,10 @@ readonly ACTION="${3}"
 shift 3
 
 case "${ACTION}" in
-  # Create the database from an SQL file.
+  # Name:
+  #   create_from_file
+  # Description:
+  #   Create the database from an SQL file.
   # Usage:
   #   ... create_from_file <sql_file>
   'create_from_file')
@@ -38,7 +45,10 @@ case "${ACTION}" in
     fi
     ;;
     
-  # Drop all tables in the database.
+  # Name:
+  #   drop_all_tables
+  # Description:
+  #   Drop all tables in the database.
   # Usage:
   #   ... drop_all_tables
   'drop_all_tables')
@@ -61,7 +71,10 @@ case "${ACTION}" in
     mysql -u"${DB_USER}" -e "${query}"
     ;;
     
-  # Clear all tables in the database.
+  # Name:
+  #   clear_all_tables
+  # Description:
+  #   Clear all tables in the database.
   # Usage:
   #   ... clear_all_tables
   'clear_all_tables')
@@ -71,7 +84,10 @@ case "${ACTION}" in
     rm ./db_export_tmp.sql
     ;;
     
-  # Export the database.
+  # Name:
+  #   export
+  # Description:
+  #   Export the database.
   # Usage:
   #   ... export
   'export')

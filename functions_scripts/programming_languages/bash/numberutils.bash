@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 # 
-# Bash number utilities
+# File:
+#   numberutils.bash
+# 
+# Description:
+#   Bash number utilities
 # 
 
 # Validation
@@ -36,6 +40,7 @@
 # 
 # Validation
 # --------------------------------------------
+#   # Determine if the given value is a number.
 #   # Usage:
 #   #   isNumber <value>
 #   isNumber() {

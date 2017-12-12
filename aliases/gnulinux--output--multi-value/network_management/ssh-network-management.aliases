@@ -1,6 +1,9 @@
-# ssh-network-management.aliases
 # 
-# SSH network management aliases
+# File:
+#   ssh-network-management.aliases
+# 
+# Description:
+#   SSH network management aliases
 # 
 
 alias sshstatus='ss -tnlp'                                                       # sshstatus: list the ports listening for a SSH connection

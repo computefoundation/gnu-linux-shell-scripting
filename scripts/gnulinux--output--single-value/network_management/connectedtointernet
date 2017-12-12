@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 # 
-# Check if connected to the internet.
+# File:
+#   connectedtointernet
+# 
+# Description:
+#   Check if connected to the internet.
 # 
 # Source:
 #   https://stackoverflow.com/a/932187/8031513
