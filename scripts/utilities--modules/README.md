@@ -3,8 +3,8 @@
 
 ## general_program_management/
 
-* [**findfileforcmd**](general_program_management/findfileforcmd): Recursively find and return a file or directory for a command.
-* [**locfileforcmd**](general_program_management/locfileforcmd): Locate and return a file or directory for a command.
+* [**findfileforcmd**](general_program_management/findfileforcmd): Recursively find a file or directory for a command.
+* [**locfileforcmd**](general_program_management/locfileforcmd): Locate a file or directory for a command.
 
 ## x11_management/
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # 
-# Locate and return a file or directory for a command.
+# Locate a file or directory for a command.
 # 
 # Examples:
 #   # locate and return a file with a name containing "stat" for vim
