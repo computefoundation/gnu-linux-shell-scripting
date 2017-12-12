@@ -25,20 +25,16 @@ Solutions for programming languages
 
 ## GNU/Linux
 
-Solutions with respect to core components of the GNU/Linux operating system *(file, system and X11 management, operating system tools, etc.)*, based on four *super* sections:
+Solutions with respect to core components of the GNU/Linux operating system *(file, system and X11 management, operating system tools, etc.)*, based on three *super* sections:
 
 #### 1. Main (actions with or without output)
 
 * [Recursively find and rename all files matching a name.](scripts/gnulinux--main/file_management/renmrec)
 
-#### 2. Output - single-value (single-value output and no actions)
+#### 2. Output (output and no actions)
 
-* [Get the number of megabytes of one or more files and/or directories.](one-liners/gnulinux--output--single-value/file_management/general-file-management.one-liners)
-* [Get the ID of a window by PID.](scripts/gnulinux--output--single-value/x11_management/getwindidbypid)
-
-#### 3. Output - multi-value (multi-value output and no actions)
-
-* [Recursively find all files containing a given text.](aliases/gnulinux--output--multi-value/file_management/file-permissions-file-management.aliases)
+* [Get the number of megabytes of one or more files and/or directories.](one-liners/gnulinux--output/file_management/general-file-management.one-liners)
+* [Get the ID of a window by PID.](scripts/gnulinux--output/x11_management/getwindidbypid)
 
 #### 4. Modules (used in conjuction with command-line programs)
 

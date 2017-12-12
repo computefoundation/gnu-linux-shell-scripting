@@ -6,7 +6,11 @@
 #   General file management aliases
 # 
 
-FIND:
+FILE AND DIRECTORY FINDING:
+
+ff() { find . -type f -name "*${1}*"; }                                          # ff: recursively find all files matching a name name; $1: file name
+fd() { find . -type d -name "*${1}*"; }                                          # fd: recursively find all directories matching a name name; $1: directory name
+ffgr() { /usr/bin/grep -l -R "${1}" .; }                                         # ffgr: recursively find all files containing a given text; $1: text to search
 
 fff() { find . -type f -name "*${1}*" -print -quit; }                            # fff: recursively find the first file matching a name; $1: file name
 fdf() { find . -type d -name "*${1}*" -print -quit; }                            # fdf: recursively find the first directory matching a name; $1: directory name
@@ -15,7 +19,7 @@ fdfa() { find "$PWD" -type d -name "*${1}*" -print -quit; }                     
 ffd() { echo "$(find . -type f -name "*${1}*" -exec sh -c 'echo "${1%/*}"; \
   kill "$PPID"' sh {} \;)" ;}                                                    # ffd: recursively find the first file matching a name and return its parent directory; $1: file name
 
-LISTING:
+DIRECTORY INFORMATION:
 
 alias numf='echo "$(ls -1 | wc -l)"'                                             # numf: print the number of non-hidden files and directories in the current directory
 

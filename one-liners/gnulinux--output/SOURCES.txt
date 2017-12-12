@@ -1,4 +1,4 @@
-Sources for gnulinux--output--single-value one-liners
+Sources for gnulinux--output one-liners
 
 hardware_management/monitor-hardware-management.one-liners:
 

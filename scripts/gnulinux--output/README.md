@@ -1,5 +1,5 @@
 
-# gnulinux--output--single-value/
+# gnulinux--output/
 
 ## hardware_management/
 

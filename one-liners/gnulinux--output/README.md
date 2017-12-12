@@ -1,5 +1,9 @@
 
-# gnulinux--output--single-value/
+# gnulinux--output/
+
+## device_management/
+
+* [**Udev device management one-liners**](device_management/udev-device-management.one-liners)
 
 ## file_management/
 

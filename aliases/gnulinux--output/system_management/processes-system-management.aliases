@@ -6,5 +6,6 @@
 #   Processes system management aliases
 # 
 
+procs() { ps -u "${USER}" -o pid,%cpu,%mem,start,time,bsdtime; }                 # procs: list the processes owned by the current user
 getpid() { lsof -t -c "${@}" 2>/dev/null; }                                      # getpid: get the ID of a process by name; $1: process name (e.g. "/d$/" to get PIDs for processes ending in "d")
 
