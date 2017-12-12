@@ -7,7 +7,7 @@
 
 ## general_text_manipulation/
 
-* [**replrec**](general_text_manipulation/replrec): Replace a string recursively.
+* [**recrep**](general_text_manipulation/recrep): Replace a string recursively.
 
 ## keybind/
 

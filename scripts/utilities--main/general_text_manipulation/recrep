@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # 
 # File:
-#   replrec
+#   recrep
 # 
 # Description:
 #   Replace a string recursively.
@@ -12,7 +12,7 @@
 # recursively.
 # 
 # Usage:
-#   replrec <text to replace> <replacement text>
+#   recrep <text to replace> <replacement text>
 # 
 
 # ======= CONFIGURATIONS ==============
@@ -21,15 +21,15 @@
 readonly BACKUP=true
 
 # Directory where backups are stored
-readonly BACKUPS_DIR="${HOME}/.unixfoundation/shell/replrec-backups/"
+readonly BACKUPS_DIR="${HOME}/.unixfoundation/shell/recrep-backups/"
 
 # ======= ! CONFIGURATIONS ==============
 
 if [ "$#" -ne 2 ]; then
-  echo 'replrec: invalid number of arguments' 1>&2
+  echo 'recrep: invalid number of arguments' 1>&2
   exit 1
 elif [ -z "${1}" ]; then
-  echo 'replrec: first argument empty' 1>&2
+  echo 'recrep: first argument empty' 1>&2
   exit 1
 fi
 
