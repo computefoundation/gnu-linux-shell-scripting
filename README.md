@@ -29,7 +29,7 @@ Solutions with respect to core components of the GNU/Linux operating system *(fi
 
 #### 1. Main (actions with or without output)
 
-* [Recursively find and rename all files matching a name.](scripts/gnulinux--main/file_management/renmrec)
+* [Recursively rename all files matching a name.](scripts/gnulinux--main/file_management/recren)
 
 #### 2. Output (output and no actions)
 

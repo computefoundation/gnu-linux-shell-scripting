@@ -3,7 +3,7 @@
 
 ## file_management/
 
-* [**renmrec**](file_management/renmrec): Recursively find and rename all files matching a name.
+* [**recren**](file_management/recren): Recursively rename all files matching a name.
 
 ## shell_management/
 
