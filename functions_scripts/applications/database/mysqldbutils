@@ -1,51 +1,48 @@
 #!/usr/bin/env bash
 # 
-# RDBMS functions for MySQL
+# Generic RDBMS utility functions for a MySQL database
 # 
 # Usage:
-#   mysqlutils <databaes user> <database name> <action>
+#   mysqldbutils <databaes_user> <database_name> <action>
 # 
 
 if [ "$#" -lt 3 ]; then
-  echo -e  'mysqlutils: invalid number of arguments; database user,\n' \
+  echo -e  'mysqldbutils: invalid number of arguments; database user,\n'\
       '  database name and action required' 1>&2
   exit 1
 fi
 
-DB_USER="${1}"
-DB_NAME="${2}"
-ACTION="${3}"
+readonly DB_USER="${1}"
+readonly DB_NAME="${2}"
+readonly ACTION="${3}"
 shift 3
 
 case "${ACTION}" in
   # Create the database from an SQL file.
   # Usage:
-  #   ... create <create SQL file>
-  'create')
-    if [ "$#" -eq 0 ]; then
-      echo "mysqlutils: no SQL file specified" 1>&2
-      exit 1
-    fi
-    if [ ! -f "${1}" ]; then
-      echo "mysqlutils: file \"${1}\" not found" 1>&2
-      exit 1
-    fi
+  #   ... create_from_file <sql_file>
+  'create_from_file')
+    [ "$#" -eq 0 ] && \
+        echo "mysqldbutils: no SQL file specified" 1>&2 && \
+        exit 1
+    [ ! -f "${1}" ] && \
+        echo "mysqldbutils: file \"${1}\" not found" 1>&2 && \
+        exit 1
 
     mysql -u"${DB_USER}" -e "CREATE DATABASE IF NOT EXISTS ${DB_NAME}"
-
     if mysql -u"${DB_USER}" -e "use ${DB_NAME}" 2>/dev/null; then
-      bash ${0} 'droptables' "${DB_USER}" "${DB_NAME}"
+      bash "${0}" 'drop_all_tables' "${DB_USER}" "${DB_NAME}"
       mysql -u"${DB_USER}" "${DB_NAME}" < "${1}"
     else
-      echo "mysqlutils: database \"${DB_NAME}\" not found" 1>&2
+      echo "mysqldbutils: database \"${DB_NAME}\" not found" 1>&2
     fi
     ;;
     
   # Drop all tables in the database.
   # Usage:
-  #   ... droptables
-  'droptables')
-    Q1="
+  #   ... drop_all_tables
+  'drop_all_tables')
+    query="
       USE ${DB_NAME};
       SET FOREIGN_KEY_CHECKS = 0;
       SET GROUP_CONCAT_MAX_LEN=32768;
@@ -61,13 +58,13 @@ case "${ACTION}" in
       DEALLOCATE PREPARE stmt;
       SET FOREIGN_KEY_CHECKS = 1;
       "
-    mysql -u"${DB_USER}" -e "${Q1}"
+    mysql -u"${DB_USER}" -e "${query}"
     ;;
     
-  # Clear data from all tables in the database.
+  # Clear all tables in the database.
   # Usage:
-  #   ... cleardata
-  'cleardata')
+  #   ... clear_all_tables
+  'clear_all_tables')
     mysqldump -d -u"${DB_USER}" --add-drop-table "${DB_NAME}" > \
         ./db_export_tmp.sql
     mysql -u"${DB_USER}" "${DB_NAME}" < ./db_export_tmp.sql
@@ -80,9 +77,9 @@ case "${ACTION}" in
   'export')
     mysqldump -u"${DB_USER}" "${DB_NAME}" > ./db_"${DB_NAME}"_export.sql
     ;;
-    
+
   *)
-    echo "mysqlutils: unknown action \"${ACTION}\"" 1>&2
+    echo "mysqldbutils: unknown action \"${ACTION}\"" 1>&2
     ;;
 
 esac

@@ -13,7 +13,7 @@ Shell provides solutions for the following application layer paradigms:
 
 Solutions for applications
 
-* [RDBMS functions for MySQL](functions_scripts/applications/database/mysqlutils)
+* [Generic RDBMS utility functions for a MySQL database](functions_scripts/applications/database/mysqldbutils)
 * [Check if a PostgreSQL database exists.](one-liners/applications/database/postgresql-database.one-liners)
 
 ## Programming languages
