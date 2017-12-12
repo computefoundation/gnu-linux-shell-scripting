@@ -3,10 +3,9 @@
 # Mount and unmount an MTP device.
 # 
 # Usage:
-#   (script must be sourced for cd to work)
-#   source mountmtpdev; _mountmtpdev <action>
+#   mountmtpdev <action>
 # 
-#   action:
+#   <action>:
 #     "mount" or "m" to mount
 #     "umount" or "u" to unmount
 # 
@@ -14,56 +13,65 @@
 #   jmtpfs
 # 
 # Set up:
-#   Create user group "fuse" and add yourself to it by running the following
-#   commands:
+#   Create user group "fuse" and add the current system user to it by running
+#   the following commands:
 #       sudo groupadd fuse
 #       sudo gpasswd -a "${USER}" fuse
 # 
 # Note:
-#  This has only been tested with Android devices.
+#   This has only been tested with Android devices.
 # 
 
 # ======= CONFIGURATIONS ==============
 
-# Mountpoint directory for MTP device.
-MOUNTPOINT_DIR='/mnt/mtp'
-
-# Directory of device to CD to once mounted.
-DEV_CD_DIR='Internal storage/DCIM/Camera'
+# Mountpoint path of MTP device
+MNTPNT_PATH='/mnt/mtp'
 
 # ======= ! CONFIGURATIONS ==============
 
-_mountmtpdev() {
-  if [ "$#" -eq 0 ]; then
-    echo 'mountmtpdev: no arguments: "mount", "m", "unmount" or "u" required' \
-        1>&2
-    return 1
-  fi
+if [ "$#" -eq 0 ]; then
+  echo 'mountmtpdev: no arguments: "mount", "unmount", "m" or "u" required' \
+      1>&2
+  exit 1
+fi
 
-  case "${1}" in
-    'mount'|'m')
-      if [ ! -d "${MOUNTPOINT_DIR}" ]; then
-        mkdir "${MOUNTPOINT_DIR}"
-      fi
+case "${1}" in
+  'mount' | 'm')
+    if [ ! -d "${MNTPNT_PATH}" ]; then
+      mkdir "${MNTPNT_PATH}"
+    fi
 
-      if ! mount | grep "${MOUNTPOINT_DIR}" >/dev/null; then
-        jmtpfs "${MOUNTPOINT_DIR}"
-        if mount | grep "${MOUNTPOINT_DIR}" >/dev/null; then
-	        cd "${MOUNTPOINT_DIR}/${DEV_CD_DIR}"
-	      fi
-      fi
-      ;;
-      
-    'umount'|'u')
-      if pwd | grep -q "^${MOUNTPOINT_DIR}"; then
-        cd "${HOME}"
-      fi
+    if ! mount | grep "${MNTPNT_PATH}" >/dev/null; then
+      jmtpfs "${MNTPNT_PATH}"
 
-      fusermount -u "${MOUNTPOINT_DIR}"
-      if [ "$?" -eq 0 ] && ! mount | grep "${MOUNTPOINT_DIR}" >/dev/null; then
-        echo "mountmtpdev: device successfully unmounted from ${MOUNTPOINT_DIR}"
+      if mount | grep "${MNTPNT_PATH}" >/dev/null; then
+        # newline prepended to separate message from jmtpfs output
+        echo -e "\nmountmtpdev: successfully mounted device on ${MNTPNT_PATH}"
       fi
-      ;;
-  esac
-}
+    fi
+    ;;
+    
+  'unmount' | 'u')
+    if ! mountpoint "${MNTPNT_PATH}" >/dev/null; then
+      echo "mountmtpdev: device not mounted on ${MNTPNT_PATH}" 1>&2
+      exit 1
+    fi
+    if [[ "$PWD" = "${MNTPNT_PATH}"* ]]; then
+      echo "mountmtpdev: must leave mountpoint directory" 1>&2
+      exit 1
+    fi
+
+    fusermount -u "${MNTPNT_PATH}"
+
+    if [ "$?" -eq 0 ] && ! mount | grep "${MNTPNT_PATH}" >/dev/null; then
+      echo "mountmtpdev: successfully unmounted device from ${MNTPNT_PATH}"
+    fi
+    ;;
+    
+  *)
+    echo 'mountmtpdev: action unknown: "mount", "unmount", "m" or "u"'\
+        'required' 1>&2
+    exit 1
+    ;;
+esac
 
