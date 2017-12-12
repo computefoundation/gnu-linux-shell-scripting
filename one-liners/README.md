@@ -3,7 +3,7 @@
 
 This directory contains one-liners.
 
-## View content
+## View
 
 To view all one-liners, cd to the one-liners directory and run the following:
 

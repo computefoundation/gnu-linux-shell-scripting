@@ -3,7 +3,7 @@
 
 This directory contains aliases. Aliases also constitute as frequently used short functions.
 
-## View content
+## View
 
 To view all aliases, cd to the aliases directory and run the following:
 

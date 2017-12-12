@@ -3,7 +3,7 @@
 
 This directory contains scripts.
 
-## View content
+## View
 
 To view all scripts, cd to the scripts directory and run the following:
 

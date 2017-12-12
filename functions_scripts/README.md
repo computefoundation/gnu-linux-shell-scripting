@@ -5,7 +5,7 @@ This directory contains functions scripts.
 
 Functions scripts are scripts consisting of small functions relative to a larger solution.
 
-## View content
+## View
 
 To view all functions scripts, cd to the functions_scripts directory and run the following:
 
