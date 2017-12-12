@@ -1,0 +1,22 @@
+# udev-device-management.one-liners
+# 
+# Udev device management one-liners
+# 
+
+# ------- GENERAL ----------------------------
+
+# Reload all udev rules.
+# Note: This is not necessary after creating a new udev rule file as udev automatically detects file changes.
+sudo udevadm control --reload
+
+# ------- TESTING UDEV RULES -----------------
+
+# Test a udev rule.
+# Note: This shows the effects of all keys of a rule except for RUN. To also see the effects of RUN, use
+#   "udevadm trigger" instead. This also removes old symlinks that have been changed.
+sudo udevadm test "$(udevadm info -q path -n /dev/bus/usb/<device_directory>)" 2>&1
+
+# Force udev to trigger all rules.
+# Note: This does not update smylinks or run the command in RUN.
+sudo udevadm trigger
+
