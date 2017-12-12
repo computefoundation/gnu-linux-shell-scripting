@@ -6,7 +6,7 @@
 #   General file management one-liners
 # 
 
-# ------- FILES ------------------------------
+FILES:
 
 # Recursively find all non-hidden files matching a name.
 find . \( ! -name '.*' \) -type f -name '*<file_name>*'
@@ -17,12 +17,12 @@ find . -type f ! -name "*.*" -name '*<file_name>*'
 # Recursively find all files matching a name and not in a hidden directory.
 find . -not -path '*/\.*' -type f -name '*<file_name>*'
 
-# ------- SPECIAL OUTPUT ---------------------
+SPECIAL OUTPUT:
 
 # Recursively find all directories containing executables files and separate them by the specified delimiter.
 find . -type f -executable -printf '%h\n'|sort|uniq|tr '\n' '<delimiter>'
 
-# ------- OUTPUT MANIPULATION ----------------
+OUTPUT MANIPULATION:
 
 # Recursively find all files and print their names without their paths.
 find . -type f -printf '%f\n'
