@@ -8,3 +8,4 @@
 ## shell_management/
 
 * [**remlastnbashhistentries**](shell_management/remlastnbashhistentries): Remove the last N bash history entries.
+

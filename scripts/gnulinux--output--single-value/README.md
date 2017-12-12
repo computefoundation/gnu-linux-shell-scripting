@@ -32,3 +32,4 @@
 * [**getwindnamesinclass**](x11_management/getwindnamesinclass): Get the names of all windows in a class.
 * [**getwindpidbyid**](x11_management/getwindpidbyid): Get the PID of a window by ID.
 * [**iswindopen**](x11_management/iswindopen): Check if a window is open by name or class.
+
