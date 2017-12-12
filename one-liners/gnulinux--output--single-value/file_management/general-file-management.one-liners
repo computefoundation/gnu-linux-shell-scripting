@@ -6,6 +6,6 @@
 #   General file management one-liners
 # 
 
-# Get the size in megabytes of one or more files and/or directories as a plain number.
+# Get the number of megabytes of one or more files and/or directories.
 du -csm <files and/or directories> | tail -1 | awk '{ print $1 }'
 

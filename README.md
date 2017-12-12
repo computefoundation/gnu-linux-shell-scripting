@@ -33,7 +33,7 @@ Solutions with respect to core components of the GNU/Linux operating system *(fi
 
 #### 2. Output - single-value (single-value output and no actions)
 
-* [Get the size of one or more files and/or directories as a plain number.](one-liners/gnulinux--output--single-value/file_management/general-file-management.one-liners)
+* [Get the number of megabytes of one or more files and/or directories.](one-liners/gnulinux--output--single-value/file_management/general-file-management.one-liners)
 * [Get the ID of a window by PID.](scripts/gnulinux--output--single-value/x11_management/getwindidbypid)
 
 #### 3. Output - multi-value (multi-value output and no actions)
