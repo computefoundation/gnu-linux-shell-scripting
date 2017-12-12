@@ -23,8 +23,8 @@ for filePath in $(find . -type f ! -name '*.*'); do
   fileBasePath="$(echo "${filePath}" | awk -F\/ '{print $(NF-1),$(NF)}' | \
     sed 's/ /\//')"
   scriptDescription="$(cat "${filePath}" | \
-      awk '/^(#[ ])$/ {for(i=1; i<=3; i++) {getline; print}; exit}' | \
-      awk '{$1=""; print substr($0,2)}' | grep -Ev '^$|[:]')"
+      awk '/^(#[ ]Description)/ {for(i=1; i<=3; i++) {getline; print}; exit}' \
+      | awk '{$1=""; print substr($0,2)}' | grep -Ev '^$|[:]')"
   echo -e "----- ${fileBasePath}:\n${scriptDescription}\n"
 done
 

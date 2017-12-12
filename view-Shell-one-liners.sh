@@ -23,6 +23,6 @@ for filePath in $(find . -type f -name '*.one-liners*'); do
   fileBasePath="$(echo "${filePath}" | awk -F\/ '{print $(NF-1),$(NF)}' | sed \
       's/ /\//')"
   echo -e "----- ${fileBasePath}"
-  tail -n +5 "${filePath}"
+  tail -n +8 "${filePath}" 
 done
 
