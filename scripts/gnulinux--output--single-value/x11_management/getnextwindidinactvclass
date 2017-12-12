@@ -64,7 +64,7 @@ for indx in ${!CLASS_WIND_IDS[@]}; do
   fi
 done
 
-if [[ "${clssWindIdsActvWindIdPos}" -eq $((${#CLASS_WIND_IDS[@]} - 1)) ]]; then
+if [ "${clssWindIdsActvWindIdPos}" -eq $(("${#CLASS_WIND_IDS[@]}" - 1)) ]; then
   echo "${CLASS_WIND_IDS[0]}"
 else
   echo "${CLASS_WIND_IDS[$((clssWindIdsActvWindIdPos + 1))]}"

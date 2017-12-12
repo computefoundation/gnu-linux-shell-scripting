@@ -25,7 +25,7 @@ WINDOW_CLASSES=("$(wmctrl -lx | awk -v srchTxt="${1}" '{$1=$2=$4=""; wn = \
     gensub(/([^ ]+[ ]+)(.*)/, "\\2", "g", $0); gsub(/ /, "", wn)} wn ~ srchTxt \
     {print $3}' | sort | uniq)")
 
-if [[ "${#WINDOW_CLASSES[@]}" -gt 0 && -n "${WINDOW_CLASSES[0]}" ]]; then
+if [ "${#WINDOW_CLASSES[@]}" -gt 0 ] && [ -n "${WINDOW_CLASSES[0]}" ]; then
   echo "${WINDOW_CLASSES[@]}"
 fi
 

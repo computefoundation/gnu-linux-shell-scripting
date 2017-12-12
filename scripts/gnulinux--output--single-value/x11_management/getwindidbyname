@@ -22,7 +22,7 @@ fi
 WINDOW_IDS=("$(wmctrl -l | awk -v srchTxt="${1}" '{$2=$3=""; wn = \
     gensub(/([^ ]*[ ]+)(.*)/, "\\2", "g", $0)} wn ~ srchTxt {print $1}')")
 
-if [[ "${#WINDOW_IDS[@]}" -gt 0 && -n "${WINDOW_IDS[0]}" ]]; then
+if [ "${#WINDOW_IDS[@]}" -gt 0 ] && [ -n "${WINDOW_IDS[0]}" ]; then
   echo "${WINDOW_IDS[@]}"
 fi
 
