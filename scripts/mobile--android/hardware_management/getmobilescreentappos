@@ -12,20 +12,20 @@
 # Usage:
 #   getmobilescreentappos [seconds]
 # 
-#   seconds (optional): number of seconds to watch for tap events.
+#   [seconds]: (optional) number of seconds to watch for tap events
 # 
 
 # ======= CONFIGURATIONS ==============
 
 # Defult number of seconds to watch for tap events
-readonly WATCH_TIME=5
+readonly DEFAULT_WATCH_TIME=25
 
 # ======= ! CONFIGURATIONS ==============
 
 if [ "$#" -ge 2 ]; then
   watchTime="${2}"
 else
-  watchTime="${WATCH_TIME}"
+  watchTime="${DEFAULT_WATCH_TIME}"
 fi
 
 hxecho() {
