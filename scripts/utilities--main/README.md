@@ -17,8 +17,3 @@
 * [**execlasttermcommand**](keybind/execlasttermcommand): Execute the last command of a terminal emulator.
 * [**exectermcommand**](keybind/exectermcommand): Execute a command in a terminal emulator.
 
-## other/
-
-* [**runcountdowntimer**](other/runcountdowntimer): Run a countdown timer in the terminal.
-* [**runstopwatch**](other/runstopwatch): Run a stopwatch in the terminal.
-
