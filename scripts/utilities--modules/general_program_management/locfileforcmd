@@ -7,10 +7,12 @@
 #   Locate a file or directory for a command.
 # 
 # Examples:
-#   # locate and return a file with a name containing "stat" for vim
-#   locfileforcmd {vim} stat
+#   # locate and return a file with a name containing "stat" for command "vim -c
+#   # 'set title'"
+#   locfileforcmd {vim -c 'set title'}  stat
 # 
-#   # locate and return a directory with a name containing "docu" for thunar
+#   # locate and return a directory with a name containing "docu" for command
+#   # "thunar"
 #   locfileforcmd {thunar} --d docu
 # 
 #   # same as previous, except return the third occurrence
@@ -54,7 +56,7 @@ readonly LOC_FILE_CMD_OPT_LOC_OCCUR='-o'
 # ======= ! CONFIGURATIONS ==============
 
 # ============================================
-#   Get the execute command
+#   Get execute command
 # ============================================
 
 # Note: The following could be done using command "set", however, command "set"
@@ -111,7 +113,7 @@ while true; do
 done
 
 # ============================================
-#   Process the locate file command options
+#   Process locate file command options
 # ============================================
 
 if [ "${RET_DIRS}" = 'true' ] && [ -n "${LOC_FILE_CMD_OPT_RET_DIRS}" ]; then
@@ -123,7 +125,7 @@ if [ -n "${RET_OCCUR}" ] && [ -n "${LOC_FILE_CMD_OPT_LOC_OCCUR}" ]; then
 fi
 
 # ============================================
-#   Begin the locate process
+#   Begin locate process
 # ============================================
 
 locfileOutput="$(${LOC_FILE_CMD} ${locfileOpts} "${@}")"

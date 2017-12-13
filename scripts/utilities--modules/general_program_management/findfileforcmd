@@ -7,11 +7,12 @@
 #   Recursively find a file or directory for a command.
 # 
 # Examples:
-#   # recursively find and return a file with a name containing "stat" for vim
-#   findfileforcmd {vim} stat
+#   # recursively find and return a file with a name containing "stat" for
+#   # command "vim -c 'set title'"
+#   findfileforcmd {vim -c 'set title'} stat
 # 
 #   # recursively find and return a directory with a name containing "docume"
-#   # for thunar
+#   # for command "thunar"
 #   findfileforcmd {thunar} --d docume
 # 
 #   # same as previous, except return the third occurrence
@@ -48,7 +49,7 @@ readonly SUPPORT_FILE_NAMES_WITH_SPACES='false'
 # ======= ! CONFIGURATIONS ==============
 
 # ============================================
-#   Get the execute command
+#   Get execute command
 # ============================================
 
 # Note: The following could be done using command "set", however, command "set"
@@ -101,7 +102,7 @@ while true; do
 done
 
 # ============================================
-#   Process the find command options
+#   Process find command options
 # ============================================
 
 if [ "$#" -ge 2 ]; then
@@ -121,7 +122,7 @@ if [ -z "${RET_OCCUR}" ] && [ "${RET_ALL_OCCUR}" != 'true' ]; then
 fi
 
 # ============================================
-#   Begin the find process
+#   Begin find process
 # ============================================
 
 findOutput="$(find "${findDir}" ${findOptType} -name "*${1}*" \
