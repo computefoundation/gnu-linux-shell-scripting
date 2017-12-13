@@ -25,32 +25,32 @@ Solutions for programming languages
 
 ## GNU/Linux
 
-Solutions with respect to core components of the GNU/Linux operating system *(file, system and X11 management, operating system tools, etc.)*, based on three *super* sections:
+Solutions based on core aspects of the GNU/Linux operating system *(file, system and X11 management, operating system tools, etc.)*, based on three *super* sections:
 
-#### 1. Main (actions with or without output)
+### 1. Main - performing an action
 
 * [Recursively rename all files matching a name.](scripts/gnulinux--main/file_management/recren)
 
-#### 2. Output (output and no actions)
+### 2. Output - providing output only (no actions performed)
 
 * [Get the number of megabytes of one or more files and/or directories.](one-liners/gnulinux--output/file_management/general-file-management.one-liners)
 * [Get the ID of a window by PID.](scripts/gnulinux--output/x11_management/getwindidbypid)
 
-#### 4. Modules (used in conjuction with command-line programs)
+### 4. Modules - used in conjuction with command-line programs
 
 * [Run a command in the background.](scripts/gnulinux--modules/shell_management/runinbg)
 * [Run a command when files have changed in the current directory.](scripts/gnulinux--modules/file_management/inotify)
 
 ## Utilities
 
-Utilities, based on two *super* sections:
+Solutions performing a utility function, based on two *super* sections:
 
-#### 1. Main (actions with or without output)
+### 1. Main - performing an action
 
 * [Execute a command in a new terminal emulator.](scripts/utilities--main/general_program_management/execcmdinnewterm)
 * [Recursively replace a string in all files.](scripts/utilities--main/general_text_manipulation/recrep)
 
-#### 2. Modules (used in conjuction with command-line programs)
+### 2. Modules - used in conjuction with command-line programs
 
 * [Recursively find a file or directory for a command.](scripts/utilities--modules/general_program_management/findfileforcmd)
 
@@ -62,12 +62,12 @@ Shell has an [extension repository for utilities consisting of more than one fil
 
 Solutions for mobile devices, based on two *super* sections:
 
-#### 1. Android (Android devices)
+### 1. Android - for Android devices
 
 * [Send an sms using an Android device.](scripts/mobile--android/utilities/sendsms)
 * [Watch and print the X and Y screen tap coordinates of an Android device.](scripts/mobile--android/hardware_management/getmobilescreentappos)
 
-#### 2. Generic (generic solutions for mobile devices)
+### 2. Generic - for all mobile devices
 
 * [Mount and unmount an MTP device.](scripts/mobile--generic/management/mountmtpdev)
 
