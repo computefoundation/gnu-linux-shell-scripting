@@ -47,8 +47,8 @@ Utilities, based on two *super* sections:
 
 #### 1. Main (actions with or without output)
 
-* [Open a new terminal emulator with an initial command.](scripts/utilities--main/general_program_management/opennewterm)
-* [Execute a command in a terminal emulator.](scripts/utilities--main/keybind/exectermcommand)
+* [Execute a command in a new terminal emulator.](scripts/utilities--main/general_program_management/execcmdinnewterm)
+* [Replace a string recursively.](scripts/utilities--main/general_text_manipulation/recrep)
 
 #### 2. Modules (used in conjuction with command-line programs)
 

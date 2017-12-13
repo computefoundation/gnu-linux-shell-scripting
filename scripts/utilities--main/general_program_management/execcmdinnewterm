@@ -1,20 +1,26 @@
 #!/usr/bin/env bash
 # 
 # File:
-#   opennewterm
+#   execcmdinnewterm
 # 
 # Description:
-#   Open a new terminal emulator with an initial command.
+#   Execute a command in a new terminal emulator.
+# 
+# Additional feature:
+#   This script returns the window ID of the new terminal emulator window.
 # 
 # Usage:
-#   opennewterm [initial command]
-# 
-# Returns:
-#   The window ID of the new terminal emulator window.
+#   execcmdinnewterm [command]
 # 
 # Dependencies:
-#   xterm (the terminal emulator used)
+#   xterm (the terminal emulator application used)
 #   wmctrl (used to get the window ID of the new terminal emulator window)
+# 
+# Notes:
+#   The terminal emulator will load the Bash shell after the command is
+#   finished.
+# 
+#   This solution accepts a Bash Here document as a command.
 # 
 
 # ============================================
@@ -38,20 +44,18 @@ getWindIdByPid() {
 #   Launch terminal emulator
 # ============================================
 
-nohup xterm -sl 9000 -xrm "XTerm.vt100.allowTitleOps: ${allowTtlOps}" -title \
-    "${title}" -geometry "${geometry}" -fa "${FONT_FACE}" -fs "${fontSize}" \
-    ${colorProps} -e bash -c "$(printf '%s\nexec bash' "${*}")" &>/dev/null &
-    # "$(printf '%s\nexec bash' "${*}")" here allows any command to be passed
-    # in, including a bash Here document.
+nohup xterm -e bash -c "$(printf '%s\nexec bash' "${*}")" &>/dev/null &
+# "$(printf '%s\nexec bash' "${*}")" allows a bash Here document to be passed
+# as a command.
 
 PID="$!"
 
 sleep .08
 WIND_ID="$(getWindIdByPid "${PID}")"
 
-# Check stdout and stderr to see if they point to a terminal; if so, redirect
-# to /dev/null to prevent unnecessary output to the terminal (note that the
-# window ID is still obtainable in a subprocess).
+# Check if stdout and stderr point to a terminal. If so, redirect them to
+# /dev/null to prevent unnecessary output to the spawning terminal. Note: The
+# window ID will still be obtainable in a subprocess.
 if test -t 1; then
   exec 1>/dev/null
 fi
@@ -59,6 +63,6 @@ if test -t 2; then
   exec 2>/dev/null
 fi
 
-# echo window ID so caller can obtain it
+# echo the window ID so the caller can obtain it
 echo "${WIND_ID}"
 
