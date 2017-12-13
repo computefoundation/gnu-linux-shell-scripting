@@ -4,10 +4,10 @@
 #   inotify
 # 
 # Description:
-#   Run a command when files have changed in the current directory. 
+#   Run a command when files have changed in the current directory.
 # 
 # Usage:
-#   inotify <command to run>
+#   inotify <command_to_run>
 # 
 # Usage note:
 #   Run this script in the directory it is to monitor.
@@ -19,7 +19,7 @@
 readonly FORMAT="$(echo -e "\033[1;33m%w%f\033[0m written")"
 
 while inotifywait -qre close_write --format "${FORMAT}" .; do
-  # This section will run once when files have changed in the directory.
+  # This section will run once a file has changed in the current directory.
   "${@}"
 done
 
