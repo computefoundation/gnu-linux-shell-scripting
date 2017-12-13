@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 # 
 # File:
-#   mountmtpdev
+#   mntmtp
 # 
 # Description:
 #   Mount and unmount an MTP device.
 # 
 # Usage:
-#   mountmtpdev <action>
+#   mntmtp <action>
 # 
 #   <action>:
 #     "mount" or "m" to mount
@@ -34,8 +34,7 @@ MNTPNT_PATH='/mnt/mtp'
 # ======= ! CONFIGURATIONS ==============
 
 if [ "$#" -eq 0 ]; then
-  echo 'mountmtpdev: no arguments: "mount", "unmount", "m" or "u" required' \
-      1>&2
+  echo 'mntmtp: no arguments: "mount", "unmount", "m" or "u" required' 1>&2
   exit 1
 fi
 
@@ -50,31 +49,30 @@ case "${1}" in
 
       if mount | grep "${MNTPNT_PATH}" >/dev/null; then
         # newline prepended to separate message from jmtpfs output
-        echo -e "\nmountmtpdev: successfully mounted device on ${MNTPNT_PATH}"
+        echo -e "\nmntmtp: successfully mounted device on ${MNTPNT_PATH}"
       fi
     fi
     ;;
     
   'unmount' | 'u')
     if ! mountpoint "${MNTPNT_PATH}" >/dev/null; then
-      echo "mountmtpdev: device not mounted on ${MNTPNT_PATH}" 1>&2
+      echo "mntmtp: device not mounted on ${MNTPNT_PATH}" 1>&2
       exit 1
     fi
     if [[ "$PWD" = "${MNTPNT_PATH}"* ]]; then
-      echo "mountmtpdev: must leave mountpoint directory" 1>&2
+      echo "mntmtp: must leave mountpoint directory" 1>&2
       exit 1
     fi
 
     fusermount -u "${MNTPNT_PATH}"
 
     if [ "$?" -eq 0 ] && ! mount | grep "${MNTPNT_PATH}" >/dev/null; then
-      echo "mountmtpdev: successfully unmounted device from ${MNTPNT_PATH}"
+      echo "mntmtp: successfully unmounted device from ${MNTPNT_PATH}"
     fi
     ;;
     
   *)
-    echo 'mountmtpdev: action unknown: "mount", "unmount", "m" or "u"'\
-        'required' 1>&2
+    echo 'mntmtp: action unknown: "mount", "unmount", "m" or "u" required' 1>&2
     exit 1
     ;;
 esac

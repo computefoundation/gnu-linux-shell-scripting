@@ -69,7 +69,7 @@ Solutions for mobile devices, based on two *super* sections:
 
 ### 2. Generic - for all mobile devices
 
-* [Mount and unmount an MTP device.](scripts/mobile--generic/management/mountmtpdev)
+* [Mount and unmount an MTP device.](scripts/mobile--generic/management/mntmtp)
 
 # Contributing
 
