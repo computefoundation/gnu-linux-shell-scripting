@@ -4,23 +4,25 @@
 #   recrep
 # 
 # Description:
-#   Replace a string recursively.
+#   Recursively replace a string in all files.
 # 
-# Regex characters in both the original and replacement texts are escaped,
-# allowing string matches and replacements to be made exactly as they are typed.
-# An option is provided to backup the directory in which replacements are made
-# recursively.
+# Additional feature:
+#   This script allows a backup directory to be created of the directories in
+#   which it is run.
 # 
 # Usage:
-#   recrep <text to replace> <replacement text>
+#   recrep <text_to_replace> <replacement_text>
+# 
+# Notes:
+#   All characters in both arguments are accepted as literals.
 # 
 
 # ======= CONFIGURATIONS ==============
 
-# Backup the directory in which text is being replaced recursively.
+# Backup the directory in which this script is run
 readonly BACKUP=true
 
-# Directory where backups are stored
+# Directory where backup directories are created
 readonly BACKUPS_DIR="${HOME}/.unixfoundation/shell/recrep-backups/"
 
 # ======= ! CONFIGURATIONS ==============

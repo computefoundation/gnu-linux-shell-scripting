@@ -7,7 +7,7 @@
 
 ## general_text_manipulation/
 
-* [**recrep**](general_text_manipulation/recrep): Replace a string recursively.
+* [**recrep**](general_text_manipulation/recrep): Recursively replace a string in all files.
 
 ## keybind/
 
