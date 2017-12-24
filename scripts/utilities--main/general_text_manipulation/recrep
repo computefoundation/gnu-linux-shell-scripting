@@ -19,7 +19,7 @@
 
 # ======= CONFIGURATIONS ==============
 
-# Backup the directory in which this script is run
+# Backup the directory in which this script is run.
 readonly BACKUP=true
 
 # Directory where backup directories are created
