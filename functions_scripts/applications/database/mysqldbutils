@@ -22,7 +22,7 @@ readonly ACTION="${3}"
 shift 3
 
 case "${ACTION}" in
-  # Name:
+  # Action:
   #   create_from_file
   # Description:
   #   Create the database from an SQL file.
@@ -45,7 +45,7 @@ case "${ACTION}" in
     fi
     ;;
     
-  # Name:
+  # Action:
   #   drop_all_tables
   # Description:
   #   Drop all tables in the database.
@@ -71,7 +71,7 @@ case "${ACTION}" in
     mysql -u"${DB_USER}" -e "${query}"
     ;;
     
-  # Name:
+  # Action:
   #   clear_all_tables
   # Description:
   #   Clear all tables in the database.
@@ -84,7 +84,7 @@ case "${ACTION}" in
     rm ./db_export_tmp.sql
     ;;
     
-  # Name:
+  # Action:
   #   export
   # Description:
   #   Export the database.

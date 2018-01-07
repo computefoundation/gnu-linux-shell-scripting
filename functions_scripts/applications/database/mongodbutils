@@ -16,7 +16,7 @@ if [ "$#" -lt 1 ]; then
 fi
 
 case "${1}" in
-  # Name:
+  # Action:
   #   drop_all
   # Description:
   #   Drop all databases.

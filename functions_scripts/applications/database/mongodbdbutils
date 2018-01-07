@@ -21,7 +21,7 @@ readonly ACTION="${2}"
 shift 2
 
 case "${ACTION}" in
-  # Name:
+  # Action:
   #   import
   # Description:
   #   Import data from a JSON file.
@@ -46,7 +46,7 @@ case "${ACTION}" in
     mongoimport --db "${DB_NAME}" --file "${1}" ${opts}
     ;;
 
-  # Name:
+  # Action:
   #   export_to_json_file
   # Description:
   #   Export the data to a JSON file.
@@ -70,7 +70,7 @@ case "${ACTION}" in
     mongoexport --db "${DB_NAME}" ${opts} --jsonArray
     ;;
 
-  # Name:
+  # Action:
   #   dump_to_bson_files
   # Description:
   #   Dump the database to BSON files.
@@ -91,7 +91,7 @@ case "${ACTION}" in
     mongodump --db "${DB_NAME}" ${opts}
     ;;
 
-  # Name:
+  # Action:
   #   restore_from_bson_files
   # Description:
   #   Restore data from one or more BSON files.
@@ -107,7 +107,7 @@ case "${ACTION}" in
     mongorestore "${1}"
     ;;
 
-  # Name:
+  # Action:
   #   drop
   # Description:
   #   Drop the database.
