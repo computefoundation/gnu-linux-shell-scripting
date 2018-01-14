@@ -4,8 +4,7 @@
 #   issecondarywlanblocked
 # 
 # Description:
-#   Check if a secondary wireless local area network device (such as a USB Wi-Fi
-#   adapter) is soft blocked.
+#   Check if a secondary wireless local area network device is soft blocked.
 # 
 # Note:
 #   The primary WLAN device will be checked if a secondary one does not exist.
