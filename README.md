@@ -56,7 +56,7 @@ Solutions performing a utility function, based on two *super* sections:
 
 ---
 
-Shell has an [extension repository for utilities consisting of more than one file](https://github.com/unixfoundation/shell--packaged-utilities).
+Shell has an [extension repository for utilities consisting of more than one file](https://github.com/unixfoundation/shell.packaged-utilities).
 
 ## Mobile
 
