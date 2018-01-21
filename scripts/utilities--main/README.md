@@ -3,7 +3,7 @@
 
 ## general_program_management/
 
-* [**execcmdinnewterm**](general_program_management/execcmdinnewterm): Execute a command in a new terminal emulator.
+* [**execinnewterm**](general_program_management/execinnewterm): Execute a command in a new terminal emulator.
 
 ## general_text_manipulation/
 

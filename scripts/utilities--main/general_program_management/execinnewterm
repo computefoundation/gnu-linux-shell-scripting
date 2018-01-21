@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # 
 # File:
-#   execcmdinnewterm
+#   execinnewterm
 # 
 # Description:
 #   Execute a command in a new terminal emulator.
@@ -10,10 +10,10 @@
 #   This script returns the window ID of the new terminal emulator window.
 # 
 # Usage:
-#   execcmdinnewterm [command]
+#   execinnewterm [command]
 # 
 # Dependencies:
-#   xterm (the terminal emulator application used)
+#   xterm (the terminal emulator program used)
 #   wmctrl (used to get the window ID of the new terminal emulator window)
 # 
 # Notes:

@@ -47,7 +47,7 @@ Solutions performing a utility function, based on two *super* sections:
 
 ### 1. Main - performing an action
 
-* [Execute a command in a new terminal emulator.](scripts/utilities--main/general_program_management/execcmdinnewterm)
+* [Execute a command in a new terminal emulator.](scripts/utilities--main/general_program_management/execinnewterm)
 * [Recursively replace a string in all files.](scripts/utilities--main/general_text_manipulation/recrep)
 
 ### 2. Modules - used in conjuction with command-line programs
