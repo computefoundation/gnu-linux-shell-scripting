@@ -4,7 +4,7 @@
 #   httputils.bash
 # 
 # Description:
-#   Bash HTTP utilities
+#   Bash Http utilities
 # 
 
 # This regex only ensures that the URL contains safe characters.

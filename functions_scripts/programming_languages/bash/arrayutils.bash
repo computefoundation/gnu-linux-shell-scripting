@@ -119,7 +119,8 @@
 # --------------------------------------------
   # Get the intersection of two arrays.
   # Example:
-  #   A=(1 3 9 2 7); B=(2 5 3 7 5); Res=(3 2 7)
+  #   A=(1 3 9 2 7); B=(2 5 3 7 5)
+  #   getIntersection A B # returns "3 2 7"
   getIntersection() {
     local arr1="${1}[@]"
     local arr2="${2}[@]"
@@ -141,7 +142,8 @@
 
   # Get the union of two arrays.
   # Example:
-  #   A=(5 7 1 1 4); B=(3 1 4 1 9); Res=(5 7 1 4 3 9)
+  #   A=(5 7 1 1 4); B=(3 1 4 1 9)
+  #   getUnion A B # returns "5 7 1 4 3 9"
   getUnion() {
     local arr1="${1}[@]"
     local arr2="${2}[@]"
@@ -163,10 +165,45 @@
     echo "${retArr[@]}"
   }
 
+  # Get the union of two arrays (2).
+  # Example:
+  #   A=(5 7 1 1 4); B=(3 1 4 1 9)
+  #   getUnion A B # returns "5 7 3 1 4 9"
+  getUnion2() {
+    local arr1="${1}[@]"
+    local arr2="${2}[@]"
+    arr1=(${!arr1})
+    arr2=(${!arr2})
+    local unionArr
+    local i=0 j=0
+    while [[ ${i} -lt ${#arr1[@]} && ${j} -lt ${#arr2[@]} ]]; do
+      if [[ "${arr1[${i}]}" > "${arr2[${j}]}" ]]; then
+        unionArr+=("${arr1[$((i++))]}")
+      elif [[ "${arr1[${i}]}" < "${arr2[${j}]}" ]]; then
+        unionArr+=("${arr2[$((j++))]}")
+      else
+        unionArr+=("${arr1[$((i++))]}")
+        ((j++))
+      fi
+    done
+    while [ ${i} -lt ${#arr1[@]} ]; do unionArr+=("${arr1[$((i++))]}"); done
+    while [ ${j} -lt ${#arr2[@]} ]; do unionArr+=("${arr2[$((j++))]}"); done
+    local unionNoDuplctsArr
+    for unionArrVal in "${unionArr[@]}"; do
+      local has=0
+      for unionNoDuplctsArrVal in "${unionNoDuplctsArr[@]}"; do
+          [ "${unionNoDuplctsArrVal}" = "${unionArrVal}" ] && has=1 && break
+      done
+      [ ${has} -eq 0 ] && unionNoDuplctsArr+=("${unionArrVal}")
+    done
+    echo "${unionNoDuplctsArr[@]}"
+  }
+
   # Get the difference between array 1 and array 2 (i.e. elements in array 1
   # that are not in array 2).
   # Example:
-  #   A=(3 6 2 1 5 1 1); B=(2 4 6); Res=(3 1 5)
+  #   A=(3 6 2 1 5 1 1); B=(2 4 6)
+  #   getDifference A B # returns "3 1 5"
   getDifference() {
     local arr1="${1}[@]"
     local arr2="${2}[@]"
@@ -201,7 +238,8 @@
 # --------------------------------------------
   # Create pairs between array 1 and array 2.
   # Example:
-  #   A=(0 12); B=(4 5); Res=("0:4" "0:5" "12:4" "12:5")
+  #   A=(0 12); B=(4 5)
+  #   createPairs A B # returns "0:4 0:5 12:4 12:5"
  createPairs() {
     local arr1="${1}[@]"
     local arr2="${2}[@]"
@@ -215,39 +253,4 @@
     done
     echo "${retArr[@]}"
   }
-
-
-
-# ============================================================
-#   ALTERNATIVE IMPLEMENTATIONS
-# ============================================================
-# 
-# Sets
-# --------------------------------------------
-#   # Get the union of two arrays.
-#   # Example:
-#   #   A=(5 7 1 1 4); B=(3 1 4 1 9); Res=(5 7 3 1 4 9)
-#   getUnion() {
-#     local arr1="${1}[@]"
-#     local arr2="${2}[@]"
-#     arr1=(${!arr1})
-#     arr2=(${!arr2})
-#     local retArr
-#     local i=0 j=0
-#     while [[ ${i} -lt ${#arr1[@]} && ${j} -lt ${#arr2[@]} ]]; do
-#       if [[ "${arr1[${i}]}" > "${arr2[${j}]}" ]]; then
-#         retArr+=("${arr1[$((i++))]}")
-#       elif [[ "${arr1[${i}]}" < "${arr2[${j}]}" ]]; then
-#         retArr+=("${arr2[$((j++))]}")
-#       else
-#         retArr+=("${arr1[$((i++))]}")
-#         ((j++))
-#       fi
-#     done
-#     while [ ${i} -lt ${#arr1[@]} ]; do retArr+=("${arr1[$((i++))]}"); done
-#     while [ ${j} -lt ${#arr2[@]} ]; do retArr+=("${arr2[$((j++))]}"); done
-#     retArr=($(removeDuplicatesFromArray retArr))
-#     echo "${retArr[@]}"
-#   }
-# 
 
