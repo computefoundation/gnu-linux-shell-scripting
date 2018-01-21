@@ -1,13 +1,17 @@
 #!/usr/bin/env bash
 # 
-# A script for printing the name and description of all scripts.
+# File:
+#   view-shell-scripts.sh
+# 
+# Description:
+#   View all scripts in unixfoundation/shell.
 # 
 # Usage note:
-#   To use, cd to the scripts directory and run.
+#   Cd to directory "scripts/" and run.
 # 
 
 if [ "$(echo "$PWD" | sed 's/.*\///')" != 'scripts' ]; then
-  echo "$(basename "${BASH_SOURCE[0]}"): not in directory \"scripts\""
+  echo 'view-shell-scripts.sh: not in directory "scripts/"'
   exit 1
 fi
 

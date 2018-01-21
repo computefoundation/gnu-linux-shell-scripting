@@ -1,13 +1,17 @@
 #!/usr/bin/env bash
 # 
-# A script for printing the name and description of all functions scripts.
+# File:
+#   view-shell-functions-scripts.sh
+# 
+# Description:
+#   View all functions scripts in unixfoundation/shell.
 # 
 # Usage note:
-#   To use, cd to the functions_scripts directory and run.
+#   Cd to directory "functions_scripts/" and run.
 # 
 
 if [ "$(echo "$PWD" | sed 's/.*\///')" != 'functions_scripts' ]; then
-  echo "$(basename "${BASH_SOURCE[0]}"): not in directory \"functions_scripts\""
+  echo 'view-shell-functions-scripts.sh: not in directory "functions_scripts/"'
   exit 1
 fi
 

@@ -1,17 +1,21 @@
 #!/usr/bin/env bash
 # 
-# A script for printing the content of all aliases files.
+# File:
+#   view-shell-one-liners.sh
+# 
+# Description:
+#   View all one-liners in unixfoundation/shell.
 # 
 # Usage note:
-#   To use, cd to the aliases directory and run.
+#   Cd to directory "one-liners/" and run.
 # 
 
-if [ "$(echo "$PWD" | sed 's/.*\///')" != 'aliases' ]; then
-  echo "$(basename "${BASH_SOURCE[0]}"): not in directory \"aliases\""
+if [ "$(echo "$PWD" | sed 's/.*\///')" != 'one-liners' ]; then
+  echo 'view-shell-one-liners.sh: not in directory "one-liners/"'
   exit 1
 fi
 
-for filePath in $(find . -type f -name '*.aliases*'); do
+for filePath in $(find . -type f -name '*.one-liners*'); do
   basePath="$(echo "${filePath}" | awk -F\/ '{print $(NF-2)}')"
   if [ "${basePath}" != "${prevBasePath}" ]; then
     echo '============================================'
@@ -23,6 +27,6 @@ for filePath in $(find . -type f -name '*.aliases*'); do
   fileBasePath="$(echo "${filePath}" | awk -F\/ '{print $(NF-1),$(NF)}' | sed \
       's/ /\//')"
   echo -e "----- ${fileBasePath}"
-  tail -n +8 "${filePath}"
+  tail -n +8 "${filePath}" 
 done
 
