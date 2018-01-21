@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 # 
 # File:
-#   runinbg
+#   execinbg
 # 
 # Description:
-#   Run a command in the background.
+#   Execute a command in the background.
 # 
 # Usage:
-#   runinbg <command>
+#   execinbg <command>
 # 
 # Returns:
 #   The PID of the executed command or nothing if stdout points to a terminal.
@@ -30,17 +30,15 @@
 #       and stderr.
 # 
 
-# Redirect output to /dev/null if stdout and stderr point to a terminal.
 if test -t 1; then
   exec 1>/dev/null
 fi
-
 if test -t 2; then
   exec 2>/dev/null
 fi
 
 nohup "${@}" &>/dev/null &
 
-# Print the PID of the run command so that it can be retrieved by the caller.
+# Print the PID of the executed command so the caller can retrieve it.
 echo "$!"
 

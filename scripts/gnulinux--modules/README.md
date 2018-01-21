@@ -7,5 +7,5 @@
 
 ## shell_management/
 
-* [**runinbg**](shell_management/runinbg): Run a command in the background.
+* [**execinbg**](shell_management/execinbg): Execute a command in the background.
 
