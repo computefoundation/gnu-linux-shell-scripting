@@ -39,7 +39,7 @@ Solutions based on core aspects of the GNU/Linux operating system *(file, system
 ### 4. Modules - used in conjuction with command-line programs
 
 * [Run a command in the background.](scripts/gnulinux--modules/shell_management/runinbg)
-* [Run a command when files have changed in the current directory.](scripts/gnulinux--modules/file_management/inotify)
+* [Execute a command when a file has changed in the current directory.](scripts/gnulinux--modules/file_management/execonfilechange)
 
 ## Utilities
 

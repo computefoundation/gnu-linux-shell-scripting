@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 # 
 # File:
-#   inotify
+#   execonfilechange
 # 
 # Description:
-#   Run a command when files have changed in the current directory.
+#   Execute a command when a file has changed in the current directory.
 # 
 # Usage:
-#   inotify <command_to_run>
+#   execonfilechange <command>
 # 
 # Usage note:
 #   Run this script in the directory it is to monitor.

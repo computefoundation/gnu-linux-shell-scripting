@@ -3,7 +3,7 @@
 
 ## file_management/
 
-* [**inotify**](file_management/inotify): Run a command when files have changed in the current directory.
+* [**execonfilechange**](file_management/execonfilechange): Execute a command when a file has changed in the current directory.
 
 ## shell_management/
 
