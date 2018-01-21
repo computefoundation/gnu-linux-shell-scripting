@@ -8,5 +8,5 @@
 
 ## x11_management/
 
-* [**execprogwithwindact**](x11_management/execprogwithwindact): Execute a program with an action on the resulting window.
+* [**runappanddfltactnonwind**](x11_management/runappanddfltactnonwind): Run an application and a default action on its window.
 

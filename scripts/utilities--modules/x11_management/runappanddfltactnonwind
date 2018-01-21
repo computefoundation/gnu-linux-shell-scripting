@@ -1,19 +1,20 @@
 #!/usr/bin/env bash
 # 
 # File:
-#   execprogwithwindact
+#   runappanddfltactnonwind
 # 
 # Description:
-#   Execute a program with an action on the resulting window.
+#   Run an application and a default action on its window.
 # 
 # Dependencies:
 #   wmctrl (used to determine if the window is already open and get the window
 #     ID of and move the new window)
 # 
 # Notes:
-#   This solution relies on the PID of the opened program to get its window ID
-#   or title. The returned PID will sometimes be different than the PID of the
-#   running process. In this case, retrieving the window ID or title will fail.
+#   This solution relies on the PID of the opened application to get its window
+#   ID or title. The returned PID will sometimes be different than the PID of
+#   the running process. In this case, retrieving the window ID or title will
+#   fail.
 # 
 #   If this module is used with a command that uses quotes, the quotes must be
 #   within outer quotes to be interpreted.
@@ -44,7 +45,7 @@ printHelpMessage() {
 
 echo -ne "\
 Usage:
-  execprogwithwindact [options] -- <command> <window class> <delay time (sec)>
+  runappanddfltactnonwind [options] -- <command> <window class> <delay time (sec)>
 
   command:            command to run
   window class:       class of the window that is opened by the command
@@ -64,7 +65,7 @@ Options:
 }
 
 OPTS="$(getopt -o t:,g:,h --long title:,geometry:,pre-execute:,help -n \
-    'execprogwithwindact' -- "${@}")"
+    'runappanddfltactnonwind' -- "${@}")"
 [ "$?" -ne 0 ] && echo "exiting..." 1>&2 && exit 1
 eval set -- "${OPTS}"
 while true; do
@@ -72,7 +73,7 @@ while true; do
     --title|-t) WIND_TITLE="${2}"; shift;;
     --geometry|-g)
       if [[ ! "${2}" =~ [0-9]*,[0-9]*,[0-9]*,[0-9] ]]; then
-        echo -e 'execprogwithwindact: geometry not in correct format' 1>&2
+        echo -e 'runappanddfltactnonwind: geometry not in correct format' 1>&2
         printHelpMessage
         exit 1
       else
@@ -88,11 +89,11 @@ while true; do
 done
 
 if [ "$#" -eq 0 ]; then
-  echo -e 'execprogwithwindact: no arguments' 1>&2
+  echo -e 'runappanddfltactnonwind: no arguments' 1>&2
   printHelpMessage
   exit 1
 elif [ "$#" -lt 3 ]; then
-  echo -e 'execprogwithwindact: invalid number of arguments' 1>&2
+  echo -e 'runappanddfltactnonwind: invalid number of arguments' 1>&2
   printHelpMessage
   exit 1
 else
@@ -107,12 +108,12 @@ fi
 
 if [[ "${DELAY_TIME_BFR_RUNNING_ACT}" =~ ('.'*)([0-9]*) ]]; then
   if [[ -z "${BASH_REMATCH[1]}" && "${BASH_REMATCH[2]}" -gt 25 ]]; then
-    echo -e 'execprogwithwindact: delay time invalid: should not\n  be greater'\
+    echo -e 'runappanddfltactnonwind: delay time invalid: should not\n  be greater'\
         'than 25' 1>&2
     exit 1
   fi
 else
-  echo -e 'execprogwithwindact: delay time invalid: leading decimal\n  and'\
+  echo -e 'runappanddfltactnonwind: delay time invalid: leading decimal\n  and'\
       'numbers allowed only' 1>&2
   exit 1
 fi
