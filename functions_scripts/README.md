@@ -7,10 +7,11 @@ Functions scripts are scripts consisting of small functions relative to a larger
 
 ## View
 
-To view all functions scripts, cd to the functions_scripts directory and run the following:
+Cd to this directory and run the following to view the solutions in it:
 
 ```bash
-s='view-Shell-functions-scripts.sh' && git show helper_scripts:"${s}" > /tmp/"${s}" && \
-chmod +x /tmp/"${s}" && /tmp/"${s}"
+git show-ref --verify -q refs/heads/helper_scripts || \
+git branch --track helper_scripts origin/helper_scripts; \
+bash <(git show helper_scripts:view-shell-functions-scripts.sh)
 ```
 

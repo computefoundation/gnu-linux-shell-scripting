@@ -5,10 +5,11 @@ This directory contains scripts.
 
 ## View
 
-To view all scripts, cd to the scripts directory and run the following:
+Cd to this directory and run the following to view the solutions in it:
 
 ```bash
-s='view-Shell-scripts.sh' && git show helper_scripts:"${s}" > /tmp/"${s}" && \
-chmod +x /tmp/"${s}" && /tmp/"${s}"
+git show-ref --verify -q refs/heads/helper_scripts || \
+git branch --track helper_scripts origin/helper_scripts; \
+bash <(git show helper_scripts:view-shell-scripts.sh)
 ```
 

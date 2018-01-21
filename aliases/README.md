@@ -1,24 +1,25 @@
 
 # aliases/
 
-This directory contains aliases. Aliases also constitute as frequently used short functions.
+This directory contains aliases and frequently used short functions.
 
 ## View
 
-To view all aliases, cd to the aliases directory and run the following:
+Cd to this directory and run the following to view the solutions in it:
 
 ```bash
-s='view-Shell-aliases.sh' && git show helper_scripts:"${s}" > /tmp/"${s}" && \
-chmod +x /tmp/"${s}" && /tmp/"${s}"
+git show-ref --verify -q refs/heads/helper_scripts || \
+git branch --track helper_scripts origin/helper_scripts; \
+bash <(git show helper_scripts:view-shell-aliases.sh)
 ```
 
 ## Usage
 
-To source all the aliases files in your .bashrc, add the following:
+Add the following to your .bashrc to source all the aliases and short functions in your bash runtime:
 
 ```bash
-for f in $(find <path/to/Shell>/aliases -type f -name '*.aliases*'); do
-  . "${f}"
+for shellAliasesFile in $(find <path/to/shell>/aliases -type f -name '*.aliases*'); do
+  . "${shellAliasesFile}"
 done
 ```
 

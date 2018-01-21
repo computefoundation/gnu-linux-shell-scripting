@@ -5,10 +5,11 @@ This directory contains one-liners.
 
 ## View
 
-To view all one-liners, cd to the one-liners directory and run the following:
+Cd to this directory and run the following to view the solutions in it:
 
 ```bash
-s='view-Shell-one-liners.sh' && git show helper_scripts:"${s}" > /tmp/"${s}" && \
-chmod +x /tmp/"${s}" && /tmp/"${s}"
+git show-ref --verify -q refs/heads/helper_scripts || \
+git branch --track helper_scripts origin/helper_scripts; \
+bash <(git show helper_scripts:view-shell-one-liners.sh)
 ```
 
