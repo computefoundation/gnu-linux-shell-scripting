@@ -1,6 +1,13 @@
 #!/usr/bin/env bash
 # 
-# Script to download essential solutions from Shell.
+# File:
+#   download-shell-essentials.sh
+# 
+# Description:
+#   Download essential solutions from unixfoundation/shell.
+# 
+# Note:
+#   01/21/18: This script is no longer in use and may not work.
 # 
 
 # ======= CONFIGURATIONS ==============
