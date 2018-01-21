@@ -2,12 +2,12 @@
 <img src='https://raw.githubusercontent.com/unixfoundation/shell/images/logo.png' width='33.5%' align='left' alt='logo.png'>
 <br><br>
 
-**Shell** is a resource of Unix-founded solutions for the shell in multiple paradigms of the application layer.
+**Shell** is a resource of Unix-founded scripts solutions for the shell in all paradigms.
 <br><br><br><br><br>
 
-# Application layer paradigms
+# Paradigms
 
-Shell provides solutions in the following application layer paradigms:
+**Shell** provides solutions in the following paradigms:
 
 ## Applications
 
