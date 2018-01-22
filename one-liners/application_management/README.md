@@ -3,5 +3,5 @@
 
 ## Database
 
-* [**PostgreSQL database one-liners**](database/postgresql-database.one-liners)
+* [PostgreSQL database one-liners](database/postgresql-database.one-liners)
 

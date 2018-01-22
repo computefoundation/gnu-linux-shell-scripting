@@ -3,5 +3,5 @@
 
 ## Mounting
 
-* [**mntmtp**](mounting/mntmtp): Mount and unmount an MTP device.
+* [mntmtp](mounting/mntmtp): Mount and unmount an MTP device.
 

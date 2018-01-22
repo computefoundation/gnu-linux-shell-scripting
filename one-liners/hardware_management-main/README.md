@@ -3,7 +3,7 @@
 
 ## Monitor management
 
-* [**Monitor status management one liners**](monitor_management/monitor-status-management.one-liners)
+* [Monitor status management one liners](monitor_management/monitor-status-management.one-liners)
 
 ## *Notes*
 

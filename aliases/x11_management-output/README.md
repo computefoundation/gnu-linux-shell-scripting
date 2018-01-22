@@ -3,5 +3,5 @@
 
 ## Event monitoring
 
-* [**Input event monitoring**](event_monitoring/input-event-monitoring.aliases)
+* [Input event monitoring](event_monitoring/input-event-monitoring.aliases)
 

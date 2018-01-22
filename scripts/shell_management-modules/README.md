@@ -3,5 +3,5 @@
 
 ## Process management
 
-* [**execinbg**](process_management/execinbg): Execute a command in the background.
+* [execinbg](process_management/execinbg): Execute a command in the background.
 

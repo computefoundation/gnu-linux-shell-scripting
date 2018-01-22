@@ -3,5 +3,5 @@
 
 ## Monitoring
 
-* [**execonfilechange**](monitoring/execonfilechange): Execute a command when a file has changed in the current directory.
+* [execonfilechange](monitoring/execonfilechange): Execute a command when a file has changed in the current directory.
 
