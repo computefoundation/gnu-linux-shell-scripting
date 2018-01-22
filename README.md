@@ -58,20 +58,27 @@ Solutions for managing mobile devices
 * [Watch and print the X and Y screen tap coordinates of an Android device.](scripts/mobile_device_management-android/hardware_management/getmobilescreentappos)
 * [Mount and unmount an MTP device.](scripts/mobile_device_management-generic/mounting/mntmtp)
 
-## Utilities
+## Text manipulation
 
-Solutions performing a utility function, based on two *super* sections:
+Solutions for manipulating text
 
-### 1. Main - performing an action
+* [Recursively replace a string in all files.](scripts/text_manipulation/recursive/recrep)
 
-* [Execute a command in a new terminal emulator.](scripts/utilities-main/general_program_management/execinnewterm)
-* [Recursively replace a string in all files.](scripts/utilities-main/general_text_manipulation/recrep)
+## Text processing
 
-### 2. Modules - used in conjuction with command-line programs
+Solutions for processing text
 
-* [Recursively find a file or directory for a command.](scripts/utilities-modules/general_program_management/findfileforcmd)
+* [Count the number of characters in a string.](aliases/text_manipulation/numeric_processing/basic-numberic-processing.aliases)
 
-*Shell has an [extension repository for utilities consisting of more than one file](https://github.com/unixfoundation/shell.packaged-utilities).*
+## Number processing
+
+Solutions for processing numbers
+
+* [Convert a hexidecimal number to decimal.](aliases/number_processing/conversion/base-conversion.aliases)
+
+---
+
+Shell has an [extension repository for solutions consisting of more than one file](https://github.com/unixfoundation/shell.packaged-utilities).
 
 # Contributing
 

@@ -1,9 +1,9 @@
 # 
 # File:
-#   general-typography.aliases
+#   basic-numberic-processing.aliases
 # 
 # Description:
-#   General typography utility aliases
+#   Basic numberic processing aliases
 # 
 
 countchars() { echo "${@}" | wc -c; }                                            # countchars: count the number of characters in a string
