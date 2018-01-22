@@ -6,6 +6,6 @@
 #   File property information retrieval one-liners
 # 
 
-# Get the number of megabytes of one or more files and/or directories.
-du -csm <files and/or directories> | tail -1 | awk '{ print $1 }'
+# Get the size in megabytes of one or more files and/or directories.
+du -csm <files_and/or_directories> | tail -1 | awk '{ print $1 }'
 
