@@ -56,7 +56,7 @@ Solutions for managing the shell
 Solutions for managing mobile devices
 
 * [Watch and print the X and Y screen tap coordinates of an Android device.](scripts/mobile_device_management-android/hardware_management/getmobilescreentappos)
-* [Mount and unmount an MTP device.](scripts/mobile_device_management-generic/management/mntmtp)
+* [Mount and unmount an MTP device.](scripts/mobile_device_management-generic/mounting/mntmtp)
 
 ## Utilities
 
