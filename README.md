@@ -9,37 +9,54 @@
 
 **Shell** provides solutions in the following paradigms:
 
-## Applications
+## Application management
 
-Solutions for applications
+Solutions for managing applications
 
-* [Generic RDBMS utility functions for a MySQL database](functions_scripts/applications/database/mysqldbutils)
-* [Check if a PostgreSQL database exists.](one-liners/applications/database/postgresql-database.one-liners)
+* [Generic RDBMS utility functions for a MySQL database](functions_scripts/application_management/database/mysqldbutils)
+* [Check if a PostgreSQL database exists.](one-liners/application_management/database/postgresql-database.one-liners)
 
-## Programming languages
+## Scripting
 
-Solutions for programming languages
+Solutions for scripting
 
-* [Bash array utilities](functions_scripts/programming_languages/bash/arrayutils.bash)
-* [Bash date and time utilities](functions_scripts/programming_languages/bash/dateandtimeutils.bash)
+* [Bash array utilities](functions_scripts/scripting/bash/arrayutils.bash)
+* [Bash date and time utilities](functions_scripts/scripting/bash/dateandtimeutils.bash)
 
-## GNU/Linux
+## File management
 
-Solutions based on core aspects of the GNU/Linux operating system *(file, system and X11 management, operating system tools, etc.)*, based on three *super* sections:
+Solutions for managing files
 
-### 1. Main - performing an action
+* [Recursively rename all files matching a name.](scripts/file_management-main/name_manipulation/recren)
+* [Get the number of megabytes of one or more files and/or directories.](one-liners/file_management-output/file_information/file-property-information-retrieval.one-liners)
 
-* [Recursively rename all files matching a name.](scripts/gnulinux--main/file_management/recren)
+## Hardware management
 
-### 2. Output - providing output only (no actions performed)
+Solutions for managing hardware
 
-* [Get the number of megabytes of one or more files and/or directories.](one-liners/gnulinux--output/file_management/general-file-management.one-liners)
-* [Get the ID of a window by PID.](scripts/gnulinux--output/x11_management/getwindidbypid)
+* [Check if the primary wireless local area network device is soft blocked.](scripts/hardware_management-output/device_information/iswlanblocked)
+* [Check if a secondary wireless local area network device is soft blocked.](scripts/hardware_management-output/device_information/issecondarywlanblocked)
 
-### 4. Modules - used in conjuction with command-line programs
+## X11 management
 
-* [Execute a command in the background.](scripts/gnulinux--modules/shell_management/execinbg)
-* [Execute a command when a file has changed in the current directory.](scripts/gnulinux--modules/file_management/execonfilechange)
+Solutions for managing X11
+
+* [Get the name of the active window.](scripts/x11_management-output/window_property_information/getactvwindname)
+* [Get the ID of a window by PID.](scripts/x11_management-output/window_property_information/getwindidbypid)
+
+## Shell management
+
+Solutions for managing the shell
+
+* [Execute a command in the background.](scripts/shell_management-modules/process_management/execinbg)
+* [Remove the last N bash history entries.](scripts/shell_management-main/history_management/remlastnbashhistentries)
+
+## Mobile device management
+
+Solutions for managing mobile devices
+
+* [Watch and print the X and Y screen tap coordinates of an Android device.](scripts/mobile_device_management-android/hardware_management/getmobilescreentappos)
+* [Mount and unmount an MTP device.](scripts/mobile_device_management-generic/management/mntmtp)
 
 ## Utilities
 
@@ -47,29 +64,14 @@ Solutions performing a utility function, based on two *super* sections:
 
 ### 1. Main - performing an action
 
-* [Execute a command in a new terminal emulator.](scripts/utilities--main/general_program_management/execinnewterm)
-* [Recursively replace a string in all files.](scripts/utilities--main/general_text_manipulation/recrep)
+* [Execute a command in a new terminal emulator.](scripts/utilities-main/general_program_management/execinnewterm)
+* [Recursively replace a string in all files.](scripts/utilities-main/general_text_manipulation/recrep)
 
 ### 2. Modules - used in conjuction with command-line programs
 
-* [Recursively find a file or directory for a command.](scripts/utilities--modules/general_program_management/findfileforcmd)
+* [Recursively find a file or directory for a command.](scripts/utilities-modules/general_program_management/findfileforcmd)
 
----
-
-Shell has an [extension repository for utilities consisting of more than one file](https://github.com/unixfoundation/shell.packaged-utilities).
-
-## Mobile
-
-Solutions for mobile devices, based on two *super* sections:
-
-### 1. Android - for Android devices
-
-* [Send an sms using an Android device.](scripts/mobile--android/utilities/sendsms)
-* [Watch and print the X and Y screen tap coordinates of an Android device.](scripts/mobile--android/hardware_management/getmobilescreentappos)
-
-### 2. Generic - for all mobile devices
-
-* [Mount and unmount an MTP device.](scripts/mobile--generic/management/mntmtp)
+*Shell has an [extension repository for utilities consisting of more than one file](https://github.com/unixfoundation/shell.packaged-utilities).*
 
 # Contributing
 

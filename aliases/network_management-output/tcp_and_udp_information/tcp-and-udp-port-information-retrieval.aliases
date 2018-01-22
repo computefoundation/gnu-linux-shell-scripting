@@ -1,0 +1,12 @@
+# 
+# File:
+#   tcp-and-udp-port-information-retrieval.aliases
+# 
+# Description:
+#   TCP and UDP port information retrieval aliases
+# 
+
+alias openports='sudo ss -antu'                                                  # openports: list all open TCP and UDP ports
+alias openportspids='sudo lsof -i -P'                                            # openportspids: list all open ports with their PIDs
+alias listnports='sudo ss -lntu'                                                 # listnports: list all listening ports
+

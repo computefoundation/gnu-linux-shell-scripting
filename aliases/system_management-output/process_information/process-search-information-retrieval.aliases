@@ -1,0 +1,10 @@
+# 
+# File:
+#   process-search-information-retrieval.aliases
+# 
+# Description:
+#   Process search information retrieval aliases
+# 
+
+getprocidbyname() { lsof -t -c "${@}" 2>/dev/null; }                             # getprocidbyname: get the ID of a process by name; $1: process name (e.g. "/d$/" to get PIDs for processes ending in "d")
+

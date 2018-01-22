@@ -1,0 +1,11 @@
+# 
+# File:
+#   ssh-tunnel-information-retrieval.aliases
+# 
+# Description:
+#   SSH tunnel information retrieval aliases
+# 
+
+alias sshtunn='sudo lsof -i -n | egrep \<ssh\>'                                  # sshtunn: list all tunnels created by the SSH daemon
+alias sshconntunn='sudo lsof -i -n | egrep \<sshd\>'                             # sshconntunn: list all tunnels connected to the SSH daemon
+

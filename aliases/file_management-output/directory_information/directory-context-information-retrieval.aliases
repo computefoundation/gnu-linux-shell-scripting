@@ -1,0 +1,10 @@
+# 
+# File:
+#   directory-context-information-retrieval.aliases
+# 
+# Description:
+#   Directory context information retrieval aliases
+# 
+
+alias numfiles='echo "$(ls -1 | wc -l)"'                                         # numfiles: print the number of non-hidden files and directories in the current directory
+

@@ -1,0 +1,10 @@
+# 
+# File:
+#   ssh-tcp-information-retrieval.aliases
+# 
+# Description:
+#   SSH TCP information retrieval aliases
+# 
+
+alias sshlistports='ss -tnlp'                                                     # sshlistports: list the ports listening for a SSH connection
+

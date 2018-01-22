@@ -1,0 +1,8 @@
+
+Sources for Hardware management - main one-liners
+
+monitor_management/monitor-status-management.one-liners:
+
+  Set the backlight level:
+      https://wiki.archlinux.org/index.php/backlight#ACPI
+

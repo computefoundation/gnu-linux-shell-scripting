@@ -1,0 +1,12 @@
+# 
+# File:
+#   device-property-information-retrieval.one-liners
+# 
+# Description:
+#   Device property information retrieval one-liners
+# 
+
+# List the udev attributes for a device.
+# Example device names: "/dev/sda1" and "/dev/bus/usb/<device_directory>"
+udevadm info -a -p "$(udevadm info -q path -n '<device name>')"
+

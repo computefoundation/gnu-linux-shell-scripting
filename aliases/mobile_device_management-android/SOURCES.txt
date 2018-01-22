@@ -1,0 +1,11 @@
+
+Sources for Mobile device management - Android aliases
+
+network_management/internet-network-management.aliases:
+
+  androidcellip: http://stackoverflow.com/a/3623727
+
+network_management/local-network-network-management.aliases:
+
+  androidwlanip: http://stackoverflow.com/a/3623727
+

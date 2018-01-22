@@ -1,0 +1,11 @@
+# 
+# File:
+#   internet-ip-information-retrieval.aliases
+# 
+# Description:
+#   Internet IP information retrieval aliases
+# 
+
+alias myip='curl ipecho.net/plain; echo'                                         # myip: get the public IPv4 address
+alias myiploc='curl ipinfo.io'                                                   # myiploc: get the public IPv4 address with location information
+

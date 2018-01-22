@@ -1,0 +1,8 @@
+
+Sources for Hardware management - output only one-liners
+
+monitor_information/monitor-status-information-retrieval.one-liners:
+
+  Get the maximum backlight level:
+      https://wiki.archlinux.org/index.php/backlight#ACPI
+

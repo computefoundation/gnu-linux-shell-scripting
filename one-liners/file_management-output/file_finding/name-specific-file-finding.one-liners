@@ -1,0 +1,21 @@
+# 
+# File:
+#   name-specific-file-finding.one-liners
+# 
+# Description:
+#   Name specific file finding one-liners
+# 
+
+HIDDEN AND NON-HIDDEN FILES:
+
+# Recursively find all non-hidden files.
+find . -type f ! -name '.*'
+
+# Recursively find all files not in a hidden directory.
+find . -not -path '*/\.*' -type f
+
+CONTAINING/NOT CONTAINING STRING:
+
+# Recursively find all files without a dot (".") in their name.
+find . -type f ! -name "*.*"
+

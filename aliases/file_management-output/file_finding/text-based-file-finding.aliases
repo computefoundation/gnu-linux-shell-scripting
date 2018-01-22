@@ -1,0 +1,10 @@
+# 
+# File:
+#   text-based-file-finding.aliases
+# 
+# Description:
+#   Text based file finding aliases
+# 
+
+ffgr() { /usr/bin/grep -l -R "${1}" .; }                                         # ffgr: recursively find all files containing a given text; $1: text to search
+

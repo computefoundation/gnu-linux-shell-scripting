@@ -1,5 +1,5 @@
 
-# scripts/
+# Scripts
 
 This directory contains scripts.
 

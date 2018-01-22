@@ -1,0 +1,11 @@
+# 
+# File:
+#   operating-system-property-information-retrieval.one-liners
+# 
+# Description:
+#   Operating system property information retrieval one-liners
+# 
+
+# Print the target architecture of the current operating system (requires package llvm).
+llc --version | grep Default | tr -s ' ' | cut -d ' ' -f4
+

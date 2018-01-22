@@ -1,5 +1,5 @@
 
-# aliases/
+# Aliases
 
 This directory contains aliases and frequently used short functions.
 

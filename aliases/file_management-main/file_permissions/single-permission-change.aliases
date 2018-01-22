@@ -1,0 +1,10 @@
+# 
+# File:
+#   single-permission-change.aliases
+# 
+# Description:
+#   Single permission change aliases
+# 
+
+alias permreadonly='chmod a-w'                                                   # permreadonly: change the permisson status of a file to read-only
+

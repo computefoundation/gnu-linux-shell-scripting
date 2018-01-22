@@ -1,0 +1,10 @@
+# 
+# File:
+#   process-general-information-retrieval.aliases
+# 
+# Description:
+#   Process general information retrieval aliases
+# 
+
+owndprocs() { ps -u "${USER}" -o pid,%cpu,%mem,start,time,bsdtime; }             # owndprocs: list all processes owned by the current user
+

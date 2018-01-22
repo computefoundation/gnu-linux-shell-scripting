@@ -1,5 +1,5 @@
 
-# functions_scripts/
+# Functions scripts
 
 This directory contains functions scripts.
 

@@ -1,0 +1,11 @@
+# 
+# File:
+#   multiple-permission-change.aliases
+# 
+# Description:
+#   Multiple permission change aliases
+# 
+
+alias permusergroupreadwrite='chmod ug+rw'                                       # permusergroupreadwrite: give the user and group read and write permissions to a file.
+alias permusergroupreadwritexec='chmod ug+rwx'                                   # permusergroupreadwriteexec: give the user and group read, write and execute permissions to a file.
+

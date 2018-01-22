@@ -1,0 +1,10 @@
+# 
+# File:
+#   monitor-power-management.aliases
+# 
+# Description:
+#   Monitor power management aliases
+# 
+
+alias suspendmonitor='sleep .7; xset dpms force off'                             # suspendmonitor: suspend the monitor
+
