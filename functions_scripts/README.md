@@ -3,7 +3,7 @@
 
 This directory contains functions scripts.
 
-Functions scripts are scripts consisting of small functions relative to a larger solution.
+Functions scripts are scripts consisting of small individual related functions.
 
 ## View
 

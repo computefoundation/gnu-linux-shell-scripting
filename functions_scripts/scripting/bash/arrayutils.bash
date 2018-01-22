@@ -168,7 +168,7 @@
   # Get the union of two arrays (2).
   # Example:
   #   A=(5 7 1 1 4); B=(3 1 4 1 9)
-  #   getUnion A B # returns "5 7 3 1 4 9"
+  #   getUnion2 A B # returns "5 7 3 1 4 9"
   getUnion2() {
     local arr1="${1}[@]"
     local arr2="${2}[@]"
