@@ -1,7 +1,7 @@
 
 # Mobile device management - generic
 
-## Management
+## Mounting
 
-* [**mntmtp**](management/mntmtp): Mount and unmount an MTP device.
+* [**mntmtp**](mounting/mntmtp): Mount and unmount an MTP device.
 
