@@ -1,9 +1,9 @@
 # 
 # File:
-#   first-match-file-finding.aliases
+#   match-limited-file-finding.aliases
 # 
 # Description:
-#   First match file finding aliases
+#   Match limited file finding aliases
 # 
 
 fff() { find . -type f -name "*${1}*" -print -quit; }                            # fff: Recursively find the first file matching a name; $1: file name.

@@ -68,7 +68,7 @@ Solutions for manipulating text
 
 Solutions for processing text
 
-* [Count the number of characters in a string.](aliases/text_manipulation/numeric_processing/basic-numberic-processing.aliases)
+* [Count the number of characters in a string.](aliases/text_processing/numeric_processing/basic-numberic-processing.aliases)
 
 ## Number processing
 

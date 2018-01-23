@@ -7,9 +7,9 @@
 
 ## File finding
 
-* [First match file finding aliases](file_finding/first-match-file-finding.aliases)
-* [Single step file finding aliases](file_finding/single-step-file-finding.aliases)
-* [Text based file finding aliases](file_finding/text-based-file-finding.aliases)
+* [Basic file finding aliases](file_finding/basic-file-finding.aliases)
+* [Match limitied file finding aliases](file_finding/match-limited-file-finding.aliases)
+* [Text matching file finding aliases](file_finding/text-matching-file-finding.aliases)
 
 ## File permission information
 

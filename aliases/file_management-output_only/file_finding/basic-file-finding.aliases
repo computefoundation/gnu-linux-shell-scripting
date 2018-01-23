@@ -1,9 +1,9 @@
 # 
 # File:
-#   single-step-file-finding.aliases
+#   basic-file-finding.aliases
 # 
 # Description:
-#   Single step file finding aliases
+#   Basic file finding aliases
 # 
 
 ff() { find . -type f -name "*${1}*"; }                                          # ff: Recursively find all files matching a name name; $1: file name.
