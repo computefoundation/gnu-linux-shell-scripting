@@ -6,5 +6,5 @@
 #   Basic numberic processing aliases
 # 
 
-countchars() { echo "${@}" | wc -c; }                                            # countchars: count the number of characters in a string
+countchars() { echo "${@}" | wc -c; }                                            # countchars: Count the number of characters in a string.
 

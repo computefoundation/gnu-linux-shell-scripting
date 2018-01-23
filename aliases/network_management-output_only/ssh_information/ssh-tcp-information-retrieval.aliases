@@ -6,5 +6,5 @@
 #   SSH TCP information retrieval aliases
 # 
 
-alias sshlistports='ss -tnlp'                                                     # sshlistports: list the ports listening for a SSH connection
+alias sshlistports='ss -tnlp'                                                     # sshlistports: List the ports listening for a SSH connection.
 

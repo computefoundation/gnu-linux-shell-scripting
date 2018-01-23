@@ -6,5 +6,5 @@
 #   Recursive file permission information retrieval aliases
 # 
 
-alias ll='command ls -FGlAhp'                                                    # ll: list the permissions and owner of each file in the current directory
+alias ll='command ls -FGlAhp'                                                    # ll: List the permissions and owner of each file in the current directory.
 

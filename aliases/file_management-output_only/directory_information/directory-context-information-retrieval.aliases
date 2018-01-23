@@ -6,5 +6,5 @@
 #   Directory context information retrieval aliases
 # 
 
-alias numfiles='echo "$(ls -1 | wc -l)"'                                         # numfiles: print the number of non-hidden files and directories in the current directory
+alias numfiles='echo "$(ls -1 | wc -l)"'                                         # numfiles: Print the number of non-hidden files and directories in the current directory.
 

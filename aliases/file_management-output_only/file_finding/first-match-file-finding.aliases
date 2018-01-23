@@ -6,11 +6,11 @@
 #   First match file finding aliases
 # 
 
-fff() { find . -type f -name "*${1}*" -print -quit; }                            # fff: recursively find the first file matching a name; $1: file name
-fdf() { find . -type d -name "*${1}*" -print -quit; }                            # fdf: recursively find the first directory matching a name; $1: directory name
-fffa() { find "$PWD" -type f -name "*${1}*" -print -quit; }                      # fffa: recursively find the first file matching a name and return its absolute path; $1: file name
-fdfa() { find "$PWD" -type d -name "*${1}*" -print -quit; }                      # fdfa: recursively find the first directory matching a name and return its absolute path; $1: directory name
+fff() { find . -type f -name "*${1}*" -print -quit; }                            # fff: Recursively find the first file matching a name; $1: file name.
+fdf() { find . -type d -name "*${1}*" -print -quit; }                            # fdf: Recursively find the first directory matching a name; $1: directory name.
+fffa() { find "$PWD" -type f -name "*${1}*" -print -quit; }                      # fffa: Recursively find the first file matching a name and return its absolute path; $1: file name.
+fdfa() { find "$PWD" -type d -name "*${1}*" -print -quit; }                      # fdfa: Recursively find the first directory matching a name and return its absolute path; $1: directory name.
 
 ffd() { echo "$(find . -type f -name "*${1}*" -exec sh -c 'echo "${1%/*}"; \
-  kill "$PPID"' sh {} \;)" ;}                                                    # ffd: recursively find the first file matching a name and return its parent directory; $1: file name
+  kill "$PPID"' sh {} \;)" ;}                                                    # ffd: Recursively find the first file matching a name and return its parent directory; $1: file name.
 

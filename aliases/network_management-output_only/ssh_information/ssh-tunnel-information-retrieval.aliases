@@ -6,6 +6,6 @@
 #   SSH tunnel information retrieval aliases
 # 
 
-alias sshtunn='sudo lsof -i -n | egrep \<ssh\>'                                  # sshtunn: list all tunnels created by the SSH daemon
-alias sshconntunn='sudo lsof -i -n | egrep \<sshd\>'                             # sshconntunn: list all tunnels connected to the SSH daemon
+alias sshtunn='sudo lsof -i -n | egrep \<ssh\>'                                  # sshtunn: List all tunnels created by the SSH daemon.
+alias sshconntunn='sudo lsof -i -n | egrep \<sshd\>'                             # sshconntunn: List all tunnels connected to the SSH daemon.
 

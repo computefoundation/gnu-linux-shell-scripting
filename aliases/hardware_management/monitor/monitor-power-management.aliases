@@ -6,5 +6,5 @@
 #   Monitor power management aliases
 # 
 
-alias suspendmonitor='sleep .7; xset dpms force off'                             # suspendmonitor: suspend the monitor
+alias suspendmonitor='sleep .7; xset dpms force off'                             # suspendmonitor: Suspend the monitor.
 

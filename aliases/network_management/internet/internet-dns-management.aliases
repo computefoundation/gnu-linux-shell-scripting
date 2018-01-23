@@ -6,5 +6,5 @@
 #   Internet DNS management aliases
 # 
 
-alias flushdns='dscacheutil -flushcache'                                         # flushdns: flush the DNS Cache
+alias flushdns='dscacheutil -flushcache'                                         # flushdns: Flush the DNS Cache.
 

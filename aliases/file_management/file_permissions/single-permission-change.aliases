@@ -6,5 +6,5 @@
 #   Single permission change aliases
 # 
 
-alias permreadonly='chmod a-w'                                                   # permreadonly: change the permisson status of a file to read-only
+alias permreadonly='chmod a-w'                                                   # permreadonly: Change the permisson status of a file to read-only.
 

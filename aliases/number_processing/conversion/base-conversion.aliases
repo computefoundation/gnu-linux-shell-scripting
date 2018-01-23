@@ -6,6 +6,6 @@
 #   Base conversion aliases
 # 
 
-hextodec() { local hexFrmtd="${1#*'0x'}"; echo "$((16#"${hexFrmtd}"))"; }        # hextodec: convert a hexidecimal number to decimal
-dectohex() { printf '%#010x\n' "${1}"; }                                         # dectohex: convert a decimal number to hexidecimal
+hextodec() { local hexFrmtd="${1#*'0x'}"; echo "$((16#"${hexFrmtd}"))"; }        # hextodec: Convert a hexidecimal number to decimal.
+dectohex() { printf '%#010x\n' "${1}"; }                                         # dectohex: Convert a decimal number to hexidecimal.
 

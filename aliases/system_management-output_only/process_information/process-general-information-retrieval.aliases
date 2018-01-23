@@ -6,5 +6,5 @@
 #   Process general information retrieval aliases
 # 
 
-owndprocs() { ps -u "${USER}" -o pid,%cpu,%mem,start,time,bsdtime; }             # owndprocs: list all processes owned by the current user
+owndprocs() { ps -u "${USER}" -o pid,%cpu,%mem,start,time,bsdtime; }             # owndprocs: List all processes owned by the current user.
 

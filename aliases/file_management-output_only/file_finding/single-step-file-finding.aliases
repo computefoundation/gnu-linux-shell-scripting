@@ -6,6 +6,6 @@
 #   Single step file finding aliases
 # 
 
-ff() { find . -type f -name "*${1}*"; }                                          # ff: recursively find all files matching a name name; $1: file name
-fd() { find . -type d -name "*${1}*"; }                                          # fd: recursively find all directories matching a name name; $1: directory name
+ff() { find . -type f -name "*${1}*"; }                                          # ff: Recursively find all files matching a name name; $1: file name.
+fd() { find . -type d -name "*${1}*"; }                                          # fd: Recursively find all directories matching a name name; $1: directory name.
 
