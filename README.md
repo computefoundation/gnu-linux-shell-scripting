@@ -1,13 +1,13 @@
 
-<img src='https://raw.githubusercontent.com/unixfoundation/shell/images/logo.png' width='33.5%' align='left' alt='logo.png'>
+<img src='https://raw.githubusercontent.com/unixfoundation/general-purpose-computing/images/logo.png' width='33.5%' align='left' alt='logo.png'>
 <br><br>
 
-**Shell** is a resource of Unix-founded scripts solutions for the shell in all paradigms.
+This is a resource of Unix-founded shell solutions for general-purpose computing in all paradigms.
 <br><br><br><br><br>
 
 # Paradigms
 
-**Shell** provides solutions in the following paradigms:
+This repository provides solutions in the following paradigms:
 
 ## Application management
 
@@ -78,11 +78,11 @@ Solutions for processing numbers
 
 ---
 
-Shell has an [extension repository for solutions consisting of more than one file](https://github.com/unixfoundation/shell.packaged-utilities).
+This repository has an [extension for solutions consisting of more than one file](https://github.com/unixfoundation/general-purpose-computing.packaged-solutions).
 
 # Contributing
 
-If you would like to contribute, please ensure that your contribution adheres to the respective [guideline](https://github.com/unixfoundation/shell/wiki). Here is a list of [needed solutions](https://github.com/unixfoundation/shell/wiki/Needed-solutions); it can be used for ideas.
+If you would like to contribute, please ensure that your contribution adheres to the respective [guideline](https://github.com/unixfoundation/general-purpose-computing/wiki). Here is a list of [needed solutions](https://github.com/unixfoundation/general-purpose-computing/wiki/Needed-solutions); it can be used for ideas.
 
 An alternative implementation to an already existing solution will be accepted only if it has substantial reason, such as using a different dependency or language.
 
