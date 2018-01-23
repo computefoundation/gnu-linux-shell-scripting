@@ -1,5 +1,5 @@
 
-# Network management - main
+# Network management
 
 ## Internet
 

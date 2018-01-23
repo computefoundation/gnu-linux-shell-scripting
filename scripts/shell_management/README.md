@@ -1,5 +1,5 @@
 
-# Shell management - main
+# Shell management
 
 ## External
 

@@ -1,5 +1,5 @@
 
-# System management - main
+# System management
 
 ## Device management
 

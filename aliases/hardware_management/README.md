@@ -1,5 +1,5 @@
 
-# Hardware management - main
+# Hardware management
 
 ## Monitor
 

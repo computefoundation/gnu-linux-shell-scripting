@@ -1,5 +1,5 @@
 
-# File management - main
+# File management
 
 ## Name manipulation
 

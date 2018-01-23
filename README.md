@@ -27,29 +27,29 @@ Solutions for scripting
 
 Solutions for managing files
 
-* [Recursively rename all files matching a name.](scripts/file_management-main/name_manipulation/recren)
-* [Get the size in megabytes of one or more files and/or directories.](one-liners/file_management-output/file_information/file-property-information-retrieval.one-liners)
+* [Recursively rename all files matching a name.](scripts/file_management/name_manipulation/recren)
+* [Get the size in megabytes of one or more files and/or directories.](one-liners/file_management-output_only/file_information/file-property-information-retrieval.one-liners)
 
 ## Hardware management
 
 Solutions for managing hardware
 
-* [Check if the primary wireless local area network device is soft blocked.](scripts/hardware_management-output/device_information/iswlanblocked)
-* [Check if a secondary wireless local area network device is soft blocked.](scripts/hardware_management-output/device_information/issecondarywlanblocked)
+* [Check if the primary wireless local area network device is soft blocked.](scripts/hardware_management-output_only/device_information/iswlanblocked)
+* [Check if a secondary wireless local area network device is soft blocked.](scripts/hardware_management-output_only/device_information/issecondarywlanblocked)
 
 ## X11 management
 
 Solutions for managing X11
 
-* [Get the name of the active window.](scripts/x11_management-output/window_property_information/getactvwindname)
-* [Get the ID of a window by PID.](scripts/x11_management-output/window_property_information/getwindidbypid)
+* [Get the name of the active window.](scripts/x11_management-output_only/window_property_information/getactvwindname)
+* [Get the ID of a window by PID.](scripts/x11_management-output_only/window_property_information/getwindidbypid)
 
 ## Shell management
 
 Solutions for managing the shell
 
 * [Execute a command in the background.](scripts/shell_management-modules/process_management/execinbg)
-* [Remove the last N bash history entries.](scripts/shell_management-main/history_management/remlastnbashhistentries)
+* [Remove the last N bash history entries.](scripts/shell_management/history_management/remlastnbashhistentries)
 
 ## Mobile device management
 
