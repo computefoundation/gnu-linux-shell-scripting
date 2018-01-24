@@ -1,5 +1,5 @@
 
-<img src='https://raw.githubusercontent.com/unixfoundation/general-purpose-computing/images/logo.png' width='33.5%' align='left' alt='logo.png'>
+<img src='https://raw.githubusercontent.com/computingfoundation/general-purpose-computing/images/logo.png' width='33.5%' align='left' alt='logo.png'>
 <br><br>
 
 This is a resource of Unix-founded shell solutions for general-purpose computing in all paradigms.
@@ -78,17 +78,17 @@ Solutions for processing numbers
 
 ---
 
-This repository has an [extension for solutions consisting of more than one file](https://github.com/unixfoundation/general-purpose-computing.packaged-solutions).
+This repository has an [extension for solutions consisting of more than one file](https://github.com/computingfoundation/general-purpose-computing.packaged-solutions).
 
 # Contributing
 
-If you would like to contribute, please ensure that your contribution adheres to the respective [guideline](https://github.com/unixfoundation/general-purpose-computing/wiki). Here is a list of [needed solutions](https://github.com/unixfoundation/general-purpose-computing/wiki/Needed-solutions); it can be used for ideas.
+If you would like to contribute, please ensure that your contribution adheres to the respective [guideline](https://github.com/computingfoundation/general-purpose-computing/wiki). Here is a list of [needed solutions](https://github.com/computingfoundation/general-purpose-computing/wiki/Needed-solutions); it can be used for ideas.
 
 An alternative implementation to an already existing solution will be accepted only if it has substantial reason, such as using a different dependency or language.
 
 Finally, credits will be placed in the wiki.
 
-Please send an email to main@unixfoundation.org with any suggestions, comments or questions.
+Please send an email to main@computingfoundation.org with any suggestions, comments or questions.
 
 Thanks.
 
