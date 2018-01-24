@@ -6,11 +6,15 @@
 # Description:
 #   Check if the primary bluetooth device is soft blocked.
 # 
+# Exit codes:
+#   0: is blocked
+#   1: is not blocked
+# 
 
-IS_BLUETOOTH_SOFT_BLOCKED="$(rfkill list bluetooth | sed -n \
-    's/Soft blocked: \(.*\)/\1/p' | head -1 | sed 's/^[ \t]*//;s/[ \t]*$//')"
+IS_BLOCKED="$(rfkill list bluetooth | sed -n 's/Soft blocked: \(.*\)/\1/p' | \
+    head -1 | sed 's/^[ \t]*//;s/[ \t]*$//')"
 
-if [ "${IS_BLUETOOTH_SOFT_BLOCKED}" = 'yes' ]; then
+if [ "${IS_BLOCKED}" = 'yes' ]; then
   exit 0
 else
   exit 1
