@@ -1,13 +1,14 @@
 
-<img src='https://raw.githubusercontent.com/computingfoundation/general-purpose-computing/images/logo.png' width='33.5%' align='left' alt='logo.png'>
-<br><br>
+<div align='center'>
+	<img src='https://raw.githubusercontent.com/unixfoundation/general-purpose-computing/images/logo.png' width='40%' alt='logo.png'>
+</div>
+<br><br><br>
 
 This is a resource of Unix-founded shell solutions for general-purpose computing in all paradigms.
-<br><br><br><br><br>
 
 # Paradigms
 
-This repository provides solutions in the following paradigms:
+It provides solutions in the following paradigms:
 
 ## Application management
 
@@ -78,7 +79,7 @@ Solutions for processing numbers
 
 ---
 
-This repository has an [extension for solutions consisting of more than one file](https://github.com/computingfoundation/general-purpose-computing.packaged-solutions).
+This resource has an [extension for solutions consisting of more than one file](https://github.com/computingfoundation/general-purpose-computing.packaged-solutions).
 
 # Contributing
 
