@@ -35,8 +35,8 @@ Solutions for managing files
 
 Solutions for managing hardware
 
-* [Check if the primary wireless local area network device is soft blocked.](scripts/hardware_management-output_only/device_information/iswlanblocked)
-* [Check if a secondary wireless local area network device is soft blocked.](scripts/hardware_management-output_only/device_information/issecondarywlanblocked)
+* [Check if the primary wireless local area network device interface is soft blocked.](scripts/hardware_management-output_only/device_information/iswlanblocked)
+* [Check if a secondary wireless local area network device interface is soft blocked.](scripts/hardware_management-output_only/device_information/issecondarywlanblocked)
 
 ## X11 management
 

@@ -4,7 +4,8 @@
 #   iswlanblocked
 # 
 # Description:
-#   Check if the primary wireless local area network device is soft blocked.
+#   Check if the primary wireless local area network device interface is soft
+#   blocked.
 # 
 # Exit codes:
 #   0: is blocked

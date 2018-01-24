@@ -4,7 +4,7 @@
 #   isbluetoothblocked
 # 
 # Description:
-#   Check if the primary bluetooth device is soft blocked.
+#   Check if the primary bluetooth device interface is soft blocked.
 # 
 # Exit codes:
 #   0: is blocked
