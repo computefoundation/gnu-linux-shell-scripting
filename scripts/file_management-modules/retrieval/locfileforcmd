@@ -44,7 +44,7 @@
 # ======= CONFIGURATIONS ==============
 
 # Locatefile command
-readonly LOC_FILE_CMD='locate'
+readonly LOC_FILE_CMD='locatefile'
 
 # Locate file command option to return directories only; can be empty
 readonly LOC_FILE_CMD_OPT_RET_DIRS='-d'
