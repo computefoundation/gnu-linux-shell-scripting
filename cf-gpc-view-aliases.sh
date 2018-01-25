@@ -8,11 +8,11 @@
 #   computingfoundation/general-purpose-computing.
 # 
 # Usage note:
-#   Cd to directory aliases/ and run.
+#   Cd to directory "aliases" and run.
 # 
 
 if [ "$(echo "$PWD" | sed 's/.*\///')" != 'aliases' ]; then
-  echo 'cf-gpc-view-aliases.sh: not in directory aliases/'
+  echo 'cf-gpc-view-aliases.sh: not in directory "aliases"'
   exit 1
 fi
 

@@ -8,11 +8,11 @@
 #   computingfoundation/general-purpose-computing.
 # 
 # Usage note:
-#   Cd to directory functions_scripts/ and run.
+#   Cd to directory "functions_scripts" and run.
 # 
 
 if [ "$(echo "$PWD" | sed 's/.*\///')" != 'functions_scripts' ]; then
-  echo 'cf-gpc-view-functions-scripts.sh: not in directory functions_scripts/'
+  echo 'cf-gpc-view-functions-scripts.sh: not in directory "functions_scripts"'
   exit 1
 fi
 
