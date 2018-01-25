@@ -1,22 +1,24 @@
 #!/usr/bin/env bash
 # 
 # File:
-#   view-shell-aliases.sh
+#   cf-gpc-view-aliases.sh
 # 
 # Description:
-#   View all aliases and short functions in unixfoundation/shell.
+#   View all aliases and short functions in
+#   computingfoundation/general-purpose-computing.
 # 
 # Usage note:
-#   Cd to directory "aliases/" and run.
+#   Cd to directory aliases/ and run.
 # 
 
 if [ "$(echo "$PWD" | sed 's/.*\///')" != 'aliases' ]; then
-  echo 'view-shell-aliases.sh: not in directory "aliases/"'
+  echo 'cf-gpc-view-aliases.sh: not in directory aliases/'
   exit 1
 fi
 
 for filePath in $(find . -type f -name '*.aliases*'); do
   basePath="$(echo "${filePath}" | awk -F\/ '{print $(NF-2)}')"
+
   if [ "${basePath}" != "${prevBasePath}" ]; then
     echo '============================================'
     echo -e "  ${basePath}/"

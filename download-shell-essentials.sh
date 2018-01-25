@@ -4,7 +4,7 @@
 #   download-shell-essentials.sh
 # 
 # Description:
-#   Download essential solutions from unixfoundation/shell.
+#   Download essential solutions from computingfoundation/shell.
 # 
 # Note:
 #   01/21/18: This script is no longer in use and may not work.
@@ -17,7 +17,7 @@ readonly DOWNLOAD_DIR="${HOME}"
 
 # ======= ! CONFIGURATIONS ==============
 
-readonly MASTER_URL='https://raw.githubusercontent.com/unixfoundation/shell/master'
+readonly MASTER_URL='https://raw.githubusercontent.com/computingfoundation/shell/master'
 readonly BASE_DIR="${DOWNLOAD_DIR}/shell-essentials"
 
 echo -e "::Downloading files to ${BASE_DIR}\n  Please wait"

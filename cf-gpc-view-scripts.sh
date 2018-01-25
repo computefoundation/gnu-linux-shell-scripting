@@ -1,22 +1,24 @@
 #!/usr/bin/env bash
 # 
 # File:
-#   view-shell-functions-scripts.sh
+#   cf-gpc-view-scripts.sh
 # 
 # Description:
-#   View all functions scripts in unixfoundation/shell.
+#   View all scripts in
+#   computingfoundation/general-purpose-computing.
 # 
 # Usage note:
-#   Cd to directory "functions_scripts/" and run.
+#   Cd to directory scripts/ and run.
 # 
 
-if [ "$(echo "$PWD" | sed 's/.*\///')" != 'functions_scripts' ]; then
-  echo 'view-shell-functions-scripts.sh: not in directory "functions_scripts/"'
+if [ "$(echo "$PWD" | sed 's/.*\///')" != 'scripts' ]; then
+  echo 'cf-gpc-view-scripts.sh: not in directory scripts/'
   exit 1
 fi
 
-for filePath in $(find . -type f ! -name '*.*' -o -name '*.bash'); do
+for filePath in $(find . -type f ! -name '*.*'); do
   basePath="$(echo "${filePath}" | awk -F\/ '{print $(NF-2)}')"
+
   if [ "${basePath}" != "${prevBasePath}" ]; then
     echo '============================================'
     echo -e "  ${basePath}/"
@@ -29,6 +31,6 @@ for filePath in $(find . -type f ! -name '*.*' -o -name '*.bash'); do
   scriptDescription="$(cat "${filePath}" | \
       awk '/^(#[ ]Description)/ {for(i=1; i<=3; i++) {getline; print}; exit}' \
       | awk '{$1=""; print substr($0,2)}' | grep -Ev '^$|[:]')"
-  echo -e "----- ${fileBasePath}:\n\n${scriptDescription}\n"
+  echo -e "----- ${fileBasePath}:\n${scriptDescription}\n"
 done
 

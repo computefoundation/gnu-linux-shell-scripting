@@ -1,22 +1,24 @@
 #!/usr/bin/env bash
 # 
 # File:
-#   view-shell-one-liners.sh
+#   cf-gpc-view-one-liners.sh
 # 
 # Description:
-#   View all one-liners in unixfoundation/shell.
+#   View all one-liners in
+#   computingfoundation/general-purpose-computing.
 # 
 # Usage note:
-#   Cd to directory "one-liners/" and run.
+#   Cd to directory one-liners/ and run.
 # 
 
 if [ "$(echo "$PWD" | sed 's/.*\///')" != 'one-liners' ]; then
-  echo 'view-shell-one-liners.sh: not in directory "one-liners/"'
+  echo 'cf-gpc-view-one-liners.sh: not in directory one-liners/'
   exit 1
 fi
 
 for filePath in $(find . -type f -name '*.one-liners*'); do
   basePath="$(echo "${filePath}" | awk -F\/ '{print $(NF-2)}')"
+
   if [ "${basePath}" != "${prevBasePath}" ]; then
     echo '============================================'
     echo -e "  ${basePath}/"

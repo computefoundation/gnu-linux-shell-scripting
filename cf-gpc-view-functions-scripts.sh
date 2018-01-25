@@ -1,22 +1,24 @@
 #!/usr/bin/env bash
 # 
 # File:
-#   view-shell-scripts.sh
+#   cf-gpc-view-functions-scripts.sh
 # 
 # Description:
-#   View all scripts in unixfoundation/shell.
+#   View all functions scripts in
+#   computingfoundation/general-purpose-computing.
 # 
 # Usage note:
-#   Cd to directory "scripts/" and run.
+#   Cd to directory functions_scripts/ and run.
 # 
 
-if [ "$(echo "$PWD" | sed 's/.*\///')" != 'scripts' ]; then
-  echo 'view-shell-scripts.sh: not in directory "scripts/"'
+if [ "$(echo "$PWD" | sed 's/.*\///')" != 'functions_scripts' ]; then
+  echo 'cf-gpc-view-functions-scripts.sh: not in directory functions_scripts/'
   exit 1
 fi
 
-for filePath in $(find . -type f ! -name '*.*'); do
+for filePath in $(find . -type f ! -name '*.*' -o -name '*.bash'); do
   basePath="$(echo "${filePath}" | awk -F\/ '{print $(NF-2)}')"
+
   if [ "${basePath}" != "${prevBasePath}" ]; then
     echo '============================================'
     echo -e "  ${basePath}/"
