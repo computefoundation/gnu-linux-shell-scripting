@@ -1,9 +1,9 @@
 
 # Text manipulation
 
-## Resursive
+## Matching
 
-* [recrep](recursive/recrep): Recursively replace a string in all files.
+* [recrep](matching/recrep): Recursively replace a string in all files.
 
 ## X11
 
