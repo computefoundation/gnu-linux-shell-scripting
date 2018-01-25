@@ -1,0 +1,147 @@
+#!/usr/bin/env bash
+# 
+# File:
+#   loctfileforcmd
+# 
+# Description:
+#   Locate a file or directory for a command.
+# 
+# Examples:
+#   # Locate a file with a name containing "stat" for command "vim".
+#   loctfileforcmd {vim}  stat
+# 
+#   # Locate a directory with a name containing "docu" for command "thunar".
+#   loctfileforcmd {thunar} --d docu
+# 
+#   # same as previous, except return the third occurrence
+#   loctfileforcmd {thunar} --d --3 docu
+# 
+# Usage:
+#   loctfileforcmd {<command_to_execute>} [options] <partial_or_full_file_name>
+# 
+# Usage note:
+#   Variable LOCATE_FILE_COMMAND in the configurations section must be assigned
+#   a command that returns a file or directory path. The command must return
+#   ordinary files by default and directories via the option specified by
+#   LOCATE_FILE_COMMAND_OPT_DIRECTORIES for option --d to apply.
+# 
+# Options:
+#   --d        return a directory instead of a file
+#   --<1-9>    return the specified occurrence
+#   --p        print the returned files or directories only
+# 
+# Exit codes:
+#   0: file or directory found
+#   1: error occurred or file or directory not found
+# 
+# Notes:
+#   The options for this utility use double dashes to avoid overriding the
+#   options for the command in the brackets.
+# 
+
+# ======= CONFIGURATIONS ==============
+
+# Locate file command
+readonly LOCATE_FILE_COMMAND='locatefile'
+
+# Locate file command option to return directories only; can be empty
+readonly LOCATE_FILE_COMMAND_OPT_DIRECTORIES='-d'
+
+# Locate file command option to change the located occurrence; can be empty;
+# must require a numerical argument
+readonly LOCATE_FILE_COMMAND_OPT_OCCURRENCE='-o'
+
+# ======= ! CONFIGURATIONS ==============
+
+# ============================================
+#   Get the execute command
+# ============================================
+
+# Note: The following could be done using command "set", however, command "set"
+# removes all arguments containing "?".
+
+for ((x=1; x<="$#"; x++)); do
+  arg="${@:x:1}"
+
+  if [ -z "${arg##*'}'*}" ]; then
+    EXECUTE_COMMAND="${@:1:x}"
+    shift "${x}"
+  fi
+done
+
+if [ -z "${EXECUTE_COMMAND}" ]; then
+  echo -e  'loctfileforcmd: invalid arguments:\nexecute command not specified' \
+      1>&2
+  exit 1
+fi
+
+EXECUTE_COMMAND="${EXECUTE_COMMAND#{}"
+EXECUTE_COMMAND="${EXECUTE_COMMAND%\}}"
+
+# ============================================
+#   Check prerequisites
+# ============================================
+
+if [ "$#" -eq 0 ]; then
+  echo 'loctfileforcmd: no file or directory name specified' 1>&2
+  exit 1
+fi
+
+if ! hash "${LOCATE_FILE_COMMAND}" >/dev/null 2>&1; then
+  echo "loctfileforcmd: command \"${LOCATE_FILE_COMMAND}\" does not exist" 1>&2
+  exit 1
+fi
+
+# ============================================
+#   Process options and arguments
+# ============================================
+
+OPTS="$(getopt -o '#' --long d,1,2,3,4,5,6,7,8,9,p -n 'loctfileforcmd' -- \
+    "${@}")"
+[ "$?" -ne 0 ] && exit 1
+eval set -- "${OPTS}"
+
+while true; do
+  case "${1}" in
+    --d) OPT_RETURN_DIRECTORIES='true';;
+    --1|--2|--3|--4|--5|--6|--7|--8|--9) OPT_RETURN_OCCURRENCE="${1#'--'}";;
+    --p) OPT_PRINT_ONLY='true';;
+    --) shift; break;;
+    * ) break;;
+  esac
+  shift
+done
+
+# ============================================
+#   Process locate file command options
+# ============================================
+
+if [ "${OPT_RETURN_DIRECTORIES}" = 'true' ] && [ -n \
+    "${LOCATE_FILE_COMMAND_OPT_DIRECTORIES}" ]; then
+  locfileOpts="${LOCATE_FILE_COMMAND_OPT_DIRECTORIES}"
+fi
+
+if [ -n "${OPT_RETURN_OCCURRENCE}" ] && [ -n \
+    "${LOCATE_FILE_COMMAND_OPT_OCCURRENCE}" ]; then
+  locfileOpts+=" ${LOCATE_FILE_COMMAND_OPT_OCCURRENCE} ${OPT_RETURN_OCCURRENCE}"
+fi
+
+# ============================================
+#   Begin locate process
+# ============================================
+
+loctfileOutput="$(${LOCATE_FILE_COMMAND} ${locfileOpts} "${@}")"
+
+if [ -z "${loctfileOutput}" ]; then
+  echo "loctfileforcmd: file or directory \"${@}\" not found" 1>&2
+  exit 1
+fi
+
+loctfileOutput="$(echo "${loctfileOutput}" | sed 's/ /\\n/g')"
+
+if [ "${OPT_PRINT_ONLY}" = 'true' ]; then
+  echo "${loctfileOutput}"
+else
+  ${EXECUTE_COMMAND} "${loctfileOutput}"
+fi
+

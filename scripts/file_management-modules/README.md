@@ -8,5 +8,5 @@
 ## Retrieval
 
 * [findfileforcmd](retrieval/findfileforcmd): Recursively find a file or directory for a command.
-* [locfileforcmd](retrieval/locfileforcmd): Locate a file or directory for a command.
+* [loctfileforcmd](retrieval/loctfileforcmd): Locate a file or directory for a command.
 
