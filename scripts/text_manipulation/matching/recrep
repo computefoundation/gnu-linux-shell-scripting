@@ -6,7 +6,7 @@
 # Description:
 #   Recursively replace a string in all files.
 # 
-# Additional feature:
+# Supplemental feature:
 #   This script allows a backup directory to be created of the directories in
 #   which it is run.
 # 

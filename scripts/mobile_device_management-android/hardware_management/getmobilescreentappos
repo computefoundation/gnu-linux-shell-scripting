@@ -6,7 +6,7 @@
 # Description:
 #   Watch for and print X and Y tap coordinates on an Android device screen.
 # 
-# Additional feature:
+# Supplemental feature:
 #   Output is converted from hexidecimal to decimal for easy readability.
 # 
 # Usage:

@@ -6,7 +6,7 @@
 # Description:
 #   Execute a command in a new terminal emulator.
 # 
-# Additional feature:
+# Supplemental feature:
 #   This script returns the window ID of the new terminal emulator window.
 # 
 # Usage:
