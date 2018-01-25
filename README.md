@@ -31,6 +31,13 @@ Solutions for managing files
 * [Recursively rename all files matching a name.](scripts/file_management/name_manipulation/recren)
 * [Get the size in megabytes of one or more files and/or directories.](one-liners/file_management-output_only/file_information/file-property-information-retrieval.one-liners)
 
+## System management
+
+Solutions for managing the system
+
+* [List all processes owned by the current user.](aliases/system_management-output_only/process_information/process-general-information-retrieval.aliases)
+* [Print the target architecture of the current operating system.](one-liners/system_management-output_only/operating_system_information/operating-system-property-information-retrieval.one-liners)
+
 ## Hardware management
 
 Solutions for managing hardware
@@ -38,19 +45,19 @@ Solutions for managing hardware
 * [Check if the primary wireless local area network device interface is soft blocked.](scripts/hardware_management-output_only/device_information/iswlanblocked)
 * [Check if a secondary wireless local area network device interface is soft blocked.](scripts/hardware_management-output_only/device_information/issecondarywlanblocked)
 
-## X11 management
-
-Solutions for managing X11
-
-* [Get the name of the active window.](scripts/x11_management-output_only/window_property_information/getactvwindname)
-* [Get the ID of a window by PID.](scripts/x11_management-output_only/window_property_information/getwindidbypid)
-
 ## Shell management
 
 Solutions for managing the shell
 
 * [Execute a command in the background.](scripts/shell_management-modules/process_management/execinbg)
 * [Remove the last N bash history entries.](scripts/shell_management/history_management/remlastnbashhistentries)
+
+## X11 management
+
+Solutions for managing X11
+
+* [Get the name of the active window.](scripts/x11_management-output_only/window_property_information/getactvwindname)
+* [Get the ID of a window by PID.](scripts/x11_management-output_only/window_property_information/getwindidbypid)
 
 ## Mobile device management
 
