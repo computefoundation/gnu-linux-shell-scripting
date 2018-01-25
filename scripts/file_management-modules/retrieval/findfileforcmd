@@ -7,19 +7,18 @@
 #   Recursively find a file or directory for a command.
 # 
 # Examples:
-#   # recursively find and return a file with a name containing "stat" for
-#   # command "vim -c 'set title'"
-#   findfileforcmd {vim -c 'set title'} stat
+#   # Recursively find a file with a name containing "stat" for command "vim".
+#   findfileforcmd {vim} stat
 # 
-#   # recursively find and return a directory with a name containing "docume"
-#   # for command "thunar"
+#   # Recursively find a directory with a name containing "docume" for command
+#   # "thunar".
 #   findfileforcmd {thunar} --d docume
 # 
 #   # same as previous, except return the third occurrence
 #   findfileforcmd {thunar} --d --3 docume
 # 
 # Usage:
-#   findfileforcmd {<command to execute>} [options] <partial or full file name>
+#   findfileforcmd {<command_to_execute>} [options] <partial_or_full_file_name>
 #         [directory]
 # 
 #   [directory]: directory to search in; default is current.
@@ -43,33 +42,35 @@
 
 # Set this variable to "true" to support file names with spaces. If true and
 # all occurrences are returned using option --a, only the last occurrence
-# will be used by most execute commands.
+# will be used by most execute command.
 readonly SUPPORT_FILE_NAMES_WITH_SPACES='false'
 
 # ======= ! CONFIGURATIONS ==============
 
 # ============================================
-#   Get execute command
+#   Get the execute command
 # ============================================
 
 # Note: The following could be done using command "set", however, command "set"
 # removes all arguments containing "?".
 
 for ((x=1; x<="$#"; x++)); do
-  if [[ "${@:x:1}" = *'}'* ]]; then
-    EXEC_CMD="${@:1:x}"
+  arg="${@:x:1}"
+
+  if [ -z "${arg##*'}'*}" ]; then
+    EXECUTE_COMMAND="${@:1:x}"
     shift "${x}"
   fi
 done
 
-if [ -z "${EXEC_CMD}" ]; then
+if [ -z "${EXECUTE_COMMAND}" ]; then
   echo -e  'findfileforcmd: invalid arguments:\nexecute command not specified' \
       1>&2
   exit 1
 fi
 
-EXEC_CMD="${EXEC_CMD#{}"
-EXEC_CMD="${EXEC_CMD%\}}"
+EXECUTE_COMMAND="${EXECUTE_COMMAND#{}"
+EXECUTE_COMMAND="${EXECUTE_COMMAND%\}}"
 
 # ============================================
 #   Process prerequisites
@@ -91,10 +92,10 @@ eval set -- "${OPTS}"
 
 while true; do
   case "${1}" in
-    --d) RET_DIRS='true';;
-    --1|--2|--3|--4|--5|--6|--7|--8|--9) RET_OCCUR="${1#'--'}";;
-    --a) RET_ALL_OCCUR='true';;
-    --p) PRINT_ONLY='true';;
+    --d) OPT_RETURN_DIRECTORIES='true';;
+    --1|--2|--3|--4|--5|--6|--7|--8|--9) OPT_RETURN_OCCURRENCE="${1#'--'}";;
+    --a) OPT_RETURN_ALL_OCCURRENCES='true';;
+    --p) OPT_PRINT_ONLY='true';;
     --) shift; break;;
     * ) break;;
   esac
@@ -111,13 +112,13 @@ else
   findDir='.'
 fi
 
-if [ "${RET_DIRS}" = 'true' ]; then
+if [ "${OPT_RETURN_DIRECTORIES}" = 'true' ]; then
   findOptType='-type d'
 else
   findOptType='-type f'
 fi
 
-if [ -z "${RET_OCCUR}" ] && [ "${RET_ALL_OCCUR}" != 'true' ]; then
+if [ -z "${OPT_RETURN_OCCURRENCE}" ] && [ "${OPT_RETURN_ALL_OCCURRENCES}" != 'true' ]; then
   findOptsPrintQuit='-print -quit'
 fi
 
@@ -133,26 +134,26 @@ if [ -z "${findOutput}" ]; then
   exit 1
 fi
 
-if [ "${RET_ALL_OCCUR}" != 'true' ]; then
-  if [ -n "${RET_OCCUR}" ]; then
+if [ "${OPT_RETURN_ALL_OCCURRENCES}" != 'true' ]; then
+  if [ -n "${OPT_RETURN_OCCURRENCE}" ]; then
     findOutputNumOccurs="$(echo "${findOutput}" | wc -l)"
 
-    if [ "${RET_OCCUR}" -gt "${findOutputNumOccurs}" ]; then
-      RET_OCCUR="${findOutputNumOccurs}"
+    if [ "${OPT_RETURN_OCCURRENCE}" -gt "${findOutputNumOccurs}" ]; then
+      OPT_RETURN_OCCURRENCE="${findOutputNumOccurs}"
     fi
-    findOutput="$(echo "${findOutput}" | sed "${RET_OCCUR}q;d")"
+    findOutput="$(echo "${findOutput}" | sed "${OPT_RETURN_OCCURRENCE}q;d")"
   else
     findOutput="$(echo "${findOutput}" | sed "1q;d")"
   fi
 fi
 
-if [ "${PRINT_ONLY}" = 'true' ]; then
+if [ "${OPT_PRINT_ONLY}" = 'true' ]; then
   echo "${findOutput}"
 else
   if [ "${SUPPORT_FILE_NAMES_WITH_SPACES}" = 'true' ]; then
-    ${EXEC_CMD} "${findOutput}"
+    ${EXECUTE_COMMAND} "${findOutput}"
   else
-    ${EXEC_CMD} ${findOutput}
+    ${EXECUTE_COMMAND} ${findOutput}
   fi
 fi
 
