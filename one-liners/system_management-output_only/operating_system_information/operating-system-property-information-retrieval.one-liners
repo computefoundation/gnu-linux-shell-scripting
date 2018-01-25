@@ -6,6 +6,7 @@
 #   Operating system property information retrieval one-liners
 # 
 
-# Print the target architecture of the current operating system (requires package llvm).
+# Print the target architecture of the current operating system.
+# Dependencies: llvm
 llc --version | grep Default | tr -s ' ' | cut -d ' ' -f4
 
