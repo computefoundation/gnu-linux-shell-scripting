@@ -4,7 +4,7 @@
 </div>
 <br><br><br>
 
-This is a resource of Unix-founded shell solutions for general-purpose computing in all paradigms.
+**General-purpose-computing** is a resource of Unix-founded shell solutions to general-purpose computing problems.
 
 # Paradigms
 
