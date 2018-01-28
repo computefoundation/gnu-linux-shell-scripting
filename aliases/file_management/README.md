@@ -1,8 +1,8 @@
 
 # File management
 
-## File permissions
+## File permission altering
 
-* [Single permission change aliases](file_permissions/single-permission-change.aliases)
-* [Multiple permission change aliases](file_permissions/multiple-permission-change.aliases)
+* [Single permission change aliases](file_permission_altering/single-permission-change.aliases)
+* [Multiple permission change aliases](file_permission_altering/multiple-permission-change.aliases)
 

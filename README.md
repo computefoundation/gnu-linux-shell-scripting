@@ -28,7 +28,7 @@ Solutions for scripting
 
 Solutions for managing files
 
-* [Recursively rename all files matching a name.](scripts/file_management/name_manipulation/recren)
+* [Recursively rename all files matching a name.](scripts/file_management/file_name_manipulation/recren)
 * [Get the size in megabytes of one or more files and/or directories.](one-liners/file_management-output_only/file_information/file-property-information-retrieval.one-liners)
 
 ## System management

@@ -1,12 +1,12 @@
 
 # File management - modules
 
-## Monitoring
+## File monitoring
 
-* [execonfilechange](monitoring/execonfilechange): Execute a command when a file has changed in the current directory.
+* [execonfilechange](file_monitoring/execonfilechange): Execute a command when a file has changed in the current directory.
 
-## Retrieval
+## File retrieval
 
-* [findfileforcmd](retrieval/findfileforcmd): Recursively find a file or directory for a command.
-* [loctfileforcmd](retrieval/loctfileforcmd): Locate a file or directory for a command.
+* [findfileforcmd](file_retrieval/findfileforcmd): Recursively find a file or directory for a command.
+* [loctfileforcmd](file_retrieval/loctfileforcmd): Locate a file or directory for a command.
 
