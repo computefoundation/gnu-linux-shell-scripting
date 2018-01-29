@@ -1,10 +1,10 @@
 
 <div align='center'>
-	<img src='https://raw.githubusercontent.com/unixfoundation/general-purpose-computing/images/logo.png' width='40%' alt='logo.png'>
+	<img src='https://raw.githubusercontent.com/computingfoundation/general-purpose-computing/images/logo.png' width='40%' alt='logo.png'>
 </div>
 <br><br><br>
 
-**General-purpose-computing** is a resource of Unix-founded shell solutions to general-purpose computing problems.
+**General-purpose-computing** is a resource of shell solutions to foundational general-purpose computing problems.
 
 # Paradigms
 
