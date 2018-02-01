@@ -42,7 +42,7 @@
 # may focused too quickly, causing none or only a part of the events to succeed.
 # (Note: This delay time is also applied before refocusing the previously
 # focused window).
-readonly XEVENTS_DELAY_TIME='.15'
+readonly XEVENTS_DELAY_TIME='.18'
 
 # ======= ! CONFIGURATIONS ==============
 
