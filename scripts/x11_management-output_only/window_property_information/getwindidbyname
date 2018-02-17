@@ -26,12 +26,3 @@ if [ "${#WINDOW_IDS[@]}" -gt 0 ] && [ -n "${WINDOW_IDS[0]}" ]; then
   echo "${WINDOW_IDS[@]}"
 fi
 
-
-
-# Alternative method:
-# 
-# WINDOW_IDS=($(xdotool search --name "${1}"))
-# for i in ${!WINDOW_IDS[@]}; do
-#   WINDOW_IDS[${i}]="$(printf '%#010x\n' "${WINDOW_IDS[${i}]}")"
-# done
-

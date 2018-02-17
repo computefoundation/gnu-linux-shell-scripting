@@ -29,11 +29,3 @@ if [ "${#WIND_IDS[@]}" -gt 0 ]; then
   echo "${WIND_IDS[@]}"
 fi
 
-
-
-# Alternative method:
-# 
-# for windId in $(xdotool search --pid "${1}"); do
-#   printf '%#010x\n' "${windId}"
-# done
-

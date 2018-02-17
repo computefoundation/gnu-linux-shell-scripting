@@ -17,10 +17,3 @@ WINDOW_NAME="$(xprop -id "$(getActvWindId)" WM_NAME | sed -e \
 
 echo "${WINDOW_NAME}"
 
-
-
-# Alternative method:
-# 
-# WINDOW_NAME=$(wmctrl -l | grep "$(getActvWindId)" | awk \
-#     '{$1=$2=$3=""; print $0}' | sed 's/^[ \t]*//')
-
