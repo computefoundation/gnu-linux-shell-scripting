@@ -1,10 +1,10 @@
 
 <div align='center'>
-	<img src='https://raw.githubusercontent.com/computingfoundation/general-purpose-computing/images/logo.png' width='40%' alt='logo.png'>
+	<img src='https://raw.githubusercontent.com/computingfoundation/gnu-linux-use/images/logo.png' width='40%' alt='logo.png'>
 </div>
 <br><br><br>
 
-**General-purpose-computing** is a resource of shell solutions to foundational general-purpose computing problems.
+**Gnu-linux-use** is a resource of foundational solutions for the GNU/Linux shell.
 
 # Paradigms
 
@@ -84,13 +84,13 @@ Solutions for processing numbers
 
 * [Convert a hexidecimal number to decimal.](aliases/number_processing/conversion/base-conversion.aliases)
 
----
+# Packaged solutions
 
-This resource has an [extension for solutions consisting of more than one file](https://github.com/computingfoundation/general-purpose-computing.packaged-solutions).
+**Gnu-linux-use** has an extension repository for solutions consisting of more than one file [here](https://github.com/computingfoundation/gnu-linux-use.packaged-solutions).
 
 # Contributing
 
-If you would like to contribute, please ensure that your contribution adheres to the respective [guideline](https://github.com/computingfoundation/general-purpose-computing/wiki). Here is a list of [needed solutions](https://github.com/computingfoundation/general-purpose-computing/wiki/Needed-solutions); it can be used for ideas.
+If you would like to contribute, please ensure that your contribution adheres to the respective [guideline](https://github.com/computingfoundation/gnu-linux-use/wiki). Here is a list of [needed solutions](https://github.com/computingfoundation/gnu-linux-use/wiki/Needed-solutions); it can be used for ideas.
 
 An alternative implementation to an already existing solution will be accepted only if it has substantial reason, such as using a different dependency or language.
 
