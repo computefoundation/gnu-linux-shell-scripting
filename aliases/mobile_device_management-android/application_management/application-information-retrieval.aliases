@@ -1,0 +1,10 @@
+# 
+# File:
+#   application-information-retrieval.aliases
+# 
+# Description:
+#   Application information retrieval aliases
+# 
+
+alias androidforgapplpackname="adb -d shell dumpsys window windows | grep mCurrentFocus | cut -d'/' -f1 | rev | cut -d' ' -f1 | rev" # androidforgapplpackname: Get the package name of the foreground application
+
