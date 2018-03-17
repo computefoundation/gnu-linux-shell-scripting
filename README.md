@@ -63,7 +63,7 @@ Solutions for managing X11
 
 Solutions for managing mobile devices
 
-* [Watch for and print X and Y tap coordinates on an Android device screen.](scripts/mobile_device_management-android/hardware_management/getmobilescreentappos)
+* [Watch the X and Y screen tap positions of an Android device.](scripts/mobile_device_management-android/hardware_management/watchandroiddevscreentappos)
 * [Mount and unmount an MTP device.](scripts/mobile_device_management-generic/mounting/mntmtp)
 
 ## Text manipulation

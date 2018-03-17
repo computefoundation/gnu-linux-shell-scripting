@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# 
+# File:
+#   getcontactinfofromandroiddev
+# 
+# Description:
+#   Get information of a contact from an Android device.
+# 
+# Usage:
+#   getcontactinfofromandroiddev <contact_phone_number_or_name>
+# 
+
+if [ "$#" -eq 0 ]; then
+  echo 'getcontactinfofromandroiddev: contact phone number or name required' \
+      1>&2
+  exit 1
+fi
+
+adb -d shell content query --uri \
+    content://com.android.contacts/data/phones/filter/"${@}" | tr ',' '\n'
+
