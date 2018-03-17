@@ -5,9 +5,9 @@ This directory contains functions scripts.
 
 Functions scripts are scripts consisting of small individual related functions.
 
-## View
+## View all
 
-Cd to this directory and run the following to view the solutions in it:
+To view all the solutions in this directory, change to it and run the following:
 
 ```bash
 git show-ref --verify -q refs/heads/helper_scripts || \
