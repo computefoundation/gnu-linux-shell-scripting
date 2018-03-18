@@ -4,7 +4,7 @@
 </div>
 <br><br><br>
 
-**Gnu-linux-use** is a resource of foundational solutions for the GNU/Linux shell.
+**Gnu-linux-use** is a resource of GNU/Linux use shell solutions for the foundation of computing.
 
 # Paradigms
 
