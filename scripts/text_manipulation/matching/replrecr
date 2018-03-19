@@ -1,17 +1,17 @@
 #!/usr/bin/env bash
 # 
 # File:
-#   recrep
+#   replrecr
 # 
 # Description:
-#   Recursively replace a string in all files.
+#   Replace all occurrences of a string recursively.
 # 
 # Supplemental feature:
-#   This script allows a backup directory to be created of the directories in
-#   which it is run.
+#   This solution allows a backup directory of the directories in which it is
+#   run to be created.
 # 
 # Usage:
-#   recrep <text_to_replace> <replacement_text>
+#   replrecr <text_to_replace> <replacement_text>
 # 
 # Notes:
 #   All characters in both arguments are accepted as literals.
@@ -23,15 +23,15 @@
 readonly BACKUP=true
 
 # Directory where backup directories are created
-readonly BACKUPS_DIR="${HOME}/.unixfoundation/shell/recrep-backups/"
+readonly BACKUPS_DIR="${HOME}/.unixfoundation/shell/replrecr-backups/"
 
 # ======= ! CONFIGURATIONS ==============
 
 if [ "$#" -ne 2 ]; then
-  echo 'recrep: invalid number of arguments' 1>&2
+  echo 'replrecr: invalid number of arguments' 1>&2
   exit 1
 elif [ -z "${1}" ]; then
-  echo 'recrep: first argument empty' 1>&2
+  echo 'replrecr: first argument empty' 1>&2
   exit 1
 fi
 

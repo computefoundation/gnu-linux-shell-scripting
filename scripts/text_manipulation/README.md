@@ -3,7 +3,7 @@
 
 ## Matching
 
-* [recrep](matching/recrep): Recursively replace a string in all files.
+* [replrecr](matching/replrecr): Replace all occurrences of a string recursively.
 
 ## X11
 

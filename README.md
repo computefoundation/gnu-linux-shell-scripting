@@ -70,7 +70,7 @@ Solutions for managing mobile devices
 
 Solutions for manipulating text
 
-* [Recursively replace a string in all files.](scripts/text_manipulation/matching/recrep)
+* [Replace all occurrences of a string recursively.](scripts/text_manipulation/matching/replrecr)
 
 ## Text processing
 
