@@ -3,5 +3,5 @@
 
 ## File name manipulation
 
-* [recren](file_name_manipulation/recren): Recursively rename all files matching a name.
+* [renmrecr](file_name_manipulation/renmrecr): Rename all files matching a name recursively.
 

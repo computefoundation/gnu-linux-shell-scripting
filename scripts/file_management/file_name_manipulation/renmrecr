@@ -1,17 +1,17 @@
 #!/usr/bin/env bash
 # 
 # File:
-#   recren
+#   renmrecr
 # 
 # Description:
-#   Recursively rename all files matching a name.
+#   Rename all files matching a name recursively.
 # 
 # Usage:
-#   recren <old_file_name> <new_file_name>
+#   renmrecr <old_file_name> <new_file_name>
 # 
 
 if [ "$#" -ne 2 ]; then
-  echo 'recren: invalid number of arguments' 1>&2
+  echo 'renmrecr: invalid number of arguments' 1>&2
   exit 1
 fi
 
