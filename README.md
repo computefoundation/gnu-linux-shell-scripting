@@ -50,7 +50,7 @@ Solutions for managing hardware
 Solutions for managing the shell
 
 * [Execute a command in the background.](scripts/shell_management-modules/process_management/execinbg)
-* [Remove the last N bash history entries.](scripts/shell_management/history_management/remlastnbashhistentries)
+* [Remove the last N entries from the bash history.](scripts/shell_management/history_management/remvlastnentriesfrombashhist)
 
 ## X11 management
 
