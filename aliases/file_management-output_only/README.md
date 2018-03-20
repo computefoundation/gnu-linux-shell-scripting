@@ -8,7 +8,7 @@
 ## File finding
 
 * [Name matching file finding aliases](file_finding/name-matching-file-finding.aliases)
-* [Text matching file finding aliases](file_finding/text-matching-file-finding.aliases)
+* [Text occurrence matching file finding aliases](file_finding/text-occurrence-matching-file-finding.aliases)
 
 ## File permission information
 

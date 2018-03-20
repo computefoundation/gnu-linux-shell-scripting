@@ -1,9 +1,9 @@
 # 
 # File:
-#   text-matching-file-finding.aliases
+#   text-occurrence-matching-file-finding.aliases
 # 
 # Description:
-#   Text matching file finding aliases
+#   Text occurrence matching file finding aliases
 # 
 
 ffgr() { /usr/bin/grep -l -R "${1}" .; }                                         # ffgr: Recursively find all files containing the given text; $1: text to search.
