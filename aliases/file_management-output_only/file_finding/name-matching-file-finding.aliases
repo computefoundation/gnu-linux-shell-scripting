@@ -1,10 +1,17 @@
 # 
 # File:
-#   match-limited-file-finding.aliases
+#   name-matching-file-finding.aliases
 # 
 # Description:
-#   Match limited file finding aliases
+#   Name matching file finding aliases
 # 
+
+# [MULTI-FILE OUTPUT]
+
+ff() { find . -type f -name "*${1}*"; }                                          # ff: Recursively find all files matching a name name; $1: file name.
+fd() { find . -type d -name "*${1}*"; }                                          # fd: Recursively find all directories matching a name name; $1: directory name.
+
+# [SINGLE-FILE OUTPUT]
 
 fff() { find . -type f -name "*${1}*" -print -quit; }                            # fff: Recursively find the first file matching a name; $1: file name.
 fdf() { find . -type d -name "*${1}*" -print -quit; }                            # fdf: Recursively find the first directory matching a name; $1: directory name.
