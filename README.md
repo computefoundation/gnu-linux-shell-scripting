@@ -43,7 +43,7 @@ Solutions for managing the system
 Solutions for managing hardware
 
 * [Check if the primary wireless local area network device interface is soft blocked.](scripts/hardware_management-output_only/device_information/iswlanblocked)
-* [Check if a secondary wireless local area network device interface is soft blocked.](scripts/hardware_management-output_only/device_information/issecondarywlanblocked)
+* [Get the vendor name of the current CPU.](one-liners/hardware_management-output_only/cpu_information/cpu-property-information-retrieval.one-liners)
 
 ## Shell management
 
