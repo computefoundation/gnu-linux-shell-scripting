@@ -1,10 +1,10 @@
 
 <div align='center'>
-	<img src='https://raw.githubusercontent.com/computingfoundation/gnu-linux-use/images/logo.png' width='40%' alt='logo.png'>
+	<img src='https://raw.githubusercontent.com/computingfoundation/gnu-linux-shell-use/images/logo.png' width='40%' alt='logo.png'>
 </div>
 <br><br><br>
 
-**Gnu-linux-use** is a resource of shell solutions functioning as a foundation for GNU/Linux use.
+**Gnu-linux-shell-use** is a resource of shell solutions functioning as a foundation for GNU/Linux shell use.
 
 # Paradigms
 
@@ -86,11 +86,11 @@ Solutions for processing numbers
 
 # Packaged solutions
 
-**Gnu-linux-use** has an extension repository for solutions consisting of more than one file [here](https://github.com/computingfoundation/gnu-linux-use.packaged-solutions).
+**Gnu-linux-shell-use** has an extension repository for solutions consisting of more than one file [here](https://github.com/computingfoundation/gnu-linux-shell-use.packaged-solutions).
 
 # Contributing
 
-If you would like to contribute, please ensure that your contribution adheres to the respective [guideline](https://github.com/computingfoundation/gnu-linux-use/wiki). Here is a list of [needed solutions](https://github.com/computingfoundation/gnu-linux-use/wiki/Needed-solutions); it can be used for ideas.
+If you would like to contribute, please ensure that your contribution adheres to the respective [guideline](https://github.com/computingfoundation/gnu-linux-shell-use/wiki). Here is a list of [needed solutions](https://github.com/computingfoundation/gnu-linux-shell-use/wiki/Needed-solutions); it can be used for ideas.
 
 An alternative implementation to an already existing solution will be accepted only if it has substantial reason, such as using a different dependency or language.
 
