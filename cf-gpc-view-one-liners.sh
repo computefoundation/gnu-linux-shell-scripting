@@ -1,18 +1,17 @@
 #!/usr/bin/env bash
 # 
 # File:
-#   cf-gpc-view-one-liners.sh
+#   cf-glsu-view-one-liners.sh
 # 
 # Description:
-#   View all one-liners in
-#   computingfoundation/general-purpose-computing.
+#   View all one-liners in computingfoundation/gnu-linux-shell-use.
 # 
 # Usage note:
 #   Cd to directory "one-liners" and run.
 # 
 
 if [ "$(echo "$PWD" | sed 's/.*\///')" != 'one-liners' ]; then
-  echo 'cf-gpc-view-one-liners.sh: not in directory "one-liners"'
+  echo 'cf-glsu-view-one-liners.sh: not in directory "one-liners"'
   exit 1
 fi
 

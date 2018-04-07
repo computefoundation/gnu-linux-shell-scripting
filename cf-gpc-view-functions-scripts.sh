@@ -1,18 +1,17 @@
 #!/usr/bin/env bash
 # 
 # File:
-#   cf-gpc-view-functions-scripts.sh
+#   cf-glsu-view-functions-scripts.sh
 # 
 # Description:
-#   View all functions scripts in
-#   computingfoundation/general-purpose-computing.
+#   View all functions scripts in computingfoundation/gnu-linux-shell-use.
 # 
 # Usage note:
 #   Cd to directory "functions_scripts" and run.
 # 
 
 if [ "$(echo "$PWD" | sed 's/.*\///')" != 'functions_scripts' ]; then
-  echo 'cf-gpc-view-functions-scripts.sh: not in directory "functions_scripts"'
+  echo 'cf-glsu-view-functions-scripts.sh: not in directory "functions_scripts"'
   exit 1
 fi
 

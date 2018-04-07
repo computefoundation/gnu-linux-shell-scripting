@@ -1,18 +1,18 @@
 #!/usr/bin/env bash
 # 
 # File:
-#   cf-gpc-view-aliases.sh
+#   cf-glsu-view-aliases.sh
 # 
 # Description:
 #   View all aliases and short functions in
-#   computingfoundation/general-purpose-computing.
+#   computingfoundation/gnu-linux-shell-use.
 # 
 # Usage note:
 #   Cd to directory "aliases" and run.
 # 
 
 if [ "$(echo "$PWD" | sed 's/.*\///')" != 'aliases' ]; then
-  echo 'cf-gpc-view-aliases.sh: not in directory "aliases"'
+  echo 'cf-glsu-view-aliases.sh: not in directory "aliases"'
   exit 1
 fi
 
