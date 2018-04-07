@@ -3,5 +3,5 @@
 
 ## Power supply
 
-* [Power supply status information retrieval aliases](hardware_management/power-supply-status-information-retrieval.aliases)
+* [Power supply status information retrieval aliases](power_supply/power-supply-status-information-retrieval.aliases)
 
