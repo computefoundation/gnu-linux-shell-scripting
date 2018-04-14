@@ -1,0 +1,68 @@
+#!/usr/bin/env bash
+# 
+# File:
+#   execcmdinnewterm
+# 
+# Description:
+#   Execute a command in a new terminal emulator.
+# 
+# Supplemental feature:
+#   This script returns the window ID of the new terminal emulator window.
+# 
+# Usage:
+#   execcmdinnewterm [command]
+# 
+# Dependencies:
+#   xterm (the terminal emulator program used)
+#   wmctrl (used to get the window ID of the new terminal emulator window)
+# 
+# Notes:
+#   The terminal emulator will load the Bash shell after the command is
+#   finished.
+# 
+#   This solution accepts a Bash Here document as a command.
+# 
+
+# ============================================
+#   Utilitiy functions
+# ============================================
+
+getWindIdByPid() {
+  while IFS= read line; do
+    if [[ "${line}" =~ (0x)([0-9a-z]+)([ ][- ][0-9]+[ ])([0-9]*) ]]; then
+      local winId="${BASH_REMATCH[1]}${BASH_REMATCH[2]}"
+      local pid="${BASH_REMATCH[4]}"
+      if [ "${pid}" -eq "${1}" ]; then
+        echo "${winId}"
+        break
+      fi
+    fi
+  done < <(wmctrl -lp)
+}
+
+# ============================================
+#   Launch terminal emulator
+# ============================================
+
+nohup xterm -e bash -c "$(printf '%s\nexec bash' "${*}")" &>/dev/null &
+# "$(printf '%s\nexec bash' "${*}")" allows a bash Here document to be passed
+# as a command.
+
+PID="$!"
+
+sleep .08
+WIND_ID="$(getWindIdByPid "${PID}")"
+
+# Check if stdout and stderr point to a terminal. If so, redirect them to
+# /dev/null to prevent unnecessary output to the spawning terminal. Note: The
+# window ID will still be obtainable in a subprocess.
+if test -t 1; then
+  exec 1>/dev/null
+fi
+if test -t 2; then
+  exec 2>/dev/null
+fi
+
+# echo the window ID so the caller can obtain it
+echo "${WIND_ID}"
+
