@@ -57,7 +57,7 @@ Solutions for managing the shell
 Solutions for managing X11
 
 * [Get the ID of the active window.](scripts/x11_management-output_only/window_property_information/getactvwindid)
-* [Get the ID of a window by name.](scripts/x11_management-output_only/window_property_information/getwindidbyname)
+* [Get the class of a window by ID.](scripts/x11_management-output_only/window_property_information/getwindclassbyid)
 
 ## Mobile device management
 
