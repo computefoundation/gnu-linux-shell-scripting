@@ -39,10 +39,10 @@
 
 # This is the delay time for running the xautomation events in the terminal
 # emulator after it has been focused. With no delay time, the terminal emulator
-# may focused too quickly, causing none or only a part of the events to succeed.
+# may be focused too quickly, causing none or only a part of the events to run.
 # (Note: This delay time is also applied before refocusing the previously
 # focused window).
-readonly XEVENTS_DELAY_TIME='.18'
+readonly XEVENTS_DELAY_TIME='.28'
 
 # ======= ! CONFIGURATIONS ==============
 
@@ -73,7 +73,7 @@ if [ -z "${TERM_CLASS}" ] && [ -z "${TERM_TITLE}" ]; then
 fi
 
 # ============================================
-#   Utilitiy functions
+#   Create utilitiy functions
 # ============================================
 
 getWindIdByName() {
@@ -91,6 +91,14 @@ getFirstWindIdInClass() {
 getActvWindId() {
   echo "$(xprop -root _NET_ACTIVE_WINDOW | cut -d ' ' -f 5 | rev | cut -c \
       2- | rev | sed 's/^0x/0x0/')"
+}
+
+secondsToMicrosecondsDecimal() {
+  printf '%.4f' "$(bc <<< "${1}*1000000")"
+}
+
+secondsToMicroseconds() {
+  printf '%.0f' "$(secondsToMicrosecondsDecimal "${1}")"
 }
 
 # ============================================
@@ -111,18 +119,20 @@ if [ -n "${termWindId}" ]; then
   [ "${OPT_REFOCUS}" = 'true' ] && currWindId="$(getActvWindId)"
 
   wmctrl -i -a "${termWindId}"
-  [ -n "${XEVENTS_DELAY_TIME}" ] && sleep "${XEVENTS_DELAY_TIME}"
 
-  # To use xdotool, comment the xte code sections and uncomment the xdotool code
-  # sections.
+  # To use xdotool, comment the xte and uncomment the xdotool section.
   
   # ---------  xte  ---------
 
-  xte 'usleep 25000' 'key Up' 'key Return'
+  # The xevents delay time must be converted to microseconds because xte's
+  # "sleep" command does not accept decimal values.
+  micros="$(secondsToMicroseconds ${XEVENTS_DELAY_TIME})"
+  xte "usleep ${micros}" 'key Up' "usleep ${micros}" 'key Return'
 
   # ---------  xdotool  ---------
 
-  # xdotool sleep .007 key Up key Return
+  # xdotool sleep "${XEVENTS_DELAY_TIME}" key Up sleep "${XEVENTS_DELAY_TIME}" \
+  #     key Return
 
   if [ "${OPT_REFOCUS}" = 'true' ]; then
     [ -n "${XEVENTS_DELAY_TIME}" ] && sleep "${XEVENTS_DELAY_TIME}"
