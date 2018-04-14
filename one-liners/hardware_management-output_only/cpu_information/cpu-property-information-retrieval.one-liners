@@ -6,18 +6,18 @@
 #   CPU property information retrieval one-liners
 # 
 
-# Get the vendor name of the current CPU.
+# Get the vendor name of the CPU.
 cat /proc/cpuinfo | grep vendor | uniq | awk '{print $3}'
 
-# Get the model name of the current CPU.
+# Get the model name of the CPU.
 cat /proc/cpuinfo | grep 'model name' | uniq | cut -d' ' -f3-
 
-# Get the architecture of the current CPU.
+# Get the architecture of the CPU.
 lscpu | grep 'Architecture' | awk '{print $2}'
 
-# Get the subarchitecture of the current CPU.
+# Get the subarchitecture of the CPU.
 gcc -march=native -Q --help=target | grep march | awk '{print $2}'
 
-# Get the assembler name of the current CPU.
+# Get the assembler name of the CPU.
 gcc -march=native -Q --help=target | grep masm= | awk '{print $2}' | head -1
 
