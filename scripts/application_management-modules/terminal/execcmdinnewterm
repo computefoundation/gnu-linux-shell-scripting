@@ -20,11 +20,11 @@
 #   The terminal emulator will load the Bash shell after the command is
 #   finished.
 # 
-#   This solution accepts a Bash Here document as a command.
+#   This solution can accept a Bash Here document as a command.
 # 
 
 # ============================================
-#   Utilitiy functions
+#   Create the utilitiy functions
 # ============================================
 
 getWindIdByPid() {
@@ -41,12 +41,12 @@ getWindIdByPid() {
 }
 
 # ============================================
-#   Launch terminal emulator
+#   Launch the terminal emulator
 # ============================================
 
 nohup xterm -e bash -c "$(printf '%s\nexec bash' "${*}")" &>/dev/null &
-# "$(printf '%s\nexec bash' "${*}")" allows a bash Here document to be passed
-# as a command.
+# Note: "$(printf '%s\nexec bash' "${*}")" allows a bash Here document to be passed
+# passed as a command.
 
 PID="$!"
 
