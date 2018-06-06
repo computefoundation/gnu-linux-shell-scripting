@@ -4,18 +4,33 @@
 #   mongodbutils
 # 
 # Description:
-#   MongoDB general NoSQL utility functions
+#   Generic MongoDB utility functions
 # 
 # Usage:
-#   mongodbutils <action>
+#   mongodbutils <database_name> <action> [action_arguments]
 # 
 
-if [ "$#" -lt 1 ]; then
-  echo -e 'mongodbutils: invalid number of arguments; action required' 1>&2
+if [ "$#" -lt 2 ]; then
+  echo -e 'mongodbutils: invalid number of arguments; database name\n  and'\
+      'action required' 1>&2
   exit 1
 fi
 
-case "${1}" in
+readonly DB_NAME="${1}"
+readonly ACTION="${2}"
+shift 2
+
+case "${ACTION}" in
+  # Action:
+  #   drop
+  # Description:
+  #   Drop the database.
+  # Usage:
+  #   ... drop
+  'drop')
+    mongo "${DB_NAME}" --eval 'db.dropDatabase()'
+    ;;
+
   # Action:
   #   drop_all
   # Description:
@@ -34,8 +49,94 @@ case "${1}" in
 		EOF
     ;;
 
+  # Action:
+  #   import
+  # Description:
+  #   Import data from a JSON file.
+  # Usage:
+  #   ... import <json_file_name> [collection_name]
+  #           collection name:     collection name in the database; default is
+  #                                the JSON file name
+  # Note:
+  #   If needing to import multiple MongoDB documents in a single JSON array,
+  #   add option "--jsonArray" to the end of the mongoimport command.
+  'import')
+    [ "$#" -eq 0 ] && \
+        echo "mongodbutils: no directory specified" 1>&2 && \
+        exit 1
+    [ ! -f "${1}" ] && \
+        echo "mongodbutils: cannot import: file \"${1}\" does not exist" && \
+        exit 1
+
+    if [ "$#" -ge 2 ]; then
+      opts+="--collection ${2}"
+    fi
+    mongoimport --db "${DB_NAME}" --file "${1}" ${opts}
+    ;;
+
+  # Action:
+  #   export_to_json_file
+  # Description:
+  #   Export the data to a JSON file.
+  # Usage:
+  #   ... export_to_json_file <collection name> [directory]
+  #           collection name:     collection name in the database; also used as
+  #                                the name for the JSON file
+  #           directory:           directory to output JSON file to; default is
+  #                                current
+  'export_to_json_file')
+    if [ "$#" -ge 1 ]; then
+      collName="${1}"
+      opts+="--collection ${collName}"
+
+      if [ "$#" -ge 2 ]; then
+        opts+=" --out ${2}/${collName}.json"
+      else
+        opts+=" --out ${collName}.json"
+      fi
+    fi
+    mongoexport --db "${DB_NAME}" ${opts} --jsonArray
+    ;;
+
+  # Action:
+  #   dump_to_bson_files
+  # Description:
+  #   Dump the database to BSON files.
+  # Usage:
+  #   ... dump_to_bson_files [collection_name] [directory]
+  #           collection name:     collection name in the database; default is
+  #                                all
+  #           directory:           directory to output BSON files to; default is
+  #                                current
+  'dump_to_bson_files')
+    if [ "$#" -ge 1 ]; then
+      opts+="--collection ${1}"
+
+      if [ "$#" -ge 2 ]; then
+        opts=" --out ${2}"
+      fi
+    fi
+    mongodump --db "${DB_NAME}" ${opts}
+    ;;
+
+  # Action:
+  #   restore_from_bson_files
+  # Description:
+  #   Restore data from one or more BSON files.
+  # Usage:
+  #   ... restore_from_bson_files <bson_file_or_directory_containing_bson_files>
+  'restore_from_bson_files')
+    [ -z "${1}" ] && \
+        echo "mongodbutils: no directory specified" 1>&2 && \
+        exit 1
+    [ ! -d "${1}" ] && \
+        echo "mongodbutils: directory \"${1}\" does not exist" 1>&2 && \
+        exit 1
+    mongorestore "${1}"
+    ;;
+
   *)
-    echo "mongodbutils: unknown action \"${1}\"" 1>&2
+    echo "mongodbutils: unknown action \"${ACTION}\"" 1>&2
     exit 1
     ;;
 
