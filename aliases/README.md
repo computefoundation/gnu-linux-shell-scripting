@@ -18,8 +18,9 @@ bash <(git show helper_scripts:cf-gpc-view-aliases.sh)
 Add the following code in your .bashrc file to source all the aliases and short functions in your bash runtime environment:
 
 ```bash
-for cfGpcAliasesFile in $(find "<path/to/cf-gpc>/aliases" -type f -name '*.aliases*'); do
-  source "${cfGpcAliasesFile}"
+for compFndtGnuLinuxShellUseAliasesFile in $(find "<path/to/repo>/aliases" \
+			-type f -name '*.aliases*'); do
+  source "${compFndtGnuLinuxShellUseAliasesFile}"
 done
 ```
 
