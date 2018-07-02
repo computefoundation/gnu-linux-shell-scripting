@@ -22,9 +22,9 @@ fi
 
 while getopts u:p: OPT; do
   case "${OPT}" in
-    u) AUTH_OPTS="-u ${OPTARG}"
+    u) MONGO_AUTH_OPTS="-u ${OPTARG}"
        ;;
-    p) AUTH_OPTS+=" -p ${OPTARG}"
+    p) MONGO_AUTH_OPTS+=" -p ${OPTARG}"
        ;;
   esac
 done
@@ -36,17 +36,17 @@ shift 2
 
 case "${ACTION}" in
   # Action:
-  #   import
+  #   import-collection
   # Description:
   #   Import data to a collection from a JSON file.
   # Usage:
-  #   ... import <json_file_name> [collection_name]
-  #           collection name:     collection name in the database; default is
-  #                                the JSON file name without the extension
+  #   ... import-collection <json_file_name> [collection_name]
+  #           [collection_name]:     name of collection to import; default is
+  #                                  JSON file name
   # Note:
   #   If needing to import multiple MongoDB documents in a single JSON array,
   #   append option "--jsonArray" to the end of the mongoimport command.
-  'import')
+  'import-collection')
     [ "$#" -eq 0 ] && \
         echo "mongodbutils: no directory specified" 1>&2 && \
         exit 1
@@ -57,19 +57,19 @@ case "${ACTION}" in
     if [ "$#" -ge 2 ]; then
       opts+="--collection ${2}"
     fi
-    mongoimport --db "${DB_NAME}" ${AUTH_OPTS} --file "${1}" ${opts}
+    mongoimport --db "${DB_NAME}" ${MONGO_AUTH_OPTS} --file "${1}" ${opts}
     ;;
 
   # Action:
-  #   export
+  #   export-collection
   # Description:
   #   Export data from a collection to a JSON file.
   # Usage:
-  #   ... export <collection_name> [directory]
-  #           collection name:     collection name in the database
-  #           directory:           directory to output JSON file to; default is
-  #                                current
-  'export')
+  #   ... export-collection <collection_name> [directory]
+  #           <collection_name>:     name of the collection to export
+  #           [directory]:           directory to output JSON file to; default
+  #                                  is current
+  'export-collection')
     if [ "$#" -ge 1 ]; then
       collName="${1}"
       opts+="--collection ${collName}"
@@ -80,26 +80,40 @@ case "${ACTION}" in
         opts+=" --out ${collName}.json"
       fi
     fi
-    mongoexport --db "${DB_NAME}" ${AUTH_OPTS} ${opts} --jsonArray
+    mongoexport --db "${DB_NAME}" ${MONGO_AUTH_OPTS} ${opts} --jsonArray
     ;;
 
   # Action:
-  #   drop
+  #   drop-collection
+  # Description:
+  #   Drop a collection
+  # Usage:
+  #   ... drop-collection <collection_name>
+  #           <collection_name>:     the name of the collection to drop
+  'drop-collection')
+    [ "$#" -eq 0 ] && \
+        echo "mongodbutils: no collection specified" 1>&2 && \
+        exit 1
+    mongo "${DB_NAME}" --eval "db.${1}.drop()"
+    ;;
+
+  # Action:
+  #   drop-database
   # Description:
   #   Drop the database.
   # Usage:
-  #   ... drop
-  'drop')
+  #   ... drop-database
+  'drop-database')
     mongo "${DB_NAME}" --eval 'db.dropDatabase()'
     ;;
 
   # Action:
-  #   drop_all
+  #   drop-all-databases
   # Description:
   #   Drop all databases.
   # Usage:
-  #   ... drop_all
-  'drop_all')
+  #   ... drop-all-databases
+  'drop-all-databases')
     /usr/bin/mongo <<-EOF
 			db.getMongo().getDBNames().forEach(function(database) {
 				if (database != 'local' && database != 'admin') {
@@ -108,7 +122,27 @@ case "${ACTION}" in
 					print('dropped database ' + db.getName());
 				}
 			})
-		EOF
+	  EOF
+    ;;
+
+  # Action:
+  #   dump
+  # Description:
+  #   Dump the database to BSON files.
+  # Usage:
+  #   ... dump [collection_name] [directory]
+  #           [collection_name]:     name of collection to dump; if no name is
+  #                                  specified, all collections will be dumped
+  #           [directory]:           directory to output BSON files to; default
+  #                                  is current
+  'dump')
+    if [ "$#" -ge 1 ]; then
+      opts+="--collection ${1}"
+      if [ "$#" -ge 2 ]; then
+        opts=" --out ${2}"
+      fi
+    fi
+    mongodump --db "${DB_NAME}" ${MONGO_AUTH_OPTS} ${opts}
     ;;
 
   # Action:
@@ -124,28 +158,7 @@ case "${ACTION}" in
     [ ! -d "${1}" ] && \
         echo "mongodbutils: directory \"${1}\" does not exist" 1>&2 && \
         exit 1
-    mongorestore ${AUTH_OPTS} "${1}"
-    ;;
-
-  # Action:
-  #   dump
-  # Description:
-  #   Dump the database to BSON files.
-  # Usage:
-  #   ... dump [collection_name] [directory]
-  #           collection name:     collection name in the database; default is
-  #                                all
-  #           directory:           directory to output BSON files to; default is
-  #                                current
-  'dump')
-    if [ "$#" -ge 1 ]; then
-      opts+="--collection ${1}"
-
-      if [ "$#" -ge 2 ]; then
-        opts=" --out ${2}"
-      fi
-    fi
-    mongodump --db "${DB_NAME}" ${AUTH_OPTS} ${opts}
+    mongorestore ${MONGO_AUTH_OPTS} "${1}"
     ;;
 
   *)
