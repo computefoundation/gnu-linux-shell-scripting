@@ -17,13 +17,6 @@ Solutions for managing applications
 * [Generic RDBMS utility functions for a MySQL database](functions_scripts/application_management/database/mysqldbutils)
 * [Check if a PostgreSQL database exists.](one-liners/application_management/database/postgresql-database.one-liners)
 
-## Scripting
-
-Solutions for scripting
-
-* [Bash array utilities](functions_scripts/scripting/bash/arrayutils.bash)
-* [Bash date and time utilities](functions_scripts/scripting/bash/dateandtimeutils.bash)
-
 ## File management
 
 Solutions for managing files
@@ -65,6 +58,13 @@ Solutions for managing mobile devices
 
 * [Watch the X and Y screen tap positions of an Android device.](scripts/mobile_device_management-android/hardware_management/watchandroiddevscreentappos)
 * [Mount and unmount an MTP device.](scripts/mobile_device_management-generic/mounting/mntmtp)
+
+## Scripting
+
+Solutions for scripting
+
+* [Bash array utilities](functions_scripts/scripting/bash/arrayutils.bash)
+* [Bash date and time utilities](functions_scripts/scripting/bash/dateandtimeutils.bash)
 
 ## Text manipulation
 
