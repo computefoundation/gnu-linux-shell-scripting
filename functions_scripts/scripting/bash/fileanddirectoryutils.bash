@@ -72,7 +72,7 @@ getIncrementedFileName() {
         fi
       fi
     done
-    fileName="${FILE_BASE_NAME}$((fileNum + 1))${FILE_EXT}"
+    fileName="${FILE_BASE_NAME}-$((fileNum + 1))${FILE_EXT}"
   fi
   echo "${fileName}"
 }
