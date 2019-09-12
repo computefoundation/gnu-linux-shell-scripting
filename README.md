@@ -19,75 +19,53 @@ All the solutions of **Gnu-linux-shell-use** exist in following paradigms. Each 
 
 ## Application management
 
-Solutions for managing applications
-
 * [Generic RDBMS utility functions for a MySQL database](functions_scripts/application_management/database/mysqldbutils)
 * [Check if a PostgreSQL database exists.](one-liners/application_management/database/postgresql-database.one-liners)
 
 ## File management
-
-Solutions for managing files
 
 * [Rename all files matching a name recursively.](scripts/file_management/file_name_manipulation/renmrecr)
 * [Get the size in megabytes of one or more files and/or directories.](one-liners/file_management-output_only/file_information/file-property-information-retrieval.one-liners)
 
 ## System management
 
-Solutions for managing the system
-
 * [List all processes owned by the current user.](aliases/system_management-output_only/process_information/process-general-information-retrieval.aliases)
 * [Print the target architecture of the current operating system.](one-liners/system_management-output_only/operating_system_information/operating-system-property-information-retrieval.one-liners)
 
 ## Hardware management
-
-Solutions for managing hardware
 
 * [Check if the primary wireless local area network device interface is soft blocked.](scripts/hardware_management-output_only/device_information/iswlanblocked)
 * [Get the vendor name of the CPU.](one-liners/hardware_management-output_only/cpu_information/cpu-property-information-retrieval.one-liners)
 
 ## Shell management
 
-Solutions for managing the shell
-
 * [Execute a command in the background.](scripts/shell_management-modules/process_management/execinbg)
 * [Remove the last N entries from the bash history.](scripts/shell_management/history_management/remvlastnentriesfrombashhist)
 
 ## X11 management
-
-Solutions for managing X11
 
 * [Get the ID of the active window.](scripts/x11_management-output_only/window_property_information/getactvwindid)
 * [Get the class of a window by ID.](scripts/x11_management-output_only/window_property_information/getwindclassbyid)
 
 ## Mobile device management
 
-Solutions for managing mobile devices
-
 * [Watch the X and Y screen tap positions of an Android device.](scripts/mobile_device_management-android/hardware_management/watchandroiddevscreentappos)
 * [Mount and unmount an MTP device.](scripts/mobile_device_management-generic/mounting/mntmtp)
 
 ## Scripting
-
-Solutions for scripting
 
 * [Bash array utilities](functions_scripts/scripting/bash/arrayutils.bash)
 * [Bash date and time utilities](functions_scripts/scripting/bash/dateandtimeutils.bash)
 
 ## Text manipulation
 
-Solutions for manipulating text
-
 * [Replace all occurrences of a string recursively.](scripts/text_manipulation/matching/replrecr)
 
 ## Text processing
 
-Solutions for processing text
-
 * [Count the number of characters in a string.](aliases/text_processing/numeric_processing/basic-numberic-processing.aliases)
 
 ## Number processing
-
-Solutions for processing numbers
 
 * [Convert a hexidecimal number to decimal.](aliases/number_processing/conversion/base-conversion.aliases)
 
