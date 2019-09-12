@@ -4,11 +4,18 @@
 </div>
 <br><br><br>
 
-**Gnu-linux-shell-use** is a foundation for GNU/Linux shell use.
+**Gnu-linux-shell-use** is a foundation for shell scripting in the GNU/Linux environment.
+
+It is made up of four type of solutions:
+
+1. Scripts
+2. Functions scripts
+3. One-liners
+4. Aliases
 
 # Paradigms
 
-It provides solutions in the following paradigms:
+All the solutions of **Gnu-linux-shell-use** exist in following paradigms. Each paradigm contains one to two examples:
 
 ## Application management
 
@@ -87,6 +94,10 @@ Solutions for processing numbers
 # Packaged solutions
 
 **Gnu-linux-shell-use** has an extension repository for solutions consisting of more than one file [here](https://github.com/computingfoundation/gnu-linux-shell-use.packaged-solutions).
+
+# Code style guidelines
+
+All the solutions in this repository follow [standard guidelines](https://github.com/computingfoundation/gnu-linux-shell-use/wiki).
 
 # Contributing
 
