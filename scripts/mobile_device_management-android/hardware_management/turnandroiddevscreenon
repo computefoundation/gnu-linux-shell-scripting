@@ -4,10 +4,11 @@
 #   turnandroiddevscreenon
 # 
 # Description:
-#   Turn an Android device screen on,
+#   Turn an Android device screen on.
 # 
 
-readonly IS_SCREEN_ON="$(adb -d shell 'dumpsys power' | grep mScreenOn)"
+readonly IS_SCREEN_ON="$(adb -d shell 'dumpsys power' | grep \
+      'mHoldingDisplaySuspendBlocker=')"
 
 if [[ "${IS_SCREEN_ON##*=}" = *'false'* ]]; then
   adb -d shell 'input keyevent KEYCODE_POWER;'
