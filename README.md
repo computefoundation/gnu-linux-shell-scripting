@@ -6,7 +6,7 @@
 
 **Gnu-linux-shell-use** is a foundation for shell scripting in the GNU/Linux environment.
 
-It is made up of four type of solutions:
+It is made up of four types of solutions:
 
 1. Scripts
 2. Functions scripts
@@ -15,7 +15,7 @@ It is made up of four type of solutions:
 
 # Paradigms
 
-All the solutions of **Gnu-linux-shell-use** exist in following paradigms. Each paradigm contains one to two examples:
+The following is a list of all the paradigms in which all solutions of **Gnu-linux-shell-use** exist:
 
 ## Application management
 
@@ -76,16 +76,6 @@ All the solutions of **Gnu-linux-shell-use** exist in following paradigms. Each 
 # Code style guidelines
 
 All the solutions in this repository follow [standard guidelines](https://github.com/computingfoundation/gnu-linux-shell-use/wiki).
-
-# Contributing
-
-If you would like to contribute, please ensure that your contribution adheres to the respective [guideline](https://github.com/computingfoundation/gnu-linux-shell-use/wiki). Here is a list of [needed solutions](https://github.com/computingfoundation/gnu-linux-shell-use/wiki/Needed-solutions); it can be used for ideas.
-
-An alternative implementation to an already existing solution will be accepted only if it has substantial reason, such as using a different dependency or language.
-
-Finally, credits will be placed in the wiki.
-
-Please send an email to main@computingfoundation.org with any suggestions, comments or questions.
 
 Thanks.
 
