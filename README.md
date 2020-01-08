@@ -1,10 +1,10 @@
 
 <div align='center'>
-	<img src='https://raw.githubusercontent.com/computingfoundation/gnu-linux-shell-use/images/logo.png' width='40%' alt='logo.png'>
+	<img src='https://raw.githubusercontent.com/computingfoundation/gnu-linux-shell-scripting/images/logo.png' width='40%' alt='logo.png'>
 </div>
 <br><br><br>
 
-**Gnu-linux-shell-use** is a foundation for shell scripting in the GNU/Linux environment.
+**Gnu-linux-shell-scripting** is a foundation for shell scripting in the GNU/Linux environment.
 
 It is made up of four types of solutions:
 
@@ -15,7 +15,7 @@ It is made up of four types of solutions:
 
 # Paradigms
 
-The following is a list of all the paradigms in which all solutions of **Gnu-linux-shell-use** exist:
+The following is a list of all the paradigms in which all solutions of **Gnu-linux-shell-scripting** exist:
 
 ## Application management
 
@@ -71,11 +71,11 @@ The following is a list of all the paradigms in which all solutions of **Gnu-lin
 
 # Packaged solutions
 
-**Gnu-linux-shell-use** has an extension repository for solutions consisting of more than one file [here](https://github.com/computingfoundation/gnu-linux-shell-use.packaged-solutions).
+**Gnu-linux-shell-scripting** has an extension repository for solutions consisting of more than one file [here](https://github.com/computingfoundation/gnu-linux-shell-scripting.packaged-solutions).
 
 # Code style guidelines
 
-All the solutions in this repository follow [standard guidelines](https://github.com/computingfoundation/gnu-linux-shell-use/wiki).
+All the solutions in this repository follow [standard guidelines](https://github.com/computingfoundation/gnu-linux-shell-scripting/wiki).
 
 Thanks.
 
