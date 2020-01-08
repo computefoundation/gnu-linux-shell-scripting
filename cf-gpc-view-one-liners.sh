@@ -4,7 +4,7 @@
 #   cf-glsu-view-one-liners.sh
 # 
 # Description:
-#   View all one-liners in computingfoundation/gnu-linux-shell-use.
+#   View all one-liners in computingfoundation/gnu-linux-shell-scripting.
 # 
 # Usage note:
 #   Cd to directory "one-liners" and run.

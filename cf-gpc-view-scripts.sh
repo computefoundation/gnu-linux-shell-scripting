@@ -4,7 +4,7 @@
 #   cf-glsu-view-scripts.sh
 # 
 # Description:
-#   View all scripts in computingfoundation/gnu-linux-shell-use.
+#   View all scripts in computingfoundation/gnu-linux-shell-scripting.
 # 
 # Usage note:
 #   Cd to directory "scripts" and run.

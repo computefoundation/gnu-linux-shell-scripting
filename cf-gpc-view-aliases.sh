@@ -5,7 +5,7 @@
 # 
 # Description:
 #   View all aliases and short functions in
-#   computingfoundation/gnu-linux-shell-use.
+#   computingfoundation/gnu-linux-shell-scripting.
 # 
 # Usage note:
 #   Cd to directory "aliases" and run.
