@@ -1,6 +1,6 @@
 
 <div align='center'>
-	<img src='https://raw.githubusercontent.com/computingfoundation/gnu-linux-shell-scripting/images/logo.png' width='40%' alt='logo.png'>
+	<img src='https://raw.githubusercontent.com/computefoundation/gnu-linux-shell-scripting/images/logo.png' width='40%' alt='logo.png'>
 </div>
 <br><br><br>
 
