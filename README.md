@@ -1,12 +1,12 @@
-
+<br>
 <div align='center'>
 	<img src='https://raw.githubusercontent.com/computefoundation/gnu-linux-shell-scripting/images/logo.png' width='40%' alt='logo.png'>
 </div>
-<br><br><br>
+<br><br>
 
 **Gnu-linux-shell-scripting** is a foundation for shell scripting in the GNU/Linux environment.
 
-It is made up of four types of solutions:
+It is made up of the following four types of solutions:
 
 1. Scripts
 2. Functions scripts
@@ -15,7 +15,7 @@ It is made up of four types of solutions:
 
 # Paradigms
 
-The following is a list of all the paradigms in which all solutions of **Gnu-linux-shell-scripting** exist:
+Here is a list of all the paradigms with a few examples in which all solutions exist:
 
 ## Application management
 
@@ -71,11 +71,9 @@ The following is a list of all the paradigms in which all solutions of **Gnu-lin
 
 # Packaged solutions
 
-**Gnu-linux-shell-scripting** has an extension repository for solutions consisting of more than one file [here](https://github.com/computingfoundation/gnu-linux-shell-scripting.packaged-solutions).
+**Gnu-linux-shell-scripting** has an [extension repository](https://github.com/computingfoundation/gnu-linux-shell-scripting.packaged-solutions) for solutions consisting of more than one file.
 
 # Code style guidelines
 
-All the solutions in this repository follow [standard guidelines](https://github.com/computingfoundation/gnu-linux-shell-scripting/wiki).
-
-Thanks.
+All the solutions in this repository follow [these](https://github.com/computingfoundation/gnu-linux-shell-scripting/wiki) standard guidelines.
 
