@@ -4,18 +4,18 @@
 </div>
 <br><br>
 
-**Gnu-linux-shell-scripting** is a foundation for shell scripting in the GNU/Linux environment.
+**Gnu-linux-shell-scripting** is a repository of foundational solutions for programming in the GNU/Linux shell environment.
 
-It is made up of the following four types of solutions:
+It is made up of four types of solutions:
 
 1. Scripts
 2. Functions scripts
 3. One-liners
 4. Aliases
 
-# Paradigms
+# Categories
 
-Here is a list of all the paradigms with a few examples in which all solutions exist:
+Below are all the categories within this repositry with a few examples in each:
 
 ## Application management
 
@@ -75,5 +75,5 @@ Here is a list of all the paradigms with a few examples in which all solutions e
 
 # Code style guidelines
 
-All the solutions in this repository follow [these](https://github.com/computingfoundation/gnu-linux-shell-scripting/wiki) standard guidelines.
+All the solutions in this repository follow [this](https://github.com/computingfoundation/gnu-linux-shell-scripting/wiki) standard guideline.
 
